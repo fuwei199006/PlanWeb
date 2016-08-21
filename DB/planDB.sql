@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   fuwei
-* @Last Modified time: 2016-08-21 19:42:03
+* @Last Modified time: 2016-08-21 22:59:42
 */
 
 --CREATE DATABASE PlanDB;
@@ -173,3 +173,27 @@ CREATE TABLE Basic_Task
     );
 
  
+CREATE TABLE Basic_MessageBox
+    (
+      Id INT PRIMARY KEY
+             IDENTITY ,
+      Title NVARCHAR(200) NOT NULL ,
+      Content NVARCHAR(4000) NOT NULL ,
+      MessageStatus INT DEFAULT 0 ,
+      ToUserId INT NOT NULL ,
+      ToUserName NVARCHAR(50) ,
+      FromUserId INT NOT NULL ,
+      FromUserName NVARCHAR(50) ,
+      SentTime DATETIME NOT NULL
+    );
+
+CREATE TABLE Config
+    (
+      Id INT PRIMARY KEY
+             IDENTITY ,
+      ConfigKey NVARCHAR(20) ,
+      ConfigValue NVARCHAR(100) ,
+      CongfigStatus BIT DEFAULT 1 ,
+      CreateTime DATETIME ,
+      ModifyTime DATETIME
+    );
