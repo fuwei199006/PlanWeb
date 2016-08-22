@@ -7,8 +7,8 @@
     <ProjectGuid>{67F618D6-B22F-435D-AD61-C2F820815A2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Contract</RootNamespace>
-    <AssemblyName>Contract</AssemblyName>
+    <RootNamespace>Framework.Contract</RootNamespace>
+    <AssemblyName>Framework.Contract</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
