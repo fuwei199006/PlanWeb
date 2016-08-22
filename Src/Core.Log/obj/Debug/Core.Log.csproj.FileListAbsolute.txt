@@ -1,4 +1,0 @@
-E:\WorkSpace\Code\PlanWeb\Src\Core.Log\bin\Debug\Core.Log.dll
-E:\WorkSpace\Code\PlanWeb\Src\Core.Log\bin\Debug\Core.Log.pdb
-E:\WorkSpace\Code\PlanWeb\Src\Core.Log\obj\Debug\Core.Log.dll
-E:\WorkSpace\Code\PlanWeb\Src\Core.Log\obj\Debug\Core.Log.pdb
