@@ -1,9 +1,10 @@
 ﻿using System.Net.Configuration;
+using Core.Config.ConfigModel;
 using Framework.Utility;
 
 namespace Core.Config
 {
-    public class LocalCachedConfigContext:ConfigContext
+    public class LocalCachedConfigContext : ConfigContext
     {
         public override T Get<T>(string keyOrName)
         {
@@ -11,15 +12,22 @@ namespace Core.Config
             if (result == null)
             {
                 result = base.Get<T>(keyOrName);
-                Caching.Set(keyOrName,result);
+                Caching.Set(keyOrName, result);
             }
-            return result ;
+            return result;
         }
 
-        public static LocalCachedConfigContext CurrentCachedConfigContext => new LocalCachedConfigContext();
+        public static LocalCachedConfigContext Current
+        {
+            get { return new LocalCachedConfigContext(); }
+        }
+
+        public CacheConfig CacheConfig
+        {
+            get { return this.Get<CacheConfig>("CacheConfig"); }
+        }
 
 
 
-         
     }
 }
