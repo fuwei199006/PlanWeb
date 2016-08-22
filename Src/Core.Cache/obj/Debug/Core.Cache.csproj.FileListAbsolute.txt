@@ -1,0 +1,11 @@
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\obj\Debug\Core.Cache.csprojResolveAssemblyReference.cache
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Cache.dll
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Cache.pdb
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Framework.Utility.dll
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Framework.Utility.pdb
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\obj\Debug\Core.Cache.dll
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\obj\Debug\Core.Cache.pdb
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Config.dll
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Exception.dll
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Config.pdb
+E:\WorkSpace\Code\PlanWeb\Src\Core.Cache\bin\Debug\Core.Exception.pdb
