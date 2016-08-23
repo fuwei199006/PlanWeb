@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheConfigContext.cs" />
-    <Compile Include="CacheHelper.cs" />
     <Compile Include="ICacheProvider.cs" />
     <Compile Include="LocalCacheProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,8 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using Plain.UI;
 
-[assembly: OwinStartupAttribute(typeof(Plan.UI.Startup))]
-namespace Plan.UI
+[assembly: OwinStartup(typeof(Startup))]
+namespace Plain.UI
 {
     public partial class Startup
     {
