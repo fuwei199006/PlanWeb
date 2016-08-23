@@ -1,6 +1,12 @@
-﻿using System.Security.Cryptography.X509Certificates;
+/*
+* @Author: fuwei16
+* @Date:   2016-08-22 16:19:02
+* @Last Modified by:   fuwei16
+* @Last Modified time: 2016-08-23 10:26:38
+*/
+using System.Security.Cryptography.X509Certificates;
 using Core.Exception;
-using Framework.Utility;
+using Framework.Utility;   
 
 namespace Core.Config
 {
