@@ -22,7 +22,7 @@ namespace Core.Log
         public static void Debug(LoggerType loggerType, object message, Exception e)
         {
             var logger = LogManager.GetLogger(loggerType.ToString());
-            logger.Debug(SerializeObject(message), e);
+            logger.Debug(SerializeObject(message), e);//123test
         }
 
         public static void Error(LoggerType loggerType, object message, Exception e)
