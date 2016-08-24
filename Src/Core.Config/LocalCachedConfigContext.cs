@@ -24,10 +24,20 @@ namespace Core.Config
 
         public CacheConfig CacheConfig
         {
-            get { return this.Get<CacheConfig>("CacheConfig"); }
+            get
+            {
+                return this.Get<CacheConfig>("CacheConfig"); 
+                
+            }
         }
 
-
-
+        public DaoConfig DaoConfig
+        {
+            get
+            {
+                return this.Get<DaoConfig>("DaoConfig");
+                
+            }
+        }
     }
 }

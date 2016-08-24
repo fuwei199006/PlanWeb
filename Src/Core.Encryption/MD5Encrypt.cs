@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Security.Cryptography;
 using System.Text;
 
-namespace Core.Encryption
+namespace Core.Encrypt
 {
     /// <summary>
     /// 加密字符串辅助类
@@ -15,10 +13,10 @@ namespace Core.Encryption
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string MD5(string s)
+        public static string Md5(string s)
         {
             var md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            var result = BitConverter.ToString(md5.ComputeHash(UnicodeEncoding.UTF8.GetBytes(s.Trim())));
+            var result = BitConverter.ToString(md5.ComputeHash(Encoding.UTF8.GetBytes(s.Trim())));
             return result;
         }
 
