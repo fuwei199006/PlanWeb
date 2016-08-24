@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B3CD041C-0F4A-480B-A9B6-C7964733C995}"
 EndProject
@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.UI", "Plain.UI\Plain.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{4B4EE8BF-298C-4765-B59C-F9DE891AD65E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Encrypt.DaoConfig", "Tools.Encrypt.DaoConfig\Tools.Encrypt.DaoConfig.csproj", "{516EBF79-DE0F-4203-BD35-9287A5D73F34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Encrypt", "Tools.Encrypt.DaoConfig\Tools.Encrypt.csproj", "{516EBF79-DE0F-4203-BD35-9287A5D73F34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.EncryptTests", "Core.EncryptTests\Core.EncryptTests.csproj", "{E97C88AD-9D00-4962-9F2E-596D931116D5}"
 EndProject

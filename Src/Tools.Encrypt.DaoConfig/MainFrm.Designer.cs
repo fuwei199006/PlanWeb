@@ -1,4 +1,4 @@
-﻿namespace Tools.Encrypt.DaoConfig
+﻿namespace Tools.Encrypt
 {
     partial class MainFrm
     {
@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ddlDatabase = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -82,6 +82,7 @@
             this.btnConvert.TabIndex = 4;
             this.btnConvert.Text = "生成密文";
             this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // ddlDbType
             // 
@@ -127,13 +128,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "密 码：";
             // 
-            // comboBox1
+            // ddlDatabase
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 197);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 20);
-            this.comboBox1.TabIndex = 10;
+            this.ddlDatabase.FormattingEnabled = true;
+            this.ddlDatabase.Location = new System.Drawing.Point(104, 197);
+            this.ddlDatabase.Name = "ddlDatabase";
+            this.ddlDatabase.Size = new System.Drawing.Size(172, 20);
+            this.ddlDatabase.TabIndex = 10;
             // 
             // label5
             // 
@@ -150,7 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 317);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.ddlDatabase);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -182,7 +183,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ddlDatabase;
         private System.Windows.Forms.Label label5;
     }
 }
