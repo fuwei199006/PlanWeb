@@ -2,23 +2,23 @@
 using System.IO;
 using Core.Encrypt;
 using Core.Exception;
-using Framework.DbDrive;
+ 
 
 namespace Core.Config
 {
-    public class DbConfigService:IConfigService,IDbConfigService
+    public class DbConfigService : IConfigService, IDbConfigService
     {
         public string GetConfig(string key)
         {
             var category = key.Split('-')[0];
             var configKey = key.Split('-')[1];
-            var connstr = GetConnectString(key);
+            var connstr = GetConnectString("DaoConfig");
             var dbHelper = new MssqlDbHelper()
             {
                 conStr = connstr
             };
 
-           var db= dbHelper.ExecReturnDataSet(string.Format(@"
+            var db = dbHelper.ExecReturnDataSet(string.Format(@"
                     IF NOT EXISTS ( SELECT  *
                             FROM    PlanDB..sysobjects
                             WHERE   name = 'Basic_Config' )
@@ -35,10 +35,10 @@ namespace Core.Config
                             ModifyTime DATETIME
                         );
       
-                SELECT * FROM  dbo.Basic_Config WHERE ConfigKey='{0}' AND ConfigCategory='{1}'
+                SELECT * FROM  dbo.Basic_Config WHERE ConfigKey='{0}' AND ConfigCategory='{1}' AND CongfigStatus=1
                     END;
                 ELSE
-                    SELECT * FROM  dbo.Basic_Config WHERE ConfigKey='{0}' AND ConfigCategory='{1}'", configKey,category)).Tables[0];
+                    SELECT * FROM  dbo.Basic_Config WHERE ConfigKey='{0}' AND ConfigCategory='{1}' AND CongfigStatus=1", configKey, category)).Tables[0];
             if (db.Rows.Count > 0)
             {
                 return db.Rows[0]["ConfigValue"].ToString();
@@ -48,25 +48,47 @@ namespace Core.Config
 
         public void SaveConfig(string key, string value)
         {
-            throw new System.NotImplementedException();
+            var category = key.Split('-')[0];
+            var configKey = key.Split('-')[1];
+            var connstr = GetConnectString("DaoConfig");
+            var dbHelper = new MssqlDbHelper()
+            {
+                conStr = connstr
+            };
+
+            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET ConfigValue='{0}' WHERE ConfigKey='{1}' AND ConfigCategory='{2}'", value, configKey, category));
+
         }
 
+        /// <summary>
+        /// 物理删除
+        /// </summary>
+        /// <param name="key"></param>
         public void DeleteConfig(string key)
         {
-            throw new System.NotImplementedException();
+            var category = key.Split('-')[0];
+            var configKey = key.Split('-')[1];
+            var connstr = GetConnectString("DaoConfig");
+            var dbHelper = new MssqlDbHelper()
+            {
+                conStr = connstr
+            };
+
+            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET CongfigStatus=0 WHERE ConfigKey='{0}' AND ConfigCategory='{1}'", configKey, category));
         }
 
         public string GetConnectString(string key)
         {
-            var configFolder=Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config");
+            var configFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config");
             if (!Directory.Exists(configFolder))
-            {;
+            {
+                ;
                 Directory.CreateDirectory(configFolder);
             }
-            var configPath = configFolder+"//"+ string.Format("{0}.config",key);
+            var configPath = configFolder + "//" + string.Format("{0}.config", key);
             if (!File.Exists(configPath))
             {
-                throw  new ConfigNotExistException("没有找到配置文件！");
+                throw new ConfigNotExistException("没有找到配置文件！");
             }
             var content = File.ReadAllText(configPath);
             if (string.IsNullOrEmpty(content))
@@ -75,5 +97,7 @@ namespace Core.Config
             }
             return DESEncrypt.Decode(content);
         }
+
+
     }
 }
