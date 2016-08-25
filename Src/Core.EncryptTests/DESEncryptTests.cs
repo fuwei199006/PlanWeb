@@ -16,5 +16,13 @@ namespace Core.Encrypt.Tests
             var str = DESEncrypt.Decode("MSfDf7tgpMAqN/MQTjHRfEwS4LW07Aut4rINOrEc00JXSPfPghUvPe0rIbrrMCPkeqcZHTDQuCLXquFc0TGMbQ==");
             Assert.Fail();
         }
+
+        [TestMethod()]
+
+        public void EncodeTest()
+        {
+            var str = DESEncrypt.Encode("server=.;database=PlanDb;user id=sa;password=Abc12345");
+
+        }
     }
 }

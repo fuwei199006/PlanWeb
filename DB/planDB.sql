@@ -1,12 +1,13 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   fuwei
-* @Last Modified time: 2016-08-21 22:59:42
+* @Last Modified by:   fuwei16
+* @Last Modified time: 2016-08-25 13:55:39
 */
 
 --CREATE DATABASE PlanDB;
-
+USE PlanDB
+GO 
 ---Basic 
 CREATE TABLE Basic_UserInfo
     (
@@ -187,13 +188,14 @@ CREATE TABLE Basic_MessageBox
       SentTime DATETIME NOT NULL
     );
 
-CREATE TABLE Config
+CREATE TABLE Basic_Config
     (
       Id INT PRIMARY KEY
              IDENTITY ,
       ConfigKey NVARCHAR(20) ,
-      ConfigValue NVARCHAR(100) ,
+      ConfigValue NVARCHAR(2000) ,
       CongfigStatus BIT DEFAULT 1 ,
+      ConfigCategory NVARCHAR(50),
       CreateTime DATETIME ,
       ModifyTime DATETIME
     );

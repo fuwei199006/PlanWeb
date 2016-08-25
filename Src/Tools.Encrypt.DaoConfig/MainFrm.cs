@@ -28,7 +28,7 @@ namespace Tools.Encrypt
         private void btnTest_Click(object sender, EventArgs e)
         {
             var ip = txtIP.Text;
-            if (!RegExp.IsIp(ip))
+            if (!RegExp.IsIp(ip)&&ip!="."&&ip!="localhost"&&ip!="(local)")
             {
                 MessageBox.Show(@"请输入正确的IP", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -48,9 +48,11 @@ namespace Tools.Encrypt
                         break;
                 }
                 if (db.Rows.Count <= 0) return;
+                MessageBox.Show(@"连接成功！");
                 foreach (DataRow dataRow in db.Rows)
                 {
                     ddlDatabase.Items.Add(dataRow["Name"]);
+                    ddlDatabase.SelectedIndex=0;
                     ddlDatabase.Enabled = true;
                 }
             }

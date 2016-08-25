@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseException.cs" />
     <Compile Include="CallMethodFailException.cs" />
+    <Compile Include="ConfigNotExistException.cs" />
     <Compile Include="GetCacheException.cs" />
     <Compile Include="InterfaceConvertFailException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

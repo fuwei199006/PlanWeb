@@ -26,7 +26,7 @@ namespace Core.Config
         {
             get
             {
-                return this.Get<CacheConfig>("CacheConfig"); 
+                return this.Get<CacheConfig>("Cache-CacheConfig"); 
                 
             }
         }
@@ -35,7 +35,7 @@ namespace Core.Config
         {
             get
             {
-                return this.Get<DaoConfig>("DaoConfig");
+                return this.Get<DaoConfig>("Dao-DaoConfig");
                 
             }
         }

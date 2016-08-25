@@ -54,9 +54,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Encryption\Core.Encrypt.csproj">
+      <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
+      <Name>Core.Encrypt</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Exception\Core.Exception.csproj">
       <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
       <Name>Core.Exception</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameWork.DbDrive\Framework.DbDrive.csproj">
+      <Project>{5716BF11-28E7-478F-80F5-D881CC87962A}</Project>
+      <Name>Framework.DbDrive</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>

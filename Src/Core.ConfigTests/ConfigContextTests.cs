@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Config;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Core.ConfigTests
@@ -9,7 +10,9 @@ namespace Core.ConfigTests
         [TestMethod()]
         public void GetTest()
         {
-            throw new NotImplementedException();
+            var str= LocalCachedConfigContext.Current.DaoConfig;
+            var str1= LocalCachedConfigContext.Current.DaoConfig;
+            Assert.AreEqual(str,str1);
         }
     }
 }
