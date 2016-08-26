@@ -18,7 +18,13 @@ namespace Framework.DbDrive.EntityFramework
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
-      
+        public DbContextBase(string connectionString, IAuditable auditLogger)
+            : this(connectionString)
+        {
+            this.AuditLogger = auditLogger;
+        }
+
+        public IAuditable AuditLogger { get; set; }
         public T Add<T>(T entity) where T : ModelBase
         {
             var set = this.Set<T>();
@@ -77,7 +83,30 @@ namespace Framework.DbDrive.EntityFramework
 
         public override int SaveChanges()
         {
+            this.WriteLog();
             return base.SaveChanges();
+        }
+
+        internal void WriteLog()
+        {
+            //if(this.AuditLogger==null)
+            //    return;
+            //foreach (
+            //    var dbEntry in
+            //        this.ChangeTracker.Entries<ModelBase>()
+            //            .Where(
+            //                p =>
+            //                    p.State == EntityState.Added || p.State == EntityState.Deleted ||
+            //                    p.State == EntityState.Modified))
+            //{
+
+            //    var auditableAttr =
+            //        dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
+            //            as AuditableAttribute;
+            //    if(auditableAttr==null)continue;
+            //    var operaterName=wcf
+            //}
+             
         }
     }
 }
