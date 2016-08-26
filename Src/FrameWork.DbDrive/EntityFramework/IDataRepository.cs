@@ -8,10 +8,11 @@ namespace Framework.DbDrive.EntityFramework
 {
     public interface IDataRepository
     {
-        T Inser<T>(T entity) where T : ModelBase;
+        T Add<T>(T entity) where T : ModelBase;
+        void AddRange<T>(IList<T> entity) where T : ModelBase;
         T Update<T>(T entity) where T : ModelBase;
         T Delete<T>(T entity) where T : ModelBase;
-        T Finde<T>(params object[] keyValues) where T : ModelBase;
+        T Find<T>(params object[] keyValues) where T : ModelBase;
         List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase; 
         PagedList<T> FindAllByPage<T,S>(Expression<Func<T,bool>> conditions,Expression<Func<T,S>>orderBy,int pageSize,int pageIndex ) where T : ModelBase;
     }
