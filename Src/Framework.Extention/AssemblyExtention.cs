@@ -9,7 +9,7 @@ namespace Framework.Extention
     {
         public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly)
         {
-            if (assembly == null) throw new ArgumentNullException(nameof(assembly));
+            if (assembly == null) throw new ArgumentNullException("assembly");
             try
             {
                 return assembly.GetTypes();

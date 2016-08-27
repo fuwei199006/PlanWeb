@@ -23,7 +23,7 @@ namespace Core.Module
 
             if (!string.Equals(Fetch.ServerDomain, "localhost", StringComparison.OrdinalIgnoreCase))
             {
-                response.Write(" < h1 > 非法访问收集数据！</ h1 > ");
+                response.Write(" <h1> 非法访问收集数据！</h1> ");
             }
             else
             {
@@ -35,7 +35,7 @@ namespace Core.Module
            
         }
         public abstract void ProcessRequest(HttpRequest req, HttpResponse res);
-        public bool IsReusable { get; }
+        public bool IsReusable { get; set; }
         public IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
             return this;

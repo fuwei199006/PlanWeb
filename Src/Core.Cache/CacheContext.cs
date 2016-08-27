@@ -63,7 +63,7 @@ namespace Core.Cache
         }
         public static T Get<T,F>(string key, F id, Func<F,T> getRealData)
         {
-            key = $"{key}_{id}";
+            key = string.Format("{0}_{1}",key,id);
             var getDataFromCache = new Func<T>(() =>
             {
                 var data = default(T);
