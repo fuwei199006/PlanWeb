@@ -14,7 +14,7 @@ namespace Core.Encrypt.Tests
         public void DecodeTest()
         {
             var str = DESEncrypt.Decode("MSfDf7tgpMAqN/MQTjHRfEwS4LW07Aut4rINOrEc00JXSPfPghUvPe0rIbrrMCPkeqcZHTDQuCLXquFc0TGMbQ==");
-            Assert.Fail();
+          
         }
 
         [TestMethod()]

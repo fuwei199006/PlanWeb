@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   fuwei16
-* @Last Modified time: 2016-08-25 13:55:39
+* @Last Modified by:   付威
+* @Last Modified time: 2016-08-28 00:01:14
 */
 
 --CREATE DATABASE PlanDB;
@@ -199,3 +199,27 @@ CREATE TABLE Basic_Config
       CreateTime DATETIME ,
       ModifyTime DATETIME
     );
+
+---config数据 
+USE [PlanDB]
+GO
+SET IDENTITY_INSERT [dbo].[Basic_Config] ON 
+
+INSERT [dbo].[Basic_Config] ([Id], [ConfigKey], [ConfigValue], [CongfigStatus], [ConfigCategory], [CreateTime], [ModifyTime]) VALUES (1, N'DaoConfig', N'<?xml version="1.0" encoding="utf-16"?>
+<DaoConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Log="ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=" BaseDao="ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=" BussinessDaoConfig="ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=">
+  <Id>1</Id>
+  <CreateTime>2016-08-27T23:43:21.3589883+08:00</CreateTime>
+</DaoConfig>', 1, N'Dao', CAST(N'2016-08-27 00:00:00.000' AS DateTime), CAST(N'2016-08-27 00:00:00.000' AS DateTime))
+INSERT [dbo].[Basic_Config] ([Id], [ConfigKey], [ConfigValue], [CongfigStatus], [ConfigCategory], [CreateTime], [ModifyTime]) VALUES (2, N'CacheConfig', N'<CacheConfig>
+  <CacheProviderItems>
+    <CacheProviderItem name="LocalCacheProvider" type="Core.Cache.LocalCacheProvider,Core.Cache" desc="本地缓存" />
+  </CacheProviderItems>
+  <CacheConfigItems>
+    <CacheConfigItem desc="全局缓存" priority="0" keyRegex=".*" moduleRegex=".*" providerName="LocalCacheProvider" minitus="30" isAbsoluteExpiration="true" />
+    <CacheConfigItem desc="LoginInfo缓存" priority="1" keyRegex="LoginInfo.*" moduleRegex=".*" providerName="LocalCacheProvider" minitus="10" isAbsoluteExpiration="true" />
+  </CacheConfigItems>
+</CacheConfig>', 1, N'Cache', CAST(N'2016-08-27 00:00:00.000' AS DateTime), CAST(N'2016-08-27 00:00:00.000' AS DateTime))
+INSERT [dbo].[Basic_Config] ([Id], [ConfigKey], [ConfigValue], [CongfigStatus], [ConfigCategory], [CreateTime], [ModifyTime]) VALUES (3, N'SettingConfig', N' <SettingConfig > <WebSiteTitle>GMS管理系统</WebSiteTitle> </SettingConfig>', 1, N'Web', CAST(N'2016-08-27 00:00:00.000' AS DateTime), CAST(N'2016-08-27 00:00:00.000' AS DateTime))
+SET IDENTITY_INSERT [dbo].[Basic_Config] OFF
+
+

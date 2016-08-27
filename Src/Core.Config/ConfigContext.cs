@@ -4,7 +4,7 @@
 * @Last Modified by:   fuwei16
 * @Last Modified time: 2016-08-23 10:26:38
 */
-using System.Security.Cryptography.X509Certificates;
+ 
 using Core.Exception;
 using Framework.Utility;   
 
@@ -24,7 +24,7 @@ namespace Core.Config
             
         }
 
-        public virtual T Get<T>(string keyOrName) where T : new()
+        public   virtual T Get<T>(string keyOrName) where T : new()
         {
             return this.GetConfig<T>(keyOrName);
         }
@@ -53,7 +53,7 @@ namespace Core.Config
         }
        
 
-        public void Save(string keyOrName, string value)
+        public   void Save(string keyOrName, string value)
         {
             ConfigService.SaveConfig(keyOrName, value);
         }

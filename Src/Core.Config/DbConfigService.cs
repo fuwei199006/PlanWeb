@@ -56,7 +56,7 @@ namespace Core.Config
                 conStr = connstr
             };
 
-            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET ConfigValue='{0}' WHERE ConfigKey='{1}' AND ConfigCategory='{2}'", value, configKey, category));
+            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET ConfigValue='{0}' ,ModifyTime=GETDATE() WHERE ConfigKey='{1}' AND ConfigCategory='{2}'", value, configKey, category));
 
         }
 
@@ -74,7 +74,7 @@ namespace Core.Config
                 conStr = connstr
             };
 
-            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET CongfigStatus=0 WHERE ConfigKey='{0}' AND ConfigCategory='{1}'", configKey, category));
+            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET CongfigStatus=0,ModifyTime=GETDATE() WHERE ConfigKey='{0}' AND ConfigCategory='{1}'", configKey, category));
         }
 
         public string GetConnectString(string key)

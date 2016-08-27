@@ -39,5 +39,13 @@ namespace Core.Config
                 
             }
         }
+
+        public SettingConfig SettingConfig
+        {
+            get
+            {
+                return this.Get<SettingConfig>("Web-SettingConfig");
+            }
+        }
     }
 }
