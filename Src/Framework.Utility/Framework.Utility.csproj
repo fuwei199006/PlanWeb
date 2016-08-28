@@ -43,6 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -54,22 +55,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettingsHelper.cs" />
+    <Compile Include="AssemblyExtention.cs" />
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="Caching.cs" />
     <Compile Include="Fetch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExp.cs" />
     <Compile Include="SerializationHelper.cs" />
+    <Compile Include="ThumbnailHelper.cs" />
     <Compile Include="WcfServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
-      <Name>Framework.Extention</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

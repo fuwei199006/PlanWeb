@@ -6,7 +6,7 @@ namespace Core.Service
 {
     public abstract class ServiceFactory
     {
-        public abstract T CreateService<T>() where T : class;
+        public abstract T CreateService<T>() where T : class,new();
     }
 
     public class ResfServiceFactory : ServiceFactory
@@ -16,10 +16,16 @@ namespace Core.Service
             var interFanceName = typeof (T).Name;
             return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => AssemblyHelper.FindTypeByInterface<T>());
         }
-
     }
 
-
+    public class CacheServiceFactory : ServiceFactory
+    {
+        public override T CreateService<T>() 
+        {
+            var interFanceName = typeof(T).Name;
+            return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => new T());
+        }
+    }
     public class WcfServiceFactory:ServiceFactory
     {
         public override T CreateService<T>()
@@ -29,4 +35,6 @@ namespace Core.Service
             return proxy;
         }
     }
+
+    
 }

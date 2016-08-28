@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   付威
-* @Last Modified time: 2016-08-28 00:01:14
+* @Last Modified time: 2016-08-28 22:15:58
 */
 
 --CREATE DATABASE PlanDB;
@@ -91,7 +91,9 @@ CREATE TABLE Basic_LoginInfo
       LoginIp NVARCHAR(10) ,
       LoginHeader NVARCHAR(100) ,
       IsDelete BIT DEFAULT 1 ,
-      LastUpdateTime DATETIME
+      LastUpdateTime DATETIME,
+      LoginToken UNIQUEIDENTIFIER,
+      CreateTime DATETIME
     );
 
 CREATE TABLE Basic_MainData

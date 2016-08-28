@@ -1,0 +1,73 @@
+﻿@using Framework.Extention
+ 
+
+@{
+    ViewBag.Title = "注册新用户";
+    Layout =null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/main.css")" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/register.css")" />
+</head>
+<body class="bg">
+    <div class="bg">
+        <div class="header">
+
+        </div>
+
+        <div class="registerBox center">
+            <div>
+                <div class="webInfo">会员注册</div>
+                <ul class="r_tab">
+                    <li>邮箱注册</li>
+                </ul>
+                <div class="register clear">
+                    <div class="itemContent">
+                        <lable>电子邮箱：</lable>
+                        <span class="itemWrap">
+                            <input type="text" placeholder="请输入电子邮箱" />
+                            <em class="errorMsg">请输入电子邮箱...</em>
+                        </span>
+                    </div>
+                    <div class="itemContent">
+                        <lable>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</lable>
+                        <span class="itemWrap">
+                            <input type="text" placeholder="请输入密码" />
+                            <em class="errorMsg">请输入密码...</em>
+                        </span>
+                    </div>
+                    <div class="itemContent">
+                        <lable>确认密码：</lable>
+                        <span class="itemWrap">
+                            <input type="text" placeholder="请输入密码" />
+                            <em class="errorMsg">请输入密码...</em>
+                        </span>
+                    </div>
+                    <div class="itemContent">
+                        <lable>&nbsp;验&nbsp;证&nbsp;码：</lable>
+                        <span class="itemWrap">
+                            <input type="text" class="valide" placeholder="请输入验证码" /><span class="valideCode">1 2 3 4</span>
+                            <em class="errorMsg"></em>
+                        </span>
+                    </div>
+                    <div class="userContact ">
+                        <input type="checkbox" />我同意
+                        <a href="#">用户协议</a>
+                    </div>
+                    <div class="userContact ">
+                        <button class="submit">提交注册</button>
+                        <a class="skip">不注册，直接浏览</a>
+                        <!--<span class="f_right loginOther debug">QQ,微信</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" flex limitfooter"></div>
+    </div>
+</body>
+</html>

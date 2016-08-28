@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Plain.Model</RootNamespace>
     <AssemblyName>Plain.Model</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +50,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Basic_Article.cs" />
+    <Compile Include="Models\Basic_Config.cs" />
+    <Compile Include="Models\Basic_Dictionary.cs" />
+    <Compile Include="Models\Basic_Draft.cs" />
+    <Compile Include="Models\Basic_LoginInfo.cs" />
+    <Compile Include="Models\Basic_MainData.cs" />
+    <Compile Include="Models\Basic_Menu.cs" />
+    <Compile Include="Models\Basic_MessageBox.cs" />
+    <Compile Include="Models\Basic_Power.cs" />
+    <Compile Include="Models\Basic_PowerRole.cs" />
+    <Compile Include="Models\Basic_Register.cs" />
+    <Compile Include="Models\Basic_Role.cs" />
+    <Compile Include="Models\Basic_Task.cs" />
+    <Compile Include="Models\Basic_UserInfo.cs" />
+    <Compile Include="Models\Basic_UserRole.cs" />
+    <Compile Include="Models\Mapping\Basic_ArticleMap.cs" />
+    <Compile Include="Models\Mapping\Basic_ConfigMap.cs" />
+    <Compile Include="Models\Mapping\Basic_DictionaryMap.cs" />
+    <Compile Include="Models\Mapping\Basic_DraftMap.cs" />
+    <Compile Include="Models\Mapping\Basic_LoginInfoMap.cs" />
+    <Compile Include="Models\Mapping\Basic_MainDataMap.cs" />
+    <Compile Include="Models\Mapping\Basic_MenuMap.cs" />
+    <Compile Include="Models\Mapping\Basic_MessageBoxMap.cs" />
+    <Compile Include="Models\Mapping\Basic_PowerMap.cs" />
+    <Compile Include="Models\Mapping\Basic_PowerRoleMap.cs" />
+    <Compile Include="Models\Mapping\Basic_RegisterMap.cs" />
+    <Compile Include="Models\Mapping\Basic_RoleMap.cs" />
+    <Compile Include="Models\Mapping\Basic_TaskMap.cs" />
+    <Compile Include="Models\Mapping\Basic_UserInfoMap.cs" />
+    <Compile Include="Models\Mapping\Basic_UserRoleMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

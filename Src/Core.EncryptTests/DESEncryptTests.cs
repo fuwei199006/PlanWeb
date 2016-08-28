@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Encrypt;
+﻿using Core.Encrypt;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace Core.Encrypt.Tests
+
+namespace Core.EncryptTests
 {
     [TestClass()]
     public class DESEncryptTests

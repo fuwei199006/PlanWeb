@@ -11,15 +11,23 @@ namespace Core.Service
     {
 
         /// 暂时使用引用服务方式，可以改造成注入，或使用WCF服务方式
+        /// 
+       
         public static ServiceFactory Current
         {
             get
             {
-                return new ResfServiceFactory();
+                return new CacheServiceFactory();
             }
+            set { if (value == null) throw new ArgumentNullException("value"); }
         }
 
-        public static T CreateService<T>() where T : class
+        //public ServiceContext(ServiceFactory factory)
+        //{
+        //    Current = factory;
+        //}
+
+        public static T CreateService<T>() where T : class, new()
         {
             var service = Current.CreateService<T>();
             //

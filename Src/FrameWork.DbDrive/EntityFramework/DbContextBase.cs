@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Core.Config;
-using EntityFramework.Extensions;
+using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
 
@@ -12,9 +11,10 @@ namespace Framework.DbDrive.EntityFramework
 {
     public class DbContextBase:DbContext,IDataRepository, IDisposable
     {
+        private static readonly object Lok = new object();
         public DbContextBase(string connectionString)
         {
-            this.Database.Connection.ConnectionString = LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig;
+            this.Database.Connection.ConnectionString =DESEncrypt.Decode(connectionString);
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
@@ -23,7 +23,7 @@ namespace Framework.DbDrive.EntityFramework
         {
             this.AuditLogger = auditLogger;
         }
-
+      
         public IAuditable AuditLogger { get; set; }
         public T Add<T>(T entity) where T : ModelBase
         {
@@ -63,6 +63,30 @@ namespace Framework.DbDrive.EntityFramework
         public T Find<T>(params object[] keyValues) where T : ModelBase
         {
            return this.Set<T>().Find(keyValues);
+        }
+
+        public T Get<T>(Expression<Func<T, bool>> conditions)where T : ModelBase
+        {
+            if (conditions != null)
+            {
+                return this.Set<T>().Where(conditions).FirstOrDefault();
+            }
+            return default(T);
+        }
+        public T GetNoTracking<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        {
+            if (conditions != null)
+            {
+                return this.Set<T>().Where(conditions).AsNoTracking().FirstOrDefault();
+            }
+            return default(T);
+        }
+        public List<T> FindAllNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        {
+            if (conditions == null)
+                return this.Set<T>().AsNoTracking().ToList();
+            else
+                return this.Set<T>().Where(conditions).AsNoTracking().ToList();
         }
 
         public List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
