@@ -22,10 +22,7 @@ namespace Core.Service
             set { if (value == null) throw new ArgumentNullException("value"); }
         }
 
-        //public ServiceContext(ServiceFactory factory)
-        //{
-        //    Current = factory;
-        //}
+      
 
         public static T CreateService<T>() where T : class, new()
         {
@@ -34,7 +31,7 @@ namespace Core.Service
             //可以拦截，写日志
             //
             var gernerator = new ProxyGenerator();
-            var dynamicProxy = gernerator.CreateInterfaceProxyWithTargetInterface<T>(service, new InvokeInterceptor());
+            var dynamicProxy = gernerator.CreateClassProxy<T>(new InvokeInterceptor());
             return dynamicProxy;
         }
     }
@@ -48,7 +45,9 @@ namespace Core.Service
         {
             try
             {
+                
                 invocation.Proceed();
+               
             }
             catch (System.Exception exception)
             {

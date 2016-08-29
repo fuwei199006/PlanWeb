@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Plain.UI</RootNamespace>
     <AssemblyName>Plain.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.1.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.0\lib\net451\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
@@ -55,17 +64,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -106,6 +113,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -168,6 +176,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,7 +229,9 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Config\DaoConfig.config" />
+    <None Include="Config\DaoConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -255,6 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -268,9 +280,33 @@
       <Project>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</Project>
       <Name>Core.Config</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Framework.BLL\Framework.BLL.csproj">
+      <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>
+      <Name>Framework.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
       <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
       <Name>Framework.Extention</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
+      <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
+      <Name>Framework.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
+      <Project>{f920b0f7-0da7-4f08-90b7-f5390503295e}</Project>
+      <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.DAL\Plain.DAL.csproj">
+      <Project>{9380619e-4d80-4b53-81b2-d477bad419ff}</Project>
+      <Name>Plain.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3b149ade-26c3-4da3-92f5-c613559fb50f}</Project>
+      <Name>Plain.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Web\Plain.Web.csproj">
+      <Project>{48613701-eb05-4356-970f-83c08f80365f}</Project>
+      <Name>Plain.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

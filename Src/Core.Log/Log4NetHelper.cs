@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using Core.Config;
+using Core.Encrypt;
 using log4net;
 using Newtonsoft.Json;
 
@@ -12,9 +13,9 @@ namespace Core.Log
         static Log4NetHelper()
         {
             //初始化log4net配置
-            var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("log4net");
+            var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("LOG-LOG4NET");
             //重写log4net配置里的连接字符串
-            config = config.Replace("{connectionString}", LocalCachedConfigContext.Current.DaoConfig.Log);
+            config = config.Replace("{connectionString}", DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.Log));
             var ms = new MemoryStream(Encoding.Default.GetBytes(config));
             log4net.Config.XmlConfigurator.Configure(ms);
         }

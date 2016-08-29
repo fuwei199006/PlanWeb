@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</ProjectGuid>
+    <ProjectGuid>{48613701-EB05-4356-970F-83C08F80365F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework.Extention</RootNamespace>
-    <AssemblyName>Framework.Extention</AssemblyName>
+    <RootNamespace>Plain.Web</RootNamespace>
+    <AssemblyName>Plain.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -37,7 +37,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -70,19 +69,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyExtention.cs" />
-    <Compile Include="PageLinqExtensions.cs" />
+    <Compile Include="ControllerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrlHelperExtention.cs" />
+    <Compile Include="ServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
-      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
-      <Name>Framework.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
-      <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
-      <Name>Framework.Utility</Name>
+    <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
+      <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
+      <Name>Framework.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

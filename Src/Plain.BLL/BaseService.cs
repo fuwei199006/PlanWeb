@@ -1,5 +1,5 @@
-﻿ 
- 
+﻿
+
 
 using Core.Service;
 using Framework.BLL;
@@ -8,16 +8,22 @@ using Plain.DAL;
 
 namespace Plain.BLL
 {
-    public class BaseService<T> :ServiceBase<T>,IBaseService<T> where T : ModelBase
+    public class BaseService<T> : ServiceBase<T>, IBaseService<T> where T : ModelBase
     {
 
         public BaseService()
         {
             SetCurrentResposity();
-        } 
+        }
         public override sealed void SetCurrentResposity()
         {
-            this.CurrentResposity = ServiceContext.Current.CreateService<BaseResposity<T>>();
+            #if DEBUG
+                    this.CurrentResposity = ServiceContext.CreateService<BaseResposity<T>>();
+            #endif
+            #if !DEBUG
+                this.CurrentResposity = ServiceContext.Current.CreateService<BaseResposity<T>>();
+            #endif
+
         }
-    } 
+    }
 }

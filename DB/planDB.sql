@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   付威
-* @Last Modified time: 2016-08-28 22:15:58
+* @Last Modified by:   fuwei16
+* @Last Modified time: 2016-08-29 11:53:35
 */
 
 --CREATE DATABASE PlanDB;
@@ -201,7 +201,21 @@ CREATE TABLE Basic_Config
       CreateTime DATETIME ,
       ModifyTime DATETIME
     );
-
+    
+CREATE TABLE [dbo].[Basic_Log](
+  [Id] [int] IDENTITY(1,1) NOT NULL,
+  [Level] [nvarchar](50) NULL,
+  [Logger] [nvarchar](255) NULL,
+  [Host] [nvarchar](50) NULL,
+  [Date] [datetime] NULL,
+  [Thread] [nvarchar](255) NULL,
+  [Message] [nvarchar](max) NULL,
+  [Exception] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Log4net] PRIMARY KEY CLUSTERED 
+(
+  [Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
 ---config数据 
 USE [PlanDB]
 GO

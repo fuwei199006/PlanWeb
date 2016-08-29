@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Core.Log</RootNamespace>
     <AssemblyName>Core.Log</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
       <Project>{cb29d7ed-3ce9-4789-9ca0-35c83b6448a7}</Project>
       <Name>Core.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Encryption\Core.Encrypt.csproj">
+      <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
+      <Name>Core.Encrypt</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
       <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>

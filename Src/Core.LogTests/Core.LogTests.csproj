@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20072E6C-51F0-4165-9148-907AB2405320}</ProjectGuid>
+    <ProjectGuid>{607BC64C-F481-4FB0-8B24-553E2DA90290}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.ConfigTests</RootNamespace>
-    <AssemblyName>Core.ConfigTests</AssemblyName>
+    <RootNamespace>Core.LogTests</RootNamespace>
+    <AssemblyName>Core.LogTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -51,28 +51,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConfigContextTests.cs" />
+    <Compile Include="Log4NetHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
-      <Project>{0440BB94-C62E-4F2A-84C7-42836C697035}</Project>
-      <Name>Core.Cache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Config\Core.Config.csproj">
-      <Project>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</Project>
-      <Name>Core.Config</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
-      <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
-      <Name>Framework.Utility</Name>
+    <ProjectReference Include="..\Core.Log\Core.Log.csproj">
+      <Project>{33FD11A4-A778-48B7-9976-D3D74C373B8B}</Project>
+      <Name>Core.Log</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Log\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

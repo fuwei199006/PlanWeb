@@ -13,7 +13,12 @@ namespace Plain.DAL
         }
         public override sealed void SetCurrentDbContext()
         {
+        #if DEBUG
             CurrentContextBase = ServiceContext.Current.CreateService<PlainDbContext>();
+        #endif 
+        #if !DEBUG
+           CurrentContextBase = ServiceContext.CreateService<PlainDbContext>();
+        #endif
+            }
         }
-    }
 }
