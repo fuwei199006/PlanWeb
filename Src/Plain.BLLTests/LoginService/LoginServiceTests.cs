@@ -13,16 +13,18 @@ namespace Plain.BLLTests.LoginService
         {
 
             ILoginService loginService = new BLL.LoginService.LoginService();
-           var entity= loginService.Add(new Basic_LoginInfo()
+           var entity= loginService.AddLoginInfo(new Basic_LoginInfo()
             {
                 LoginName = "fuwei",
                 LoginTime = DateTime.Now,
                 ExpireTime = DateTime.Now,
+                LogStatus = 1,
+                LogType = 1,
                 LoginIp = "127.0.0.1",
                 LoginHeader = "123",
-                IsDelete = true,
+                IsDelete = false,
                 LastUpdateTime = DateTime.Now,
-                LoginToken = Guid.NewGuid().ToString()
+                LoginToken = Guid.NewGuid()
             });
 
             Assert.AreNotEqual(entity,null);

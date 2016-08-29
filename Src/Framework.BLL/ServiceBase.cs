@@ -36,11 +36,11 @@ namespace Framework.BLL
         {
             return this.CurrentResposity.Find<T>(keyValues);
         }
-        public virtual T Get<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        public virtual T Get (Expression<Func<T, bool>> conditions)  
         {
             return this.CurrentResposity.Get(conditions);
         }
-        public virtual T GetNoTracking<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        public virtual T GetNoTracking (Expression<Func<T, bool>> conditions) 
         {
             return this.CurrentResposity.GetNoTracking(conditions);
         }
@@ -62,11 +62,11 @@ namespace Framework.BLL
 
         public virtual T GetById(int id)
         {
-            return this.Get<T>(r => r.Id == id);
+            return this.Get(r => r.Id == id);
         }
         public virtual T GetByIdNoTracking(int id)
         {
-            return this.GetNoTracking<T>(r => r.Id == id);
+            return this.GetNoTracking(r => r.Id == id);
         }
         public virtual List<T> GetList(Expression<Func<T, bool>> conditions)
         {

@@ -66,7 +66,7 @@ namespace Core.Service
                     }
                 };
 
-                Log4NetHelper.Error(LoggerType.ServiceExceptionLog, message, exception);
+                //Log4NetHelper.Error(LoggerType.ServiceExceptionLog, message, exception);
                 throw;
             }
         }

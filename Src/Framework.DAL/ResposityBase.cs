@@ -41,11 +41,11 @@ namespace Framework.DAL
         {
             return this.CurrentContextBase.Find<T>(keyValues);
         }
-        public T Get<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        public T Get(Expression<Func<T, bool>> conditions) 
         {
             return this.CurrentContextBase.Get(conditions);
         }
-        public T GetNoTracking<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        public T GetNoTracking(Expression<Func<T, bool>> conditions) 
         {
             return this.CurrentContextBase.GetNoTracking(conditions);
         }
@@ -67,11 +67,11 @@ namespace Framework.DAL
 
         public virtual T GetById(int id)
         {
-            return this.Get<T>(r => r.Id == id);
+            return this.Get(r => r.Id == id);
         }
         public virtual T GetByIdNoTracking(int id)
         {
-            return this.GetNoTracking<T>(r => r.Id == id);
+            return this.GetNoTracking(r => r.Id == id);
         }
         public virtual List<T> GetList(Expression<Func<T, bool>> conditions)
         {

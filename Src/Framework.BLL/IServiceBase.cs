@@ -24,9 +24,9 @@ namespace Framework.BLL
 
         T Find<T>(params object[] keyValues) where T : ModelBase;
 
-        T Get<T>(Expression<Func<T, bool>> conditions) where T : ModelBase;
+        T Get (Expression<Func<T, bool>> conditions)  ;
 
-        T GetNoTracking<T>(Expression<Func<T, bool>> conditions) where T : ModelBase;
+        T GetNoTracking (Expression<Func<T, bool>> conditions) ;
 
         List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase;
 

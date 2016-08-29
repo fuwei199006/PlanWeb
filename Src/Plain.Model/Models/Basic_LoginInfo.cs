@@ -7,14 +7,17 @@ namespace Plain.Model.Models
     public partial class Basic_LoginInfo : ModelBase
     {
         public int Id { get; set; }
+        public int LoginUserId { get; set; }
         public string LoginName { get; set; }
+        public int LogStatus { get; set; }
+        public int LogType { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }
         public string LoginIp { get; set; }
         public string LoginHeader { get; set; }
-        public Nullable<bool> IsDelete { get; set; }
+        public  bool  IsDelete { get; set; }
         public Nullable<System.DateTime> LastUpdateTime { get; set; }
 
-        public string LoginToken { get; set; }
+        public Guid LoginToken { get; set; }
     }
 }

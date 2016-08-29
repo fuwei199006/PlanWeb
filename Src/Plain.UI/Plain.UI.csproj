@@ -284,6 +284,10 @@
       <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>
       <Name>Framework.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67f618d6-b22f-435d-ad61-c2f820815a2a}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
       <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
       <Name>Framework.Extention</Name>
