@@ -15,6 +15,9 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.LoginName)
                 .HasMaxLength(50);
 
+      
+          
+
             this.Property(t => t.LoginIp)
                 .HasMaxLength(10);
 

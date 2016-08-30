@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   fuwei16
-* @Last Modified time: 2016-08-30 10:36:34
+* @Last Modified by:   付威
+* @Last Modified time: 2016-08-30 22:55:40
 */
 
 --CREATE DATABASE PlanDB;
@@ -129,6 +129,9 @@ CREATE TABLE Basic_Register
       Id INT PRIMARY KEY
              IDENTITY ,
       RegisterName NVARCHAR(50) NOT NULL ,
+      RegisterPassword NVARCHAR(100) NOT NULL ,
+      RegisterEmail nvarchar(50) not NULL,
+      RegisterPhone nvarchar(20) not NULL,
       RegisterTime DATETIME ,
       Expiretime DATETIME ,
       RegisterStatus BIT DEFAULT 1 ,

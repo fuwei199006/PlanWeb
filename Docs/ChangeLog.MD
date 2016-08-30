@@ -1,37 +1,23 @@
-<meta http-equiv="refresh" content="2">
-##1、数据库的配置由字符改成xml储存
+## 需要修改的地方 
+- 缓存  
+   - 现在只有Runtime缓存 没有实现分布式的缓存
+- 日志  
+  - 日志的功能 相对比较弱，可靠性和并发性还没有测试 
+- 配置  
+   - 还没有更好的配置方法 
+- .Net方面  
+   - 功能还不够全面，有些地方设计比较牵强 
+- UI方面
+   - 后续修改 
 
-```js
-function aa(){
-	alert("ok");
+## 设计的要点
+- 1、缓存选择的可以配置，可以通过Module来进行拦截和管理  
+- 2、通用和高可用
 
-}
-```
-- 1、情况1234塔顶地
-- 2、情况2
-* 2.2处理
 
->引用
-
-*   Red
-*   Green
-*   Blue
-
-1.  Bird
-2.  McHale
-3.  Parish
-
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
-
-1.  This is a list item with two paragraphs. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
-    mi posuere lectus.
-
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
-    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
-    sit amet velit.
-2.  Suspendisse id sem consectetuer libero luctus adipiscing
+## hotfix
+1.  日志功能报错
+2.  数据库上下文的选择没有使用注入的功能，不支持配置  
+3.  AOP的功能过于简单，可以考虑下自己实现
+4.  接口方面还没有考虑进去（可以在网站完成后，再考虑开放接口）
+5.  目标和定义明确 

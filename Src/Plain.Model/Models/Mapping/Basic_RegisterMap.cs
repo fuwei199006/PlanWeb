@@ -15,6 +15,18 @@ namespace Plain.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.RegisterEmail)
+           .IsRequired()
+           .HasMaxLength(50);
+
+            this.Property(t => t.RegisterPassword)
+                 .IsRequired()
+                 .HasMaxLength(100);
+
+            this.Property(t => t.RegisterPhone)
+           .IsRequired()
+           .HasMaxLength(20);
+
             this.Property(t => t.RegisterDevice)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -27,6 +39,9 @@ namespace Plain.Model.Models.Mapping
             this.ToTable("Basic_Register");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.RegisterName).HasColumnName("RegisterName");
+            this.Property(t => t.RegisterEmail).HasColumnName("RegisterEmail");
+            this.Property(t => t.RegisterPassword).HasColumnName("RegisterPassword");
+            this.Property(t => t.RegisterPhone).HasColumnName("RegisterPhone");
             this.Property(t => t.RegisterTime).HasColumnName("RegisterTime");
             this.Property(t => t.Expiretime).HasColumnName("Expiretime");
             this.Property(t => t.RegisterStatus).HasColumnName("RegisterStatus");

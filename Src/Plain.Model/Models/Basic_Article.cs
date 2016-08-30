@@ -1,9 +1,9 @@
 using System;
-using Framework.Contract;
+using System.Collections.Generic;
 
 namespace Plain.Model.Models
 {
-    public partial class Basic_Article : ModelBase
+    public partial class Basic_Article
     {
         public int Id { get; set; }
         public string Title { get; set; }

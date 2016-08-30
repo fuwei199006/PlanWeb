@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Plain.BLL.LoginService;
+using Plain.Model.Models;
 
 namespace Plain.UI.Controllers
 {
@@ -24,8 +25,14 @@ namespace Plain.UI.Controllers
 
         public ActionResult Register()
         {
-            _loginService.LoginOut("fuwei");
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(Basic_Register register)
+        {
+            if (true)
+                return RedirectToAction("Index", "Home");
         }
     }
 }
