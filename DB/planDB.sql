@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   fuwei16
-* @Last Modified time: 2016-08-29 11:53:35
+* @Last Modified time: 2016-08-30 10:36:34
 */
 
 --CREATE DATABASE PlanDB;
@@ -13,6 +13,7 @@ CREATE TABLE Basic_UserInfo
     (
       Id INT PRIMARY KEY
              IDENTITY ,
+    
       LoginName NVARCHAR(50) NOT NULL ,
       UserEmail NVARCHAR(50) NOT NULL ,
       UserPwd NVARCHAR(100) NOT NULL ,
@@ -85,12 +86,15 @@ CREATE TABLE Basic_LoginInfo
     (
       Id INT PRIMARY KEY
              IDENTITY ,
+      LoginUserId int not NULL,
       LoginName NVARCHAR(50) ,
       LoginTime DATETIME ,
+      LoginStatus int not NULL DEFAULT(1),
+      LoginType int not NULL DEFAULT(1),
       ExpireTime DATETIME ,
       LoginIp NVARCHAR(10) ,
       LoginHeader NVARCHAR(100) ,
-      IsDelete BIT DEFAULT 1 ,
+      IsDelete BIT DEFAULT 0 ,
       LastUpdateTime DATETIME,
       LoginToken UNIQUEIDENTIFIER,
       CreateTime DATETIME

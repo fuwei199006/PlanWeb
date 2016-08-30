@@ -3,7 +3,7 @@ using Plain.Model.Models;
 
 namespace Plain.BLL.LoginService
 {
-    public interface ILoginService 
+    public interface ILoginService : IBaseService<Basic_LoginInfo>
     {
         Basic_LoginInfo GetLoginInfoByToken(string token);
         Basic_LoginInfo GetLoginInfoByLoginName(string loginName);

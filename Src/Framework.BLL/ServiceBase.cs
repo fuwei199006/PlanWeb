@@ -9,7 +9,7 @@ namespace Framework.BLL
     public abstract class ServiceBase<T>:IServiceBase<T> where T : ModelBase
     {
         public ResposityBase<T> CurrentResposity { get;set; }
-        public abstract void SetCurrentResposity();
+        protected abstract void SetCurrentResposity();
 
         #region 基础的代码封装
         public virtual T Add(T entity)

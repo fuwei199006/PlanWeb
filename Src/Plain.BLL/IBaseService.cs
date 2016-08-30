@@ -2,7 +2,7 @@
 
 namespace Plain.BLL
 {
-    public interface IBaseService<T>:IServiceBase<T>
+    public interface IBaseService<T>
     {
          
     }

@@ -23,7 +23,11 @@ namespace Core.Service
         public override T CreateService<T>() 
         {
             var interFanceName = typeof(T).Name;
-            return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => new T());
+#if DEBUG
+            return  new T();
+#else
+           return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => new T());
+#endif
         }
     }
     public class WcfServiceFactory:ServiceFactory

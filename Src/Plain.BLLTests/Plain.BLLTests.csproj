@@ -71,6 +71,10 @@
       <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
       <Name>Framework.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
+      <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
+      <Name>Framework.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
       <Name>Plain.BLL</Name>
@@ -82,10 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Config\DaoConfig.config">
+    <None Include="Config\DaoConfig2.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Config\DaoConfig1.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

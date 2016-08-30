@@ -10,6 +10,7 @@ namespace Plain.UI.Controllers
     public class LoginController : BaseController
     {
         private readonly ILoginService _loginService;
+        
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
@@ -23,6 +24,7 @@ namespace Plain.UI.Controllers
 
         public ActionResult Register()
         {
+            _loginService.LoginOut("fuwei");
             return View();
         }
     }

@@ -9,8 +9,8 @@ namespace Plain.Model.Models
         public int Id { get; set; }
         public int LoginUserId { get; set; }
         public string LoginName { get; set; }
-        public int LogStatus { get; set; }
-        public int LogType { get; set; }
+        public int LoginStatus { get; set; }
+        public int LoginType { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }
         public string LoginIp { get; set; }
