@@ -85,12 +85,9 @@ namespace Plain.UI.Controllers
             {
                 var result = _registerService.AddRegister(register);
                 MailContext.SendEmail(result.RegisterEmail, "Plain平台注册", @"<meta charset='utf-8'/><body><p>Plain 模板测试 </p><p> 点击下面的链接完成注册："+Request.Url+"?token="+register.RegisterToken.ToString()+"</p></body> ");
-           
-                if (result != null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                return RedirectToAction("Error");
+
+                return RedirectToAction("Index", "Home");
+                
             }
             catch (DbEntityValidationException e)
             {
@@ -106,8 +103,8 @@ namespace Plain.UI.Controllers
         public JsonResult ValideUser(string RegisterEmail)
         {
             var result = _userService.GetUserByEmail(RegisterEmail);
-            if (result == null) Json(false, JsonRequestBehavior.AllowGet); 
-            return Json(true,JsonRequestBehavior.AllowGet);
+            if (result == null) return Json(true, JsonRequestBehavior.AllowGet); 
+            return Json(false, JsonRequestBehavior.AllowGet);
 
         }
     }

@@ -1,0 +1,41 @@
+﻿
+@using Framework.Extention
+@model Plain.Model.Models.Basic_Register
+
+@{
+    ViewBag.Title = "注册用户";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/main.css")" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/register.css")" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/font-awesome.min.css")" />
+    @RenderSection("PageSpecificStyleSheetIncludes", required: false)
+</head>
+<body class="bg">
+    <div class="bg">
+        <div class="header">
+
+        </div>
+
+        <div class="registerBox center">
+            <div class="webInfo">会员注册</div>
+            <ul class="r_tab">
+                <li>邮箱注册</li>
+            </ul>
+            <div class="register clear">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="flex limitfooter"></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="@Url.StaticFile("/Scripts/jquery-1.10.2.min.js")"></script>
+
+@RenderSection("PageSpecificJavascriptIncludes", required: false)

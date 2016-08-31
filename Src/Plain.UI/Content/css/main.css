@@ -670,7 +670,17 @@ a:visited{color: #BFBFBF;}
  .discussOperate a:hover {
  	color: #666666;
  }
- 
+ .errorInfo {
+     color: red;
+     line-height: 250px;
+ }
+ .errorInfo i {
+     color:
+ }
+ .successInfo {
+     color: greenyellow;
+     line-height: 250px;
+ }
  .debug {
  	border: 1px solid black;
  }
