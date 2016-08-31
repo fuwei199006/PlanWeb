@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Net;
+using System.Text;
 using Core.Cache;
 using Core.Config;
 using Core.Config.ConfigModel;
@@ -81,6 +84,13 @@ namespace Core.ConfigTests
            
             ConfigContext ct = new ConfigContext();
             ct.Save("Message-Mail163Config", xml);
+        }
+
+        [TestMethod]
+
+        public void UrlContentTest()
+        {
+             
         }
     }
 }

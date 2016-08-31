@@ -63,12 +63,19 @@
     <Compile Include="Fetch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExp.cs" />
+    <Compile Include="RequestHelper.cs" />
     <Compile Include="SerializationHelper.cs" />
     <Compile Include="ThumbnailHelper.cs" />
     <Compile Include="WcfServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Frameworke.Dtos\Frameworke.Dtos.csproj">
+      <Project>{AFB07491-331D-43D0-85F7-84B25049E166}</Project>
+      <Name>Frameworke.Dtos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -69,6 +69,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.Web", "Plain.Web\Plai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.MessageTests", "Core.MessageTests\Core.MessageTests.csproj", "{05DC99B4-92E1-461D-9695-54E1BF3E647D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworke.Dtos", "Frameworke.Dtos\Frameworke.Dtos.csproj", "{AFB07491-331D-43D0-85F7-84B25049E166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UtilityTests", "Framework.UtilityTests\Framework.UtilityTests.csproj", "{1DF1B9BF-8AEE-4432-9A20-816BB4372195}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,14 @@ Global
 		{05DC99B4-92E1-461D-9695-54E1BF3E647D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05DC99B4-92E1-461D-9695-54E1BF3E647D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05DC99B4-92E1-461D-9695-54E1BF3E647D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB07491-331D-43D0-85F7-84B25049E166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB07491-331D-43D0-85F7-84B25049E166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB07491-331D-43D0-85F7-84B25049E166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB07491-331D-43D0-85F7-84B25049E166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF1B9BF-8AEE-4432-9A20-816BB4372195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF1B9BF-8AEE-4432-9A20-816BB4372195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF1B9BF-8AEE-4432-9A20-816BB4372195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF1B9BF-8AEE-4432-9A20-816BB4372195}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,5 +223,6 @@ Global
 		{607BC64C-F481-4FB0-8B24-553E2DA90290} = {EEB7D637-50B0-45C0-9B27-793C3334D9ED}
 		{48613701-EB05-4356-970F-83C08F80365F} = {65DFFB61-2254-419E-8C47-017AC4D3CB49}
 		{05DC99B4-92E1-461D-9695-54E1BF3E647D} = {EEB7D637-50B0-45C0-9B27-793C3334D9ED}
+		{AFB07491-331D-43D0-85F7-84B25049E166} = {26155C11-F6EE-4AE6-B090-939FB17C6A65}
 	EndGlobalSection
 EndGlobal
