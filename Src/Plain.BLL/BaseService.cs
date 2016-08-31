@@ -17,12 +17,9 @@ namespace Plain.BLL
         }
         protected override sealed void SetCurrentResposity()
         {
-            #if DEBUG
-              this.CurrentResposity = ServiceContext.Current.CreateService<BaseResposity<T>>();
-            #endif
-            #if !DEBUG
-                this.CurrentResposity = ServiceContext.CreateService<BaseResposity<T>>();
-            #endif
+
+            this.CurrentResposity = ServiceContext.CreateService<BaseResposity<T>>();
+
 
         }
     }

@@ -14,6 +14,10 @@ namespace Core.Service
         public override T CreateService<T>()
         {
             var interFanceName = typeof (T).Name;
+            if (typeof(T).IsGenericType) //如果是泛型的类型
+            {
+                interFanceName += "_" + typeof(T).GetGenericArguments()[0].Name;
+            }
             return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => AssemblyHelper.FindTypeByInterface<T>());
         }
     }
@@ -23,11 +27,15 @@ namespace Core.Service
         public override T CreateService<T>() 
         {
             var interFanceName = typeof(T).Name;
-#if DEBUG
-            return  new T();
-#else
-           return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => new T());
-#endif
+            if (typeof (T).IsGenericType) //如果是泛型的类型
+            {
+                interFanceName += "_" + typeof (T).GetGenericArguments()[0].Name;
+            }
+//#if DEBUG
+//            return  new T();
+//#else
+           return CacheContext.GetItem<T>(string.Format("Service_{0}", interFanceName), () => new T());
+//#endif
         }
     }
     public class WcfServiceFactory:ServiceFactory

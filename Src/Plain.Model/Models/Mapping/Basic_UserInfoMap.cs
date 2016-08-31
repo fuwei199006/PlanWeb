@@ -14,6 +14,10 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.LoginName)
                 .IsRequired()
                 .HasMaxLength(50);
+            // Properties
+            this.Property(t => t.NickName)
+                .IsRequired()
+                .HasMaxLength(50);
 
             this.Property(t => t.UserEmail)
                 .IsRequired()
@@ -27,7 +31,7 @@ namespace Plain.Model.Models.Mapping
                 .HasMaxLength(20);
 
             this.Property(t => t.RegisterDevice)
-                .HasMaxLength(50);
+                .HasMaxLength(500);
 
             this.Property(t => t.RegisterIp)
                 .HasMaxLength(10);
@@ -39,6 +43,7 @@ namespace Plain.Model.Models.Mapping
             this.ToTable("Basic_UserInfo");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.LoginName).HasColumnName("LoginName");
+            this.Property(t => t.NickName).HasColumnName("NickName");
             this.Property(t => t.UserEmail).HasColumnName("UserEmail");
             this.Property(t => t.UserPwd).HasColumnName("UserPwd");
             this.Property(t => t.RealName).HasColumnName("RealName");
@@ -48,6 +53,7 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.RegisterTime).HasColumnName("RegisterTime");
             this.Property(t => t.UserStaus).HasColumnName("UserStaus");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
+            this.Property(t => t.CreateTime).HasColumnName("CreateTime");
         }
     }
 }

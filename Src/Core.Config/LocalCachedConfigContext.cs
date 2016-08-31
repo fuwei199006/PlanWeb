@@ -47,5 +47,13 @@ namespace Core.Config
                 return this.Get<SettingConfig>("Web-SettingConfig");
             }
         }
+
+        public MailConfig Mail163Config
+        {
+            get
+            {
+                return this.Get<MailConfig>("Message-Mail163Config");
+            }
+        }
     }
 }

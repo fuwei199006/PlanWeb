@@ -2,6 +2,7 @@
 using Core.Cache;
 using Core.Config;
 using Core.Config.ConfigModel;
+using Core.Encrypt;
 using Framework.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -63,6 +64,23 @@ namespace Core.ConfigTests
             var xml = SerializationHelper.XmlSerialize(daoConfig);
             ConfigContext ct=new ConfigContext();
             ct.Save("Dao-DaoConfig",xml);
+        }
+
+        [TestMethod]
+        public void SaveMailConfig()
+        {
+            var mainConfig=new MailConfig()
+            {
+                EmailHost = DESEncrypt.Encode("smtp.163.com"),
+                EmailPort = DESEncrypt.Encode("25"),
+                EmailAddress = DESEncrypt.Encode("wells_services@163.com"),
+                EmailPassword = DESEncrypt.Encode("fw19901006"),
+                CreateTime = DateTime.Now
+            };
+            var xml = SerializationHelper.XmlSerialize(mainConfig);
+           
+            ConfigContext ct = new ConfigContext();
+            ct.Save("Message-Mail163Config", xml);
         }
     }
 }

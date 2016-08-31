@@ -8,6 +8,7 @@ namespace Plain.Model.Models
     {
         public int Id { get; set; }
         public string LoginName { get; set; }
+        public string NickName { get; set; }
         public string UserEmail { get; set; }
         public string UserPwd { get; set; }
         public string RealName { get; set; }

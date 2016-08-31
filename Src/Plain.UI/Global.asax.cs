@@ -31,7 +31,7 @@ namespace Plain.UI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
              var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterAssemblyTypes(typeof(BaseService<>).Assembly)
+            builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
                 .Where(t => typeof(BaseService<>).IsClass&&!t.IsAbstract)
                 .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
      

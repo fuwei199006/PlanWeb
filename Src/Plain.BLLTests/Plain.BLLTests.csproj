@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -61,8 +62,13 @@
   <ItemGroup>
     <Compile Include="LoginService\LoginServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterService\RegisterServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Encryption\Core.Encrypt.csproj">
+      <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
+      <Name>Core.Encrypt</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.BLL\Framework.BLL.csproj">
       <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>
       <Name>Framework.BLL</Name>

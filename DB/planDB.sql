@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   付威
-* @Last Modified time: 2016-08-30 22:55:40
+* @Last Modified by:   fuwei16
+* @Last Modified time: 2016-08-31 17:34:07
 */
 
 --CREATE DATABASE PlanDB;
@@ -15,10 +15,11 @@ CREATE TABLE Basic_UserInfo
              IDENTITY ,
     
       LoginName NVARCHAR(50) NOT NULL ,
+      NickName NVARCHAR(50) NOT NULL ,
       UserEmail NVARCHAR(50) NOT NULL ,
       UserPwd NVARCHAR(100) NOT NULL ,
       RealName NVARCHAR(20) ,
-      RegisterDevice NVARCHAR(50) ,
+      RegisterDevice NVARCHAR(500) ,
       RegisterIp NVARCHAR(10) ,
       RegiserHeader NVARCHAR(200) ,
       RegisterTime DATETIME ,
@@ -130,13 +131,16 @@ CREATE TABLE Basic_Register
              IDENTITY ,
       RegisterName NVARCHAR(50) NOT NULL ,
       RegisterPassword NVARCHAR(100) NOT NULL ,
+   
       RegisterEmail nvarchar(50) not NULL,
       RegisterPhone nvarchar(20) not NULL,
       RegisterTime DATETIME ,
       Expiretime DATETIME ,
       RegisterStatus BIT DEFAULT 1 ,
-      RegisterDevice NVARCHAR(100) NOT NULL ,
-      RetisterIp NVARCHAR(10) NOT NULL
+      RegisterDevice NVARCHAR(500) NOT NULL ,
+      RetisterIp NVARCHAR(10) NOT NULL,
+        CreateTime DATETIME,
+        RegisterToken UNIQUEIDENTIFIER
     );
 
 CREATE TABLE Basic_Article

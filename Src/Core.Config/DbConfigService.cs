@@ -43,7 +43,7 @@ namespace Core.Config
             {
                 return db.Rows[0]["ConfigValue"].ToString();
             }
-            return string.Empty;
+            return String.Empty;
         }
 
         public void SaveConfig(string key, string value)
@@ -55,9 +55,14 @@ namespace Core.Config
             {
                 conStr = connstr
             };
-
-            dbHelper.ExceSql(string.Format(@"UPDATE dbo.Basic_Config SET ConfigValue='{0}' ,ModifyTime=GETDATE() WHERE ConfigKey='{1}' AND ConfigCategory='{2}'", value, configKey, category));
-
+            var existValue = GetConfig(key);
+            dbHelper.ExceSql(existValue == "NaN"
+                ? string.Format(
+                    @"INSERT  dbo.Basic_Config ( ConfigKey , ConfigValue , CongfigStatus , ConfigCategory , CreateTime , ModifyTime ) VALUES  ( N'{0}' , N'{1}' , 1 , N'{2}' , GETDATE() , GETDATE() )",
+                    configKey, value, category)
+                : string.Format(
+                    @"UPDATE dbo.Basic_Config SET ConfigValue='{0}' ,ModifyTime=GETDATE() WHERE ConfigKey='{1}' AND ConfigCategory='{2}'",
+                    value, configKey, category));
         }
 
         /// <summary>

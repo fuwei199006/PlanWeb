@@ -21,7 +21,7 @@
         </div>
 
         <div class="registerBox center">
-            @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+            @using (Html.BeginForm("Register", "Login", FormMethod.Post,new {id="registerFrm"}))
             {
 
                 <div class="webInfo">会员注册</div>
@@ -33,9 +33,9 @@
                         <span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
                         <span class="itemWrap">
                             @Html.TextBoxFor(x => x.RegisterName, new
-                            {
-                                placeholder = "昵称"
-                            })
+                       {
+                           placeholder = "昵称"
+                       })
                             <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterName)</em>
                         </span>
                     </div>
@@ -43,9 +43,9 @@
                         <span>电子邮箱：</span>
                         <span class="itemWrap">
                             @Html.TextBoxFor(x => x.RegisterEmail, new
-                            {
-                                placeholder = "请输入电子邮箱"
-                            })
+                       {
+                           placeholder = "请输入电子邮箱"
+                       })
                             <em class="errorMsg" style="display: ">@Html.ValidationMessageFor(m => m.RegisterEmail)</em>
                         </span>
                     </div>
@@ -61,28 +61,34 @@
                     <div class="itemContent">
                         <span>确认密码：</span>
                         <span class="itemWrap">
-                            @Html.Password("RegisterPassword", "", new { placeholder = "请输入密码" })
-                            <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterPassword)</em>
+                            @Html.Password("RegisterConfirmPassword", "", new { placeholder = "请输入密码" })
+                            <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterConfirmPassword)</em>
                         </span>
                     </div>
                     <div class="itemContent">
                         <span>&nbsp;验&nbsp;证&nbsp;码：</span>
                         <span class="itemWrap">
-                            <input type="text" class="valide" placeholder="请输入验证码" /><span class="valideCode">1 2 3 4</span>
-                            <em class="errorMsg"></em>
+                            @*@Html.TextBoxFor(x => x._Code, new
+                       {
+                           placeholder = "验 证 码",
+                           id = "txtValideCode"
+                       } )*@
+                            <input type="text" class="valide" placeholder="请输入验证码"  id = "txtValideCode" /> 
+                            <span class="valideCode" id="valueCode">1234</span>
+                            <em class="errorMsg" id="txtCodeErrorMsg"></em>
                         </span>
                     </div>
                     <div class="userContact ">
-                        <input type="checkbox" />我同意
+                        <input type="checkbox" id="chkAgree" />我同意
                         <a href="#">用户协议</a>
                     </div>
                     <div class="userContact ">
-                        <input class="submit" type="submit" value="提交注册" />
+                        <input class="submit"   id="btnSubmit" type="submit"  disabled="disabled" value="提交注册"/>
                         <a class="skip">不注册，直接浏览</a>
                         <!--<span class="f_right loginOther debug">QQ,微信</span>-->
                     </div>
                 </div>
-              
+
             }
         </div>
         <div class=" flex limitfooter"></div>
@@ -92,3 +98,24 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script>
+    $(function() {
+        $("#btnSubmit").click(function() {
+            if ($("#txtValideCode").val() === $("#valueCode").text().trim()) {
+                $("#registerFrm").submit();
+                $("#txtCodeErrorMsg").text("");
+            } else {
+                $("#txtCodeErrorMsg").text("验证码不正确");
+            }
+            
+            return false;
+        });
+        $("#chkAgree").click(function() {
+            if ($(this).prop("checked") === true){
+                $("#btnSubmit").removeAttr("disabled");
+            } else {
+                $("#btnSubmit").attr("disabled","disabled");
+            }
+        });
+    })
+</script>
