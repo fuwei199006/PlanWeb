@@ -53,12 +53,12 @@ namespace Plain.UI.Controllers
                 UserEmail = register.RegisterEmail,
                 NickName = register.RegisterName,
                 UserPwd = register.RegisterPassword,
-                RegisterDevice = register.RegisterDevice,
-                RegisterIp = register.RetisterIp,
-                RegiserHeader = JsonConvert.SerializeObject(Request.Headers),
+                RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent),
+                RegisterIp = register.RetisterIp, 
                 RegisterTime = register.RegisterTime,
                 ModifyTime = DateTime.Now,
-                CreateTime = DateTime.Now
+                CreateTime = DateTime.Now,
+                UserStaus = 1
             };
             var result=_userService.AddUser(user);
             if (result != null)
@@ -74,7 +74,7 @@ namespace Plain.UI.Controllers
             register.CreateTime=DateTime.Now;
             register.Expiretime = DateTime.Now.AddDays(7);
             register.RetisterIp = Fetch.UserIp;
-            register.RegisterDevice = Request.UserAgent;
+            register.RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent);
             register.RegisterPassword = MD5Encrypt.Md5(register.RegisterPassword);
             register.RegisterConfirmPassword = register.RegisterPassword;
             register.RegisterTime=DateTime.Now;
@@ -84,7 +84,7 @@ namespace Plain.UI.Controllers
             try
             {
                 var result = _registerService.AddRegister(register);
-                MailContext.SendEmail(result.RegisterEmail, "Plain平台注册", @"<meta charset='utf-8'/>< body ><p>Plain 模板测试 </p><p> 点击下面的链接完成注册："+Request.Url+"?token="+register.RegisterToken.ToString()+"</p></body> ");
+                MailContext.SendEmail(result.RegisterEmail, "Plain平台注册", @"<meta charset='utf-8'/><body><p>Plain 模板测试 </p><p> 点击下面的链接完成注册："+Request.Url+"?token="+register.RegisterToken.ToString()+"</p></body> ");
            
                 if (result != null)
                 {
@@ -98,6 +98,17 @@ namespace Plain.UI.Controllers
                 return RedirectToAction("Error");
             }
            
+        }
+
+
+        
+        [HttpGet]
+        public JsonResult ValideUser(string RegisterEmail)
+        {
+            var result = _userService.GetUserByEmail(RegisterEmail);
+            if (result == null) Json(false, JsonRequestBehavior.AllowGet); 
+            return Json(true,JsonRequestBehavior.AllowGet);
+
         }
     }
 }

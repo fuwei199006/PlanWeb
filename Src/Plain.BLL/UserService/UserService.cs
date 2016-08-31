@@ -8,5 +8,11 @@ namespace Plain.BLL.UserService
         {
            return this.CurrentResposity.Add(user);
         }
+
+        public Basic_UserInfo GetUserByEmail(string email)
+        {
+             return this.CurrentResposity.GetNoTracking(r => r.UserEmail == email&&r.UserStaus==1);
+            
+        }
     }
 }

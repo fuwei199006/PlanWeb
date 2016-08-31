@@ -12,10 +12,10 @@ namespace Framework.UtilityTests
         {
 
             var result =
-                RequestHelper.GetDeviceDto(
+                RequestHelper.GetDeviceJson(
                     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.30 Safari/537.36");
 
-            Assert.AreEqual(String.IsNullOrEmpty(result.os_name),false );
+            Assert.AreEqual(String.IsNullOrEmpty(result ),false );
         }
     }
 }
