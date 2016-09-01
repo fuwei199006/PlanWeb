@@ -43,8 +43,8 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.RegisterName).HasColumnName("RegisterName");
             this.Property(t => t.RegisterEmail).HasColumnName("RegisterEmail");
             this.Property(t => t.RegisterPassword).HasColumnName("RegisterPassword"); 
-            this.Property(t => t.RegisterToken).HasColumnName("RegisterToken"); 
-            //this.Property(t => t.RegisterConfirmPassword).HasColumnName("RegisterConfirmPassword");
+            this.Property(t => t.RegisterToken).HasColumnName("RegisterToken");
+         
             this.Property(t => t.RegisterPhone).HasColumnName("RegisterPhone");
             this.Property(t => t.RegisterTime).HasColumnName("RegisterTime");
             this.Property(t => t.Expiretime).HasColumnName("Expiretime");

@@ -258,7 +258,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Lockout.cshtml" />
@@ -321,6 +321,10 @@
     <ProjectReference Include="..\Plain.DAL\Plain.DAL.csproj">
       <Project>{9380619e-4d80-4b53-81b2-d477bad419ff}</Project>
       <Name>Plain.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
+      <Name>Plain.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3b149ade-26c3-4da3-92f5-c613559fb50f}</Project>

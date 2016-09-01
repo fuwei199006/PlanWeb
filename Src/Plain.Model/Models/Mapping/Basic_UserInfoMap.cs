@@ -38,6 +38,7 @@ namespace Plain.Model.Models.Mapping
 
             this.Property(t => t.RegiserHeader)
                 .HasMaxLength(200);
+ 
 
             // Table & Column Mappings
             this.ToTable("Basic_UserInfo");

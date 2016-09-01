@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   fuwei16
-* @Last Modified time: 2016-08-31 17:34:07
+* @Last Modified time: 2016-09-01 13:54:13
 */
 
 --CREATE DATABASE PlanDB;
@@ -24,7 +24,8 @@ CREATE TABLE Basic_UserInfo
       RegiserHeader NVARCHAR(200) ,
       RegisterTime DATETIME ,
       UserStaus INT DEFAULT 1 ,
-      ModifyTime DATETIME
+      ModifyTime DATETIME,
+        CreateTime DATETIME  
     );
 
 CREATE TABLE Basic_Role

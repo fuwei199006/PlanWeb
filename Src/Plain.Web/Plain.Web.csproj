@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +78,10 @@
     <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
       <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
       <Name>Framework.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
+      <Name>Plain.Dto</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

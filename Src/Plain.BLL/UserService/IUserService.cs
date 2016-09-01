@@ -7,6 +7,8 @@ namespace Plain.BLL.UserService
         Basic_UserInfo AddUser(Basic_UserInfo user);
 
         Basic_UserInfo GetUserByEmail(string email);
+        Basic_UserInfo ActiveUserByEmail(string email);
+        Basic_UserInfo  EmailExist(string email);
 
     }
 }

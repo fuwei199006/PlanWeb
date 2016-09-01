@@ -11,7 +11,7 @@ namespace Plain.BLL.RegisterService
 
         public Basic_Register GetRegisterByToken(string token)
         {
-            return this.CurrentResposity.GetNoTracking(r => r.RegisterToken.ToString() == token);
+            return this.CurrentResposity.GetNoTracking(r => r.RegisterToken.ToString() == token&&r.RegisterStatus);
         }
 
         public Basic_Register DeleteRegister(string token)
@@ -20,6 +20,7 @@ namespace Plain.BLL.RegisterService
             if (entity != null)
             {
                 entity.RegisterStatus = false;
+                entity.RegisterConfirmPassword = entity.RegisterPassword;
                 
                 return this.CurrentResposity.Update(entity);
             }

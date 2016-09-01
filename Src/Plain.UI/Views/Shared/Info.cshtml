@@ -1,0 +1,38 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@using Plain.Dto
+@model System.Web.Mvc.HandleErrorInfo
+
+
+@{
+    ViewBag.Title = "错误信息";
+    Layout = Url.Content("~/Views/Shared/_LoginLayout.cshtml");
+}
+
+@if (ViewBag.IsAutoSkip)
+{
+    <meta http-equiv='refresh' content='3;url=@ViewBag.SkipUrl' />
+}
+
+@if (ViewBag.MsgType == null || ViewBag.MsgType == MsgType.Error)
+{
+    <div class="errorInfo shareinfo">
+        <i class="fa fa-frown-o " aria-hidden="true">
+        </i>错误:@(string.IsNullOrEmpty(ViewBag.ErrorMsg) ? "Unknow Error" : ViewBag.ErrorMsg)
+    </div>
+}
+else if (ViewBag.MsgType == MsgType.Success)
+{
+    <div class="successInfo shareinfo">
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+
+        信息:@ViewBag.ErrorMsg
+    </div>
+}
+else if (ViewBag.MsgType == MsgType.Info)
+{
+    <div class="attentionInfo shareinfo">
+        <i class="fa fa-frown-o" aria-hidden="true">
+
+        </i>错误:@ViewBag.ErrorMsg
+    </div>
+}

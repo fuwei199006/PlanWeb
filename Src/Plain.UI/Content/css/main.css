@@ -672,14 +672,25 @@ a:visited{color: #BFBFBF;}
  }
  .errorInfo {
      color: red;
-     line-height: 250px;
+    
+     
  }
- .errorInfo i {
-     color:
+ .shareinfo i {
+      
+     font-size: 35px!important;
+     margin: 10px;
+ }
+ .shareinfo {
+        line-height: 250px;
  }
  .successInfo {
-     color: greenyellow;
-     line-height: 250px;
+     color: #6dbf68;
+  
+ }
+
+  .attentionInfo {
+     color: #49a6f2;
+  
  }
  .debug {
  	border: 1px solid black;
