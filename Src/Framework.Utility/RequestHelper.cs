@@ -41,6 +41,7 @@ namespace Framework.Utility
                 url += "?uas=" + userAgent;
                 url += "&getJSON=all";
                 var request = (HttpWebRequest)WebRequest.Create(url);
+                request.Timeout = 1;
                 var response = request.GetResponse();
                 var stream = response.GetResponseStream();
                 if (stream != null && stream != Stream.Null)

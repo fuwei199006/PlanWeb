@@ -63,8 +63,13 @@ namespace Plain.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(Basic_Register register)
+        public ActionResult Register(Basic_Register register, string valideCode)
         {
+            if (!valideCode.Equals("1234"))
+            {
+                ModelState.AddModelError("error","验证码不正确");
+                return View();
+            }
             register.CreateTime = DateTime.Now;
             register.Expiretime = DateTime.Now.AddDays(7);
             register.RetisterIp = Fetch.UserIp;
@@ -75,24 +80,30 @@ namespace Plain.UI.Controllers
             register.RegisterStatus = true;
             register.RegisterPhone = "NaN";//代表没有手机号
             register.RegisterToken = Guid.NewGuid();
-            var user = new Basic_UserInfo
-            {
-                LoginName = register.RegisterEmail,
-                UserEmail = register.RegisterEmail,
-                NickName = register.RegisterName,
-                UserPwd = register.RegisterPassword,
-                RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent),
-                RegisterIp = register.RetisterIp,
-                RegisterTime = register.RegisterTime,
-                ModifyTime = DateTime.Now,
-                CreateTime = DateTime.Now,
-                UserStaus = 0
-            };
+       
 
 
 
             var result = _registerService.AddRegister(register);
-            _userService.AddUser(user);
+            var existUser = _userService.EmailExist(result.RegisterEmail);
+            if (existUser == null)//防止重复注册
+            {
+                var user = new Basic_UserInfo
+                {
+                    LoginName = register.RegisterEmail,
+                    UserEmail = register.RegisterEmail,
+                    NickName = register.RegisterName,
+                    UserPwd = register.RegisterPassword,
+                    RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent),
+                    RegisterIp = register.RetisterIp,
+                    RegisterTime = register.RegisterTime,
+                    ModifyTime = DateTime.Now,
+                    CreateTime = DateTime.Now,
+                    UserStaus = 0
+                };
+                _userService.AddUser(user);
+            }
+         
             var sentRes = MailContext.SendEmail(result.RegisterEmail, "Plain平台注册", @"<meta charset='utf-8'/><body><p>Plain 模板测试 </p><p> 点击下面的链接完成注册：" + Request.Url + "?token=" + result.RegisterToken.ToString() + "</p></body> ");
             if (sentRes)
             {
@@ -110,7 +121,7 @@ namespace Plain.UI.Controllers
         [HttpGet]
         public JsonResult ValideUser(string RegisterEmail)
         {
-            var result = _userService.EmailExist(RegisterEmail);
+            var result = _userService.GetUserByEmail(RegisterEmail);
             if (result == null) return Json(true, JsonRequestBehavior.AllowGet);
             return Json(false, JsonRequestBehavior.AllowGet);
 

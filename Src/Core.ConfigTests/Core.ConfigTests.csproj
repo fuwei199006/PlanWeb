@@ -74,10 +74,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Config\DaoConfig.config">
+    <None Include="Config\2.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Config\DaoConfig1.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

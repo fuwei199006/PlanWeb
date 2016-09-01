@@ -56,7 +56,7 @@ namespace Core.Config
                 conStr = connstr
             };
             var existValue = GetConfig(key);
-            dbHelper.ExceSql(existValue == "NaN"
+            dbHelper.ExceSql(string.IsNullOrEmpty(existValue)
                 ? string.Format(
                     @"INSERT  dbo.Basic_Config ( ConfigKey , ConfigValue , CongfigStatus , ConfigCategory , CreateTime , ModifyTime ) VALUES  ( N'{0}' , N'{1}' , 1 , N'{2}' , GETDATE() , GETDATE() )",
                     configKey, value, category)

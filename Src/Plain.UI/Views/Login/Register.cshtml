@@ -57,9 +57,9 @@
                         placeholder = "验 证 码",
                         id = "txtValideCode"
                     } )*@
-                <input type="text" class="valide" placeholder="请输入验证码" id="txtValideCode" />
+                <input type="text" class="valide" placeholder="请输入验证码" id="txtValideCode" name="valideCode" />
                 <span class="valideCode" id="valueCode">1234</span>
-                <em class="errorMsg" id="txtCodeErrorMsg"></em>
+                <em class="errorMsg" id="txtCodeErrorMsg"> @Html.ValidationMessage("error")</em>
             </span>
         </div>
         <div class="userContact ">
@@ -80,20 +80,20 @@
     <script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.js")'></script>
     <script>
         $(function () {
-            $("#btnSubmit").click(function () {
+            //$("#btnSubmit").click(function () {
 
 
-                if ($("#txtValideCode").val() === $("#valueCode").text().trim()) {
-                    $("#registerFrm").submit();
-                    $("#txtCodeErrorMsg").text("");
-                } else {
-                    $("#txtCodeErrorMsg").text("验证码不正确");
-                }
+            //    if ($("#txtValideCode").val() === $("#valueCode").text().trim()) {
+            //        $("#registerFrm").submit();
+            //        $("#txtCodeErrorMsg").text("");
+            //    } else {
+            //        $("#txtCodeErrorMsg").text("验证码不正确");
+            //    }
 
-                return false;
+            //    return false;
 
 
-            });
+            //});
 
 
 

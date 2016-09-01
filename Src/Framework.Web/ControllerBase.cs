@@ -165,7 +165,26 @@ namespace Framework.Web
                 return exceptionContext;
             }
         }
+
+        /// <summary>
+        /// 发生异常写Log
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            base.OnException(filterContext);
+            var e = filterContext.Exception;
+
+            LogException(e, this.WebExceptionContext);
+        }
+
+        protected virtual void LogException(Exception exception, WebExceptionContext exceptionContext = null)
+        {
+            //do nothing!
+        }
+
     }
+
 
         public class WebExceptionContext
     {
