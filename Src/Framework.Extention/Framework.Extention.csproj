@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyExtention.cs" />
+    <Compile Include="ConverterExtention.cs" />
     <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrlHelperExtention.cs" />

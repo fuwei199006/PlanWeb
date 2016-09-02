@@ -9,6 +9,8 @@ namespace Plain.Web
         public const string yes = "yes";
         public const string no = "no";
 
+          
+
         [ValidateInput(false)]
         public ActionResult Info(string msg, MsgType type)
         {

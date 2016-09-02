@@ -24,9 +24,9 @@
         </div>
 
         <div class="registerBox center">
-            <div class="webInfo">会员注册</div>
+            <div class="webInfo">@ViewBag.PageInfo</div>
             <ul class="r_tab">
-                <li>邮箱注册</li>
+                <li>@ViewBag.TabInfo</li>
             </ul>
             <div class="register clear">
                 @RenderBody()
@@ -37,5 +37,7 @@
 </body>
 </html>
 <script type="text/javascript" src="@Url.StaticFile("/Scripts/jquery-1.10.2.min.js")"></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.js")'></script>
 
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

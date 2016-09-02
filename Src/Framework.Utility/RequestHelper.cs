@@ -62,7 +62,7 @@ namespace Framework.Utility
             }
             catch (Exception)
             {
-                return string.Empty;
+                return userAgent;
 
             }
            

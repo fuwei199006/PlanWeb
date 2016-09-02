@@ -6,6 +6,7 @@ using Core.Log;
 using Core.Service;
 using Framework.Contract;
 using Framework.DbDrive.EntityFramework;
+using Plain.Model.Models;
 using Plain.Model.Models.Mapping;
 
 namespace Plain.DAL
@@ -43,5 +44,10 @@ namespace Plain.DAL
             //这里添加Mapping信息
             base.OnModelCreating(modelBuilder);
         }
+
+        //public static DbSet<Basic_LoginInfo> LoginInfos { get; set; }
+        //public static DbSet<Basic_UserInfo> Users { get; set; }
+        //public static DbSet<Basic_Role> Roles { get; set; }
+    
     }
 }

@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Encrypt;
+using Core.Service;
+using Framework.Utility;
+using Plain.DAL;
 using Plain.Model.Models;
 
 namespace Plain.BLL.LoginService
@@ -15,6 +19,37 @@ namespace Plain.BLL.LoginService
         {
             return this.CurrentResposity.Get(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
         }
+
+       
+
+        public Basic_LoginInfo Login(string loginName, string password,int loginType=1)
+        {
+            Basic_LoginInfo loginInfo = null;
+            var keyPass = MD5Encrypt.Md5(password);
+            var user =
+                ServiceContext.CreateService<UserService.UserService>()
+                    .Get(r => r.LoginName == loginName && r.UserPwd == password && r.UserStaus == 1);
+            if (user != null)
+            {
+                var ip = Fetch.UserIp;
+                loginInfo = this.CurrentResposity.Get(r => r.LoginName == loginName && r.LoginIp == ip);
+                if (loginInfo != null)
+                {
+                    loginInfo.LastUpdateTime=DateTime.Now;
+                   
+                }
+                else
+                {
+                    loginInfo = new Basic_LoginInfo(user.Id,loginName);
+                    loginInfo.LoginType = loginType;
+                    this.CurrentResposity.Add(loginInfo);
+
+                }
+            }
+            return loginInfo;
+
+        }
+
         public List<Basic_LoginInfo> GetListLoginInfoByLoginName(string loginName)
         {
             return this.CurrentResposity.GetList(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);

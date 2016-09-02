@@ -18,5 +18,13 @@ namespace Plain.UI.Controllers
                           return;
                     base.OnActionExecuting(filterContext);
         }
+        public AdminCookieContext CookieContext
+        {
+            get
+            {
+                return AdminCookieContext.Current;
+            }
+        }
+
     }
 }

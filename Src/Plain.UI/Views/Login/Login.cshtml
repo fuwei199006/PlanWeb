@@ -1,0 +1,75 @@
+﻿
+@model Plain.Model.Models.Basic_LoginInfo
+@{
+    ViewBag.Title = "登录";
+    ViewBag.PageInfo = "会员登录";
+    ViewBag.TabInfo = "邮箱登录";
+    Layout = Url.Content("~/Views/Shared/_LoginLayout.cshtml");
+}
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "registerFrm" }))
+{
+
+
+    <div class="itemContent">
+        <span>电子邮箱：</span>
+        <span class="itemWrap">
+            @Html.TextBoxFor(x => x.LoginName, new
+           {
+               placeholder = "请输入电子邮箱",
+               id = "txtEmail"
+           })
+            <em class="errorMsg" id="emailErrorMsg">@Html.ValidationMessageFor(m => m.LoginName)</em>
+        </span>
+    </div>
+        <div class="itemContent">
+            <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+            <span class="itemWrap">
+                @Html.Password("Password", "", new { placeholder = "请输入密码" })
+
+
+                <em class="errorMsg">@Html.ValidationMessage("Password")</em>
+            </span>
+        </div>
+
+        <div class="itemContent">
+            <span>&nbsp;验&nbsp;证&nbsp;码：</span>
+            <span class="itemWrap">
+                @*@Html.TextBoxFor(x => x._Code, new
+                    {
+                        placeholder = "验 证 码",
+                        id = "txtValideCode"
+                    } )*@
+                <input type="text" class="valide" placeholder="请输入验证码" id="txtValideCode" name="valideCode" />
+                <img style="cursor: pointer; vertical-align:middle" src="@Url.Action("VerifyImage")" id="VerifyImage" title="看不清？点击换一个" onclick="javascript:document.getElementById('VerifyImage').src='@Url.Action("VerifyImage")?r='+Math.random();return false;">
+                <em class="errorMsg" id="txtCodeErrorMsg"> @Html.ValidationMessage("ValideCode")</em>
+            </span>
+        </div>
+        <div class="userContact ">
+            <input type="checkbox" id="chkAgree" />记住密码
+
+        </div>
+        <div class="userContact ">
+            <input class="submit" id="btnSubmit" type="submit" disabled="disabled" value="登录" />
+
+        </div>
+
+
+}
+
+@section PageSpecificJavascriptIncludes{
+
+    <script>
+        $(function () {
+
+            $("#chkAgree").click(function () {
+                if ($(this).prop("checked") === true) {
+                    $("#btnSubmit").removeAttr("disabled");
+                } else {
+                    $("#btnSubmit").attr("disabled", "disabled");
+                }
+            });
+        });
+    </script>
+}
+
+

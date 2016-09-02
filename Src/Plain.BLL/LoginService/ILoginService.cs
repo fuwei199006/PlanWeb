@@ -7,6 +7,7 @@ namespace Plain.BLL.LoginService
     {
         Basic_LoginInfo GetLoginInfoByToken(string token);
         Basic_LoginInfo GetLoginInfoByLoginName(string loginName);
+        Basic_LoginInfo Login(string loginName,string password, int loginType = 1);
         List<Basic_LoginInfo> GetListLoginInfoByLoginName(string loginName);
         bool LoginOut(string loginName);
 

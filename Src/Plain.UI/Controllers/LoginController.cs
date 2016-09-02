@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using Core.Encrypt;
 using Core.Message;
 using Framework.Utility;
+using Framework.Utility.ValideCode;
+using Framework.Web;
 using Newtonsoft.Json;
 using Plain.BLL.LoginService;
 using Plain.BLL.RegisterService;
@@ -34,9 +36,11 @@ namespace Plain.UI.Controllers
         {
             return View();
         }
-
+        [AuthorizeIgnore]
         public ActionResult Register(string token)
         {
+
+            
             if (string.IsNullOrEmpty(token))
             {
                 return View();
@@ -54,15 +58,22 @@ namespace Plain.UI.Controllers
             }
             //如果没有过期则，生成用户和登录信息
             var result = _userService.ActiveUserByEmail(register.RegisterEmail);
+            _registerService.DeleteRegister(token);
+            if (result == null)
+            {
+                return SkipAndAlert("重复注册，请直接登录！", MsgType.Error);
+            }
             if (result != null)
             {
-                _registerService.DeleteRegister(token);
+              
                 return SkipAndAlert("注册成功,欢迎您的加入!", MsgType.Success, true, Url.Action("Index", "Home"));
             }
+            
             return SkipAndAlert("系统出错，先休息一下吧！", MsgType.Error);
         }
 
         [HttpPost]
+        [AuthorizeIgnore]
         public ActionResult Register(Basic_Register register, string valideCode)
         {
             if (!valideCode.Equals("1234"))
@@ -115,15 +126,52 @@ namespace Plain.UI.Controllers
 
 
         }
+        [AuthorizeIgnore]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [AuthorizeIgnore]
+        [HttpPost]
+        public ActionResult Login(string loginName,string password,string valideCode)
+        {
+            if (string.IsNullOrEmpty(valideCode))
+            {
+                ModelState.AddModelError("valideCode","验证码不能为空");
+            }
+            
+            var loginInfo = this._loginService.Login(loginName, password);
+            if (loginInfo != null)
+            {
+                this.CookieContext.UserToken = loginInfo.LoginToken;
+                this.CookieContext.UserName = loginInfo.LoginName;
+                this.CookieContext.UserId = loginInfo.LoginUserId;
+                return RedirectToAction("Index", "Home");
+            }
+            
+            return View();
+        }
 
-
-
+        [AuthorizeIgnore]
         [HttpGet]
         public JsonResult ValideUser(string RegisterEmail)
         {
             var result = _userService.GetUserByEmail(RegisterEmail);
             if (result == null) return Json(true, JsonRequestBehavior.AllowGet);
             return Json(false, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [AuthorizeIgnore]
+        public ActionResult VerifyImage()
+        {
+            var s1 = new ValidateCode_Style1();
+            string code = "6666";
+            byte[] bytes = s1.CreateImage(out code);
+
+            this.CookieContext.VerifyCode = code;
+
+            return File(bytes, @"image/jpeg");
 
         }
     }

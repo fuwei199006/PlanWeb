@@ -3,6 +3,8 @@
 
 @{
     ViewBag.Title = "注册新用户";
+    ViewBag.PageInfo = "会员注册";
+    ViewBag.TabInfo = "邮箱注册";
     Layout = Url.Content("~/Views/Shared/_LoginLayout.cshtml");
 }
 
@@ -76,27 +78,10 @@
 }
 
 @section PageSpecificJavascriptIncludes{
-    <script src='@Url.StaticFile("~/Scripts/jquery.validate.min.js")'></script>
-    <script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.js")'></script>
+
     <script>
         $(function () {
-            //$("#btnSubmit").click(function () {
-
-
-            //    if ($("#txtValideCode").val() === $("#valueCode").text().trim()) {
-            //        $("#registerFrm").submit();
-            //        $("#txtCodeErrorMsg").text("");
-            //    } else {
-            //        $("#txtCodeErrorMsg").text("验证码不正确");
-            //    }
-
-            //    return false;
-
-
-            //});
-
-
-
+           
             $("#chkAgree").click(function () {
                 if ($(this).prop("checked") === true) {
                     $("#btnSubmit").removeAttr("disabled");

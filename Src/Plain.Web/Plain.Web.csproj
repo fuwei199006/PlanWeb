@@ -70,11 +70,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCookieContext.cs" />
     <Compile Include="ControllerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
+      <Project>{0440BB94-C62E-4F2A-84C7-42836C697035}</Project>
+      <Name>Core.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
+      <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
+      <Name>Framework.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
       <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
       <Name>Framework.Web</Name>

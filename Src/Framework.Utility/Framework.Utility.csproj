@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
@@ -60,12 +61,15 @@
     <Compile Include="AssemblyExtention.cs" />
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="Caching.cs" />
+    <Compile Include="Cookie.cs" />
     <Compile Include="Fetch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExp.cs" />
     <Compile Include="RequestHelper.cs" />
     <Compile Include="SerializationHelper.cs" />
     <Compile Include="ThumbnailHelper.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style1.cs" />
+    <Compile Include="ValideCode\ValidateCodeType.cs" />
     <Compile Include="WcfServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>

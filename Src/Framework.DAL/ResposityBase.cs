@@ -13,7 +13,7 @@ namespace Framework.DAL
     public abstract class ResposityBase<T> where T : ModelBase
     {
 
-        public DbContextBase CurrentContextBase { get; set; }
+        public virtual DbContextBase CurrentContextBase { get; set; }
         public abstract void SetCurrentDbContext();
 
         #region 基础的代码封装
