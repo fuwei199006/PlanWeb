@@ -76,9 +76,16 @@ namespace Plain.UI.Controllers
         [AuthorizeIgnore]
         public ActionResult Register(Basic_Register register, string valideCode)
         {
-            if (!valideCode.Equals("1234"))
+            if (string.IsNullOrEmpty(valideCode))
             {
-                ModelState.AddModelError("error","验证码不正确");
+                ModelState.AddModelError("valideCode", "验证码不能为空");
+                return View();
+            }
+
+
+            if (!valideCode.Equals(this.CookieContext.VerifyCode))
+            {
+                ModelState.AddModelError("valideCode", "验证码不正确");
                 return View();
             }
             register.CreateTime = DateTime.Now;
@@ -148,7 +155,7 @@ namespace Plain.UI.Controllers
                 this.CookieContext.UserId = loginInfo.LoginUserId;
                 return RedirectToAction("Index", "Home");
             }
-            
+            ModelState.AddModelError("valideCode", "用户名或密码不正确");
             return View();
         }
 

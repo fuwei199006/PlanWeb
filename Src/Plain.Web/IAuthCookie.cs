@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Framework.Web
+namespace Plain.Web
 {
     public interface IAuthCookie
     {

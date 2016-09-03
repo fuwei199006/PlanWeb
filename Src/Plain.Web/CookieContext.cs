@@ -4,7 +4,7 @@ using Core.Encrypt;
 using Framework.Extention;
 using Framework.Utility;
 
-namespace Framework.Web
+namespace Plain.Web
 {
     public class CookieContext:IAuthCookie
     {

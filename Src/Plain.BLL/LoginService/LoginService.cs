@@ -10,9 +10,9 @@ namespace Plain.BLL.LoginService
 {
     public class LoginService : BaseService<Basic_LoginInfo>, ILoginService
     {
-        public Basic_LoginInfo GetLoginInfoByToken(string token)
+        public Basic_LoginInfo GetLoginInfoByToken(Guid token)
         {
-            return this.CurrentResposity.Get(r => r.LoginToken.ToString() == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
+            return this.CurrentResposity.Get(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
         }
 
         public Basic_LoginInfo GetLoginInfoByLoginName(string loginName)
@@ -28,7 +28,7 @@ namespace Plain.BLL.LoginService
             var keyPass = MD5Encrypt.Md5(password);
             var user =
                 ServiceContext.CreateService<UserService.UserService>()
-                    .Get(r => r.LoginName == loginName && r.UserPwd == password && r.UserStaus == 1);
+                    .Get(r => r.LoginName == loginName && r.UserPwd == keyPass && r.UserStaus == 1);
             if (user != null)
             {
                 var ip = Fetch.UserIp;
@@ -36,12 +36,17 @@ namespace Plain.BLL.LoginService
                 if (loginInfo != null)
                 {
                     loginInfo.LastUpdateTime=DateTime.Now;
-                   
+                    loginInfo.ExpireTime = DateTime.Now.AddHours(1);
+                    loginInfo.LoginIp = Fetch.UserIp;
+                  
+
                 }
                 else
                 {
                     loginInfo = new Basic_LoginInfo(user.Id,loginName);
                     loginInfo.LoginType = loginType;
+                    loginInfo.ExpireTime = DateTime.Now.AddHours(1);
+                    loginInfo.LoginIp = Fetch.UserIp;
                     this.CurrentResposity.Add(loginInfo);
 
                 }

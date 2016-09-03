@@ -1,6 +1,5 @@
 ﻿using Core.Cache;
 using Framework.Utility;
-using Framework.Web;
 
 namespace Plain.Web
 {

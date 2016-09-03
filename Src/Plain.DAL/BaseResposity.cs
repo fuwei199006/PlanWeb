@@ -9,7 +9,7 @@ namespace Plain.DAL
     public class BaseResposity<T> : ResposityBase<T>, IBaseResposity<T> where T : ModelBase
     {
 
-        public new PlainDbContext CurrentContextBase { get; set; }
+        public override DbContextBase CurrentContextBase { get; set; }
         public BaseResposity()
         {
             SetCurrentDbContext();

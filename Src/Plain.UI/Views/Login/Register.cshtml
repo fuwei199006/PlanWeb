@@ -60,8 +60,9 @@
                         id = "txtValideCode"
                     } )*@
                 <input type="text" class="valide" placeholder="请输入验证码" id="txtValideCode" name="valideCode" />
-                <span class="valideCode" id="valueCode">1234</span>
-                <em class="errorMsg" id="txtCodeErrorMsg"> @Html.ValidationMessage("error")</em>
+                <img style="cursor: pointer; vertical-align:middle" src="@Url.Action("VerifyImage")" id="VerifyImage" title="看不清？点击换一个" onclick="javascript:document.getElementById('VerifyImage').src='@Url.Action("VerifyImage")?r='+Math.random();return false;">
+
+                <em class="errorMsg" id="txtCodeErrorMsg"> @Html.ValidationMessage("valideCode")</em>
             </span>
         </div>
         <div class="userContact ">
