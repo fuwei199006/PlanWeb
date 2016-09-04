@@ -57,7 +57,6 @@
     <Compile Include="AuthorizeFilterAttribute.cs" />
     <Compile Include="AuthorizeIgnoreAttribute.cs" />
     <Compile Include="ControllerBase.cs" />
-    <Compile Include="ExplicitException.cs" />
     <Compile Include="HttpContextBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

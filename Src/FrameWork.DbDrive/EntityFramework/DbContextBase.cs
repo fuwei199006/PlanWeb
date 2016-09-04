@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Threading.Tasks;
 using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
@@ -113,23 +116,32 @@ namespace Framework.DbDrive.EntityFramework
 
         internal void WriteLog()
         {
-            //if(this.AuditLogger==null)
-            //    return;
-            //foreach (
-            //    var dbEntry in
-            //        this.ChangeTracker.Entries<ModelBase>()
-            //            .Where(
-            //                p =>
-            //                    p.State == EntityState.Added || p.State == EntityState.Deleted ||
-            //                    p.State == EntityState.Modified))
-            //{
+            if(this.AuditLogger==null)
+                return;
+            foreach (
+                var dbEntry in
+                    this.ChangeTracker.Entries<ModelBase>()
+                        .Where(
+                            p =>
+                                p.State == EntityState.Added || p.State == EntityState.Deleted ||
+                                p.State == EntityState.Modified))
+            {
 
-            //    var auditableAttr =
-            //        dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
-            //            as AuditableAttribute;
-            //    if(auditableAttr==null)continue;
-            //    var operaterName=wcf
-            //}
+                var auditableAttr =
+                    dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
+                        as AuditableAttribute;
+                if(auditableAttr==null)continue;
+                var operaterName = WcfContext.Current.Operater.Name;
+
+                Task.Factory.StartNew(() =>
+                {
+                    var tableArr =
+                        dbEntry.Entity.GetType().GetCustomAttributes(typeof (TableAttribute),false).SingleOrDefault() as TableAttribute;
+                    var tableName = tableArr != null ? tableArr.Name : dbEntry.Entity.GetType().Name;
+                    var moduleName = dbEntry.Entity.GetType().FullName.Split('.').Skip(1).FirstOrDefault();
+                    this.AuditLogger.WriteLog(dbEntry.Entity.Id, operaterName, moduleName, tableName, dbEntry.State.ToString(), dbEntry.Entity);
+                });
+            }
              
         }
     }

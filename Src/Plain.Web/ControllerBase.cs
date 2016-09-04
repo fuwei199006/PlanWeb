@@ -1,15 +1,16 @@
 ﻿ 
+using System;
 using System.Web.Mvc;
+using Core.Config;
+using Framework.Contract;
+using Framework.Web;
 using Plain.Dto;
+using Plain.Model.Models;
 
 namespace Plain.Web
 {
     public abstract class ControllerBase:Framework.Web.ControllerBase
     {
-        public const string yes = "yes";
-        public const string no = "no";
-
-          
 
         [ValidateInput(false)]
         public ActionResult Info(string msg, MsgType type)
@@ -46,15 +47,79 @@ namespace Plain.Web
            
             SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:"+filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
         }
-
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
+            if (noAuthorizeAttributes.Length > 0)
+                return;
             base.OnActionExecuting(filterContext);
+            if (this.LoginInfo == null)
+            {
+                filterContext.Result = RedirectToAction("Login", "Login");
+                return;
+            }
+        }
+        public AdminCookieContext CookieContext
+        {
+            get
+            {
+                return AdminCookieContext.Current;
+            }
         }
 
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+
+        public AdminUserContext UserContext
         {
-            base.OnActionExecuted(filterContext);
+            get
+            {
+                return AdminUserContext.Current;
+            }
         }
+
+
+        public LocalCachedConfigContext ConfigContext
+        {
+            get
+            {
+                return LocalCachedConfigContext.Current;
+            }
+        }
+
+
+        public virtual Basic_LoginInfo LoginInfo
+        {
+            get
+            {
+                return UserContext.LoginInfo;
+            }
+        }
+
+        public override int PageSize
+        {
+            get { return 15; }
+        }
+
+
+        public override Operater Operater
+        {
+            get
+            {
+                return new Operater
+                {
+                    Name = this.LoginInfo == null ? "" : LoginInfo.LoginName,
+                    IP = this.LoginInfo == null ? "" : LoginInfo.LoginIp,
+                    Token = this.LoginInfo == null ? Guid.Empty : LoginInfo.LoginToken,
+                    UserId = this.LoginInfo == null ? 0 : LoginInfo.LoginUserId,
+                    Time = DateTime.Now
+
+                };
+            }
+        }
+
+        public virtual Guid UserToken
+        {
+            get { return CookieContext.UserToken; }
+        }
+
     }
 }

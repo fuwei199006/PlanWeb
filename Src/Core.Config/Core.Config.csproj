@@ -47,6 +47,7 @@
     <Compile Include="ConfigModel\DaoConfig.cs" />
     <Compile Include="ConfigModel\MailConfig.cs" />
     <Compile Include="ConfigModel\SettingConfig.cs" />
+    <Compile Include="ConfigModel\SystemConfig.cs" />
     <Compile Include="DbConfigService.cs" />
     <Compile Include="FileConfigService.cs" />
     <Compile Include="IConfigService.cs" />
