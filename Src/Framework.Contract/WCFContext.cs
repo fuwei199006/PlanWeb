@@ -18,7 +18,7 @@ namespace Framework.Contract
             {
                 throw new ArgumentException("value");
             }
-            if (value.GetType().IsSerializable)
+            if (!value.GetType().IsSerializable)
             {
                 throw new ArgumentException(string.Format("The argument of the type \"{0}\" is not serializable!",
                     value.GetType().FullName));

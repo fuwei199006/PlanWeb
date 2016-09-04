@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminCookieContext.cs" />
+    <Compile Include="AdminUserContext.cs" />
     <Compile Include="ControllerBase.cs" />
     <Compile Include="CookieContext.cs" />
     <Compile Include="IAuthCookie.cs" />

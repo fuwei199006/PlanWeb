@@ -46,5 +46,15 @@ namespace Plain.Web
            
             SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:"+filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
         }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+        }
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            base.OnActionExecuted(filterContext);
+        }
     }
 }

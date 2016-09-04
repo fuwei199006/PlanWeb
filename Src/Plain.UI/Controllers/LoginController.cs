@@ -98,10 +98,7 @@ namespace Plain.UI.Controllers
             register.RegisterStatus = true;
             register.RegisterPhone = "NaN";//代表没有手机号
             register.RegisterToken = Guid.NewGuid();
-       
-
-
-
+ 
             var result = _registerService.AddRegister(register);
             var existUser = _userService.EmailExist(result.RegisterEmail);
             if (existUser == null)//防止重复注册

@@ -32,14 +32,13 @@ namespace Plain.BLL.LoginService
             if (user != null)
             {
                 var ip = Fetch.UserIp;
-                loginInfo = this.CurrentResposity.Get(r => r.LoginName == loginName && r.LoginIp == ip);
+                loginInfo = this.CurrentResposity.Get(r => r.LoginName == loginName && r.LoginIp == ip&&!r.IsDelete);
                 if (loginInfo != null)
                 {
                     loginInfo.LastUpdateTime=DateTime.Now;
                     loginInfo.ExpireTime = DateTime.Now.AddHours(1);
                     loginInfo.LoginIp = Fetch.UserIp;
-                  
-
+                    this.CurrentResposity.Update(loginInfo);
                 }
                 else
                 {
@@ -59,9 +58,9 @@ namespace Plain.BLL.LoginService
         {
             return this.CurrentResposity.GetList(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
         }
-        public bool LoginOut(string loginName)
+        public bool LoginOut(Guid token)
         {
-            var entity = this.CurrentResposity.Get(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
+            var entity = this.CurrentResposity.Get(r => r.LoginToken==token);
             if (entity == null) return true;
             entity.IsDelete = true;
             entity.LastUpdateTime=DateTime.Now;
@@ -78,8 +77,7 @@ namespace Plain.BLL.LoginService
                 existLogin.ForEach(x =>
                 {
                     //添加前先删除原来的登录信息
-                    this.LoginOut(x.LoginName);
-
+                    this.LoginOut(x.LoginToken);
                 });
 
             }

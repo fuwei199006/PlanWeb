@@ -41,5 +41,17 @@ namespace Plain.BLLTests.LoginService
             var obje =
                 typeof (BaseService<>).IsAssignableFrom(typeof (BaseService<>).GetInterface(typeof (IBaseService<>).Name));
         }
+
+
+        [TestMethod()]
+        public void LogintOut()
+        {
+            ILoginService loginService = new BLL.LoginService.LoginService();
+
+          var res=  loginService.LoginOut(new Guid("CF107749-65CD-4F67-94FD-877C88A106C1"));
+
+            Assert.AreEqual(res,true);
+
+        }
     }
 }
