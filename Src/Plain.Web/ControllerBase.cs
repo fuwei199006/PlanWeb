@@ -55,7 +55,7 @@ namespace Plain.Web
             base.OnActionExecuting(filterContext);
             if (this.LoginInfo == null)
             {
-                filterContext.Result = RedirectToAction("Login", "Login");
+                filterContext.Result = RedirectToAction("Index", "Login");
                 return;
             }
         }

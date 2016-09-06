@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Plain.UI.Areas.Auth
+namespace Plain.UI
 {
     public class AuthAreaRegistration : AreaRegistration 
     {

@@ -15,6 +15,7 @@ using Plain.BLL.RegisterService;
 using Plain.BLL.UserService;
 using Plain.Dto;
 using Plain.Model.Models;
+using Plain.UI.Areas.Auth.Controllers;
 
 namespace Plain.UI.Controllers
 {
@@ -32,6 +33,7 @@ namespace Plain.UI.Controllers
         }
 
         // GET: Login
+           [AuthorizeIgnore]
         public ActionResult Index()
         {
             return View();
@@ -51,7 +53,7 @@ namespace Plain.UI.Controllers
                 //跳转到错误页面，已经过期
                 return SkipAndAlert("注册信息不存在，请先注册,3秒后自动跳转注册页面", MsgType.Error, true, Url.Action("Register"));
             }
-            else if (register.Expiretime < DateTime.Now)
+              if (register.Expiretime < DateTime.Now)
             {
                 //跳转到错误页面，已经过期
                 return SkipAndAlert("注册信息已经过期，请重新注册,3秒后自动跳转注册页面", MsgType.Error, true, Url.Action("Register"));
@@ -130,11 +132,7 @@ namespace Plain.UI.Controllers
 
 
         }
-        [AuthorizeIgnore]
-        public ActionResult Login()
-        {
-            return View();
-        }
+    
         [AuthorizeIgnore]
         [HttpPost]
         public ActionResult Login(string loginName,string password,string valideCode)
@@ -153,7 +151,7 @@ namespace Plain.UI.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError("valideCode", "用户名或密码不正确");
-            return View();
+            return View("Index");
         }
 
         [AuthorizeIgnore]
