@@ -18,16 +18,16 @@
 
             </h1>
             <div class="hotTitle">
-                <dl class="clear">
-                    <dt><a href="#">支付宝改版的原因</a></dt>
+                @foreach (var m in AdminCacheContext.Current.HotArticle)
+                {
+                    <dl class="clear">
+                        <dt><a href='@Url.Action("ArticleView", new {id = m.Id})'> @m.Title</a></dt>
 
-                    <dd><a href="#">这个方面可以咨询这里....</a></dd>
-                </dl>
-                <dl class="clear">
-                    <dt><a href="#">支付宝改版的原因支付宝改版的原因</a></dt>
-
-                    <dd><a href="#">这个方面可以咨询这里....</a></dd>
-                </dl>
+                        <dd><a href='@Url.Action("ArticleView",new {id=m.Id})'>@m.SubTitle....</a></dd>
+                    </dl>
+                }
+              
+               
             </div>
         </div>
         <div class="titleList">

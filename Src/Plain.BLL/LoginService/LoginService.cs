@@ -27,8 +27,8 @@ namespace Plain.BLL.LoginService
             Basic_LoginInfo loginInfo = null;
             var keyPass = MD5Encrypt.Md5(password);
             var user =
-                ServiceContext.CreateService<UserService.UserService>()
-                    .Get(r => r.LoginName == loginName && r.UserPwd == keyPass && r.UserStaus == 1);
+                ServiceContext.Current.CreateService<UserService.IUserService>()
+                    .UserPass(loginName,keyPass);
             if (user != null)
             {
                 var ip = Fetch.UserIp;

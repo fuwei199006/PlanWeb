@@ -24,7 +24,7 @@ namespace Core.Service
 
       
 
-        public static T CreateService<T>() where T : class, new()
+        public static T CreateService<T>() where T : class
         {
             var service = Current.CreateService<T>();
             //

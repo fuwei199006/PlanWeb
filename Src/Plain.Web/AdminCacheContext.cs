@@ -22,7 +22,7 @@ namespace Plain.Web
             get
             {
                return CacheContext.Get("m_Nav",
-                    () => ServiceContext.Current.CreateService<MenuService>().GetMenusByType("m_Nav"));
+                    () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByType("m_Nav"));
             }
         }
         public virtual List<Basic_Article> HotArticle
@@ -30,7 +30,7 @@ namespace Plain.Web
             get
             {
                 return CacheContext.Get("HotArticle",
-                     () => ServiceContext.Current.CreateService<ArticleService>().GetArticlesByCategory("HotArticle"));
+                     () => ServiceContext.Current.CreateService<IArticleService>().GetArticlesByCategory("HotArticle"));
             }
         }
     }

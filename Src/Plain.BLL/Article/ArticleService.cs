@@ -13,5 +13,10 @@ namespace Plain.BLL.Article
                     .OrderByDescending(r => r.ModifyTIme)
                     .ToList();
         }
+
+        public Basic_Article GetArticlesById(int id)
+        {
+            return this.CurrentResposity.GetByIdNoTracking(id);
+        }
     }
 }

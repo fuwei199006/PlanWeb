@@ -239,6 +239,7 @@
     <Content Include="Areas\Auth\Views\web.config" />
     <Content Include="Areas\CMS\Views\web.config" />
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
     <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

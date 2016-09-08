@@ -20,14 +20,14 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.GetItem < Basic_LoginInfo>("LoginInfo", () =>
+                return CacheContext.GetItem <Basic_LoginInfo>("LoginInfo", () =>
                 {
                     if (AuthCookie.UserToken == Guid.Empty)
                     {
                         return null;
                     }
                     var loginInfo =
-                        ServiceContext.Current.CreateService<LoginService>().GetLoginInfoByToken(AuthCookie.UserToken);
+                        ServiceContext.Current.CreateService<ILoginService>().GetLoginInfoByToken(AuthCookie.UserToken);
                     if (loginInfo != null && loginInfo.LoginUserId > 0 &&
                         loginInfo.LoginUserId != this.AuthCookie.UserId)
                     {

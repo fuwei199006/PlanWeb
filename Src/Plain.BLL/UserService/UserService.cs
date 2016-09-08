@@ -31,5 +31,9 @@ namespace Plain.BLL.UserService
             return this.CurrentResposity.GetNoTracking(r => r.UserEmail == email);
         }
 
+        public Basic_UserInfo UserPass(string loginName, string pwd)
+        {
+            return this.CurrentResposity.GetNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == 1);
+        }
     }
 }
