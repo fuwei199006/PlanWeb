@@ -1,34 +1,34 @@
 ﻿@model Plain.Model.Models.Basic_Article
 
 @{
-    ViewBag.Title = "title";
-    Layout = Url.Content("~/Views/Shared/_Layout.cshtml"); ;
+	ViewBag.Title = "title";
+	Layout = Url.Content("~/Views/Shared/_Layout.cshtml"); 
 }
 
 
 
 
 @*<div class="wrap breadnav">
-    <span><em>当前位置：</em>  <a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;<a href="javascript:void(0)">新闻列表</a>&nbsp;>&nbsp;<a href="javascript:void(0)">xxxx</a></span>
-    	 <div class="f_right">搜索：<input type="text"  class="search"/></div>
+	<span><em>当前位置：</em>  <a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;<a href="javascript:void(0)">新闻列表</a>&nbsp;>&nbsp;<a href="javascript:void(0)">xxxx</a></span>
+		 <div class="f_right">搜索：<input type="text"  class="search"/></div>
 </div>*@
 <div class="article center">
-    <h1>@Model.Title</h1>
-    <div class="source">
-        &nbsp;@Model.CreateTime &nbsp;&nbsp;来源：@Model.Source &nbsp;
-        <a href="#" target="_blank">我来投稿</a>&nbsp;
-        <a href="#SOHUCS">我要评论</a>
+	<h1>@Model.Title</h1>
+	<div class="source">
+		&nbsp;@Model.CreateTime &nbsp;&nbsp;来源：@Model.Source &nbsp;
+		<a href="#" target="_blank">我来投稿</a>&nbsp;
+		<a href="#SOHUCS">我要评论</a>
 
-        <div style="position:absolute;right:190px;top:0px;width:145px;">
-            <div class="bdsharebuttonbox bdshare-button-style0-16">
-                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                <a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
-            </div>
-            <script>
+		<div style="position:absolute;right:190px;top:0px;width:145px;">
+			<div class="bdsharebuttonbox bdshare-button-style0-16">
+				<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+				<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+				<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+			</div>
+			<script>
 						window._bd_share_config = {
 							"common": {
 								"bdSnsKey": {},
@@ -42,234 +42,211 @@
 							"share": {}
 						};
 						with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-            </script>
-        </div>
+			</script>
+		</div>
 
-    </div>
-    <div class="articleContent">
+	</div>
+	<div class="articleContent">
 
-        @Html.Raw(Model.Content)
-        <p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
-        <div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>
-        <p style="font-size:14px;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。</p>
+		@Html.Raw(Model.Content)
+		<p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
+		<div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>
+		<p style="font-size:14px;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。</p>
 
-    </div>
+	</div>
 </div>
 <div class="extentionBox center">
-    <div class="f_left">
-        <h1>相关推荐</h1>
-        <ul>
-            <li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+	<div class="f_left">
+		<h1>相关推荐</h1>
+		<ul>
+			<li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
 
-        </ul>
-    </div>
-    <div class="f_left">
-        <h1>热点推荐</h1>
-        <ul>
-            <li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+		</ul>
+	</div>
+	<div class="f_left">
+		<h1>热点推荐</h1>
+		<ul>
+			<li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
 
-        </ul>
-    </div>
-    <div class="f_left">
-        <h1>其它推荐</h1>
-        <ul>
-            <li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
-            <li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+		</ul>
+	</div>
+	<div class="f_left">
+		<h1>其它推荐</h1>
+		<ul>
+			<li>1、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>2、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>3、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>4、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>5、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
+			<li>6、曾站在风口上的汽车电商已经逐渐走入困境之中</li>
 
-        </ul>
-    </div>
+		</ul>
+	</div>
 </div>
 <div class="center picinfoBox clear">
-    <div class="picinfoTilte">
-        热点文章
-        <div class="page f_right">
-            <ul id="page">
-                <li class="active">
-                    <a href="javascript:void(0)">1</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">2</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">3</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">4</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="picinfoContent">
-        <ul>
-            <li>
-                <div>
-                    <a href="#">
-                        <img src="img/weixin.png" alt="" />
-                    </a>
-                </div>
-                <a href="#">每个员工将在本月15日之前得到一个月</a>
-            </li>
-            <li>
-                <div>
-                    <a href="#">
-                        <img src="img/weixin.png" alt="" />
-                    </a>
-                </div>
-                <a href="#">每个员工将在本月15日之前得到一个月</a>
-            </li>
-            <li>
-                <div>
-                    <a href="#">
-                        <img src="img/weixin.png" alt="" />
-                    </a>
-                </div>
-                <a href="#">每个员工将在本月15日之前得到一个月</a>
-            </li>
-            <li>
-                <div>
-                    <a href="#">
-                        <img src="img/weixin.png" alt="" />
-                    </a>
-                </div>
-                <a href="#">每个员工将在本月15日之前得到一个月</a>
-            </li>
-            <li>
-                <div>
-                    <a href="#">
-                        <img src="img/weixin.png" alt="" />
-                    </a>
-                </div>
-                <a href="#">每个员工将在本月15日之前得到一个月</a>
-            </li>
-        </ul>
-    </div>
+	<div class="picinfoTilte">
+		热点文章
+		<div class="page f_right">
+			<ul id="page">
+				<li class="active">
+					<a href="javascript:void(0)">1</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">2</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">3</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">4</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="picinfoContent">
+		<ul>
+			<li>
+				<div>
+					<a href="#">
+						<img src="img/weixin.png" alt="" />
+					</a>
+				</div>
+				<a href="#">每个员工将在本月15日之前得到一个月</a>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="img/weixin.png" alt="" />
+					</a>
+				</div>
+				<a href="#">每个员工将在本月15日之前得到一个月</a>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="img/weixin.png" alt="" />
+					</a>
+				</div>
+				<a href="#">每个员工将在本月15日之前得到一个月</a>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="img/weixin.png" alt="" />
+					</a>
+				</div>
+				<a href="#">每个员工将在本月15日之前得到一个月</a>
+			</li>
+			<li>
+				<div>
+					<a href="#">
+						<img src="img/weixin.png" alt="" />
+					</a>
+				</div>
+				<a href="#">每个员工将在本月15日之前得到一个月</a>
+			</li>
+		</ul>
+	</div>
 </div>
 <div class="commitBox center">
-    <span class="login f_right"><a href="#">登录</a></span>
-    <span class="login f_right"><a href="#">注册</a></span>
-    <div class="commit clear">
-        <textarea placeholder="来说两句吧..."></textarea>
-    </div>
-    <button class="f_right btnSubmit ">评论</button>
+	<span class="login f_right"><a href="#">登录</a></span>
+	<span class="login f_right"><a href="#">注册</a></span>
+	<div class="commit clear">
+		<textarea placeholder="来说两句吧..."></textarea>
+	</div>
+	<button class="f_right btnSubmit ">评论</button>
 </div>
 <div class="discussBox center">
-    <div class="noneDiscuss   clear" style="display: none;">还没有评论，快来抢沙发吧！</div>
-    <div class="discuss   clear">
-        <ul class="f_left discussNav">
-            <li>评论</li>
-        </ul>
-        <ul class="f_left line"></ul>
-    </div>
-    <div class="clear discussList  ">
-        <h1>最新评论</h1>
-        <ul>
-            <li class="discussItem clear">
-                <div class="discussContent">
-                    <div class="user f_left">
-                        <img src="img/weixin.png" alt="" />
-                    </div>
-                </div>
-                <div class="userinfo">
-                    <ul>
-                        <li>
-                            <a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
-                        </li>
-                        <li class="discussText">先改个名字吧</li>
-                    </ul>
-                </div>
-                <div class="discussOperate f_right  ">
-                    <span><a href="#">赞</a></span>
-                    <span><a href="#">回复</a></span>
-                    <span><a href="#">举报</a></span>
+	<div class="noneDiscuss   clear" style="display: none;">还没有评论，快来抢沙发吧！</div>
+	<div class="discuss   clear">
+		<ul class="f_left discussNav">
+			<li>评论</li>
+		</ul>
+		<ul class="f_left line"></ul>
+	</div>
+	<div class="clear discussList  ">
+		<h1>最新评论</h1>
+		<ul>
+			<li class="discussItem clear">
+				<div class="discussContent">
+					<div class="user f_left">
+						<img src="img/weixin.png" alt="" />
+					</div>
+				</div>
+				<div class="userinfo">
+					<ul>
+						<li>
+							<a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
+						</li>
+						<li class="discussText">先改个名字吧</li>
+					</ul>
+				</div>
+				<div class="discussOperate f_right  ">
+					<span><a href="#">赞</a></span>
+					<span><a href="#">回复</a></span>
+					<span><a href="#">举报</a></span>
 
-                </div>
-                <div class="clear"></div>
-            </li>
-            <li class="discussItem clear">
-                <div class="discussContent">
-                    <div class="user f_left">
-                        <img src="img/weixin.png" alt="" />
-                    </div>
-                </div>
-                <div class="userinfo">
-                    <ul>
-                        <li>
-                            <a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
-                        </li>
-                        <li class="discussText">先改个名字吧</li>
-                    </ul>
-                </div>
-                <div class="discussOperate f_right ">
-                    <span><a href="#">赞</a></span>
-                    <span><a href="#">回复</a></span>
-                    <span><a href="#">举报</a></span>
+				</div>
+				<div class="clear"></div>
+			</li>
+			<li class="discussItem clear">
+				<div class="discussContent">
+					<div class="user f_left">
+						<img src="img/weixin.png" alt="" />
+					</div>
+				</div>
+				<div class="userinfo">
+					<ul>
+						<li>
+							<a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
+						</li>
+						<li class="discussText">先改个名字吧</li>
+					</ul>
+				</div>
+				<div class="discussOperate f_right ">
+					<span><a href="#">赞</a></span>
+					<span><a href="#">回复</a></span>
+					<span><a href="#">举报</a></span>
 
-                </div>
-                <div class="clear"></div>
-            </li>
-            <li class="discussItem clear">
-                <div class="discussContent">
-                    <div class="user f_left">
-                        <img src="img/weixin.png" alt="" />
-                    </div>
-                </div>
-                <div class="userinfo">
-                    <ul>
-                        <li>
-                            <a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
-                        </li>
-                        <li class="discussText">以某垂直类网站在2013年的购车节为例，这个在1月11日斥资5000万元打造消费节日，最终销售近15000辆车，总成交金额超过22亿元。但其内部人士曾对记者表示，这一结果是将原有的线下购车活动搬到线上制造出的一种“虚假繁荣”，并没有在根本上触及汽车交易的真谛。而直到现在，很多所谓的汽车电商，都是如此操作的。</li>
-                    </ul>
-                </div>
-                <div class="discussOperate f_right">
-                    <span><a href="#">赞</a></span>
-                    <span><a href="#">回复</a></span>
-                    <span><a href="#">举报</a></span>
+				</div>
+				<div class="clear"></div>
+			</li>
+			<li class="discussItem clear">
+				<div class="discussContent">
+					<div class="user f_left">
+						<img src="img/weixin.png" alt="" />
+					</div>
+				</div>
+				<div class="userinfo">
+					<ul>
+						<li>
+							<a href="#">Goodpeople2013</a><em>[河南省郑州市网友]</em>
+						</li>
+						<li class="discussText">以某垂直类网站在2013年的购车节为例，这个在1月11日斥资5000万元打造消费节日，最终销售近15000辆车，总成交金额超过22亿元。但其内部人士曾对记者表示，这一结果是将原有的线下购车活动搬到线上制造出的一种“虚假繁荣”，并没有在根本上触及汽车交易的真谛。而直到现在，很多所谓的汽车电商，都是如此操作的。</li>
+					</ul>
+				</div>
+				<div class="discussOperate f_right">
+					<span><a href="#">赞</a></span>
+					<span><a href="#">回复</a></span>
+					<span><a href="#">举报</a></span>
 
-                </div>
-                <div class="clear"></div>
-            </li>
+				</div>
+				<div class="clear"></div>
+			</li>
 
-        </ul>
-    </div>
-
-</div>
-
-<div class="clear footer">
-    <div class="center">
-        <div class="footeritem f_left  ">
-            <span>关注我们</span>
-            <img src="img/weixin.png" />
-        </div>
-        <div class="footeritem f_left  ">
-            <span>关注我们</span>
-            <img src="img/weixin.png" />
-        </div>
-        <div class="footeritem f_left  ">
-            <span>关注我们</span>
-            <img src="img/weixin.png" />
-        </div>
-        <div class="info  f_left  ">
-            <div><em>联系方式：</em><span>12345678910</span></div>
-            <div> <em>地址：</em><span>xxxxxxxxxx</span></div>
-            <div><em>其它方式：</em><span>QQ、微信、微博</span></div>
-
-        </div>
-
-    </div>
+		</ul>
+	</div>
 
 </div>
+
+ 
