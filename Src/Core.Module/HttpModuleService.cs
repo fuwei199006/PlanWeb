@@ -35,7 +35,7 @@ namespace Core.Module
             }
             path = path.Substring(path.IndexOf("/", StringComparison.Ordinal) + 1);
             var handler = path.Substring(0, path.LastIndexOf(".", StringComparison.Ordinal)).ToLower();
-            if (handlers.ContainsKey(path))
+            if (handlers.ContainsKey(handler))
             {
                 handlers[handler].ProcessRequest(context);
             }

@@ -1,5 +1,6 @@
 ﻿ 
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Core.Config;
 using Framework.Contract;
@@ -93,6 +94,16 @@ namespace Plain.Web
                 return UserContext.LoginInfo;
             }
         }
+
+        public static AdminCacheContext  CacheContext
+        {
+            get
+            {
+                return AdminCacheContext.Current;
+            }
+        }
+
+       
 
         public override int PageSize
         {

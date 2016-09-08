@@ -31,11 +31,9 @@ namespace Core.Service
             {
                 interFanceName += "_" + typeof (T).GetGenericArguments()[0].Name;
             }
-//#if DEBUG
-//            return  new T();
-//#else
+ 
            return CacheContext.GetItem<T>(string.Format("Service_{0}", interFanceName), () => new T());
-//#endif
+ 
         }
     }
     public class WcfServiceFactory:ServiceFactory

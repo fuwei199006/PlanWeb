@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B3CD041C-0F4A-480B-A9B6-C7964733C995}"
 EndProject
@@ -76,6 +76,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.Dto", "Plain.Dto\Plain.Dto.csproj", "{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.CMS", "Plain.CMS\Plain.CMS.csproj", "{F21496D5-47DF-4749-870C-26C855D49175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Api", "Framework.Api\Framework.Api.csproj", "{0654EA72-8691-467B-989B-7C27620750AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +205,10 @@ Global
 		{F21496D5-47DF-4749-870C-26C855D49175}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F21496D5-47DF-4749-870C-26C855D49175}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F21496D5-47DF-4749-870C-26C855D49175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0654EA72-8691-467B-989B-7C27620750AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0654EA72-8691-467B-989B-7C27620750AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0654EA72-8691-467B-989B-7C27620750AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0654EA72-8691-467B-989B-7C27620750AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -239,5 +245,6 @@ Global
 		{1DF1B9BF-8AEE-4432-9A20-816BB4372195} = {EEB7D637-50B0-45C0-9B27-793C3334D9ED}
 		{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A} = {65DFFB61-2254-419E-8C47-017AC4D3CB49}
 		{F21496D5-47DF-4749-870C-26C855D49175} = {C6BDF8B1-720B-4AB5-80D6-11BF1AD4C737}
+		{0654EA72-8691-467B-989B-7C27620750AF} = {26155C11-F6EE-4AE6-B090-939FB17C6A65}
 	EndGlobalSection
 EndGlobal

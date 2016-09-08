@@ -181,7 +181,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
-    <Compile Include="Areas\Auth\Controllers\BaseController.cs" />
+    <Compile Include="App_Start\CMSAreaRegistration.cs" />
+    <Compile Include="Areas\CMS\Controllers\CmsHomeController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Auth\Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,7 +237,9 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Areas\Auth\Views\web.config" />
-    <None Include="Config\DaoConfig.config">
+    <Content Include="Areas\CMS\Views\web.config" />
+    <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
+    <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -273,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\CMS\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -293,6 +298,10 @@
     <ProjectReference Include="..\Core.Message\Core.Message.csproj">
       <Project>{E8707FBB-D5B5-41ED-86DD-7AABCBBC703A}</Project>
       <Name>Core.Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Module\Core.Module.csproj">
+      <Project>{6f1125ed-c3d1-46df-9a22-aebf0cc2cf78}</Project>
+      <Name>Core.Module</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.BLL\Framework.BLL.csproj">
       <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>

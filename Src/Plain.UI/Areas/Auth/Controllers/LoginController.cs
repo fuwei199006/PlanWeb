@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Validation;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Core.Encrypt;
 using Core.Message;
 using Framework.Utility;
 using Framework.Utility.ValideCode;
 using Framework.Web;
-using Newtonsoft.Json;
 using Plain.BLL.LoginService;
 using Plain.BLL.RegisterService;
 using Plain.BLL.UserService;
 using Plain.Dto;
 using Plain.Model.Models;
-using Plain.UI.Areas.Auth.Controllers;
+using Plain.UI.Controllers;
 
-namespace Plain.UI.Controllers
+namespace Plain.UI.Areas.Auth.Controllers
 {
     public class LoginController : BaseController
     {

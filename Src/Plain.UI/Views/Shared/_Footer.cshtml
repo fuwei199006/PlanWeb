@@ -1,16 +1,18 @@
-﻿ <div class="clear footer">
+﻿@using Framework.Extention
+ <div class="clear footer">
     <div class="center">
         <div class="footeritem f_left  ">
             <span>关注我们</span>
-            <img src="img/weixin.png" />
+
+            <img src='@Url.StaticFile("~/Content/img/weixin.png")' />
         </div>
         <div class="footeritem f_left  ">
             <span>关注我们</span>
-            <img src="img/weixin.png" />
+            <img src='@Url.StaticFile("~/Content/img/weixin.png")' />
         </div>
         <div class="footeritem f_left  ">
             <span>关注我们</span>
-            <img src="img/weixin.png" />
+            <img src= '@Url.StaticFile("~/Content/img/weixin.png")'  />
         </div>
         <div class="info  f_left  ">
             <div><em>联系方式：</em><span>12345678910</span></div>

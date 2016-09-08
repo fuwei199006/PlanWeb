@@ -112,14 +112,14 @@ namespace Core.Module
                     var cacheManager = new OutputCacheManager();//？？？清除缓存这个为什么？？？
                     cacheManager.RemoveItems();
 
-                    res.Write("清除缓存成功！<a href=''>[!点击返回]</a>");
+                    res.Write("清除缓存成功！<a href='javascript:window.close();'>[!点击关闭]</a>");
                 }
                 if (req["key"] != null)
                 {
                     var data = CacheContext.Get(req["key"]);
                     if (data != null)
                     {
-                        res.Write(JsonConvert.SerializeObject(data)+ "&nbsp<a href=''>[!点击返回]</a>");
+                        res.Write(JsonConvert.SerializeObject(data)+ "&nbsp<a href='javascript:window.close();'>[!点击关闭]</a>");
                     }
                 }
             }

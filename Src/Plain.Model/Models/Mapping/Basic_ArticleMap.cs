@@ -15,6 +15,9 @@ namespace Plain.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(200);
 
+            this.Property(t => t.SubTitle)
+               .IsRequired()
+               .HasMaxLength(200);
             this.Property(t => t.Author)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -37,6 +40,7 @@ namespace Plain.Model.Models.Mapping
             this.ToTable("Basic_Article");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Title).HasColumnName("Title");
+            this.Property(t => t.SubTitle).HasColumnName("SubTitle");
             this.Property(t => t.Author).HasColumnName("Author");
             this.Property(t => t.Category).HasColumnName("Category");
             this.Property(t => t.Content).HasColumnName("Content");
