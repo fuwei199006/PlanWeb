@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   fuwei16
-* @Last Modified time: 2016-09-07 17:09:54
+* @Last Modified time: 2016-09-09 14:12:23
 */
 
 --CREATE DATABASE PlanDB;
@@ -156,6 +156,7 @@ CREATE TABLE Basic_Article
       Category NVARCHAR(50) NOT NULL ,
       Content NVARCHAR(MAX) NOT NULL ,
       Source NVARCHAR(100) NOT NULL ,
+      SourceUrl NVARCHAR(100) NOT NULL ,
       Sort int not null DEFAULT 1,
       KeyWord NVARCHAR(50) ,
       CreateTime DATETIME ,

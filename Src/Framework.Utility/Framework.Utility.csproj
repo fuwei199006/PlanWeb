@@ -76,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Exception\Core.Exception.csproj">
+      <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
+      <Name>Core.Exception</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Frameworke.Dtos\Frameworke.Dtos.csproj">
       <Project>{AFB07491-331D-43D0-85F7-84B25049E166}</Project>
       <Name>Frameworke.Dtos</Name>

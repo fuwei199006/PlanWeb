@@ -18,12 +18,12 @@
 
             </h1>
             <div class="hotTitle">
-                @foreach (var m in AdminCacheContext.Current.HotArticle)
+                @foreach (var m in AdminCacheContext.Current.HotArticles)
                 {
                     <dl class="clear">
-                        <dt><a href='@Url.Action("ArticleView", new {id = m.Id})'> @m.Title</a></dt>
+                        <dt><a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'> @m.Title</a></dt>
 
-                        <dd><a href='@Url.Action("ArticleView",new {id=m.Id})'>@m.SubTitle....</a></dd>
+                        <dd><a href='@Url.Action("ArticleView",new {id=m.Id})' target='_blank'>@m.SubTitle....</a></dd>
                     </dl>
                 }
               
@@ -32,18 +32,15 @@
         </div>
         <div class="titleList">
             <ul>
-                <li>
-                    <a>微信又双叒叕出故障了 是在内测直播？商业绑架？</a>
-                </li>
-                <li>
-                    <a>微信又双叒叕出故障了 是在内测直播？商业绑架？</a>
-                </li>
-                <li>
-                    <a>微信又双叒叕出故障了 是在内测直播？商业绑架？</a>
-                </li>
-                <li>
-                    <a>微信又双叒叕出故障了 是在内测直播？商业绑架？</a>
-                </li>
+                @foreach (var m in AdminCacheContext.Current.TopArticles)
+                {
+                    <li>
+                        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                    </li>
+
+                }
+              
+
 
             </ul>
         </div>

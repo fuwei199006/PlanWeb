@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Cache;
 using Core.Service;
 using Plain.BLL.Article;
@@ -25,12 +26,29 @@ namespace Plain.Web
                     () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByType("m_Nav"));
             }
         }
-        public virtual List<Basic_Article> HotArticle
+        public   List<Basic_Article>  Articles
+        {
+            get
+            {
+                return CacheContext.Get("ArticleList",
+                     () => ServiceContext.Current.CreateService<IArticleService>().GetArticles());
+            }
+        }
+        public virtual List<Basic_Article> HotArticles
         {
             get
             {
                 return CacheContext.Get("HotArticle",
-                     () => ServiceContext.Current.CreateService<IArticleService>().GetArticlesByCategory("HotArticle"));
+                     () => Articles.Where(r=>r.Category== "HotArticle").ToList());
+            }
+        }
+
+        public virtual List<Basic_Article> TopArticles
+        {
+            get
+            {
+                return CacheContext.Get("TopArticle",
+                     () => Articles.Where(r => r.Category == "TopArticle").ToList());
             }
         }
     }

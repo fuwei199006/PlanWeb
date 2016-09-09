@@ -1,6 +1,22 @@
 ﻿using System;
+using System.Text;
 using Framework.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Framework.Utility.Tests
+{
+    [TestClass()]
+    public class RequestHelperTests
+    {
+        [TestMethod()]
+        public void GetContentTest()
+        {
+            var result =
+                RequestHelper.GetContent("https://www.baidu.com/", 0,3,Encoding.UTF8);
+            Assert.IsNotNull(result);
+        }
+    }
+}
 
 namespace Framework.UtilityTests
 {

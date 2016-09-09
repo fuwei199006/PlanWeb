@@ -33,6 +33,10 @@ namespace Plain.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            this.Property(t => t.SourceUrl)
+           .IsRequired()
+           .HasMaxLength(200);
+
             this.Property(t => t.KeyWord)
                 .HasMaxLength(50);
 
@@ -45,6 +49,7 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.Category).HasColumnName("Category");
             this.Property(t => t.Content).HasColumnName("Content");
             this.Property(t => t.Source).HasColumnName("Source");
+            this.Property(t => t.SourceUrl).HasColumnName("SourceUrl");
             this.Property(t => t.KeyWord).HasColumnName("KeyWord");
             this.Property(t => t.CreateTime).HasColumnName("CreateTime");
             this.Property(t => t.ModifyTIme).HasColumnName("ModifyTIme");

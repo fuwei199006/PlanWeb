@@ -14,6 +14,11 @@ namespace Plain.BLL.Article
                     .ToList();
         }
 
+        public List<Basic_Article> GetArticles()
+        {
+          return this.CurrentResposity.GetListNoTracking(r=>r.ArticleStatus==1);
+        }
+
         public Basic_Article GetArticlesById(int id)
         {
             return this.CurrentResposity.GetByIdNoTracking(id);

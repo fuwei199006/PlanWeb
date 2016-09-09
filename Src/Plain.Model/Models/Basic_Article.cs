@@ -14,9 +14,11 @@ namespace Plain.Model.Models
         public int Sort { get; set; }
         public string Content { get; set; }
         public string Source { get; set; }
+        public string SourceUrl { get; set; }
         public string KeyWord { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> ModifyTIme { get; set; }
         public Nullable<int> ArticleStatus { get; set; }
+        
     }
 }
