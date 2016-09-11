@@ -23,5 +23,10 @@ namespace Plain.BLL.Article
         {
             return this.CurrentResposity.GetByIdNoTracking(id);
         }
+
+        public void AddArticleList(List<Basic_Article> articles)
+        {
+              this.CurrentResposity.AddRange(articles);
+        }
     }
 }

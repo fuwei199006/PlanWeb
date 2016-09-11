@@ -9,5 +9,7 @@ namespace Plain.BLL.Article
         List<Basic_Article> GetArticles();
         Basic_Article GetArticlesById(int id);
 
+        void AddArticleList(List<Basic_Article> articles);
+
     }
 }

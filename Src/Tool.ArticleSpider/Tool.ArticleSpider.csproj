@@ -33,7 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,6 +74,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Config\DaoConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,9 +91,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Service\Core.Service.csproj">
+      <Project>{A6601D7B-3869-494C-9BB4-CE2EFDDC3872}</Project>
+      <Name>Core.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
       <Name>Framework.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
+      <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
+      <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
+      <Name>Plain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

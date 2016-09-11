@@ -76,7 +76,7 @@ namespace Framework.Utility
         {
             return GetContent(url, 0, 1, Encoding.UTF8);
         }
-        public static string GetContent(string url,int timeOut, int reTry)
+        public static string GetContent(string url, int timeOut, int reTry)
         {
             return GetContent(url, timeOut, reTry, Encoding.UTF8);
         }
@@ -86,7 +86,7 @@ namespace Framework.Utility
             var content = GetContent(url, 0, 3);
             if (filter != null)
             {
-               return filter(content);
+                return filter(content);
             }
             return content;
         }
@@ -95,7 +95,7 @@ namespace Framework.Utility
         {
             while (reTry > 0)
             {
-               
+
                 try
                 {
 
@@ -113,24 +113,57 @@ namespace Framework.Utility
                             sb.Append(strLine);
                         }
 
-                        
+
                         return sb.ToString();
-                        
+
                     }
 
                 }
-               
+
                 catch (WebException)
                 {
-                    
+
                 }
                 finally
                 {
                     reTry--;
                 }
-               
+
             }
             throw new OverRetryException("已经超过了最大的重试次数");
+        }
+
+        public static string GetUrlContent(string url)
+        {
+
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                var response = request.GetResponse();
+                var stream = response.GetResponseStream();
+                if (stream != null && stream != Stream.Null)
+                {
+                    var streamReader = new StreamReader(stream, Encoding.UTF8);
+                    StringBuilder sb = new StringBuilder();
+                    string strLine;
+                    while ((strLine = streamReader.ReadLine()) != null)
+                    {
+                        sb.Append(strLine);
+                    }
+
+
+                    return sb.ToString();
+
+                }
+                return String.Empty;
+            }
+            catch 
+            {
+                return String.Empty;
+            }
+          
+
+
         }
     }
 }

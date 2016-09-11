@@ -240,7 +240,7 @@
     <Content Include="Areas\CMS\Views\web.config" />
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
-    <None Include="Config\DaoConfig1.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
