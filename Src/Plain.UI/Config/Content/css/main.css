@@ -1,0 +1,850 @@
+/*Reset Css*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+    input.hidefocus::-moz-focus-inner {
+        border: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var,
+optgroup,
+b {
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+del,
+ins {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: baseline;
+}
+
+sub {
+    vertical-align: baseline;
+}
+
+legend {
+    color: #5A5A5A;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+    font-size: 100%;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+small {
+    font-size: 12px;
+    display: block;
+}
+
+body {
+    color: #222;
+    font: 14px/1.5 tahoma, arial, "Microsoft YaHei";
+    background: #fff;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #379be9;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #BFBFBF;
+    }
+
+.clear {
+    clear: both;
+}
+
+.f_left {
+    float: left;
+}
+
+.f_right {
+    float: right;
+}
+
+.f_center {
+    text-align: center;
+}
+
+.f_bold {
+    font: bold;
+}
+
+
+/**end**/
+
+.header {
+    top: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.wrap {
+    width: 1100px;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.nav ul {
+}
+
+.nav li {
+    list-style-type: none;
+    float: left;
+    padding-left: 1px;
+    border-left: 1px solid #ddd;
+    text-align: center;
+    width: 80px;
+}
+
+.navgb {
+    background-color: #379be9;
+    line-height: 40px;
+}
+
+    .navgb li,
+    .navgb a {
+        list-style-type: none;
+        float: left;
+        text-decoration: none;
+        color: #FFFFFF;
+        text-align: center;
+        width: 80px;
+    }
+
+    .navgb .select {
+        background: #2986cf;
+    }
+
+    .navgb li:hover {
+        background: #2986cf;
+    }
+
+    .navgb li:selection {
+        background: #2986cf;
+    }
+
+.breadnav {
+    background: #eee;
+    line-height: 40px;
+}
+
+    .breadnav em {
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+.content {
+    margin-top: 5px;
+}
+
+.lfluent {
+    float: left;
+    width: 390px;
+}
+
+.mfluent {
+    float: left;
+    margin-left: 30px;
+    width: 335px;
+    line-height: 35px;
+}
+
+.rfluent {
+    float: left;
+    margin-left: 30px;
+    width: 313px;
+}
+
+.hotList {
+    width: 100%;
+}
+
+.hotTitle dl {
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px dashed #d5d5d5;
+}
+
+.hotTitle dd {
+    font-size: 15px;
+    color: #999;
+}
+
+.titleList li {
+    width: 330px;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 29px;
+    background: transparent url(../img/list_style.png) no-repeat scroll 2px 18px;
+}
+
+.titleList a {
+    margin-left: 10px;
+}
+
+.module {
+    background-color: #FFFFFF;
+    height: 350px;
+}
+
+.m_title {
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #eee;
+    background: #f8f8f8;
+}
+
+    .m_title h1,
+    .hotList h1 {
+        color: #379be9;
+        text-indent: 10px;
+    }
+
+.hotList h1,
+.quickGet h1,
+.extentionBox h1,
+.discussList h1 {
+    color: #379be9;
+    font-size: 18px;
+    text-indent: 10px;
+    margin: 5px -2px;
+}
+
+.m_title a {
+    color: #606060;
+    font-size: 13px;
+}
+
+.m_box {
+    padding: 10px;
+    border: 1px solid #eee;
+    height: 290px;
+}
+
+.box_item {
+    width: 45%;
+    margin: 5px 5px 10px 5px;
+    height: 130px;
+}
+
+    .box_item img {
+        width: 100%;
+        display: block;
+    }
+
+    .box_item div {
+        text-align: center;
+        background-color: #eee;
+    }
+
+.mainList {
+    margin-top: 5px;
+}
+
+.mainRightItem {
+    margin-bottom: 5px;
+}
+
+.contentBlock {
+    border-top: 1px solid #379be9;
+    width: 750px;
+}
+
+.mainRight {
+    width: 315px;
+}
+
+.itemRight {
+    width: 300px;
+    overflow: hidden;
+}
+
+.itemLeft dt a {
+    width: 100px;
+    height: 70px;
+    display: block;
+    margin-right: 15px;
+}
+
+.itemLeft dd a {
+    width: 245px;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    height: 45px;
+    margin-top: 6px;
+    color: #222;
+}
+
+.newsList {
+    line-height: 30px;
+}
+
+    .newsList li {
+        height: 35px;
+        width: 350px;
+        overflow: hidden;
+    }
+
+    .newsList a {
+        margin-left: 1px;
+        overflow: hidden;
+        color: #666666;
+        text-decoration: none;
+        padding-left: 8px;
+        background: transparent url(../img/list_style.png) no-repeat scroll 0px 7px;
+    }
+
+        .newsList a:hover {
+            color: #00bfff;
+        }
+
+        .newsList a:visited {
+            color: #868686;
+        }
+
+.m_newList li {
+    margin-left: 1px;
+    overflow: hidden;
+    height: 30px;
+}
+
+    .m_newList li a {
+        overflow: hidden;
+        height: 26px;
+        line-height: 26px;
+    }
+
+.m_newList .em1 {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.m_newList .em2 {
+    color: #f6204d;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.m_newList .em3 {
+    color: #f65220;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.m_newList li em {
+    display: inline-block;
+    text-align: center;
+    padding-right: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: #999;
+}
+
+.picmsg li {
+    height: 90px;
+    width: 290px;
+}
+
+.picleft {
+    width: 95px;
+    display: inline;
+    float: left;
+}
+
+.picInfo {
+    overflow: hidden;
+    width: 170px;
+    line-height: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.scPage li {
+    border-bottom: 1px dotted #d5d5d5;
+    padding-bottom: 10px;
+    font-size: 15px;
+    position: relative;
+    margin-bottom: 5px;
+    line-height: 28px;
+    height: 58px;
+}
+
+    .scPage li a {
+        width: 200px;
+        overflow: hidden;
+        height: 58px;
+    }
+
+    .scPage li span {
+        font-size: 12px;
+        display: block;
+        color: #666;
+        position: absolute;
+        top: 42px;
+        left: 200px;
+    }
+
+        .scPage li span em {
+            text-align: center;
+            background: #379be9;
+            color: #fff;
+            width: 50px;
+            height: 20px;
+            overflow: hidden;
+            display: block;
+            float: right;
+            line-height: 20px;
+        }
+
+.w_Content {
+    border-top: 1px solid #379be9;
+    margin: 2px auto;
+    width: 1100px;
+}
+
+.quickGet {
+    width: 100%;
+    height: 300px;
+    background-color: #f8f8f8;
+}
+
+    .quickGet h4 {
+        margin-left: 30px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .quickGet li {
+        cursor: p;
+    }
+
+.quickList {
+    border-bottom: 1px dotted #d5d5d5;
+}
+
+    .quickList li {
+        float: left;
+        width: 90px;
+        margin-left: 20px;
+    }
+
+.quickGet .item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 20px;
+}
+
+.limitHeight {
+    height: 150px;
+}
+
+.tab li {
+    float: left;
+    padding: 5px;
+    height: 20px;
+    border-left: 1px solid #EEEEEE;
+}
+
+    .tab li.active {
+        background-color: #379be9;
+        color: #FFFFFF;
+    }
+
+.panel {
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+    .panel a {
+        display: block;
+        float: left;
+        padding: 0 15px;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 10px;
+        color: #666;
+    }
+
+.footer {
+    height: 200px;
+    background: #f1f1f1;
+    position: relative;
+    z-index: 30;
+    margin-top: 5px;
+}
+
+.footeritem {
+    width: 22%;
+    margin: 0 auto;
+    text-align: center;
+    height: 150px;
+    padding-top: 15px;
+}
+
+    .footeritem img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .footeritem span {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+.info em {
+    font-weight: bold;
+}
+
+.info div {
+    margin: auto 0;
+    margin-top: 2px;
+}
+
+.info {
+    padding: 25px 5px;
+}
+
+.center {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.article h1 {
+    color: #c30;
+    font-size: 20px;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    padding: 12px 0 6px;
+    text-align: center;
+}
+
+.source,
+.source a {
+    text-align: center;
+    color: #666666;
+    position: relative;
+}
+
+.source {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.articleContent p {
+    font-size: 16px;
+    line-height: 30px;
+    padding-bottom: 17px;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.extentionBox {
+    border-top: 1px solid #379be9;
+}
+
+    .extentionBox li {
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+
+.picinfoBox {
+}
+
+.picinfoTilte {
+    background: url(../img/recombg.png);
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    color: #1e50a2;
+    border: 1px solid #c8d8f2;
+}
+
+.picinfoContent {
+    height: 180px;
+    border: 1px solid #c8d8f2;
+    border-top: none;
+    padding: 20px 40px;
+}
+
+    .picinfoContent li {
+        float: left;
+        width: 18%;
+        margin-left: 20px;
+    }
+
+        .picinfoContent li a {
+            text-align: center;
+            width: 130px;
+            display: block;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+    .picinfoContent img {
+        display: block;
+        width: 135px;
+        height: 120px;
+    }
+
+.page li {
+    float: left;
+    margin: 0;
+    width: 20px;
+    text-align: center;
+    height: 30px;
+    line-height: 35px;
+}
+
+    .page li.active a {
+        background: #bfbfbf;
+        width: 20px;
+        padding: 3px;
+    }
+
+.commit {
+    border: 1px solid #4398ed;
+    height: 100px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.login {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #4398ed;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.commit textarea {
+    border: none;
+    resize: none;
+    width: 98%;
+    padding: 10px;
+    height: 75px;
+}
+
+.commitBox .btnSubmit {
+    padding: 5px;
+    margin: 10px;
+    width: 80px;
+    border: none;
+    border-radius: 2px;
+    height: 30px;
+    background-color: #379be9;
+    color: #FFFFFF;
+}
+
+.btnSubmit:hover {
+    background-color: #1392eb;
+}
+
+.noneDiscuss {
+    text-align: center;
+    background: #EEEEEE;
+    border-radius: 2px;
+    height: 10px;
+    color: #666666;
+    font-size: 13px;
+}
+
+.discussNav {
+    height: 30px;
+    width: 50px;
+}
+
+.line {
+    border-bottom: 1px solid #4398ed;
+    width: 95%;
+    height: 30px;
+    margin-left: 1px;
+}
+
+.discussNav li {
+    border: 1px solid #4398ed;
+    width: 50px;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 2px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.discussList {
+    padding: 10px 10px;
+}
+
+    .discussList li.discussItem {
+        margin-top: 10px;
+        border-bottom: 1px dashed #e5e5e5;
+    }
+
+.user {
+    margin-right: 10px;
+}
+
+    .user img {
+        width: 42px;
+        height: 42px;
+        border-radius: 42px;
+    }
+
+.userinfo a {
+    color: #4398ed;
+}
+
+.userinfo em {
+    color: #BFBFBF;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.userinfo .discussText {
+    padding: 5px;
+    text-indent: 1%;
+    margin-top: 5px;
+    line-height: 30px;
+    width: 99%;
+    color: #666666;
+}
+
+.discussOperate {
+}
+
+    .discussOperate a {
+        color: #BFBFBF;
+        margin-left: 5px;
+    }
+
+        .discussOperate a:hover {
+            color: #666666;
+        }
+
+.debug {
+    border: 1px solid black;
+}

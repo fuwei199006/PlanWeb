@@ -196,6 +196,30 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Content\css\font-awesome.css" />
+    <Content Include="Config\Content\css\font-awesome.min.css" />
+    <Content Include="Config\Content\css\main.css" />
+    <Content Include="Config\Content\css\register.css" />
+    <Content Include="Config\Content\DemoUI\css\font-awesome.css" />
+    <Content Include="Config\Content\DemoUI\css\font-awesome.min.css" />
+    <Content Include="Config\Content\DemoUI\css\main.css" />
+    <Content Include="Config\Content\DemoUI\css\register.css" />
+    <Content Include="Config\Content\DemoUI\Detail.html" />
+    <Content Include="Config\Content\DemoUI\fonts\fontawesome-webfont.svg" />
+    <Content Include="Config\Content\DemoUI\img\list_style.png" />
+    <Content Include="Config\Content\DemoUI\img\logo.png" />
+    <Content Include="Config\Content\DemoUI\img\recombg.png" />
+    <Content Include="Config\Content\DemoUI\img\register_bg.gif" />
+    <Content Include="Config\Content\DemoUI\img\weixin.png" />
+    <Content Include="Config\Content\DemoUI\index.html" />
+    <Content Include="Config\Content\DemoUI\register.html" />
+    <Content Include="Config\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Config\Content\img\demo.jpg" />
+    <Content Include="Config\Content\img\list_style.png" />
+    <Content Include="Config\Content\img\logo.png" />
+    <Content Include="Config\Content\img\recombg.png" />
+    <Content Include="Config\Content\img\register_bg.gif" />
+    <Content Include="Config\Content\img\weixin.png" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\main.css" />
@@ -213,6 +237,7 @@
     <Content Include="Content\DemoUI\img\weixin.png" />
     <Content Include="Content\DemoUI\index.html" />
     <Content Include="Content\DemoUI\register.html" />
+    <Content Include="Content\detail.png" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\demo.jpg" />
     <Content Include="Content\img\list_style.png" />
@@ -220,11 +245,33 @@
     <Content Include="Content\img\recombg.png" />
     <Content Include="Content\img\register_bg.gif" />
     <Content Include="Content\img\weixin.png" />
+    <Content Include="Content\index.png" />
+    <Content Include="Content\index分类.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Config\Content\DemoUI\.project" />
+    <Content Include="Config\Content\DemoUI\fonts\fontawesome-webfont.eot" />
+    <Content Include="Config\Content\DemoUI\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Config\Content\DemoUI\fonts\fontawesome-webfont.woff" />
+    <Content Include="Config\Content\DemoUI\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Config\Content\DemoUI\fonts\FontAwesome.otf" />
+    <Content Include="Config\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Config\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Config\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Config\Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Config\Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Auth\Views\web.config" />
+    <Content Include="Areas\CMS\Views\web.config" />
+    <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
+    <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
+    <Content Include="Config\DaoConfig2.config" />
+    <None Include="Config\DaoConfig.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Content\DemoUI\.project" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.ttf" />
@@ -236,14 +283,6 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Areas\Auth\Views\web.config" />
-    <Content Include="Areas\CMS\Views\web.config" />
-    <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
-    <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
-    <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
-    <None Include="Config\DaoConfig.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -256,7 +295,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -268,8 +309,6 @@
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

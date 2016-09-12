@@ -35,10 +35,12 @@ namespace Plain.UI.Areas.CMS.Controllers
             return View(article);
         }
 
-
-        public PartialViewResult Page(int pageIndex)
+        [HttpGet]
+         [AuthorizeIgnore]
+        public ViewResult Page(string key)
         {
-            return PartialView();
+            ViewBag.key = key;
+            return View();
         }
     }
 }

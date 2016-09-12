@@ -104,10 +104,31 @@
 <div class="center picinfoBox clear">
 
 
-    @Html.Partial("Page",new {pageIndex=1})
+    <div class="picinfoTilte">
+        热点文章
+        <div class="page f_right">
+            <ul id="page">
+                <li class="active">
+                    <a href="javascript:void(0)" data-value="1">1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-value="2">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-value="3">3</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-value="4">4</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="picinfoContent" id="pageContent">
+        <ul></ul>
+    </div>
 
 
- 
+
 </div>
 <div class="commitBox center">
     <span class="login f_right"><a href="#">登录</a></span>
@@ -200,3 +221,19 @@
 
 </div>
 
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $(function () {
+            $("#page li").click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+                var key = "A303" + $(this).find("a").data("value");
+                $.get('@Url.Action("Page")', { key: key }, function (res) {
+                    $("#pageContent ul").html(res);
+                });
+            });
+            $.get('@Url.Action("Page")', { key: "A3031" }, function (res) {
+                $("#pageContent ul").html(res);
+            });
+        });
+    </script>
+}
