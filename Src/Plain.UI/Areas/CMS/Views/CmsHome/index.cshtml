@@ -27,8 +27,8 @@
                         <dd><a href='@Url.Action("ArticleView",new {id=m.Id})' target='_blank'>@m.SubTitle....</a></dd>
                     </dl>
                 }
-              
-               
+
+
             </div>
         </div>
         <div class="titleList">
@@ -40,7 +40,7 @@
                     </li>
 
                 }
-              
+
 
 
             </ul>
@@ -59,7 +59,7 @@
                     {
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
-                                <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95"/>
+                                <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
                                 <div>@m.Title</div>
                             </a>
                         </li>
@@ -69,5 +69,293 @@
             </div>
         </div>
     </div>
+
+
 </div>
 <div class="clear"></div>
+<div class="mainList wrap">
+    <div class="mainLeft f_left">
+        <div class="contentBlock">
+
+            <div class="hotList">
+                <h1>科技论文/业内动态</h1>
+            </div>
+            <div class="itemLeft f_left  ">
+                @foreach (var m in AdminCacheContext.Current.ArticleItems["A1021"])
+                {
+                    <dl>
+                        <dt class="f_left">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                                <img src="@Url.StaticFile(m.SubTitle)" width="100" height="70"
+                                     alt="@m.Title" />
+                            </a>
+                        </dt>
+
+                        <dd class="f_right">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                        </dd>
+                    </dl>
+                }
+
+                <div class="clear"></div>
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1022"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="itemRight   f_right  ">
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1023"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="contentBlock">
+
+            <div class="hotList">
+                <h1>科技论文/业内动态</h1>
+            </div>
+            <div class="itemLeft f_left  ">
+                @foreach (var m in AdminCacheContext.Current.ArticleItems["A1031"])
+                {
+                    <dl>
+                        <dt class="f_left">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                                <img src="@Url.StaticFile(m.SubTitle)" width="100" height="70"
+                                     alt="@m.Title" />
+                            </a>
+                        </dt>
+
+                        <dd class="f_right">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                        </dd>
+                    </dl>
+                }
+
+                <div class="clear"></div>
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1032"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="itemRight   f_right  ">
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1033"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="contentBlock">
+
+            <div class="hotList">
+                <h1>科技论文/业内动态</h1>
+            </div>
+            <div class="itemLeft f_left">
+
+                <div class="clear"></div>
+                <div class="newsList">
+                    <ul>
+                       @foreach (var m in AdminCacheContext.Current.ArticleItems["A1041"])
+                       {
+                        <li>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                        </li>
+                       }
+                         
+                    </ul>
+                </div>
+            </div>
+            <div class="itemRight   f_right ">
+                <ul>
+                    <li class="box_item f_left">
+                        <a href="javascript:void(0)">
+                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
+                            <div>测试栏目</div>
+                        </a>
+                    </li>
+                    <li class="box_item f_left">
+                        <a href="javascript:void(0)">
+                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
+                            <div>测试栏目</div>
+                        </a>
+                    </li>
+                    <li class="box_item f_left">
+                        <a href="javascript:void(0)">
+                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
+                            <div>测试栏目</div>
+                        </a>
+                    </li>
+                    <li class="box_item f_left">
+                        <a href="javascript:void(0)">
+                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
+                            <div>测试栏目</div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="contentBlock">
+
+            <div class="hotList">
+                <h1>科技论文/业内动态</h1>
+            </div>
+            <div class="itemLeft f_left  ">
+                @foreach (var m in AdminCacheContext.Current.ArticleItems["A1061"])
+                {
+                    <dl>
+                        <dt class="f_left">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                                <img src="@Url.StaticFile(m.SubTitle)" width="100" height="70"
+                                     alt="@m.Title" />
+                            </a>
+                        </dt>
+
+                        <dd class="f_right">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                        </dd>
+                    </dl>
+                }
+
+                <div class="clear"></div>
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1062"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="itemRight   f_right  ">
+                <div class="newsList">
+                    <ul>
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1063"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="mainRight f_right">
+        <div class="mainRightItem">
+            <div class="module">
+                <div class="m_title">
+                    <h1 href="javascript:void(0)" class="f_left">详细列表</h1>
+                    <a href="javascript:void(0)" class="f_right ">更多&nbsp;></a>
+                </div>
+                <div class="m_box">
+                    <ul class="m_newList">
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1070"])
+                        {
+                            <li>
+                                <em class="@("em"+m.Sort)">@m.Sort</em>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            </li>
+                        }
+
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="mainRightItem">
+            <div class="module">
+                <div class="m_title">
+                    <h1 href="javascript:void(0)" class="f_left">产品详情</h1>
+                    <a href="javascript:void(0)" class="f_right ">更多&nbsp;></a>
+                </div>
+                <div class="m_box">
+                    <ul class="picmsg">
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1080"])
+                        {
+                            <li>
+                                <div id="" class="picleft f_left  ">
+                                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                                        <img src="@Url.StaticFile(m.SubTitle)" width="100" height="70" alt="@m.Title" />
+                                    </a>
+                                </div>
+                                <div class="picInfo f_right  ">
+                                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                </div>
+
+                            </li>
+                        }
+
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="mainRightItem">
+            <div class="module">
+                <div class="m_title">
+                    <h1 href="javascript:void(0)" class="f_left">专栏推荐</h1>
+                    <a href="javascript:void(0)" class="f_right ">更多&nbsp;></a>
+                </div>
+                <div class="m_box">
+                    <ul class="scPage">
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1090"])
+                        {
+                            <li>
+                                <a href="@Url.Action("ArticleView", new {id = m.Id})" target="_blank">@m.Title</a>
+                                <span class="f_right">作者：<em>@m.Author</em></span>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+
