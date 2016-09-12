@@ -34,5 +34,11 @@ namespace Plain.UI.Areas.CMS.Controllers
             //_articleService.GetArticlesById(id);
             return View(article);
         }
+
+
+        public PartialViewResult Page(int pageIndex)
+        {
+            return PartialView();
+        }
     }
 }

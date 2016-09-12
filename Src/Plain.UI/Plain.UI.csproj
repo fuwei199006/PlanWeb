@@ -240,6 +240,7 @@
     <Content Include="Areas\CMS\Views\web.config" />
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
+    <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

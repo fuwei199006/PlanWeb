@@ -1,0 +1,39 @@
+﻿@using Framework.Extention
+@using Plain.Web
+
+<div class="picinfoTilte">
+    热点文章
+    <div class="page f_right">
+        <ul id="page">
+            <li class="active">
+                <a href="javascript:void(0)">1</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">2</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">3</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">4</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="picinfoContent">
+    <ul>
+        @foreach (var m in AdminCacheContext.Current.ArticleItems["A3031"])
+            {
+            <li>
+                <div>
+                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                        <img src="@Url.StaticFile(m.SubTitle)" alt="@m.Title" />
+                    </a>
+                </div>
+                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+            </li>
+
+        }
+    </ul>
+</div>
+ 

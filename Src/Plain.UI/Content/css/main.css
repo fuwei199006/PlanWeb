@@ -413,6 +413,10 @@ a {
             color: #00bfff;
         }
 
+        .newsList a:visited {
+            color: #868686;
+        }
+
 .m_newList li {
     margin-left: 1px;
     overflow: hidden;
