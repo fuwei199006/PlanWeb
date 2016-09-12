@@ -11,5 +11,10 @@ namespace Plain.BLL.MenuService
         {
             return this.CurrentResposity.GetListNoTracking(r => r.MenuType == type).OrderBy(r => r.MenuSort).ToList();
         }
+
+        public List<Basic_Menu> GetMenus()
+        {
+            return this.CurrentResposity.GetListNoTracking(r=>r.MenuStatus).OrderBy(r => r.MenuSort).ToList();
+        }
     }
 }

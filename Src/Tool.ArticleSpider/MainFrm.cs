@@ -49,10 +49,11 @@ namespace Tool.ArticleSpider
                     {
                         var urlContent = RequestHelper.GetUrlContent(url);
                         var article = Regex.Match(urlContent, contentRex);
+                        
                         if (string.IsNullOrEmpty(article.Value)) continue;
                         var articleEntity = new Basic_Article()
                         {
-                            Content = article.Value,
+                            Content = article.Value.Replace("DIV","p").Replace("div","p"),
                             Title = title,
                             SubTitle = title,
                             Author = "",
@@ -69,7 +70,7 @@ namespace Tool.ArticleSpider
                         };
 
                         list.Add(articleEntity);
-                        if (list.Count > 50)
+                        if (list.Count > 10)
                         {
                             ServiceContext.Current.CreateService<IArticleService>().AddArticleList(list);
                             list.Clear();

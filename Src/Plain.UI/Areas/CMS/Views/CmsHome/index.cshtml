@@ -1,4 +1,5 @@
-﻿@using Plain.Web
+﻿@using Framework.Extention
+@using Plain.Web
 
 @{
     ViewBag.Title = "title";
@@ -18,7 +19,7 @@
 
             </h1>
             <div class="hotTitle">
-                @foreach (var m in AdminCacheContext.Current.HotArticles)
+                @foreach (var m in AdminCacheContext.Current.ArticleItems["A1012"])
                 {
                     <dl class="clear">
                         <dt><a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'> @m.Title</a></dt>
@@ -32,7 +33,7 @@
         </div>
         <div class="titleList">
             <ul>
-                @foreach (var m in AdminCacheContext.Current.TopArticles)
+                @foreach (var m in AdminCacheContext.Current.ArticleItems["A1013"])
                 {
                     <li>
                         <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
@@ -54,30 +55,15 @@
             </div>
             <div class="m_box">
                 <ul>
-                    <li class="box_item f_left">
-                        <a href="javascript:void(0)">
-                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                            <div>测试栏目</div>
-                        </a>
-                    </li>
-                    <li class="box_item f_left">
-                        <a href="javascript:void(0)">
-                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                            <div>测试栏目</div>
-                        </a>
-                    </li>
-                    <li class="box_item f_left">
-                        <a href="javascript:void(0)">
-                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                            <div>测试栏目</div>
-                        </a>
-                    </li>
-                    <li class="box_item f_left">
-                        <a href="javascript:void(0)">
-                            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                            <div>测试栏目</div>
-                        </a>
-                    </li>
+                    @foreach (var m in AdminCacheContext.Current.ArticleItems["A1060"])
+                    {
+                        <li class="box_item f_left">
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                                <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95"/>
+                                <div>@m.Title</div>
+                            </a>
+                        </li>
+                    }
                 </ul>
 
             </div>

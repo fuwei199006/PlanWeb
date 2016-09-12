@@ -14,5 +14,7 @@ namespace Plain.Model.Models
         public Nullable<int> MenuParentId { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> ModifyTime { get; set; }
+        public bool MenuStatus { get; set; }
+        
     }
 }

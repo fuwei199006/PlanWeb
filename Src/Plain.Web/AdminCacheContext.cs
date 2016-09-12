@@ -8,7 +8,7 @@ using Plain.Model.Models;
 
 namespace Plain.Web
 {
-    public class AdminCacheContext
+    public class AdminCacheContext 
     {
         public static AdminCacheContext Current
         {
@@ -18,38 +18,16 @@ namespace Plain.Web
             }
         }
 
-        public virtual List<Basic_Menu> NavMenus
+        public AdminMenuCache MenuItems
         {
-            get
-            {
-               return CacheContext.Get("m_Nav",
-                    () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByType("m_Nav"));
-            }
+            get { return AdminMenuCache.Current; }
         }
-        public   List<Basic_Article>  Articles
+        public CmsArticleCache ArticleItems
         {
-            get
-            {
-                return CacheContext.Get("ArticleList",
-                     () => ServiceContext.Current.CreateService<IArticleService>().GetArticles());
-            }
-        }
-        public virtual List<Basic_Article> HotArticles
-        {
-            get
-            {
-                return CacheContext.Get("HotArticle",
-                     () => Articles.Where(r=>r.Category== "HotArticle").ToList());
-            }
+            get { return CmsArticleCache.Current; }
         }
 
-        public virtual List<Basic_Article> TopArticles
-        {
-            get
-            {
-                return CacheContext.Get("TopArticle",
-                     () => Articles.Where(r => r.Category == "TopArticle").ToList());
-            }
-        }
+
+
     }
 }

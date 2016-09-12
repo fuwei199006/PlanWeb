@@ -19,9 +19,9 @@
 
 </div>
 <div class="wrap navgb">
-
+ 
     <ul>
-        @foreach (var m in AdminCacheContext.Current.NavMenus)
+        @foreach (var m in AdminCacheContext.Current.MenuItems["m_Nav"])
         {
             <li>
                 <a href='@m.MenuUrl'>@m.MenuName</a>

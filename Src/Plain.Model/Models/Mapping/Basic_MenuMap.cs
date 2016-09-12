@@ -30,6 +30,7 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.MenuParentId).HasColumnName("MenuParentId");
             this.Property(t => t.CreateTime).HasColumnName("CreateTime");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
+            this.Property(t => t.MenuStatus).HasColumnName("MenuStatus");
         }
     }
 }

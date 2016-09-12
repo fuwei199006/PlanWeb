@@ -37,7 +37,7 @@ namespace Core.Cache
         {
             get
             {
-                if (_wrapCacheConfigItems == null)
+                if (_wrapCacheConfigItems == null||!_wrapCacheConfigItems.Any())
                 {
                     _wrapCacheConfigItems = new List<WrapCacheConfigItem>();
 

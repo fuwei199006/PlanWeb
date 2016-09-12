@@ -7,5 +7,6 @@ namespace Plain.BLL.MenuService
     public interface IMenuService: IBaseService<Basic_Menu>
     {
         List<Basic_Menu> GetMenusByType(string type);
+        List<Basic_Menu> GetMenus();
     }
 }
