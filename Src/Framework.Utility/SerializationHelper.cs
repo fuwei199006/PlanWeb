@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
-using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
-
+using System.Text;
 namespace Framework.Utility
 {
     public enum SerializationType

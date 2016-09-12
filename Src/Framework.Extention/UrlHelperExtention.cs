@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
-using Framework.Utility;
 
 namespace Framework.Extention
 {
@@ -34,16 +33,16 @@ namespace Framework.Extention
 
         }
 
-        public static string JsCssFile(this UrlHelper urlHelper,string path)
-        {
-            var jsAndCssFileEdition = AppSettingsHelper.GetString("JsAndCssFileEdition");
-            if (string.IsNullOrEmpty(jsAndCssFileEdition))
-            {
-                jsAndCssFileEdition = Guid.NewGuid().ToString();
-            }
-            path+=String.Format("?v={0}",jsAndCssFileEdition);
-            return urlHelper.StaticFile(path);
-        }
+        //public static string JsCssFile(this UrlHelper urlHelper,string path)
+        //{
+        //    var jsAndCssFileEdition = AppSettingsHelper.GetString("JsAndCssFileEdition");
+        //    if (string.IsNullOrEmpty(jsAndCssFileEdition))
+        //    {
+        //        jsAndCssFileEdition = Guid.NewGuid().ToString();
+        //    }
+        //    path+=String.Format("?v={0}",jsAndCssFileEdition);
+        //    return urlHelper.StaticFile(path);
+        //}
 
         public static string ImageFile(this UrlHelper urlHelper, string path, string size = null)
         {

@@ -1,25 +1,33 @@
 ﻿using System;
 using System.Collections.Specialized;
-using System.Configuration;
 
-namespace Framework.Utility
+namespace Framework.Utility 
 {
-    public class AppSettingsHelper
-    {
+    /// <summary>
+    /// 配置文件appSettings节点的帮助方法
+    /// </summary>
+    public class AppSettingsHelper {
         private static readonly NameValueCollection appSettings;
 
-        static AppSettingsHelper()
-        {
-            appSettings = ConfigurationManager.AppSettings;
+        static AppSettingsHelper() {
+            appSettings = System.Configuration.ConfigurationManager.AppSettings; ;
         }
 
-        public static bool GetBoolFValue(string key)
+        public static bool GetBoolValue(string key)
         {
             bool value = false;
             if (appSettings[key] != null)
-            {
                 bool.TryParse(appSettings[key], out value);
-            }
+
+            return value;
+        }
+
+        public static int GetIntValue(string key)
+        {
+            int value = 0;
+            if (appSettings[key] != null)
+                int.TryParse(appSettings[key], out value);
+
             return value;
         }
 
@@ -30,8 +38,7 @@ namespace Framework.Utility
         /// </summary>
         /// <param name="key">索引键</param>
         /// <returns>字符串</returns>
-        public static string GetString(string key)
-        {
+        public static string GetString(string key) {
             return getValue(key, true, null);
         }
 
@@ -41,8 +48,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>字符串</returns>
-        public static string GetString(string key, string defaultValue)
-        {
+        public static string GetString(string key, string defaultValue) {
             return getValue(key, false, defaultValue);
         }
 
@@ -56,8 +62,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="separator">分隔符</param>
         /// <returns>字符串数组</returns>
-        public static string[] GetStringArray(string key, string separator)
-        {
+        public static string[] GetStringArray(string key, string separator) {
             return getStringArray(key, separator, true, null);
         }
 
@@ -68,8 +73,7 @@ namespace Framework.Utility
         /// <param name="separator">分隔符</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>字符串数组</returns>
-        public static string[] GetStringArray(string key, string separator, string[] defaultValue)
-        {
+        public static string[] GetStringArray(string key, string separator, string[] defaultValue) {
             return getStringArray(key, separator, false, defaultValue);
         }
 
@@ -81,8 +85,7 @@ namespace Framework.Utility
         /// <param name="valueRequired">指定配置文件中是否必须需要配置有该名称的元素，传入False则方法返回默认值，反之抛出异常</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>字符串数组</returns>
-        private static string[] getStringArray(string key, string separator, bool valueRequired, string[] defaultValue)
-        {
+        private static string[] getStringArray(string key, string separator, bool valueRequired, string[] defaultValue) {
             string value = getValue(key, valueRequired, null);
 
             if (!string.IsNullOrEmpty(value))
@@ -102,8 +105,7 @@ namespace Framework.Utility
         /// </summary>
         /// <param name="key">索引键</param>
         /// <returns>Int</returns>
-        public static int GetInt32(string key)
-        {
+        public static int GetInt32(string key) {
             return getInt32(key, null);
         }
 
@@ -113,8 +115,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>Int</returns>
-        public static int GetInt32(string key, int defaultValue)
-        {
+        public static int GetInt32(string key, int defaultValue) {
             return getInt32(key, defaultValue);
         }
 
@@ -124,8 +125,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>Int</returns>
-        private static int getInt32(string key, int? defaultValue)
-        {
+        private static int getInt32(string key, int? defaultValue) {
             return getValue<int>(key, (v, pv) => int.TryParse(v, out pv), defaultValue);
         }
 
@@ -138,8 +138,7 @@ namespace Framework.Utility
         /// </summary>
         /// <param name="key">索引键</param>
         /// <returns>布尔值</returns>
-        public static bool GetBoolean(string key)
-        {
+        public static bool GetBoolean(string key) {
             return getBoolean(key, null);
         }
 
@@ -149,8 +148,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>布尔值</returns>
-        public static bool GetBoolean(string key, bool defaultValue)
-        {
+        public static bool GetBoolean(string key, bool defaultValue) {
             return getBoolean(key, defaultValue);
         }
 
@@ -160,8 +158,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>布尔值</returns>
-        private static bool getBoolean(string key, bool? defaultValue)
-        {
+        private static bool getBoolean(string key, bool? defaultValue) {
             return getValue<bool>(key, (v, pv) => bool.TryParse(v, out pv), defaultValue);
         }
 
@@ -174,8 +171,7 @@ namespace Framework.Utility
         /// </summary>
         /// <param name="key">索引键</param>
         /// <returns>时间间隔</returns>
-        public static TimeSpan GetTimeSpan(string key)
-        {
+        public static TimeSpan GetTimeSpan(string key) {
             return TimeSpan.Parse(getValue(key, true, null));
         }
 
@@ -185,8 +181,7 @@ namespace Framework.Utility
         /// <param name="key">索引键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>时间间隔</returns>
-        public static TimeSpan GetTimeSpan(string key, TimeSpan defaultValue)
-        {
+        public static TimeSpan GetTimeSpan(string key, TimeSpan defaultValue) {
             string val = getValue(key, false, null);
 
             if (val == null)
@@ -207,12 +202,10 @@ namespace Framework.Utility
         /// <param name="parseValue">将指定索引键的值转化为返回类型的值的委托方法</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns></returns>
-        private static T getValue<T>(string key, Func<string, T, bool> parseValue, T? defaultValue) where T : struct
-        {
+        private static T getValue<T>(string key, Func<string, T, bool> parseValue, T? defaultValue) where T : struct {
             string value = appSettings[key];
 
-            if (value != null)
-            {
+            if (value != null) {
                 T parsedValue = default(T);
 
                 if (parseValue(value, parsedValue))
@@ -234,8 +227,7 @@ namespace Framework.Utility
         /// <param name="valueRequired">指定配置文件中是否必须需要配置有该名称的元素，传入False则方法返回默认值，反之抛出异常</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns>字符串</returns>
-        private static string getValue(string key, bool valueRequired, string defaultValue)
-        {
+        private static string getValue(string key, bool valueRequired, string defaultValue) {
             string value = appSettings[key];
 
             if (value != null)

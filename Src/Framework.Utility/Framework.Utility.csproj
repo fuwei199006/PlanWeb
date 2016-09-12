@@ -57,19 +57,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettingsHelper.cs" />
-    <Compile Include="AssemblyExtention.cs" />
+    <Compile Include="AppSettings.cs" />
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="Caching.cs" />
+    <Compile Include="Collection.cs" />
     <Compile Include="Cookie.cs" />
+    <Compile Include="Diff.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="Fetch.cs" />
+    <Compile Include="FileWatchHelper.cs" />
+    <Compile Include="GeoHelper.cs" />
+    <Compile Include="ImageUtil.cs" />
+    <Compile Include="JsUtil.cs" />
+    <Compile Include="NetHelper.cs" />
+    <Compile Include="ObjectHelper.cs" />
+    <Compile Include="PermutationAndCombination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExp.cs" />
     <Compile Include="RequestHelper.cs" />
     <Compile Include="SerializationHelper.cs" />
+    <Compile Include="SerializeHelper.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="StringUtil.cs" />
     <Compile Include="ThumbnailHelper.cs" />
+    <Compile Include="ValideCode\AnimatedGifEncoder.cs" />
+    <Compile Include="ValideCode\GifDecoder.cs" />
+    <Compile Include="ValideCode\LZWEncoder.cs" />
+    <Compile Include="ValideCode\NeuQuant.cs" />
     <Compile Include="ValideCode\ValidateCode_Style1.cs" />
     <Compile Include="ValideCode\ValidateCodeType.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style10.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style11.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style12.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style13.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style14.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style2.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style3.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style4.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style5.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style6.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style7.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style8.cs" />
+    <Compile Include="ValideCode\ValidateCode_Style9.cs" />
     <Compile Include="WcfServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,10 +109,17 @@
       <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
       <Name>Core.Exception</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
+      <Project>{1e62b299-9a6b-4152-ab6e-83aa386950f5}</Project>
+      <Name>Framework.Extention</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Frameworke.Dtos\Frameworke.Dtos.csproj">
       <Project>{AFB07491-331D-43D0-85F7-84B25049E166}</Project>
       <Name>Frameworke.Dtos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GMS.Framework.Utility.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

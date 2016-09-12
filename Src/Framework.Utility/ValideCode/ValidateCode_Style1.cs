@@ -22,7 +22,7 @@ namespace Framework.Utility.ValideCode
         public override byte[] CreateImage(out string resultCode)
         {
             Bitmap bitmap;
-            string formatString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+            string formatString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9";
             GetRandom(formatString,this.validataCodeLength,out resultCode);
             var stream=new MemoryStream();
             this.ImageBmp(out bitmap, resultCode);
