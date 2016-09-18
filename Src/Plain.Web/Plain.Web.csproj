@@ -75,6 +75,7 @@
     <Compile Include="AdminMenuCache.cs" />
     <Compile Include="AdminUserContext.cs" />
     <Compile Include="CmsArticleCache.cs" />
+    <Compile Include="CmsCommentCache.cs" />
     <Compile Include="ControllerBase.cs" />
     <Compile Include="CookieContext.cs" />
     <Compile Include="IAuthCookie.cs" />

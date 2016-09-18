@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   fuwei16
-* @Last Modified time: 2016-09-13 10:48:53
+* @Last Modified by:   付威
+* @Last Modified time: 2016-09-18 22:43:55
 */
 
 --CREATE DATABASE PlanDB;
@@ -234,7 +234,7 @@ CREATE TABLE [dbo].[Basic_Log](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
- CREATE TABLE Basic_Commit (
+ CREATE TABLE Basic_Comment (
   Id int IDENTITY PRIMARY KEY,
   Content NVARCHAR(2000) not NULL,
   CommitUserName NVARCHAR(100) not null,
