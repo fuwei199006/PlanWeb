@@ -44,7 +44,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Manager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Manager.ttinclude</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Context.tt">
@@ -53,12 +68,11 @@
     </Content>
     <Content Include="Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entity.txt</LastGenOutput>
+      <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entity.tt</DependentUpon>
+    <Content Include="Entity2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entity2.cs</LastGenOutput>
     </Content>
     <Content Include="Mapping.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -69,6 +83,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Mapping.tt</DependentUpon>
     </Content>
+    <None Include="Manager.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Manager.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
