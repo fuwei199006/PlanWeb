@@ -44,21 +44,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDemo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDemo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Manager.ttinclude</DependentUpon>
+    </Compile>
+    <Compile Include="PlainTempManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlainTempManager.ttinclude</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
     <Content Include="Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Context.cs</LastGenOutput>
     </Content>
     <Content Include="Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entity.txt</LastGenOutput>
+      <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entity.tt</DependentUpon>
+    <None Include="PlainTempManager.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PlainTempManager.cs</LastGenOutput>
+    </None>
+    <None Include="Manager.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Manager.cs</LastGenOutput>
+    </None>
+    <Content Include="EntityDemo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityDemo.cs</LastGenOutput>
     </Content>
     <Content Include="Mapping.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
