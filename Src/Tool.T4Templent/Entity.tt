@@ -6,9 +6,62 @@
 <#@ import namespace="System.Data" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
-<#@ output extension=".cs" #>
+ 
 
-<#@include file="PlainTempManager.ttinclude"#> 
+<#@include file="Manager.ttinclude"#> 
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
 
-<# TempContext.GetTableName();#>
+<# manager.StartHeader(); #>
+using System;
+using System.Collections.Generic;
+namespace My.Model
+{   
+<# manager.EndBlock(); #>
+
+<#        
+    string connectionString= "server=10.4.2.30;database=oas;uid=ptmoas;pwd=ptmoas;";        
+    SqlConnection conn = new SqlConnection(connectionString);
+    conn.Open();
+    
+    string selectQuery ="SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;";
+    SqlCommand command = new SqlCommand(selectQuery,conn);
+    SqlDataAdapter ad = new SqlDataAdapter(command);
+    System.Data.DataSet ds = new DataSet(); 
+    System.Data.DataTable schema = conn.GetSchema("Tables");
+
+    foreach(System.Data.DataRow row in schema.Rows)
+    {    
+        ds.Tables.Clear();
+        string tb_name = row["TABLE_NAME"].ToString();        
+        command.CommandText = selectQuery.Replace("@tableName",row["TABLE_NAME"].ToString());
+        ad.FillSchema(ds,SchemaType.Mapped,tb_name);  
+        manager.StartNewFile(tb_name+".cs");
+#>
+    /// <summary>
+    /// 实体-<#=tb_name#> 
+    /// </summary>
+    public partial class <#=tb_name#>    
+    {    
+        <#
+        PushIndent("          ");
+        foreach (DataColumn dc in ds.Tables[0].Columns) 
+        {
+            WriteLine("public " + dc.DataType.Name + (dc.AllowDBNull && dc.DataType.Name.ToLower() != "string" ? "? ": " ") + dc.ColumnName + " { get; set; }");
+        }
+        PopIndent();
+        #>
+    } 
+<#
+        manager.EndBlock();    
+    }            
+    conn.Close();  
+#>
+
+
+
+<# manager.StartFooter(); #>
+}
+<# manager.EndBlock(); #>
+
+<# manager.Process(true); #>
  
