@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
  
 
@@ -55,3 +56,6 @@ namespace My.Model
           public String systemFlag { get; set; }
           public Int32? flowId { get; set; }
     } 
+=======
+﻿ErrorGeneratingOutput
+>>>>>>> 891efa5a0303e7f738cc93e6e6efa60ad8246e4f

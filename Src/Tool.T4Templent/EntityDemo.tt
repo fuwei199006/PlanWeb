@@ -6,9 +6,8 @@
 <#@ import namespace="System.Data" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
-<<<<<<< HEAD
 
-<#@include file="Manager.ttinclude"#> 
+<#@include file="$(SolutionDir)\Manager.ttinclude"#> 
 <# var manager = Manager.Create(Host, GenerationEnvironment); #>
 
 <# manager.StartHeader(); #>
@@ -19,7 +18,7 @@ namespace My.Model
 <# manager.EndBlock(); #>
 
 <#        
-    string connectionString= "server=10.4.2.30;database=oas;uid=ptmoas;pwd=ptmoas;";        
+    string connectionString= "server=localhost;database=UserRight;uid=sa;pwd=123@abc;";        
     SqlConnection conn = new SqlConnection(connectionString);
     conn.Open();
     
@@ -64,11 +63,3 @@ namespace My.Model
 <# manager.EndBlock(); #>
 
 <# manager.Process(true); #>
-=======
-<#@ output extension=".cs" #>
-
-<#@include file="PlainTempManager.ttinclude"#> 
-
-<# TempContext.GetTableName();#>
- 
->>>>>>> 891efa5a0303e7f738cc93e6e6efa60ad8246e4f
