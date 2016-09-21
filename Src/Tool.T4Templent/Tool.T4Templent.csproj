@@ -80,6 +80,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Mapping.tt</DependentUpon>
     </Content>
+    <Content Include="myT4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>myT4.txt</LastGenOutput>
+    </Content>
+    <Content Include="myT4.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myT4.tt</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Manager.ttinclude" />
