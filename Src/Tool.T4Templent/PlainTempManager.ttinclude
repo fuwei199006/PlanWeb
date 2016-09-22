@@ -15,14 +15,17 @@
 <#@ import namespace="System.Text"#>
 <#@ import namespace="System.Xml.Linq"#>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating"#>
+
 <#+
 
-class TempContext
+public class TempContext
 {
 		public static string GetTableName()
 	     {
 			  return "Hello";
 		}
 
-}#>
+}
+
+#>
  
