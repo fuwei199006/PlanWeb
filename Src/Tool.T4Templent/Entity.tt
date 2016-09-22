@@ -6,7 +6,7 @@
 <#@ import namespace="System.Data" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
-<<<<<<< HEAD
+
 
 <#@include file="Manager.ttinclude"#> 
 <# var manager = Manager.Create(Host, GenerationEnvironment); #>
@@ -64,11 +64,10 @@ namespace My.Model
 <# manager.EndBlock(); #>
 
 <# manager.Process(true); #>
-=======
 <#@ output extension=".cs" #>
 
 <#@include file="PlainTempManager.ttinclude"#> 
 
 <# TempContext.GetTableName();#>
  
->>>>>>> 891efa5a0303e7f738cc93e6e6efa60ad8246e4f
+
