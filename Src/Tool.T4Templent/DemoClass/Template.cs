@@ -37,6 +37,7 @@ public abstract class Template: TextTransformation
             {
                 TransformContext.Current.TemplageProjectItem.ProjectItems.AddFromFile(fileName);
             }
+      
     }
     protected void CreateFile(string fileName, string contents)
     {
