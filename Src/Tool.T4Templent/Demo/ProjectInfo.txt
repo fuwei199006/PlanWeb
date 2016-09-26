@@ -1,1 +1,4 @@
-﻿ErrorGeneratingOutput
+﻿
+ 解决方案名称：E:\WorkSpace\Code\PlanWeb\Src\Plain.sln 
+ 
+ 项目总数：7

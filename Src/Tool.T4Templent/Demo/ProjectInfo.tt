@@ -9,7 +9,5 @@
 #>
 
  解决方案名称：<#= dte.Solution.FileName.ToString()#> 
- 项目总数：<#= dte.Solution.Projects.Count#> 
- 项目总数：<#= dte.Solution.Count#> 
- 项目总数：<#= dte.Solution.Parent.Count#> 
- 项目总数：<#= dte.Solution.Projects.ToString()#>
+ 
+ 项目总数：<#= dte.Solution.Projects.Count#>
