@@ -1,0 +1,18 @@
+﻿<#@ template language="C#" #>
+
+ <#@ parameter name="ClassName" type="System.String" #>
+ 
+
+namespace DataAccess.Model.Office
+{
+    public partial class <#=ClassName#>  
+    {
+        public long ItemID { get; set; }
+        public string ItemName { get; set; }
+        public Nullable<long> ParentID { get; set; }
+        public string ItemType { get; set; }
+        public string Remark { get; set; }
+        public System.DateTime dRecordTime { get; set; }
+    }
+}
+

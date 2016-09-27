@@ -1,8 +1,15 @@
-﻿namespace Plain.Web
+﻿using Core.Cache;
+using Core.Service;
+using Plain.BLL.Article;
+using Plain.Model.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Plain.Web
 {
     public class CmsCommentCache
     {
-        public List<basic_Comm> Articles
+        public List<Basic_Article> Articles
         {
             get
             {
