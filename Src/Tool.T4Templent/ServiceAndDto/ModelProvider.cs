@@ -17,7 +17,7 @@ namespace Tool.T4Templent.ServiceAndDto
         static ModelProvider()
         {
             SqlDbHelper = new MssqlDbHelper();
-            SqlDbHelper.conStr = "server=10.4.254.169;database=oas;user id=ptmoas;password=ptmoas";// DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
+            SqlDbHelper.conStr = "server=.;database=PanasonicDB;user id=sa;password=111";// DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
 
 
         }
@@ -54,11 +54,21 @@ namespace Tool.T4Templent.ServiceAndDto
             var filedList = dbFiled.ToList<Filed>().ToList();
             if (!string.IsNullOrEmpty(primaryKey))
             {
-
                 filedList.Where(r => r.Name == primaryKey).First().IsPrimaryKey = true;
             }
             return filedList;
 
+        }
+
+        /// <summary>
+        /// 检测生成的字段是否合法，是否有关键字，是否是数字开头，如果则跳过
+        ///
+        /// </summary>
+        /// <param name="filedName"></param>
+        /// <returns></returns>
+        public string CheckFiled(string filedName)
+        {
+            return filedName;
         }
 
 
@@ -103,7 +113,7 @@ namespace Tool.T4Templent.ServiceAndDto
                 return "bool";
             if (dataType.Equals("money") || dataType.Equals("smallmoney") || dataType.Equals("numeric")|| dataType.Equals("decimal"))
                 return "decimal";
-            if (dataType.Equals("datetime") || dataType.Equals("smalldatetime") || dataType.Equals("timestamp"))
+            if (dataType.Equals("datetime") || dataType.Equals("smalldatetime") || dataType.Equals("timestamp") || dataType.Equals("date"))
                 return "DateTime";
             if (dataType.Equals("real"))
                 return "Single";

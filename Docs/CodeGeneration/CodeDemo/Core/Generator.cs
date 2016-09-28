@@ -1,0 +1,63 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Artech.CodeGeneration;
+using EnvDTE;
+
+namespace CodeDemo.Core
+{
+public abstract class Generator
+{
+    protected virtual IDictionary<string, Template> CreateTemplates()
+    {
+        return new Dictionary<string, Template>();
+    }
+    protected virtual Template CreateTemplate()
+    {
+        return null;
+    }
+    public void Run()
+    {
+        this.RunCore();
+        this.RemoveUnusedFiles();
+    }
+    protected virtual void RunCore()
+    {
+        List<string> files = new List<string>();
+        string directory = Path.GetDirectoryName(TransformContext.Current.Host.TemplateFile);
+        foreach (var item in this.CreateTemplates())
+        {
+            files.Add(Path.Combine(directory,item.Key));
+            item.Value.EnsureInitialized();
+            item.Value.RenderToFile(item.Key);
+        }
+
+        Template template = this.CreateTemplate();
+        if (null != template)
+        {
+            template.EnsureInitialized();
+            template.Render();
+        }   
+    }
+    protected virtual void RemoveUnusedFiles()
+    {
+        List<string> files = new List<string>();
+        string directory = Path.GetDirectoryName(TransformContext.Current.Host.TemplateFile);
+        foreach (var item in this.CreateTemplates())
+        {
+            files.Add(Path.Combine(directory, item.Key));
+            item.Value.EnsureInitialized();
+            item.Value.RenderToFile(item.Key);
+        }
+        var projectItems = TransformContext.Current.TemplageProjectItem.ProjectItems.Cast<ProjectItem>().ToArray();
+        foreach (ProjectItem projectItem in projectItems)
+        {
+            string fileName = projectItem.FileNames[0];
+            if (!files.Contains(fileName))
+            {
+                projectItem.Delete();
+            }
+        }
+    }
+}
+}

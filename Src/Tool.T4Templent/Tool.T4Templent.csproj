@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\Projects\Office\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\..\Projects\Office\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
@@ -89,6 +89,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAndDto\ModelProvider.cs" />
+    <Compile Include="StaticPlates\CodeTemplates\Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaticPlates\Core\StaticTextTemplateHost.cs" />
+    <Compile Include="StaticPlates\StaticFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaticPlates\StaticFrm.Designer.cs">
+      <DependentUpon>StaticFrm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
@@ -105,6 +117,10 @@
     <Content Include="RuntimePlates\CodeTemplates\Mapping.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Mapping.cs</LastGenOutput>
+    </Content>
+    <Content Include="StaticPlates\CodeTemplates\Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
     <None Include="App.config" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\EF.Utility.CS.ttinclude" />
@@ -123,11 +139,13 @@
     <EmbeddedResource Include="RuntimePlates\MainRuntime.resx">
       <DependentUpon>MainRuntime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaticPlates\StaticFrm.resx">
+      <DependentUpon>StaticFrm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RuntimePlates\Models\Mapping\" />
     <Folder Include="RuntimePlates\Models\Model\" />
-    <Folder Include="StaticPlates\CodeTemplates\" />
     <Folder Include="StaticPlates\Models\Mapping\" />
     <Folder Include="StaticPlates\Models\Model\" />
   </ItemGroup>
