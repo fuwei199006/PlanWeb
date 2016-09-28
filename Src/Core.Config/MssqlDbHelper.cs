@@ -13,6 +13,11 @@ namespace Core.Config
             set { _conStr = value; }
         }
 
+        public  string GetDbName()
+        {
+            var conn = new SqlConnection(_conStr);
+            return conn.Database;
+        }
         /// <summary>
         ///     运行sql  返回受影响的行数
         /// </summary>

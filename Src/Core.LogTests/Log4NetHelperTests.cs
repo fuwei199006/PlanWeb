@@ -14,7 +14,9 @@ namespace Core.Log.Tests
         [TestMethod()]
         public void DebugTest()
         {
-             
+           var type= typeof (int);
+
+
           Log4NetHelper.Info(LoggerType.ServiceExceptionLog, "123", new Exception("qweqwe"));
 
         }

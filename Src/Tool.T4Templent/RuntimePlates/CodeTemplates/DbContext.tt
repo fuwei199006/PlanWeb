@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" #>
+ <#@ parameter name="ClassName" type="System.String" #>
+ <#@ parameter name="tableNames" type="System.Collections.Generic.List<System.String> " #>
+ <#@ parameter name="NameSpace" type="System.String" #>
+using System.Data.Entity;
+using <#=NameSpace#>.Models.Model;
+using  <#=NameSpace#>.Models.Mapping;
+namespace <#=NameSpace#>
+{
+    public partial class <#=ClassName#> : DbContext
+    {
+        static  <#=ClassName#>()
+        {
+            Database.SetInitializer< <#=ClassName#>>(null);
+        }
+
+        public  <#=ClassName#>(string connectionString):this()
+        {
+            this.Database.Connection.ConnectionString = connectionString;
+        }
+
+        public  <#=ClassName#>()
+        {
+           
+        }
+		<# foreach(var tableName in tableNames)
+		{#>public DbSet<<#=tableName#>> <#=tableName#> { get; set; }
+		<#}#>
+      
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+		 <# foreach(var tableName in tableNames)
+		 {#>modelBuilder.Configurations.Add(new <#=tableName#>Map());
+		<#}#>
+        }
+    }
+}
