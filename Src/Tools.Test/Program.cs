@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnvDTE;
 
 namespace Tools.Test
 {
@@ -11,16 +12,22 @@ namespace Tools.Test
     {
         static void Main()
         {
-            Console.WriteLine("Calling Method1");
-            Method1(3);
-            Console.WriteLine("Calling Method2");
-            Method2();
-
-            Console.WriteLine("Using the Debug class");
-            Debug.Listeners.Add(new ConsoleTraceListener());
-            Debug.WriteLine("DEBUG is defined");
-            Console.ReadKey();
-        }
+            string html = "found nothing";
+            try
+            {
+                EnvDTE.DTE devenv = null;
+                devenv = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.14.0");
+                var listItem = devenv.Solution.Projects;
+               
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                html = "Exception occured: " + ex.Message;
+            }
+            Console.Read();
+        } 
+    
 
         [Conditional("DEBUG")]
         public static void Method1(int x)

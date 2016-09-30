@@ -38,6 +38,7 @@ namespace Framework.Utility
         //Center           //中心
     }
 
+ 
     /// <summary>
     /// ImageUtil 的摘要说明。
     /// </summary>

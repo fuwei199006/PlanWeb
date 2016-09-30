@@ -1,4 +1,5 @@
-﻿using System;
+﻿ 
+using System;
 using EnvDTE;
 using Microsoft.VisualStudio.TextTemplating;
 

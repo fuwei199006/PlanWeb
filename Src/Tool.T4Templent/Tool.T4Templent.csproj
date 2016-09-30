@@ -58,6 +58,7 @@
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -116,49 +117,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAndDto\ModelProvider.cs" />
-    <Compile Include="StaticPlates\CodeTemplates\Entity.cs">
+    <Compile Include="StaticPlates\CodeTemplates\Entity2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="StaticPlates\Core\DbContextPackage.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\CompilerErrorCollectionExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\CompilerErrorException.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\EdmSchemaErrorException.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\IComponentModelExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\IEnumerableOfEdmSchemaErrorExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\ProjectExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\ProjectItemExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\ProjectItemsExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\SourceControlExtenstions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\StringExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Extensions\XContainerExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Guids.cs" />
-    <Compile Include="StaticPlates\Core\Handlers\AddCustomTemplatesHandler.cs" />
-    <Compile Include="StaticPlates\Core\Handlers\OptimizeContextHandler.cs" />
-    <Compile Include="StaticPlates\Core\Handlers\ReverseEngineerCodeFirstHandler.cs" />
-    <Compile Include="StaticPlates\Core\Handlers\ViewContextHandler.cs" />
-    <Compile Include="StaticPlates\Core\Handlers\ViewDdlHandler.cs" />
-    <Compile Include="StaticPlates\Core\PkgCmdID.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\Check.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\CSharpViewGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CSharpViewGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StaticPlates\Core\Utilities\EdmxUtility.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\IViewGenerator.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\DebugCheck.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\FileExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\ProjectItemsExtensions.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\StaticTextTemplateHost.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\TemplateProcessor.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\Templates.cs" />
-    <Compile Include="StaticPlates\Core\Utilities\VBViewGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VBViewGenerator.tt</DependentUpon>
-    </Compile>
+    <Compile Include="StaticPlates\CoreCode\StaticEngineHost.cs" />
+    <Compile Include="StaticPlates\CoreCode\StaticTemplate.cs" />
+    <Compile Include="StaticPlates\CoreCode\Template.cs" />
     <Compile Include="StaticPlates\StaticFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,15 +154,7 @@
     </Content>
     <Content Include="StaticPlates\CodeTemplates\Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entity.cs</LastGenOutput>
-    </Content>
-    <Content Include="StaticPlates\Core\Utilities\CSharpViewGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CSharpViewGenerator.cs</LastGenOutput>
-    </Content>
-    <Content Include="StaticPlates\Core\Utilities\VBViewGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VBViewGenerator.cs</LastGenOutput>
+      <LastGenOutput>Entity2.cs</LastGenOutput>
     </Content>
     <None Include="App.config" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\EF.Utility.CS.ttinclude" />
