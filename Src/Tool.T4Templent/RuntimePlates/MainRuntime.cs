@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnvDTE;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
@@ -29,70 +30,75 @@ namespace Tool.T4Templent.RuntimePlates
 
             var tableNameList = ModelProvider.GetTable();
             this.progressBar1.Maximum = tableNameList.Count * 2 + 2;
-            foreach (var name in tableNameList)
+            ThreadPool.QueueUserWorkItem(r =>
             {
+                foreach (var name in tableNameList)
+                {
 
-                #region 生成类实体
+                    #region 生成类实体
 
-                SetLableInfo("正在生成类实体....");
+                    SetLableInfo(string.Format("正在生成{0}实体....", name));
 
+                    SetProgress(this.progressBar1.Value + 1);
+                    var entityTemplate = new Entity();
+                    entityTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
+                    //this.Dte = (DTE)((IServiceProvider)host).GetService(typeof(DTE));
+                    entityTemplate.Session["ClassName"] = name;
+                    entityTemplate.Session["Fileds"] = ModelProvider.GetFiledByTable(name);
+                    entityTemplate.Session["NameSpace"] = this.textBox1.Text;
+                    entityTemplate.Initialize();
+                    var content = entityTemplate.TransformText();
+                    var fileName = ModelPath + string.Format("\\Model\\{0}.cs", name);
+                    if (File.Exists(fileName)) File.Delete(fileName);
+
+                    File.WriteAllText(fileName, content, System.Text.Encoding.UTF8);
+
+                    #endregion
+
+                    #region 生成Mapping
+
+                    SetLableInfo(string.Format("正在生成{0}映射....", name));
+                    SetProgress(this.progressBar1.Value + 1);
+
+                    var mappingTemplate = new Mapping();
+                    mappingTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
+                    mappingTemplate.Session["ClassName"] = name;
+                    mappingTemplate.Session["Fileds"] = ModelProvider.GetFiledByTable(name);
+                    mappingTemplate.Session["NameSpace"] = this.textBox1.Text;
+                    mappingTemplate.Initialize();
+                    var mappingContent = mappingTemplate.TransformText();
+                    var mappingFileName = ModelPath + string.Format("\\Mapping\\{0}Mapping.cs", name);
+                    if (File.Exists(mappingFileName)) File.Delete(mappingFileName);
+
+                    File.WriteAllText(mappingFileName, mappingContent, System.Text.Encoding.UTF8);
+
+                    #endregion
+
+
+                }
+                #region 生成DbContext
+
+                SetLableInfo("生成数据库上下文....");
                 SetProgress(this.progressBar1.Value + 1);
-                var entityTemplate = new Entity();
-                entityTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
-                entityTemplate.Session["ClassName"] = name;
-                entityTemplate.Session["Fileds"] = ModelProvider.GetFiledByTable(name);
-                entityTemplate.Session["NameSpace"] = this.textBox1.Text;
-                entityTemplate.Initialize();
-                var content = entityTemplate.TransformText();
-                var fileName = ModelPath + string.Format("\\Model\\{0}.cs", name);
-                if (File.Exists(fileName)) File.Delete(fileName);
 
-                File.WriteAllText(fileName, content, System.Text.Encoding.UTF8);
+                var contextTemplate = new DbContext();
+                contextTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
+                contextTemplate.Session["ClassName"] = ModelProvider.DbName + "Context";
+                contextTemplate.Session["tableNames"] = tableNameList;
+                contextTemplate.Session["NameSpace"] = this.textBox1.Text;
+                contextTemplate.Initialize();
+                var contextContent = contextTemplate.TransformText();
+                var contextFileName = ModelPath + string.Format(" \\{0}.cs", ModelProvider.DbName + "Context");
+                if (File.Exists(contextFileName)) File.Delete(contextFileName);
+
+                File.WriteAllText(contextFileName, contextContent, System.Text.Encoding.UTF8);
+
+                SetLableInfo("生成完成....");
+                SetProgress(this.progressBar1.Value + 1);
 
                 #endregion
-
-                #region 生成Mapping
-
-                SetLableInfo("正在生成映射....");
-                SetProgress(this.progressBar1.Value + 1);
-
-                var mappingTemplate = new Mapping();
-                mappingTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
-                mappingTemplate.Session["ClassName"] = name;
-                mappingTemplate.Session["Fileds"] = ModelProvider.GetFiledByTable(name);
-                mappingTemplate.Session["NameSpace"] = this.textBox1.Text;
-                mappingTemplate.Initialize();
-                var mappingContent = mappingTemplate.TransformText();
-                var mappingFileName = ModelPath + string.Format("\\Mapping\\{0}Mapping.cs", name);
-                if (File.Exists(mappingFileName)) File.Delete(mappingFileName);
-
-                File.WriteAllText(mappingFileName, mappingContent, System.Text.Encoding.UTF8);
-
-                #endregion
-
-
-            }
-            #region 生成DbContext
-
-            SetLableInfo("生成数据库上下文....");
-            SetProgress(this.progressBar1.Value + 1);
-
-            var contextTemplate = new DbContext();
-            contextTemplate.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();
-            contextTemplate.Session["ClassName"] = ModelProvider.DbName + "Context";
-            contextTemplate.Session["tableNames"] = tableNameList;
-            contextTemplate.Session["NameSpace"] = this.textBox1.Text;
-            contextTemplate.Initialize();
-            var contextContent = contextTemplate.TransformText();
-            var contextFileName = ModelPath + string.Format(" \\{0}.cs", ModelProvider.DbName + "Context");
-            if (File.Exists(contextFileName)) File.Delete(contextFileName);
-
-            File.WriteAllText(contextFileName, contextContent, System.Text.Encoding.UTF8);
-
-            SetLableInfo("生成完成....");
-            SetProgress(this.progressBar1.Value + 1);
-
-            #endregion
+            });
+         
 
 
         }

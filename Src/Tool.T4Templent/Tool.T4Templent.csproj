@@ -40,8 +40,22 @@
       <HintPath>..\..\..\..\Projects\Office\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.ComponentModelHost, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Data.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Data.Services, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -49,7 +63,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +75,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoClass\Generator.cs" />
@@ -66,6 +87,12 @@
     <Compile Include="DemoClass\TransformContext.cs" />
     <Compile Include="DemoClass\TransformContextScope.cs" />
     <Compile Include="Programe.cs" />
+    <Compile Include="Properties\InternalsVisibleTo.cs" />
+    <Compile Include="Properties\Resources.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.tt</DependentUpon>
+    </Compile>
     <Compile Include="RuntimePlates\CodeTemplates\DbContext1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,7 +121,44 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="StaticPlates\Core\StaticTextTemplateHost.cs" />
+    <Compile Include="StaticPlates\Core\DbContextPackage.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\CompilerErrorCollectionExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\CompilerErrorException.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\EdmSchemaErrorException.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\IComponentModelExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\IEnumerableOfEdmSchemaErrorExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\ProjectExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\ProjectItemExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\ProjectItemsExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\SourceControlExtenstions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\StringExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Extensions\XContainerExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Guids.cs" />
+    <Compile Include="StaticPlates\Core\Handlers\AddCustomTemplatesHandler.cs" />
+    <Compile Include="StaticPlates\Core\Handlers\OptimizeContextHandler.cs" />
+    <Compile Include="StaticPlates\Core\Handlers\ReverseEngineerCodeFirstHandler.cs" />
+    <Compile Include="StaticPlates\Core\Handlers\ViewContextHandler.cs" />
+    <Compile Include="StaticPlates\Core\Handlers\ViewDdlHandler.cs" />
+    <Compile Include="StaticPlates\Core\PkgCmdID.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\Check.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\CSharpViewGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSharpViewGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaticPlates\Core\Utilities\EdmxUtility.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\IViewGenerator.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\DebugCheck.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\FileExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\ProjectItemsExtensions.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\StaticTextTemplateHost.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\TemplateProcessor.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\Templates.cs" />
+    <Compile Include="StaticPlates\Core\Utilities\VBViewGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VBViewGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="StaticPlates\StaticFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +170,10 @@
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <Content Include="Properties\Resources.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Resources.cs</LastGenOutput>
+    </Content>
     <Content Include="RuntimePlates\CodeTemplates\DbContext.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbContext1.cs</LastGenOutput>
@@ -122,6 +190,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
+    <Content Include="StaticPlates\Core\Utilities\CSharpViewGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CSharpViewGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="StaticPlates\Core\Utilities\VBViewGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VBViewGenerator.cs</LastGenOutput>
+    </Content>
     <None Include="App.config" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\EF.Utility.CS.ttinclude" />
     <None Include="Config\DaoConfig1.config">
@@ -136,6 +212,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <DependentUpon>Resources.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RuntimePlates\MainRuntime.resx">
       <DependentUpon>MainRuntime.cs</DependentUpon>
     </EmbeddedResource>
