@@ -1,10 +1,4 @@
-# PlainWeb
-- 现在还在开发成型中
-
-
-
-# 项目目录   
-Plain.sln
+﻿E:\github\PlanWeb\Src\Plain.sln
 -Core
   |__Core.Module
        |__app.config
@@ -596,5 +590,3 @@ Plain.sln
        |__Program.cs
        |__Properties
          |__AssemblyInfo.cs
-
-
