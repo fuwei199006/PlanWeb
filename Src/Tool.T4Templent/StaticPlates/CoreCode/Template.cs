@@ -24,9 +24,8 @@ namespace Tool.T4Templent.StaticPlates.CoreCode
         }
         public virtual void Render()
         {
-           
+
             string contents = this.TransformText();
-        
             this.Write(contents);
         }
         public virtual void RenderToFile(string fileName)

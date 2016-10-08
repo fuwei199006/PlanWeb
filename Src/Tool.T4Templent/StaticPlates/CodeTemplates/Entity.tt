@@ -1,13 +1,14 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ assembly name="$(TargetDir)/Tool.T4Templent.dll" #>
-<#@ import namespace="Tool.T4Templent.StaticPlates.CoreCode"#>
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Design;
-    using System.Data.Mapping;
-    using System.Data.Metadata.Edm;
-    using System.IO;
-    using System.Reflection;
-    using System.Xml;
-    using System.Xml.Linq;
- <#   var staticTemplate=new StaticTemplate(this.Host);#>
+﻿
+<#@ template debug="true" #>
+
+<# //Uncomment this line to test that the host allows the engine to set the extension. #>
+<# //@ output extension=".htm" #>
+
+<# //Uncomment this line if you want to debug the generated transformation class. #>
+<# //System.Diagnostics.Debugger.Break(); #>
+
+<# for (int i=0; i<3; i++)
+   {
+       WriteLine("This is a test");
+   } 
+#>

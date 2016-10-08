@@ -25,7 +25,7 @@ public class TransformContext
     {
         if (null == Current)
         {
-            throw new TransformationException("TransformContext is not initialized.");
+           
         }
     }
 }
