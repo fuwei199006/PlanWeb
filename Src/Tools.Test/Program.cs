@@ -51,7 +51,7 @@ namespace Tools.Test
 
         private static void GetProject(ProjectItem project, string space)
         {
-            if (project.SubProject.ProjectItems != null)
+            if (project.SubProject!=null&&project.SubProject.ProjectItems != null)
             {
 
                 for (int k = 1; k < project.SubProject.ProjectItems.Count + 1; k++)

@@ -1,0 +1,1327 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-plainweb" class="anchor" href="#plainweb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PlainWeb</h1>
+
+<ul>
+<li>现在还在开发成型中<br>
+</li>
+</ul>
+
+<h1>
+<a id="user-content-项目目录" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>项目目录</h1>
+
+<p>Plain.sln<br>
+-Core<br>
+  |<strong>Core.Module<br>
+       |__app.config<br>
+       |__ContextCollectHandler.cs<br>
+       |__HttpModuleService.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.Service<br>
+       |__app.config<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__ServiceContext.cs<br>
+       |__ServiceFactory.cs<br>
+  |__Core.Config<br>
+       |__ConfigContext.cs<br>
+       |__ConfigModel<br>
+         |__CacheConfig.cs<br>
+         |__ConfigBase.cs<br>
+         |__DaoConfig.cs<br>
+         |__MailConfig.cs<br>
+         |__SettingConfig.cs<br>
+         |__SystemConfig.cs<br>
+       |__DbConfigService.cs<br>
+       |__FileConfigService.cs<br>
+       |__IConfigService.cs<br>
+       |__IDbConfigService.cs<br>
+       |__IFileConfigService.cs<br>
+       |__LocalCachedConfigContext.cs<br>
+       |__MssqlDbHelper.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.Exception<br>
+       |__AuthValideException.cs<br>
+       |__BaseException.cs<br>
+       |__CallMethodFailException.cs<br>
+       |__ConfigNotExistException.cs<br>
+       |__GetCacheException.cs<br>
+       |__InterfaceConvertFailException.cs<br>
+       |__OverRetryException.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.Cache<br>
+       |__CacheConfigContext.cs<br>
+       |__CacheContext.cs<br>
+       |__ICacheProvider.cs<br>
+       |__LocalCacheProvider.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.Log<br>
+       |__app.config<br>
+       |__Log4NetHelper.cs<br>
+       |__LogDbContext.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.Encrypt<br>
+       |__Base64Encrypt.cs<br>
+       |__DESEncrypt.cs<br>
+       |__MD5Encrypt.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__RSAEncrypt.cs<br>
+  |__Core.Message<br>
+       |__MailContext.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+-Framework<br>
+  |__Framework.BLL<br>
+       |__App.config<br>
+       |__IServiceBase.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__ServiceBase.cs<br>
+  |__Framework.DAL<br>
+       |__App.config<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__ResposityBase.cs<br>
+  |__Framework.Utility<br>
+       |__AppSettings.cs<br>
+       |__AssemblyHelper.cs<br>
+       |__Caching.cs<br>
+       |__Collection.cs<br>
+       |__Cookie.cs<br>
+       |__Diff.cs<br>
+       |__EnumHelper.cs<br>
+       |__Fetch.cs<br>
+       |__FileWatchHelper.cs<br>
+       |__GeoHelper.cs<br>
+       |__ImageUtil.cs<br>
+       |__JsUtil.cs<br>
+       |__NetHelper.cs<br>
+       |__ObjectHelper.cs<br>
+       |__packages.config<br>
+       |__PermutationAndCombination.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__RegExp.cs<br>
+       |__RequestHelper.cs<br>
+       |__SerializationHelper.cs<br>
+       |__SerializeHelper.cs<br>
+       |__StringHelper.cs<br>
+       |__StringUtil.cs<br>
+       |__ThumbnailHelper.cs<br>
+       |__ValideCode<br>
+         |__AnimatedGifEncoder.cs<br>
+         |__GifDecoder.cs<br>
+         |__LZWEncoder.cs<br>
+         |__NeuQuant.cs<br>
+         |__ValidateCode_Style1.cs<br>
+         |__ValidateCode_Style10.cs<br>
+         |__ValidateCode_Style11.cs<br>
+         |__ValidateCode_Style12.cs<br>
+         |__ValidateCode_Style13.cs<br>
+         |__ValidateCode_Style14.cs<br>
+         |__ValidateCode_Style2.cs<br>
+         |__ValidateCode_Style3.cs<br>
+         |__ValidateCode_Style4.cs<br>
+         |__ValidateCode_Style5.cs<br>
+         |__ValidateCode_Style6.cs<br>
+         |__ValidateCode_Style7.cs<br>
+         |__ValidateCode_Style8.cs<br>
+         |__ValidateCode_Style9.cs<br>
+         |__ValidateCodeType.cs<br>
+       |__WcfServiceProxy.cs<br>
+  |__Framework.Contract<br>
+       |__AuditableAttribute.cs<br>
+       |__IAuditable.cs<br>
+       |__IPagedList.cs<br>
+       |__ModelBase.cs<br>
+       |__Operater.cs<br>
+       |__packages.config<br>
+       |__PagedList.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__Request.cs<br>
+       |__WcfContext.cs<br>
+  |__Framework.DbDrive<br>
+       |__App.config<br>
+       |__EntityFramework<br>
+         |__DbContextBase.cs<br>
+         |__IDataRepository.cs<br>
+       |__MssqlDbHelper.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Framework.Web<br>
+       |__AuthorizeFilterAttribute.cs<br>
+       |__AuthorizeIgnoreAttribute.cs<br>
+       |__ControllerBase.cs<br>
+       |__HttpContextBase.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Framework.Extention<br>
+       |__AssemblyExtention.cs<br>
+       |__ConverterExtention.cs<br>
+       |__Exception.cs<br>
+       |__packages.config<br>
+       |__PageLinqExtensions.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__UrlHelperExtention.cs<br>
+  |__Frameworke.Dtos<br>
+       |__DeviceDto.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Framework.Api<br>
+       |__Class1.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+-UI<br>
+  |__Plain.UI<br>
+       |__App_Data<br>
+       |__App_Start<br>
+         |__AuthAreaRegistration.cs<br>
+         |__BundleConfig.cs<br>
+         |__CMSAreaRegistration.cs<br>
+         |__FilterConfig.cs<br>
+         |__IdentityConfig.cs<br>
+         |__RouteConfig.cs<br>
+         |__Startup.Auth.cs<br>
+       |__Areas<br>
+         |__Auth<br>
+           |__Controllers<br>
+             |__LoginController.cs<br>
+           |__Views<br>
+             |__Login<br>
+               |__Index.cshtml<br>
+               |__Register.cshtml<br>
+             |__web.config<br>
+         |__CMS<br>
+           |__Controllers<br>
+             |__CmsHomeController.cs<br>
+           |__Models<br>
+           |__Views<br>
+             |__CmsHome<br>
+               |__ArticleView.cshtml<br>
+               |__Index.cshtml<br>
+               |__Page.cshtml<br>
+             |__web.config<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+         |__DaoConfig2.config<br>
+       |__Content<br>
+         |__css<br>
+           |__font-awesome.css<br>
+           |__font-awesome.min.css<br>
+           |__main.css<br>
+           |__register.css<br>
+         |__DemoUI<br>
+           |</strong>.project<br>
+           |__css<br>
+             |__font-awesome.css<br>
+             |__font-awesome.min.css<br>
+             |__main.css<br>
+             |__register.css<br>
+           |__Detail.html<br>
+           |__fonts<br>
+             |__fontawesome-webfont.eot<br>
+             |__fontawesome-webfont.svg<br>
+             |__fontawesome-webfont.ttf<br>
+             |__fontawesome-webfont.woff<br>
+             |__fontawesome-webfont.woff2<br>
+             |__FontAwesome.otf<br>
+           |__img<br>
+             |__list_style.png<br>
+             |__logo.png<br>
+             |__recombg.png<br>
+             |__register_bg.gif<br>
+             |__weixin.png<br>
+           |__index.html<br>
+           |__register.html<br>
+         |__detail.png<br>
+         |__fonts<br>
+           |__fontawesome-webfont.eot<br>
+           |__fontawesome-webfont.svg<br>
+           |__fontawesome-webfont.ttf<br>
+           |__fontawesome-webfont.woff<br>
+           |__fontawesome-webfont.woff2<br>
+           |__FontAwesome.otf<br>
+         |__img<br>
+           |__demo.jpg<br>
+           |__list_style.png<br>
+           |__logo.png<br>
+           |__recombg.png<br>
+           |__register_bg.gif<br>
+           |__weixin.png<br>
+         |__index.png<br>
+         |__index分类.png<br>
+       |__Controllers<br>
+         |__BaseController.cs<br>
+         |__HomeController.cs<br>
+       |__favicon.ico<br>
+       |__fonts<br>
+         |__glyphicons-halflings-regular.eot<br>
+         |__glyphicons-halflings-regular.svg<br>
+         |__glyphicons-halflings-regular.ttf<br>
+         |__glyphicons-halflings-regular.woff<br>
+       |__Global.asax<br>
+         |__Global.asax.cs<br>
+       |__Models<br>
+         |__AccountViewModels.cs<br>
+         |__IdentityModels.cs<br>
+         |__ManageViewModels.cs<br>
+       |__packages.config<br>
+       |__Project_Readme.html<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__Scripts<br>
+         |___references.js<br>
+         |__bootstrap.js<br>
+         |__bootstrap.min.js<br>
+         |__jquery-1.10.2.intellisense.js<br>
+         |__jquery-1.10.2.js<br>
+         |__jquery-1.10.2.min.js<br>
+         |__jquery-1.10.2.min.map<br>
+         |__jquery.validate-vsdoc.js<br>
+         |__jquery.validate.js<br>
+         |__jquery.validate.min.js<br>
+         |__jquery.validate.unobtrusive.js<br>
+         |__jquery.validate.unobtrusive.min.js<br>
+         |__modernizr-2.6.2.js<br>
+         |__respond.js<br>
+         |__respond.min.js<br>
+       |__Startup.cs<br>
+       |__Views<br>
+         |___ViewStart.cshtml<br>
+         |__Home<br>
+           |__Index.cshtml<br>
+         |__Shared<br>
+           |___Footer.cshtml<br>
+           |___Header.cshtml<br>
+           |___Layout.cshtml<br>
+           |___LoginLayout.cshtml<br>
+           |__Info.cshtml<br>
+         |__Web.config<br>
+       |__Web.config<br>
+         |__Web.Debug.config<br>
+         |__Web.Release.config<br>
+  |__Plain.Web<br>
+       |__AdminCacheContext.cs<br>
+       |__AdminCookieContext.cs<br>
+       |__AdminMenuCache.cs<br>
+       |__AdminUserContext.cs<br>
+       |__CmsArticleCache.cs<br>
+       |__CmsCommentCache.cs<br>
+       |__ControllerBase.cs<br>
+       |__CookieContext.cs<br>
+       |__IAuthCookie.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__UserContext.cs<br>
+  |__Plain.CMS<br>
+       |__App_Data<br>
+       |__App_Start<br>
+         |__BundleConfig.cs<br>
+         |__FilterConfig.cs<br>
+         |__IdentityConfig.cs<br>
+         |__RouteConfig.cs<br>
+         |__Startup.Auth.cs<br>
+       |__Content<br>
+         |__bootstrap-theme.css<br>
+         |__bootstrap-theme.min.css<br>
+         |__bootstrap.css<br>
+         |__bootstrap.min.css<br>
+         |__Site.css<br>
+       |__Controllers<br>
+         |__HomeController.cs<br>
+       |__favicon.ico<br>
+       |__fonts<br>
+         |__glyphicons-halflings-regular.eot<br>
+         |__glyphicons-halflings-regular.svg<br>
+         |__glyphicons-halflings-regular.ttf<br>
+         |__glyphicons-halflings-regular.woff<br>
+       |__Global.asax<br>
+         |__Global.asax.cs<br>
+       |__Models<br>
+         |__AccountViewModels.cs<br>
+         |__IdentityModels.cs<br>
+         |__ManageViewModels.cs<br>
+       |__packages.config<br>
+       |__Project_Readme.html<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__Scripts<br>
+         |___references.js<br>
+         |__bootstrap.js<br>
+         |__bootstrap.min.js<br>
+         |__jquery-1.10.2.intellisense.js<br>
+         |__jquery-1.10.2.js<br>
+         |__jquery-1.10.2.min.js<br>
+         |__jquery-1.10.2.min.map<br>
+         |__jquery.validate-vsdoc.js<br>
+         |__jquery.validate.js<br>
+         |__jquery.validate.min.js<br>
+         |__jquery.validate.unobtrusive.js<br>
+         |__jquery.validate.unobtrusive.min.js<br>
+         |__modernizr-2.6.2.js<br>
+         |__respond.js<br>
+         |__respond.min.js<br>
+       |__Startup.cs<br>
+       |__Views<br>
+         |___ViewStart.cshtml<br>
+         |__Home<br>
+           |__Get.cshtml<br>
+           |__Index.cshtml<br>
+         |__Shared<br>
+           |___Layout.cshtml<br>
+           |___LoginPartial.cshtml<br>
+           |__Error.cshtml<br>
+           |__Lockout.cshtml<br>
+         |__Web.config<br>
+       |__Web.config<br>
+         |__Web.Debug.config<br>
+         |__Web.Release.config<br>
+-Business<br>
+  |__Plain<br>
+       |__Plain.BLL<br>
+         |__App.config<br>
+         |__Article<br>
+           |__ArticleService.cs<br>
+           |__IArticleService.cs<br>
+         |__BaseService.cs<br>
+         |__IBaseService.cs<br>
+         |__LoginService<br>
+           |__ILoginService.cs<br>
+           |__LoginService.cs<br>
+         |__MenuService<br>
+           |__IMenuService.cs<br>
+           |__MenuService.cs<br>
+         |__packages.config<br>
+         |__Properties<br>
+           |__AssemblyInfo.cs<br>
+         |__RegisterService<br>
+           |__IRegisterService.cs<br>
+           |__RegisterService.cs<br>
+         |__UserService<br>
+           |__IUserService.cs<br>
+           |__UserService.cs<br>
+       |__Plain.DAL<br>
+         |__BaseResposity.cs<br>
+         |__IBaseResposity.cs<br>
+         |__packages.config<br>
+         |__PlainDbContext.cs<br>
+         |__Properties<br>
+           |__AssemblyInfo.cs<br>
+       |__Plain.Model<br>
+         |__App.config<br>
+         |__CodeTemplates<br>
+           |__ReverseEngineerCodeFirst<br>
+             |__Context.tt<br>
+             |__Entity.tt<br>
+             |__Mapping.tt<br>
+         |__Models<br>
+           |__Basic_Article.cs<br>
+           |__Basic_Config.cs<br>
+           |__Basic_Dictionary.cs<br>
+           |__Basic_Draft.cs<br>
+           |__Basic_LoginInfo.cs<br>
+           |__Basic_MainData.cs<br>
+           |__Basic_Menu.cs<br>
+           |__Basic_MessageBox.cs<br>
+           |__Basic_Power.cs<br>
+           |__Basic_PowerRole.cs<br>
+           |__Basic_Register.cs<br>
+           |__Basic_Role.cs<br>
+           |__Basic_Task.cs<br>
+           |__Basic_UserInfo.cs<br>
+           |__Basic_UserRole.cs<br>
+           |__Mapping<br>
+             |__Basic_ArticleMap.cs<br>
+             |__Basic_ConfigMap.cs<br>
+             |__Basic_DictionaryMap.cs<br>
+             |__Basic_DraftMap.cs<br>
+             |__Basic_LoginInfoMap.cs<br>
+             |__Basic_MainDataMap.cs<br>
+             |__Basic_MenuMap.cs<br>
+             |__Basic_MessageBoxMap.cs<br>
+             |__Basic_PowerMap.cs<br>
+             |__Basic_PowerRoleMap.cs<br>
+             |__Basic_RegisterMap.cs<br>
+             |__Basic_RoleMap.cs<br>
+             |__Basic_TaskMap.cs<br>
+             |__Basic_UserInfoMap.cs<br>
+             |__Basic_UserRoleMap.cs<br>
+         |__packages.config<br>
+         |__Properties<br>
+           |__AssemblyInfo.cs<br>
+       |__Plain.Dto<br>
+         |__Enum.cs<br>
+         |__Properties<br>
+           |__AssemblyInfo.cs<br>
+-Test<br>
+  |__Core.ConfigTests<br>
+       |__Config<br>
+         |__2.config<br>
+         |__DaoConfig.config<br>
+       |__ConfigContextTests.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.EncryptTests<br>
+       |__DESEncryptTests.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__RSAEncryptTests.cs<br>
+  |__Plain.BLLTests<br>
+       |__App.config<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+         |__DaoConfig2.config<br>
+       |__LoginService<br>
+         |__LoginServiceTests.cs<br>
+       |__packages.config<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__RegisterService<br>
+         |__RegisterServiceTests.cs<br>
+  |__Core.LogTests<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+       |__Log<br>
+       |__Log4NetHelperTests.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Core.MessageTests<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+         |__DaoConfig2.config<br>
+       |__MailContextTests.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+  |__Framework.UtilityTests<br>
+       |__ProjectInfo.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+       |__RequestHelperTests.cs<br>
+-Tools<br>
+  |__Tools.Encrypt<br>
+       |__App.config<br>
+       |__MainFrm.cs<br>
+         |__MainFrm.Designer.cs<br>
+         |__MainFrm.resx<br>
+       |__Program.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+         |__Resources.resx<br>
+           |__Resources.Designer.cs<br>
+         |__Settings.settings<br>
+           |__Settings.Designer.cs<br>
+  |__Tool.ArticleSpider<br>
+       |__App.config<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+         |__DaoConfig1.config<br>
+       |__MainFrm.cs<br>
+         |__MainFrm.Designer.cs<br>
+         |__MainFrm.resx<br>
+       |__Program.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+         |__Resources.resx<br>
+           |__Resources.Designer.cs<br>
+         |__Settings.settings<br>
+           |__Settings.Designer.cs<br>
+  |__Tool.T4Templent<br>
+       |__App.config<br>
+       |__CodeTemplates<br>
+         |__ReverseEngineerCodeFirst<br>
+           |__Context.tt<br>
+           |__EF.Utility.CS.ttinclude<br>
+           |__Entity.tt<br>
+           |__Mapping.tt<br>
+       |__Config<br>
+         |__DaoConfig.config<br>
+         |__DaoConfig1.config<br>
+       |__DemoClass<br>
+         |__Generator.cs<br>
+         |__Template.cs<br>
+         |__TextTransformationExtensions.cs<br>
+         |__TransformationException.cs<br>
+         |__TransformContext.cs<br>
+         |__TransformContextScope.cs<br>
+       |__packages.config<br>
+       |__Programe.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs<br>
+         |__InternalsVisibleTo.cs<br>
+         |__Resources.tt<br>
+           |__Resources.cs<br>
+             |__Resources.resx<br>
+       |__RuntimePlates<br>
+         |__CodeTemplates<br>
+           |__DbContext.tt<br>
+             |__DbContext1.cs<br>
+           |__Entity.tt<br>
+             |__Entity1.cs<br>
+           |__Mapping.tt<br>
+             |__Mapping.cs<br>
+         |__MainRuntime.cs<br>
+           |__MainRuntime.Designer.cs<br>
+           |__MainRuntime.resx<br>
+         |__Models<br>
+           |__Mapping<br>
+           |__Model<br>
+       |__ServiceAndDto<br>
+         |__ModelProvider.cs<br>
+       |__StaticPlates<br>
+         |__CodeTemplates<br>
+           |__Entity.tt<br>
+             |__Entity2.cs<br>
+         |__CoreCode<br>
+           |__StaticEngineHost.cs<br>
+           |__StaticTemplate.cs<br>
+           |__Template.cs<br>
+         |__Models<br>
+           |__Mapping<br>
+           |__Model<br>
+         |__StaticFrm.cs<br>
+           |__StaticFrm.Designer.cs<br>
+           |__StaticFrm.resx<br>
+  |__Tools.Test<br>
+       |__App.config<br>
+       |__Program.cs<br>
+       |__Properties<br>
+         |__AssemblyInfo.cs   </p>
+</article></body></html>
