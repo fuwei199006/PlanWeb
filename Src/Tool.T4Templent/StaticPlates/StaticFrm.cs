@@ -13,15 +13,16 @@ using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TextTemplating;
 using Microsoft.VisualStudio.TextTemplating.VSHost;
- 
+
 using Tool.T4Templent.StaticPlates.CoreCode;
+using Tool.T4Templent.ServiceAndDto;
 
 namespace Tool.T4Templent.StaticPlates
 {
     public partial class StaticFrm : Form
     {
         private string ModelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\RuntimePlates\\Models");
-        private string TemplatsPath= Path.Combine(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\");
+        private string TemplatsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\");
         public StaticFrm()
         {
             InitializeComponent();
@@ -29,30 +30,39 @@ namespace Tool.T4Templent.StaticPlates
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            var templateFileName = AppDomain.CurrentDomain.BaseDirectory+"../../"+ "StaticPlates/CodeTemplates/Entity.tt";
-            if (File.Exists(templateFileName))
+            var tableNameList = ModelProvider.GetTable();
+            this.progressBar1.Maximum = tableNameList.Count * 2 + 2;
+            var templateFileName = AppDomain.CurrentDomain.BaseDirectory + "../../" + "StaticPlates/CodeTemplates/Entity.tt";
+            foreach (var name in tableNameList)
             {
-                StaticEngineHost host = new StaticEngineHost();
-                Engine engine = new Engine();
-                host.TemplateFileValue = templateFileName;
-                //Read the text template.
-                string input = File.ReadAllText(templateFileName);
-                //Transform the text template.
-                string output = engine.ProcessTemplate(input, host);
-                string outputFileName = Path.GetFileNameWithoutExtension(templateFileName);
-                outputFileName = Path.Combine(Path.GetDirectoryName(templateFileName), outputFileName);
-                outputFileName = outputFileName + "1" + host.FileExtension;
-                File.WriteAllText(outputFileName, output, Encoding.UTF8);
 
 
-                foreach (CompilerError error in host.Errors)
+                if (File.Exists(templateFileName))
                 {
-                    Console.WriteLine(error.ToString());
+                    StaticEngineHost host = new StaticEngineHost();
+                    Engine engine = new Engine();
+                    host.TemplateFileValue = templateFileName;
+
+                    string input = File.ReadAllText(templateFileName);
+
+                    // Create a Session in which to pass parameters:
+                    host.Session = new TextTemplatingSession();
+                    host.Session["ClassName"] = name;
+                    host.Session["Fileds"] = ModelProvider.GetFiledByTable(name);
+                    host.Session["NameSpace"] = this.textBox1.Text;
+
+                    string output = engine.ProcessTemplate(input, host);
+                    string outputFileName = Path.GetFileNameWithoutExtension(templateFileName);
+                    outputFileName = Path.Combine(Path.GetDirectoryName(templateFileName), name);
+                    outputFileName = outputFileName + host.FileExtension;
+                    File.WriteAllText(outputFileName, output, Encoding.UTF8);
+
+
+
                 }
             }
-         
- 
+
+
         }
     }
 }

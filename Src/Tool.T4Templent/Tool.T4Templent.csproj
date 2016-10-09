@@ -181,9 +181,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAndDto\ModelProvider.cs" />
+    <Compile Include="ServiceAndDto\MssqlDbHelper.cs" />
+    <Compile Include="StaticPlates\CodeTemplates\TextTemplate11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextTemplate1.tt</DependentUpon>
+    </Compile>
     <Compile Include="StaticPlates\CoreCode\StaticEngineHost.cs" />
-    <Compile Include="StaticPlates\CoreCode\StaticTemplate.cs" />
-    <Compile Include="StaticPlates\CoreCode\Template.cs" />
     <Compile Include="StaticPlates\StaticFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +199,14 @@
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
     <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <Content Include="Dll\Core.Config.dll" />
+    <Content Include="Dll\Core.Encrypt.dll" />
+    <Content Include="Dll\Core.Exception.dll" />
+    <Content Include="Dll\Framework.Contract.dll" />
+    <Content Include="Dll\Framework.Extention.dll" />
+    <Content Include="Dll\Framework.Utility.dll" />
+    <Content Include="Dll\Frameworke.Dtos.dll" />
+    <Content Include="Dll\Tool.T4Templent.dll" />
     <Content Include="RuntimePlates\CodeTemplates\DbContext.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbContext1.cs</LastGenOutput>
@@ -210,6 +222,10 @@
     <Content Include="StaticPlates\CodeTemplates\Entity.tt">
       <LastGenOutput>Entity1.cs</LastGenOutput>
     </Content>
+    <Content Include="StaticPlates\CodeTemplates\TextTemplate1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextTemplate11.cs</LastGenOutput>
+    </Content>
     <None Include="App.config" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\EF.Utility.CS.ttinclude" />
     <None Include="Config\DaoConfig1.config">
@@ -219,6 +235,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <None Include="StaticPlates\CodeTemplates\T4Lib.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

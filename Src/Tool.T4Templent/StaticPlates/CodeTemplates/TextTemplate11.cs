@@ -1,12 +1,9 @@
-﻿<#@ template hostspecific="true"  language="C#" #>
-  
-<#@ include file="T4Lib.ttinclude" #>
+﻿ 
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Microsoft.VisualStudio.TextTemplating;
-//<#=ModelProvider.DbName#>
- 
+//Account
  

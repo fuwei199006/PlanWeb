@@ -1,5 +1,5 @@
-﻿<#@ template hostspecific="true"  language="C#" #>
-  
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+ 
 <#@ include file="T4Lib.ttinclude" #>
 using System;
 using System.CodeDom.Compiler;
@@ -8,5 +8,4 @@ using System.IO;
 using System.Text;
 using Microsoft.VisualStudio.TextTemplating;
 //<#=ModelProvider.DbName#>
- 
  

@@ -1,17 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using Core.Config;
-using Core.Encrypt;
-using Framework.Extention;
+﻿<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.Data.Entity.Design" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq"#>
+<#@ assembly name="EnvDTE"#>
+<#@ assembly name="E:\github\PlanWeb\Src\Tool.T4Templent\Dll\Tool.T4Templent.dll"#>
+<#@ assembly name="E:\github\PlanWeb\Src\Tool.T4Templent\Dll\Framework.Extention.dll"#>
 
-namespace Tool.T4Templent.ServiceAndDto
-{
-    public class ModelProvider
-    {
+<#@ import namespace="System" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.Objects" #>
+<#@ import namespace="System.Data.Objects.DataClasses" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Data.Metadata.Edm" #>
+<#@ import namespace="System.Data.Mapping" #>
+<#@ import namespace="System.Data.Entity.Design" #>
+<#@ import namespace="System.CodeDom" #>
+<#@ import namespace="System.CodeDom.Compiler" #>
+<#@ import namespace="Microsoft.CSharp"#>
+<#@ import namespace="System.Text"#>
+
+
+
+<#@ import namespace="Tool.T4Templent.ServiceAndDto"#>
+<#@ import namespace="Framework.Extention"#>
+
+<#+
+  public class ModelProvider
+  {
         public static MssqlDbHelper SqlDbHelper = null;
 
         static ModelProvider()
@@ -75,8 +97,10 @@ namespace Tool.T4Templent.ServiceAndDto
 
 
     }
+#>
 
-    [Serializable]
+<#+
+ [Serializable]
     public class Filed
     {
         public string Name { get; set; }
@@ -126,4 +150,4 @@ namespace Tool.T4Templent.ServiceAndDto
             return retType;
         }
     }
-}
+#>

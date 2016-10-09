@@ -7,7 +7,8 @@ using Microsoft.VisualStudio.TextTemplating;
 
 namespace Tool.T4Templent.StaticPlates.CoreCode
 {
-    public class StaticEngineHost: ITextTemplatingEngineHost 
+    [Serializable]
+    public class StaticEngineHost : ITextTemplatingEngineHost, ITextTemplatingSessionHost
     {
         //the path and file name of the text template that is being processed
         //---------------------------------------------------------------------
@@ -84,6 +85,13 @@ namespace Tool.T4Templent.StaticPlates.CoreCode
                 };
             }
         }
+
+        public ITextTemplatingSession Session
+        {
+            get;
+            set;
+        }
+
         //The engine calls this method based on the optional include directive
         //if the user has specified it in the text template.
         //This method can be called 0, 1, or more times.
@@ -286,5 +294,14 @@ namespace Tool.T4Templent.StaticPlates.CoreCode
             //This could be customized based on the contents of the text 
             //template, which are provided as a parameter for that purpose.
         }
+
+        #region ITextTemplatingSessionHost
+        public ITextTemplatingSession CreateSession()
+        {
+            return new TextTemplatingSession();
+        }
+
+
+        #endregion
     }
 }
