@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="E:\github\PlanWeb\Src\Tool.T4Templent\Dll\Tool.T4Templent.dll"#>
+<#@ import namespace="Tool.T4Templent.ServiceAndDto" #>
+ <#@ parameter name="ClassName" type="System.String" #>
+ <#@ parameter name="Fileds" type="System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> " #>
+ <#@ parameter name="NameSpace" type="System.String" #>
+using System.Data.Entity.ModelConfiguration;
+using <#=NameSpace#>.Models.Model;
+namespace <#=NameSpace#>.Models.Mapping
+{
+	public class <#=ClassName#>Map : EntityTypeConfiguration<<#=ClassName#>>
+	{
+        public <#=ClassName#>Map()
+        {
+			<# foreach(var filed in Fileds)
+			{
+			if(filed.IsPrimaryKey){#>this.HasKey(t => t.<#=filed.Name#>);
+			<#} else if(filed.Type=="string")
+			{#>this.Property(t => t.<#=filed.Name#>)
+				.IsRequired()
+				.HasMaxLength(<#=filed.Length#>);
+			<#} 
+			}#>
+
+
+
+
+
+			this.ToTable("<#=ClassName#>");
+			<# foreach(var filed in Fileds)
+			{#>this.Property(t => t.<#=filed.Name#>).HasColumnName("<#=filed.Name#>"); 
+			<#}#>
+          
+        }
+    }
+}

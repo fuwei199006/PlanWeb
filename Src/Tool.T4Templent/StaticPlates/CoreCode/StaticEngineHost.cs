@@ -22,7 +22,7 @@ namespace Tool.T4Templent.StaticPlates.CoreCode
         //The engine can change this value based on the optional output directive
         //if the user specifies it in the text template.
         //---------------------------------------------------------------------
-        private string fileExtensionValue = ".txt";
+        internal string fileExtensionValue = ".txt";
         public string FileExtension
         {
             get { return fileExtensionValue; }
