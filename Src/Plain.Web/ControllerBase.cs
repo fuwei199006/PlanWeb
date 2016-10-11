@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -7,6 +7,7 @@ using Framework.Contract;
 using Framework.Web;
 using Plain.Dto;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.Web
 {

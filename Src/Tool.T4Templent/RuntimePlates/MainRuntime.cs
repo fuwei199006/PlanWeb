@@ -30,6 +30,7 @@ namespace Tool.T4Templent.RuntimePlates
 
             var tableNameList = ModelProvider.GetTable();
             this.progressBar1.Maximum = tableNameList.Count * 2 + 2;
+            this.progressBar1.Value = 0;
             ThreadPool.QueueUserWorkItem(r =>
             {
                 foreach (var name in tableNameList)
@@ -67,7 +68,7 @@ namespace Tool.T4Templent.RuntimePlates
                     mappingTemplate.Session["NameSpace"] = this.textBox1.Text;
                     mappingTemplate.Initialize();
                     var mappingContent = mappingTemplate.TransformText();
-                    var mappingFileName = ModelPath + string.Format("\\Mapping\\{0}Mapping.cs", name);
+                    var mappingFileName = ModelPath + string.Format("\\Mapping\\{0}Map.cs", name);
                     if (File.Exists(mappingFileName)) File.Delete(mappingFileName);
 
                     File.WriteAllText(mappingFileName, mappingContent, System.Text.Encoding.UTF8);

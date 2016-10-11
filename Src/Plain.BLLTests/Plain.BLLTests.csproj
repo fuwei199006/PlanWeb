@@ -69,6 +69,10 @@
       <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
       <Name>Core.Encrypt</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core.Log\Core.Log.csproj">
+      <Project>{33fd11a4-a778-48b7-9976-d3d74c373b8b}</Project>
+      <Name>Core.Log</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.BLL\Framework.BLL.csproj">
       <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>
       <Name>Framework.BLL</Name>

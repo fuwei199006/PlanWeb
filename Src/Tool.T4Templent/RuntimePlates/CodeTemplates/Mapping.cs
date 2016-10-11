@@ -94,14 +94,41 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
             
             #line default
             #line hidden
-            this.Write(")\n\t\t\t\t.IsRequired()\n\t\t\t\t.HasMaxLength(");
+            this.Write(")");
             
             #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(filed.Length));
+ if(filed.IsNullable==1||filed.Length==-1){
             
             #line default
             #line hidden
-            this.Write(");\n\t\t\t");
+            this.Write(".IsRequired()");
+            
+            #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
+}
+            
+            #line default
+            #line hidden
+            
+            #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
+ if(filed.Length>0){
+            
+            #line default
+            #line hidden
+            this.Write(".HasMaxLength(");
+            
+            #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(filed.Length/2));
+            
+            #line default
+            #line hidden
+            this.Write(");");
+            
+            #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("\n\t\t\t");
             
             #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
 } 
@@ -109,7 +136,7 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
             
             #line default
             #line hidden
-            this.Write("\n\n\n\n\n\n\t\t\tthis.ToTable(\"");
+            this.Write("\n\t\t\tthis.ToTable(\"");
             
             #line 4 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Mapping.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

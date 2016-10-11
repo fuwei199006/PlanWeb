@@ -4,6 +4,7 @@ using Core.Exception;
 using Core.Service;
 using Plain.BLL.LoginService;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.Web
 {

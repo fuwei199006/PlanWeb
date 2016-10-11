@@ -10,12 +10,12 @@
 namespace Tool.T4Templent.RuntimePlates.CodeTemplates
 {
     using System;
-
+    
     /// <summary>
     /// Class to produce the template output
     /// </summary>
-
-#line 1 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+    
+    #line 1 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class Entity : EntityBase
     {
@@ -28,164 +28,162 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
             this.Write(" ");
             this.Write(" ");
             this.Write(" ");
-            this.Write(" using System;\r\nnamespace  ");
-
-#line 6 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+            this.Write("using System;\r\nusing Framework.Contract;\r\nnamespace  ");
+            
+            #line 7 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(NameSpace));
-
-#line default
-#line hidden
+            
+            #line default
+            #line hidden
             this.Write(".Models.Model\r\n{\r\n    public partial class ");
-
-#line 8 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+            
+            #line 9 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
-
-#line default
-#line hidden
-            this.Write("  \r\n    {\r\n       ");
-
-#line 10 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
-            foreach (var filed in Fileds)
-            {
-
-
-#line default
-#line hidden
-                this.Write("\t      \r\n\t      public ");
-
-#line 13 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
-                this.Write(this.ToStringHelper.ToStringWithCulture(filed.Type));
-
-#line default
-#line hidden
-
-#line 13 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
-                this.Write(this.ToStringHelper.ToStringWithCulture(filed.IsNullable == 1 && filed.Type != "string" ? "?" : ""));
-
-#line default
-#line hidden
-                this.Write(" ");
-
-#line 13 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
-                this.Write(this.ToStringHelper.ToStringWithCulture(filed.Name));
-
-#line default
-#line hidden
-                this.Write(" {get;set;}\r\n\r\n\t ");
-
-#line 15 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
-            }
-
-#line default
-#line hidden
-            this.Write("    }\r\n}\r\n\r\n");
+            
+            #line default
+            #line hidden
+            this.Write(":ModelBase\r\n    {\r\n       ");
+            
+            #line 11 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+ foreach(var filed in Fileds){
+            
+            #line default
+            #line hidden
+            this.Write("\t   public ");
+            
+            #line 12 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(filed.Type));
+            
+            #line default
+            #line hidden
+            
+            #line 12 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(filed.IsNullable==1&&filed.Type!="string"?"?":""));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 12 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(filed.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" {get;set;}\r\n\t ");
+            
+            #line 13 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("  }\r\n}\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
+        
+        #line 1 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
 
-#line 1 "E:\github\PlanWeb\Src\Tool.T4Templent\RuntimePlates\CodeTemplates\Entity.tt"
+private string _ClassNameField;
 
-        private string _ClassNameField;
-
-        /// <summary>
-        /// Access the ClassName parameter of the template.
-        /// </summary>
-        private string ClassName
-        {
-            get
-            {
-                return this._ClassNameField;
-            }
-        }
-
-        private global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> _FiledsField;
-
-        /// <summary>
-        /// Access the Fileds parameter of the template.
-        /// </summary>
-        private global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> Fileds
-        {
-            get
-            {
-                return this._FiledsField;
-            }
-        }
-
-        private string _NameSpaceField;
-
-        /// <summary>
-        /// Access the NameSpace parameter of the template.
-        /// </summary>
-        private string NameSpace
-        {
-            get
-            {
-                return this._NameSpaceField;
-            }
-        }
-
-
-        /// <summary>
-        /// Initialize the template
-        /// </summary>
-        public virtual void Initialize()
-        {
-            if ((this.Errors.HasErrors == false))
-            {
-                bool ClassNameValueAcquired = false;
-                if (this.Session.ContainsKey("ClassName"))
-                {
-                    this._ClassNameField = ((string)(this.Session["ClassName"]));
-                    ClassNameValueAcquired = true;
-                }
-                if ((ClassNameValueAcquired == false))
-                {
-                    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("ClassName");
-                    if ((data != null))
-                    {
-                        this._ClassNameField = ((string)(data));
-                    }
-                }
-                bool FiledsValueAcquired = false;
-                if (this.Session.ContainsKey("Fileds"))
-                {
-                    this._FiledsField = ((global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed>)(this.Session["Fileds"]));
-                    FiledsValueAcquired = true;
-                }
-                if ((FiledsValueAcquired == false))
-                {
-                    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Fileds");
-                    if ((data != null))
-                    {
-                        this._FiledsField = ((global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed>)(data));
-                    }
-                }
-                bool NameSpaceValueAcquired = false;
-                if (this.Session.ContainsKey("NameSpace"))
-                {
-                    this._NameSpaceField = ((string)(this.Session["NameSpace"]));
-                    NameSpaceValueAcquired = true;
-                }
-                if ((NameSpaceValueAcquired == false))
-                {
-                    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("NameSpace");
-                    if ((data != null))
-                    {
-                        this._NameSpaceField = ((string)(data));
-                    }
-                }
-
-
-            }
-        }
-
-
-
-#line default
-#line hidden
+/// <summary>
+/// Access the ClassName parameter of the template.
+/// </summary>
+private string ClassName
+{
+    get
+    {
+        return this._ClassNameField;
     }
+}
 
-#line default
-#line hidden
+private global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed>  _FiledsField;
+
+/// <summary>
+/// Access the Fileds parameter of the template.
+/// </summary>
+private global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed>  Fileds
+{
+    get
+    {
+        return this._FiledsField;
+    }
+}
+
+private string _NameSpaceField;
+
+/// <summary>
+/// Access the NameSpace parameter of the template.
+/// </summary>
+private string NameSpace
+{
+    get
+    {
+        return this._NameSpaceField;
+    }
+}
+
+
+/// <summary>
+/// Initialize the template
+/// </summary>
+public virtual void Initialize()
+{
+    if ((this.Errors.HasErrors == false))
+    {
+bool ClassNameValueAcquired = false;
+if (this.Session.ContainsKey("ClassName"))
+{
+    this._ClassNameField = ((string)(this.Session["ClassName"]));
+    ClassNameValueAcquired = true;
+}
+if ((ClassNameValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("ClassName");
+    if ((data != null))
+    {
+        this._ClassNameField = ((string)(data));
+    }
+}
+bool FiledsValueAcquired = false;
+if (this.Session.ContainsKey("Fileds"))
+{
+    this._FiledsField = ((global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> )(this.Session["Fileds"]));
+    FiledsValueAcquired = true;
+}
+if ((FiledsValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Fileds");
+    if ((data != null))
+    {
+        this._FiledsField = ((global::System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> )(data));
+    }
+}
+bool NameSpaceValueAcquired = false;
+if (this.Session.ContainsKey("NameSpace"))
+{
+    this._NameSpaceField = ((string)(this.Session["NameSpace"]));
+    NameSpaceValueAcquired = true;
+}
+if ((NameSpaceValueAcquired == false))
+{
+    object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("NameSpace");
+    if ((data != null))
+    {
+        this._NameSpaceField = ((string)(data));
+    }
+}
+
+
+    }
+}
+
+
+        
+        #line default
+        #line hidden
+    }
+    
+    #line default
+    #line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
@@ -285,7 +283,7 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0)
+            if (((this.GenerationEnvironment.Length == 0) 
                         || this.endsWithNewline))
             {
                 this.GenerationEnvironment.Append(this.currentIndentField);
@@ -403,7 +401,7 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
         /// </summary>
         public class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField = global::System.Globalization.CultureInfo.InvariantCulture;
+            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
             /// <summary>
             /// Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
@@ -411,13 +409,13 @@ namespace Tool.T4Templent.RuntimePlates.CodeTemplates
             {
                 get
                 {
-                    return this.formatProviderField;
+                    return this.formatProviderField ;
                 }
                 set
                 {
                     if ((value != null))
                     {
-                        this.formatProviderField = value;
+                        this.formatProviderField  = value;
                     }
                 }
             }

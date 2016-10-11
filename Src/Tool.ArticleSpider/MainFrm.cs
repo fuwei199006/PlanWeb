@@ -13,6 +13,7 @@ using Core.Service;
 using Framework.Utility;
 using Plain.BLL.Article;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Tool.ArticleSpider
 {

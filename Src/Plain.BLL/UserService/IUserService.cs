@@ -1,4 +1,5 @@
 ﻿using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.BLL.UserService
 {

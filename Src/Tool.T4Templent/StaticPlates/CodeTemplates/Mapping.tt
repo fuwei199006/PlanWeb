@@ -17,7 +17,7 @@ namespace <#=NameSpace#>.Models.Mapping
 			if(filed.IsPrimaryKey){#>this.HasKey(t => t.<#=filed.Name#>);
 			<#} else if(filed.Type=="string")
 			{#>this.Property(t => t.<#=filed.Name#>)
-				.IsRequired()
+			<# if(filed.IsNullable==1){#>.IsRequired()<#}#>
 				.HasMaxLength(<#=filed.Length#>);
 			<#} 
 			}#>

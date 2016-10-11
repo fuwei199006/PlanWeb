@@ -5,6 +5,7 @@ using Core.Service;
 using Framework.Utility;
 using Plain.DAL;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.BLL.LoginService
 {

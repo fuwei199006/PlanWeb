@@ -2,17 +2,15 @@
  <#@ parameter name="ClassName" type="System.String" #>
  <#@ parameter name="Fileds" type="System.Collections.Generic.List<Tool.T4Templent.ServiceAndDto.Filed> " #>
  <#@ parameter name="NameSpace" type="System.String" #>
- using System;
+using System;
+using Framework.Contract;
 namespace  <#=NameSpace#>.Models.Model
 {
-    public partial class <#=ClassName#>  
+    public partial class <#=ClassName#>:ModelBase
     {
-       <# foreach(var filed in Fileds){
-	   #>
-	      
-	      public <#=filed.Type#><#=filed.IsNullable==1&&filed.Type!="string"?"?":""#> <#=filed.Name#> {get;set;}
-
+       <# foreach(var filed in Fileds){#>
+	   public <#=filed.Type#><#=filed.IsNullable==1&&filed.Type!="string"?"?":""#> <#=filed.Name#> {get;set;}
 	 <# } #>
-    }
+  }
 }
 

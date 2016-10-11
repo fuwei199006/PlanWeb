@@ -222,10 +222,10 @@
     <Content Include="StaticPlates\CodeTemplates\Mapping.tt" />
     <None Include="App.config" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\EF.Utility.CS.ttinclude" />
-    <None Include="Config\DaoConfig1.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Config\DaoConfig.config">
+    <Content Include="Config\DaoConfig2.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />

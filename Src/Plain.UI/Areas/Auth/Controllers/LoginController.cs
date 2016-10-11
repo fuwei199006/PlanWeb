@@ -11,6 +11,7 @@ using Plain.BLL.UserService;
 using Plain.Dto;
 using Plain.Model.Models;
 using Plain.UI.Controllers;
+using Plain.Model.Models.Model;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {

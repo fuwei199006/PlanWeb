@@ -78,22 +78,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Basic_Article.cs" />
-    <Compile Include="Models\Basic_Config.cs" />
-    <Compile Include="Models\Basic_Dictionary.cs" />
-    <Compile Include="Models\Basic_Draft.cs" />
-    <Compile Include="Models\Basic_LoginInfo.cs" />
-    <Compile Include="Models\Basic_MainData.cs" />
-    <Compile Include="Models\Basic_Menu.cs" />
-    <Compile Include="Models\Basic_MessageBox.cs" />
-    <Compile Include="Models\Basic_Power.cs" />
-    <Compile Include="Models\Basic_PowerRole.cs" />
-    <Compile Include="Models\Basic_Register.cs" />
-    <Compile Include="Models\Basic_Role.cs" />
-    <Compile Include="Models\Basic_Task.cs" />
-    <Compile Include="Models\Basic_UserInfo.cs" />
-    <Compile Include="Models\Basic_UserRole.cs" />
     <Compile Include="Models\Mapping\Basic_ArticleMap.cs" />
+    <Compile Include="Models\Mapping\Basic_CommitMap.cs" />
     <Compile Include="Models\Mapping\Basic_ConfigMap.cs" />
     <Compile Include="Models\Mapping\Basic_DictionaryMap.cs" />
     <Compile Include="Models\Mapping\Basic_DraftMap.cs" />
@@ -108,6 +94,26 @@
     <Compile Include="Models\Mapping\Basic_TaskMap.cs" />
     <Compile Include="Models\Mapping\Basic_UserInfoMap.cs" />
     <Compile Include="Models\Mapping\Basic_UserRoleMap.cs" />
+    <Compile Include="Models\Mapping\Log4netMap.cs" />
+    <Compile Include="Models\Mapping\LogMap.cs" />
+    <Compile Include="Models\Model\Basic_Article.cs" />
+    <Compile Include="Models\Model\Basic_Commit.cs" />
+    <Compile Include="Models\Model\Basic_Config.cs" />
+    <Compile Include="Models\Model\Basic_Dictionary.cs" />
+    <Compile Include="Models\Model\Basic_Draft.cs" />
+    <Compile Include="Models\Model\Basic_LoginInfo.cs" />
+    <Compile Include="Models\Model\Basic_MainData.cs" />
+    <Compile Include="Models\Model\Basic_Menu.cs" />
+    <Compile Include="Models\Model\Basic_MessageBox.cs" />
+    <Compile Include="Models\Model\Basic_Power.cs" />
+    <Compile Include="Models\Model\Basic_PowerRole.cs" />
+    <Compile Include="Models\Model\Basic_Register.cs" />
+    <Compile Include="Models\Model\Basic_Role.cs" />
+    <Compile Include="Models\Model\Basic_Task.cs" />
+    <Compile Include="Models\Model\Basic_UserInfo.cs" />
+    <Compile Include="Models\Model\Basic_UserRole.cs" />
+    <Compile Include="Models\Model\Log.cs" />
+    <Compile Include="Models\Model\Log4net.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

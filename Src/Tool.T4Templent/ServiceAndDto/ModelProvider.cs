@@ -17,7 +17,7 @@ namespace Tool.T4Templent.ServiceAndDto
         static ModelProvider()
         {
             SqlDbHelper = new MssqlDbHelper();
-            SqlDbHelper.conStr = "server=.;database=Account;user id=sa;password=Abc12345";// DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
+            SqlDbHelper.conStr =  DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
 
 
         }
@@ -68,11 +68,14 @@ namespace Tool.T4Templent.ServiceAndDto
         /// <returns></returns>
         public string CheckFiled(string filedName)
         {
+            string[] keyWords =new string[] { "abstract", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is", "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void", "while" };
+            if (keyWords.Contains(filedName))
+            {
+                return "_" + filedName;
+            }
             return filedName;
         }
-
-
-
+ 
 
     }
 

@@ -4,6 +4,7 @@ using Core.Cache;
 using Core.Service;
 using Plain.BLL.Article;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.Web
 {

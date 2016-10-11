@@ -2,6 +2,7 @@
 using Core.Service;
 using Plain.BLL.Article;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 using System.Collections.Generic;
 using System.Linq;
 

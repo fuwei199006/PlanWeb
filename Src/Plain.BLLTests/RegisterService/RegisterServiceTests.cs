@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Core.Encrypt;
 using Framework.Utility;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.BLL.RegisterService.Tests
 {

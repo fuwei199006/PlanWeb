@@ -15,8 +15,8 @@ namespace Tool.T4Templent
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StaticFrm());
-            //Application.Run(new MainRuntime());
+            //Application.Run(new StaticFrm());
+            Application.Run(new MainRuntime());
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plain.BLL;
 using Plain.BLL.LoginService;
 using Plain.Model.Models;
+using Plain.Model.Models.Model;
 
 namespace Plain.BLLTests.LoginService
 {
