@@ -9,25 +9,26 @@ namespace Plain.BLL.Article
     {
         public List<Basic_Article> GetArticlesByCategory(string category)
         {
+            
             return
-                this.CurrentResposity.GetListNoTracking(r => r.Category == category && r.ArticleStatus == 1)
+                this.LoadEntitiesNoTracking(r => r.Category == category && r.ArticleStatus == 1)
                     .OrderByDescending(r => r.ModifyTIme)
                     .ToList();
         }
 
         public List<Basic_Article> GetArticles()
         {
-          return this.CurrentResposity.GetListNoTracking(r=>r.ArticleStatus==1);
+          return this.LoadEntitiesNoTracking(r=>r.ArticleStatus==1).ToList();
         }
 
         public Basic_Article GetArticlesById(int id)
         {
-            return this.CurrentResposity.GetByIdNoTracking(id);
+            return this.GetEntityByIdNoTracking(id);
         }
 
         public void AddArticleList(List<Basic_Article> articles)
         {
-              this.CurrentResposity.AddRange(articles);
+              this.AddRange(articles);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Core.Config.ConfigModel
     {
         public CacheConfig()
         {
+
         }
 
         public CacheConfigItem[] CacheConfigItems { get; set; }

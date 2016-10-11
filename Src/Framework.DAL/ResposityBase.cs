@@ -37,50 +37,42 @@ namespace Framework.DAL
         }
 
 
-        public virtual T Find<T>(params object[] keyValues) where T : ModelBase
+      
+        public T GetEntity(Expression<Func<T, bool>> conditions) 
         {
-            return this.CurrentContextBase.Find<T>(keyValues);
+            return this.CurrentContextBase.GetEntity(conditions);
         }
-        public T Get(Expression<Func<T, bool>> conditions) 
+        public T GetEntityWithNoTracking(Expression<Func<T, bool>> conditions) 
         {
-            return this.CurrentContextBase.Get(conditions);
+            return this.CurrentContextBase.GetEntityWithNoTracking(conditions);
         }
-        public T GetNoTracking(Expression<Func<T, bool>> conditions) 
+     
+        public virtual IQueryable<T> LoadEntitiesNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
-            return this.CurrentContextBase.GetNoTracking(conditions);
+            return this.CurrentContextBase.LoadEntitiesNoTracking(conditions);
         }
-        public virtual List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+
+        public virtual IQueryable<T> LoadEntities<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
-            return this.CurrentContextBase.FindAll(conditions);
+            return this.CurrentContextBase.LoadEntities(conditions);
         }
-        public virtual List<T> FindAllNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public virtual PagedList<T> LoadEntitiesByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase
         {
-            return this.CurrentContextBase.FindAllNoTracking(conditions);
-        }
-        public virtual PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase
-        {
-            return this.CurrentContextBase.FindAllByPage(conditions, orderBy, pageSize, pageIndex);
+            return this.CurrentContextBase.LoadEntitiesByPage(conditions, orderBy, pageSize, pageIndex);
         }
         #endregion
 
         #region  扩展方法
 
-        public virtual T GetById(int id)
+        public virtual T GetEntityById(int id)
         {
-            return this.Get(r => r.Id == id);
+            return this.GetEntity(r => r.Id == id);
         }
-        public virtual T GetByIdNoTracking(int id)
+        public virtual T GetEntityByIdNoTracking(int id)
         {
-            return this.GetNoTracking(r => r.Id == id);
+            return this.GetEntityWithNoTracking(r => r.Id == id);
         }
-        public virtual List<T> GetList(Expression<Func<T, bool>> conditions)
-        {
-            return this.FindAll(conditions);
-        }
-        public virtual List<T> GetListNoTracking(Expression<Func<T, bool>> conditions)
-        {
-            return this.FindAllNoTracking(conditions);
-        }
+ 
 
 
 

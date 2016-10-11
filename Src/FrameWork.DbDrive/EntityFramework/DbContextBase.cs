@@ -63,12 +63,9 @@ namespace Framework.DbDrive.EntityFramework
             return entity;
         }
 
-        public T Find<T>(params object[] keyValues) where T : ModelBase
-        {
-           return this.Set<T>().Find(keyValues);
-        }
+     
 
-        public T Get<T>(Expression<Func<T, bool>> conditions)where T : ModelBase
+        public T GetEntity<T>(Expression<Func<T, bool>> conditions=null)where T : ModelBase
         {
             if (conditions != null)
             {
@@ -76,7 +73,7 @@ namespace Framework.DbDrive.EntityFramework
             }
             return default(T);
         }
-        public T GetNoTracking<T>(Expression<Func<T, bool>> conditions) where T : ModelBase
+        public T GetEntityWithNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
             if (conditions != null)
             {
@@ -84,25 +81,25 @@ namespace Framework.DbDrive.EntityFramework
             }
             return default(T);
         }
-        public List<T> FindAllNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public IQueryable<T> LoadEntitiesNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
             if (conditions == null)
-                return this.Set<T>().AsNoTracking().ToList();
+                return this.Set<T>().AsNoTracking();
             else
-                return this.Set<T>().Where(conditions).AsNoTracking().ToList();
+                return this.Set<T>().Where(conditions).AsNoTracking();
         }
 
-        public List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public IQueryable<T> LoadEntities<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
             if (conditions == null)
-                return this.Set<T>().ToList();
+                return this.Set<T>();
             else
-                return this.Set<T>().Where(conditions).ToList();
+                return this.Set<T>().Where(conditions);
         }
 
-        public PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase
+        public PagedList<T> LoadEntitiesByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase
         {
-            var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions) as IQueryable<T>;
+            var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions);
 
             return queryList.OrderByDescending(orderBy).ToPagedList(pageIndex, pageSize);
 
@@ -114,6 +111,8 @@ namespace Framework.DbDrive.EntityFramework
             return base.SaveChanges();
         }
 
+
+        //dbLog
         internal void WriteLog()
         {
             if(this.AuditLogger==null)
@@ -144,5 +143,6 @@ namespace Framework.DbDrive.EntityFramework
             }
              
         }
+ 
     }
 }

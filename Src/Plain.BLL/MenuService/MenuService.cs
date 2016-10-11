@@ -10,12 +10,12 @@ namespace Plain.BLL.MenuService
     {
         public List<Basic_Menu> GetMenusByType(string type)
         {
-            return this.CurrentResposity.GetListNoTracking(r => r.MenuType == type).OrderBy(r => r.MenuSort).ToList();
+            return this.LoadEntitiesNoTracking(r => r.MenuType == type).OrderBy(r => r.MenuSort).ToList();
         }
 
         public List<Basic_Menu> GetMenus()
         {
-            return this.CurrentResposity.GetListNoTracking(r=>r.MenuStatus).OrderBy(r => r.MenuSort).ToList();
+            return this.LoadEntitiesNoTracking(r=>r.MenuStatus).OrderBy(r => r.MenuSort).ToList();
         }
     }
 }

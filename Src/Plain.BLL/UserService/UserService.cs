@@ -1,6 +1,7 @@
 ﻿using System;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using System.Linq;
 
 namespace Plain.BLL.UserService
 {
@@ -8,33 +9,33 @@ namespace Plain.BLL.UserService
     {
         public Basic_UserInfo AddUser(Basic_UserInfo user)
         {
-           return this.CurrentResposity.Add(user);
+           return this.Add(user);
         }
 
         public Basic_UserInfo GetUserByEmail(string email)
         {
-             return this.CurrentResposity.GetNoTracking(r => r.UserEmail == email&&r.UserStaus==1);
+             return this.GetEntityWithNoTracking(r => r.UserEmail == email&&r.UserStaus==1);
             
         }
 
         public Basic_UserInfo ActiveUserByEmail(string email)
         {
-           var result= this.CurrentResposity.Get(r => r.UserEmail == email && r.UserStaus == 0);
+           var result= this.GetEntity(r => r.UserEmail == email && r.UserStaus == 0);
             if (result == null) return null;
             result.UserStaus = 1;//Active User
             result.ModifyTime = DateTime.Now;
         
-            return this.CurrentResposity.Update(result);
+            return this.Update(result);
         }
 
         public Basic_UserInfo EmailExist(string email)
         {
-            return this.CurrentResposity.GetNoTracking(r => r.UserEmail == email);
+            return this.GetEntityWithNoTracking(r => r.UserEmail == email);
         }
 
         public Basic_UserInfo UserPass(string loginName, string pwd)
         {
-            return this.CurrentResposity.GetNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == 1);
+            return this.GetEntityWithNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == 1);
         }
     }
 }

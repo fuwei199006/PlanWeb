@@ -17,9 +17,9 @@ namespace Plain.BLLTests.LoginService
         {
 
             ILoginService loginService = new BLL.LoginService.LoginService();
-           var entity= loginService.AddLoginInfo(new Basic_LoginInfo()
+            var entity= loginService.AddLoginInfo(new Basic_LoginInfo()
             {
-                LoginName = "fuwei",
+                LoginName = "756091180@qq.com",
                 LoginUserId = 0,
                 LoginTime = DateTime.Now,
                 ExpireTime = DateTime.Now.AddHours(1),

@@ -6,6 +6,8 @@ using Framework.Utility;
 using Plain.DAL;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using Plain.BLL.UserService;
+using System.Linq;
 
 namespace Plain.BLL.LoginService
 {
@@ -13,12 +15,12 @@ namespace Plain.BLL.LoginService
     {
         public Basic_LoginInfo GetLoginInfoByToken(Guid token)
         {
-            return this.CurrentResposity.Get(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
+            return this.GetEntity(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
         }
 
         public Basic_LoginInfo GetLoginInfoByLoginName(string loginName)
         {
-            return this.CurrentResposity.Get(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
+            return this.GetEntity(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
         }
 
        
@@ -28,18 +30,18 @@ namespace Plain.BLL.LoginService
             Basic_LoginInfo loginInfo = null;
             var keyPass = MD5Encrypt.Md5(password);
             var user =
-                ServiceContext.Current.CreateService<UserService.IUserService>()
+                ServiceContext.Current.CreateService<IUserService>()
                     .UserPass(loginName,keyPass);
             if (user != null)
             {
                 var ip = Fetch.UserIp;
-                loginInfo = this.CurrentResposity.Get(r => r.LoginName == loginName && r.LoginIp == ip&&!r.IsDelete);
+                loginInfo = this.GetEntity(r => r.LoginName == loginName && r.LoginIp == ip&&!r.IsDelete);
                 if (loginInfo != null)
                 {
                     loginInfo.LastUpdateTime=DateTime.Now;
                     loginInfo.ExpireTime = DateTime.Now.AddHours(1);
                     loginInfo.LoginIp = Fetch.UserIp;
-                    this.CurrentResposity.Update(loginInfo);
+                    this.Update(loginInfo);
                 }
                 else
                 {
@@ -47,7 +49,7 @@ namespace Plain.BLL.LoginService
                     loginInfo.LoginType = loginType;
                     loginInfo.ExpireTime = DateTime.Now.AddHours(1);
                     loginInfo.LoginIp = Fetch.UserIp;
-                    this.CurrentResposity.Add(loginInfo);
+                    this.Add(loginInfo);
 
                 }
             }
@@ -57,15 +59,15 @@ namespace Plain.BLL.LoginService
 
         public List<Basic_LoginInfo> GetListLoginInfoByLoginName(string loginName)
         {
-            return this.CurrentResposity.GetList(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete);
+            return this.LoadEntities(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete).ToList();
         }
         public bool LoginOut(Guid token)
         {
-            var entity = this.CurrentResposity.Get(r => r.LoginToken==token);
+            var entity = this.GetEntity(r => r.LoginToken==token);
             if (entity == null) return true;
             entity.IsDelete = true;
             entity.LastUpdateTime=DateTime.Now;
-            var res=   CurrentResposity.Update(entity);
+            var res=   this.Update(entity);
             return res != null;
 
         }
@@ -84,13 +86,13 @@ namespace Plain.BLL.LoginService
             }
             entity.CreateTime=DateTime.Now;
             entity.LoginTime=DateTime.Now;
-            var res = CurrentResposity.Add(entity);
+            var res =this.Add(entity);
             return res;
         }
 
         public List<Basic_LoginInfo> GetOnlineUser()
         {
-            return this.CurrentResposity.GetList(r => r.IsDelete&&r.ExpireTime>DateTime.Now);
+            return this.LoadEntitiesNoTracking(r => r.IsDelete&&r.ExpireTime>DateTime.Now).ToList();
 
         }
     }
