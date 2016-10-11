@@ -13,7 +13,7 @@ namespace Plain.Model.Models.Mapping
 			this.Property(t => t.LoginIp)
 			.IsRequired().HasMaxLength(10);
 			this.Property(t => t.LoginHeader)
-			.IsRequired().HasMaxLength(100);
+			 .HasMaxLength(100);
 			
 			this.ToTable("Basic_LoginInfo");
 			this.Property(t => t.Id).HasColumnName("Id"); 
