@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Mapping\Basice_ActionHistoryMap.cs" />
     <Compile Include="Models\Mapping\Basic_ArticleMap.cs" />
     <Compile Include="Models\Mapping\Basic_CommitMap.cs" />
     <Compile Include="Models\Mapping\Basic_ConfigMap.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Models\Mapping\Basic_UserRoleMap.cs" />
     <Compile Include="Models\Mapping\Log4netMap.cs" />
     <Compile Include="Models\Mapping\LogMap.cs" />
+    <Compile Include="Models\Model\Basice_ActionHistory.cs" />
     <Compile Include="Models\Model\Basic_Article.cs" />
     <Compile Include="Models\Model\Basic_Commit.cs" />
     <Compile Include="Models\Model\Basic_Config.cs" />

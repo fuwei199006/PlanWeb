@@ -1,6 +1,7 @@
-﻿   using System;
+﻿using System;
 using Framework.Contract;
-namespace  Tool.T4Templent.RuntimePlates.Models.Model
+
+namespace  Plain.Model.Models.Model
 {
     public partial class Basice_ActionHistory:ModelBase
     {
