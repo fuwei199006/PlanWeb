@@ -14,8 +14,8 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.Category).HasMaxLength(50);
 			this.Property(t => t.Content).IsRequired()
 			this.Property(t => t.Source).HasMaxLength(100);
+			this.Property(t => t.SourceUrl).HasMaxLength(100);
 			this.Property(t => t.KeyWord).IsRequired().HasMaxLength(50);
-			this.Property(t => t.SourceUrl).IsRequired().HasMaxLength(200);
 			
 			this.ToTable("Basic_Article");
 			this.Property(t => t.Id).HasColumnName("Id"); 
@@ -25,12 +25,12 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.Category).HasColumnName("Category"); 
 			this.Property(t => t.Content).HasColumnName("Content"); 
 			this.Property(t => t.Source).HasColumnName("Source"); 
+			this.Property(t => t.SourceUrl).HasColumnName("SourceUrl"); 
 			this.Property(t => t.Sort).HasColumnName("Sort"); 
 			this.Property(t => t.KeyWord).HasColumnName("KeyWord"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTIme).HasColumnName("ModifyTIme"); 
 			this.Property(t => t.ArticleStatus).HasColumnName("ArticleStatus"); 
-			this.Property(t => t.SourceUrl).HasColumnName("SourceUrl"); 
 			
           
         }

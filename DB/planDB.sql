@@ -244,6 +244,20 @@ CREATE TABLE [dbo].[Basic_Log](
   ModifyTime datetime DEFAULT getdate()
 
 )
+
+
+CREATE TABLE Basice_ActionHistory(
+Id INT PRIMARY KEY IDENTITY,
+ActionType NVARCHAR(50) NOT NULL,
+ActionName NVARCHAR(50) NOT NULL,
+ActionExcutorId NVARCHAR(50) NOT NULL,
+ActionExcutorName NVARCHAR(50) NOT NULL,
+ActionExcutorRole NVARCHAR(50) NOT NULL,
+ActionBackPack NVARCHAR(MAX),
+ActionResult NVARCHAR(MAX),
+CreateTime DATETIME,
+ModifyTime DATETIME)
+
 ---config数据 
 USE [PlanDB]
 GO

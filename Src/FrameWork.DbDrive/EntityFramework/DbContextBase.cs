@@ -6,6 +6,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using Core.Cache;
+using Core.Config;
 using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
@@ -117,6 +119,10 @@ namespace Framework.DbDrive.EntityFramework
         {
             if(this.AuditLogger==null)
                 return;
+            if (!LocalCachedConfigContext.Current.SystemConfig.IsMonitor)
+            {
+                return;//是否打开数据的监控日志
+            } 
             foreach (
                 var dbEntry in
                     this.ChangeTracker.Entries<ModelBase>()

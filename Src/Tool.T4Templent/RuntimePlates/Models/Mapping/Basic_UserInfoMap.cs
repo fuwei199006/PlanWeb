@@ -29,8 +29,8 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.RegiserHeader).HasColumnName("RegiserHeader"); 
 			this.Property(t => t.RegisterTime).HasColumnName("RegisterTime"); 
 			this.Property(t => t.UserStaus).HasColumnName("UserStaus"); 
-			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
+			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
 			
           
         }

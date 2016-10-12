@@ -55,5 +55,13 @@ namespace Core.Config
                 return this.Get<MailConfig>("Message-Mail163Config");
             }
         }
+
+        public SystemConfig SystemConfig
+        {
+            get
+            {
+                return this.Get<SystemConfig>("Message-Mail163Config");
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace <#=NameSpace#>.Models.Mapping
 			{
 			if(filed.IsPrimaryKey){#>this.HasKey(t => t.<#=filed.Name#>);
 			<#} else if(filed.Type=="string")
-			{#>this.Property(t => t.<#=filed.Name#>)<# if(filed.IsNullable==1||filed.Length==-1){#>.IsRequired()<#}#><# if(filed.Length>0){#>.HasMaxLength(<#=filed.Length/2#>);<#}#>
+			{#>this.Property(t => t.<#=filed.Name#>)<# if(filed.IsNullable==1||filed.Length==-1){#>.IsRequired()<#}#><# if(filed.Length>0){#>.HasMaxLength(<#=filed.Length/2#>)<#}#>;
 			<#} 
 			}#>
 			this.ToTable("<#=ClassName#>");

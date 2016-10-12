@@ -64,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
+      <Project>{0440BB94-C62E-4F2A-84C7-42836C697035}</Project>
+      <Name>Core.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
       <Project>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</Project>
       <Name>Core.Config</Name>

@@ -4,7 +4,8 @@
 * @Last Modified by:   fuwei16
 * @Last Modified time: 2016-08-23 10:26:38
 */
- 
+
+using Core.Config.ConfigModel;
 using Core.Exception;
 using Framework.Utility;   
 
@@ -53,7 +54,7 @@ namespace Core.Config
         }
        
 
-        public   void Save(string keyOrName, string value)
+        public  virtual  void Save(string keyOrName, string value)
         {
             ConfigService.SaveConfig(keyOrName, value);
         }
@@ -78,6 +79,7 @@ namespace Core.Config
             throw new CallMethodFailException("当前方法只适合文件配置的系统，如果使用数据库配置，请选择调用GetConnect");
         }
 
+      
 
     }
 }

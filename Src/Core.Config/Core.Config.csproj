@@ -50,6 +50,7 @@
     <Compile Include="ConfigModel\SystemConfig.cs" />
     <Compile Include="DbConfigService.cs" />
     <Compile Include="FileConfigService.cs" />
+    <Compile Include="CachedConfig.cs" />
     <Compile Include="IConfigService.cs" />
     <Compile Include="IDbConfigService.cs" />
     <Compile Include="IFileConfigService.cs" />

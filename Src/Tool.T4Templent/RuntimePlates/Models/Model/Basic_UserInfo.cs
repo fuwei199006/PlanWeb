@@ -15,8 +15,8 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public string RegiserHeader {get;set;}
 	 	   public DateTime? RegisterTime {get;set;}
 	 	   public int? UserStaus {get;set;}
-	 	   public DateTime? ModifyTime {get;set;}
 	 	   public DateTime? CreateTime {get;set;}
+	 	   public DateTime? ModifyTime {get;set;}
 	   }
 }
 
