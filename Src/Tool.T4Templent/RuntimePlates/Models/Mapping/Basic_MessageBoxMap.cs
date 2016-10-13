@@ -1,5 +1,4 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
+﻿   using System.Data.Entity.ModelConfiguration;
 using Tool.T4Templent.RuntimePlates.Models.Model;
 namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 {
@@ -12,8 +11,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.Content).HasMaxLength(4000);
 			this.Property(t => t.ToUserName).IsRequired().HasMaxLength(50);
 			this.Property(t => t.FromUserName).IsRequired().HasMaxLength(50);
-			
-			this.ToTable("Basic_MessageBox");
+						this.ToTable("Basic_MessageBox");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.Title).HasColumnName("Title"); 
 			this.Property(t => t.Content).HasColumnName("Content"); 
@@ -23,8 +21,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.FromUserId).HasColumnName("FromUserId"); 
 			this.Property(t => t.FromUserName).HasColumnName("FromUserName"); 
 			this.Property(t => t.SentTime).HasColumnName("SentTime"); 
-			
-          
+			          
         }
     }
 }

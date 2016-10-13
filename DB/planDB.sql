@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   fuwei16
-* @Last Modified time: 2016-10-12 15:27:21
+* @Last Modified by:   付威
+* @Last Modified time: 2016-09-18 22:43:55
 */
 
 --CREATE DATABASE PlanDB;
@@ -246,19 +246,37 @@ CREATE TABLE [dbo].[Basic_Log](
 )
 
 
-CREATE TABLE Basice_ActionHistory(
-Id INT PRIMARY KEY IDENTITY,
-ActionModule NVARCHAR(50) not NULL,
-ActionType NVARCHAR(50) NOT NULL,
-ActionName NVARCHAR(50) NOT NULL,
-ActionExcutorId NVARCHAR(50) NOT NULL,
-ActionExcutorName NVARCHAR(50) NOT NULL,
-ActionExcutorRole NVARCHAR(50) NOT NULL,
-ActionDesc NVARCHAR(500) not null,
-ActionBackPack NVARCHAR(MAX),
-ActionResult NVARCHAR(MAX),
-CreateTime DATETIME,
-ModifyTime DATETIME)
+CREATE TABLE Basice_ActionHistory
+    (
+      Id INT PRIMARY KEY
+             IDENTITY ,
+      ActionType NVARCHAR(50) NOT NULL ,
+      ActionName NVARCHAR(50) NOT NULL ,
+      ActionExcutorId NVARCHAR(50) NOT NULL ,
+      ActionExcutorName NVARCHAR(50) NOT NULL ,
+      ActionExcutorRole NVARCHAR(50) NOT NULL ,
+      ActionBackPack NVARCHAR(MAX) ,
+      ActionResult NVARCHAR(MAX) ,
+      CreateTime DATETIME ,
+      ModifyTime DATETIME
+    );
+ 
+ 
+    CREATE TABLE Basic_DbMonitorLog
+        (
+          Id INT PRIMARY KEY
+                 IDENTITY ,
+		 ModuleId NVARCHAR(20),
+          TableName NVARCHAR(100) NOT NULL ,
+          DbName NVARCHAR(40) NOT NULL ,
+          EventType NVARCHAR(20) NOT NULL ,
+          NewValues NVARCHAR(MAX) NOT NULL ,
+          UserName NVARCHAR(100) ,
+		  ModuleName NVARCHAR(50), 
+          CreateTime DATETIME ,
+          ModifyTime DATETIME
+        );
+	
 
 ---config数据 
 USE [PlanDB]

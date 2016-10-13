@@ -1,5 +1,4 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
+﻿   using System.Data.Entity.ModelConfiguration;
 using Tool.T4Templent.RuntimePlates.Models.Model;
 namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 {
@@ -12,12 +11,11 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.SubTitle).IsRequired().HasMaxLength(200);
 			this.Property(t => t.Author).HasMaxLength(50);
 			this.Property(t => t.Category).HasMaxLength(50);
-			this.Property(t => t.Content).IsRequired()
+			this.Property(t => t.Content).IsRequired();
 			this.Property(t => t.Source).HasMaxLength(100);
 			this.Property(t => t.SourceUrl).HasMaxLength(100);
 			this.Property(t => t.KeyWord).IsRequired().HasMaxLength(50);
-			
-			this.ToTable("Basic_Article");
+						this.ToTable("Basic_Article");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.Title).HasColumnName("Title"); 
 			this.Property(t => t.SubTitle).HasColumnName("SubTitle"); 
@@ -31,8 +29,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTIme).HasColumnName("ModifyTIme"); 
 			this.Property(t => t.ArticleStatus).HasColumnName("ArticleStatus"); 
-			
-          
+			          
         }
     }
 }

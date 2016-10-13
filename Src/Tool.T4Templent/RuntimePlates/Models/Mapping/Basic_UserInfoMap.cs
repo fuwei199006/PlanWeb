@@ -1,5 +1,4 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
+﻿   using System.Data.Entity.ModelConfiguration;
 using Tool.T4Templent.RuntimePlates.Models.Model;
 namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 {
@@ -16,8 +15,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.RegisterDevice).IsRequired().HasMaxLength(500);
 			this.Property(t => t.RegisterIp).IsRequired().HasMaxLength(10);
 			this.Property(t => t.RegiserHeader).IsRequired().HasMaxLength(200);
-			
-			this.ToTable("Basic_UserInfo");
+						this.ToTable("Basic_UserInfo");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.LoginName).HasColumnName("LoginName"); 
 			this.Property(t => t.NickName).HasColumnName("NickName"); 
@@ -31,8 +29,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.UserStaus).HasColumnName("UserStaus"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
-			
-          
+			          
         }
     }
 }

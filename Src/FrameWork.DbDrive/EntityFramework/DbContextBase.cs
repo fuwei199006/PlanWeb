@@ -143,8 +143,10 @@ namespace Framework.DbDrive.EntityFramework
                     var tableArr =
                         dbEntry.Entity.GetType().GetCustomAttributes(typeof (TableAttribute),false).SingleOrDefault() as TableAttribute;
                     var tableName = tableArr != null ? tableArr.Name : dbEntry.Entity.GetType().Name;
+                    var dbName = this.Database.Connection.Database;//
                     var moduleName = dbEntry.Entity.GetType().FullName.Split('.').Skip(1).FirstOrDefault();
-                    this.AuditLogger.WriteLog(dbEntry.Entity.Id, operaterName, moduleName, tableName, dbEntry.State.ToString(), dbEntry.Entity);
+                    this.AuditLogger.WriteLog(dbEntry.Entity.Id, operaterName, moduleName, tableName,
+                        dbEntry.State.ToString(), dbEntry.Entity, dbName);
                 });
             }
              

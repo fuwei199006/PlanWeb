@@ -8,18 +8,18 @@ using System;
 
 namespace Core.Log
 {
-    [Table("Basice_ActionHistory")]
-    public class AuditLog : ModelBase
+    [Table("Basic_DbMonitorLog")]
+    public partial class Basic_DbMonitorLog : ModelBase
     {
-        public string ActionModule { get; set; }
-        public string ActionType { get; set; }
-        public string ActionName { get; set; }
-        public string ActionExcutorId { get; set; }
-        public string ActionExcutorName { get; set; }
-        public string ActionExcutorRole { get; set; }
-        public string ActionBackPack { get; set; }
-        public string ActionResult { get; set; }
-        public string ActionDesc { get; set; }
+
+        public string ModuleId { get; set; }
+        public string TableName { get; set; }
+        public string DbName { get; set; }
+        public string EventType { get; set; }
+        public string NewValues { get; set; }
+        public string UserName { get; set; }
+        public string ModuleName { get; set; }
+         
         public DateTime? ModifyTime { get; set; }
     }
 
@@ -31,19 +31,21 @@ namespace Core.Log
             Database.SetInitializer<LogDbContext>(null);//???
         }
 
-        public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<Basic_DbMonitorLog> AuditLogs { get; set; }
 
-        public void WriteLog(int modelId, string userName, string moduleName, string tableName, string eventType, ModelBase newValues)
+        public void WriteLog(int modelId, string userName, string moduleName, string tableName, string eventType, ModelBase newValues,string dbName)
         {
-            this.AuditLogs.Add(new AuditLog()
+            this.AuditLogs.Add(new Basic_DbMonitorLog()
             {
-                ActionModule=moduleName,
-                ActionType = eventType,
-                ActionExcutorName = userName,
-                ActionName = moduleName,
+                ModuleId=modelId.ToString(),
+                DbName = dbName,
+                ModuleName = moduleName,
+                EventType = eventType,
+                UserName = userName,
+               TableName = tableName,
                 CreateTime = DateTime.Now,
                 ModifyTime=DateTime.Now,
-                ActionResult = JsonConvert.SerializeObject(newValues, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore })
+                NewValues = JsonConvert.SerializeObject(newValues, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore })
             });
 
             this.SaveChanges();
