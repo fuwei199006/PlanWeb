@@ -1,8 +1,8 @@
 /* 
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
-* @Last Modified by:   付威
-* @Last Modified time: 2016-09-18 22:43:55
+* @Last Modified by:   fuwei16
+* @Last Modified time: 2016-10-12 15:27:21
 */
 
 --CREATE DATABASE PlanDB;
@@ -248,11 +248,13 @@ CREATE TABLE [dbo].[Basic_Log](
 
 CREATE TABLE Basice_ActionHistory(
 Id INT PRIMARY KEY IDENTITY,
+ActionModule NVARCHAR(50) not NULL,
 ActionType NVARCHAR(50) NOT NULL,
 ActionName NVARCHAR(50) NOT NULL,
 ActionExcutorId NVARCHAR(50) NOT NULL,
 ActionExcutorName NVARCHAR(50) NOT NULL,
 ActionExcutorRole NVARCHAR(50) NOT NULL,
+ActionDesc NVARCHAR(500) not null,
 ActionBackPack NVARCHAR(MAX),
 ActionResult NVARCHAR(MAX),
 CreateTime DATETIME,

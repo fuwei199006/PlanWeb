@@ -9,6 +9,8 @@ namespace Core.Service
     public abstract class ServiceFactory
     {
         public abstract T CreateService<T>() where T : class;
+
+  
     }
 
     public class ResfServiceFactory : ServiceFactory

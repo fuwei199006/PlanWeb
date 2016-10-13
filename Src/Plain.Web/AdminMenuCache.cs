@@ -5,6 +5,7 @@ using Core.Service;
 using Plain.BLL.MenuService;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using Plain.Dto;
 
 namespace Plain.Web
 {
@@ -22,7 +23,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get("PlainMenu",
+                return CacheContext.Get(CacheKey.PlainMenu,
                      () => ServiceContext.Current.CreateService<IMenuService>().GetMenus());
             }
         }

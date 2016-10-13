@@ -47,16 +47,16 @@ namespace Framework.DAL
             return this.CurrentContextBase.GetEntityWithNoTracking(conditions);
         }
      
-        public virtual IQueryable<T> LoadEntitiesNoTracking<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public virtual IQueryable<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null)
         {
             return this.CurrentContextBase.LoadEntitiesNoTracking(conditions);
         }
 
-        public virtual IQueryable<T> LoadEntities<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public virtual IQueryable<T> LoadEntities(Expression<Func<T, bool>> conditions = null)
         {
             return this.CurrentContextBase.LoadEntities(conditions);
         }
-        public virtual PagedList<T> LoadEntitiesByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase
+        public virtual PagedList<T> LoadEntitiesByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 
         {
             return this.CurrentContextBase.LoadEntitiesByPage(conditions, orderBy, pageSize, pageIndex);
         }

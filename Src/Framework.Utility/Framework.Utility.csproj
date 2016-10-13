@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="AssemblyHelper.cs" />
+    <Compile Include="CacheKey.cs" />
     <Compile Include="Caching.cs" />
     <Compile Include="Collection.cs" />
     <Compile Include="Cookie.cs" />

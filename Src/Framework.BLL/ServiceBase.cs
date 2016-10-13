@@ -48,12 +48,12 @@ namespace Framework.BLL
     
         public virtual IQueryable<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null)
         {
-            return this.CurrentResposity.LoadEntitiesNoTracking<T>(conditions);
+            return this.CurrentResposity.LoadEntitiesNoTracking(conditions);
         }
 
         public virtual IQueryable<T> LoadEntities(Expression<Func<T, bool>> conditions = null)
         {
-            return this.CurrentResposity.LoadEntities<T>(conditions);
+            return this.CurrentResposity.LoadEntities(conditions);
         }
 
         public virtual PagedList<T> LoadEntitiesByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 

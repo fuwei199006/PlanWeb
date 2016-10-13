@@ -132,10 +132,10 @@ namespace Framework.DbDrive.EntityFramework
                                 p.State == EntityState.Modified))
             {
 
-                var auditableAttr =
-                    dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
-                        as AuditableAttribute;
-                if(auditableAttr==null)continue;
+                //var auditableAttr =
+                //    dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
+                //        as AuditableAttribute;
+                //if(auditableAttr==null)continue;
                 var operaterName = WcfContext.Current.Operater.Name;
 
                 Task.Factory.StartNew(() =>

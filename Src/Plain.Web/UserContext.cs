@@ -5,6 +5,7 @@ using Core.Service;
 using Plain.BLL.LoginService;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using Plain.Dto;
 
 namespace Plain.Web
 {
@@ -21,7 +22,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.GetItem <Basic_LoginInfo>("LoginInfo", () =>
+                return CacheContext.GetItem <Basic_LoginInfo>(CacheKey.LoginInfo, () =>
                 {
                     if (AuthCookie.UserToken == Guid.Empty)
                     {

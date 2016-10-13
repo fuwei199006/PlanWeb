@@ -4,18 +4,23 @@ using Core.Config;
 using Framework.Contract;
 using Framework.DbDrive.EntityFramework;
 using Newtonsoft.Json;
+using System;
 
 namespace Core.Log
 {
-    [Table("AuditLog")]
+    [Table("Basice_ActionHistory")]
     public class AuditLog : ModelBase
     {
-        public int ModelId { get; set; }
-        public string UserName { get; set; }
-        public string ModuleName { get; set; }
-        public string TableName { get; set; } 
-        public string EventType { get; set; }
-        public string NewValues { get; set; }
+        public string ActionModule { get; set; }
+        public string ActionType { get; set; }
+        public string ActionName { get; set; }
+        public string ActionExcutorId { get; set; }
+        public string ActionExcutorName { get; set; }
+        public string ActionExcutorRole { get; set; }
+        public string ActionBackPack { get; set; }
+        public string ActionResult { get; set; }
+        public string ActionDesc { get; set; }
+        public DateTime? ModifyTime { get; set; }
     }
 
     public class LogDbContext : DbContextBase, IAuditable
@@ -32,12 +37,13 @@ namespace Core.Log
         {
             this.AuditLogs.Add(new AuditLog()
             {
-                ModelId = modelId,
-                UserName = userName,
-                ModuleName = moduleName,
-                TableName = tableName,
-                EventType = eventType,
-                NewValues = JsonConvert.SerializeObject(newValues, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore })
+                ActionModule=moduleName,
+                ActionType = eventType,
+                ActionExcutorName = userName,
+                ActionName = moduleName,
+                CreateTime = DateTime.Now,
+                ModifyTime=DateTime.Now,
+                ActionResult = JsonConvert.SerializeObject(newValues, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore })
             });
 
             this.SaveChanges();

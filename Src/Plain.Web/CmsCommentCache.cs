@@ -1,6 +1,7 @@
 ﻿using Core.Cache;
 using Core.Service;
 using Plain.BLL.Article;
+using Plain.Dto;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get("ArticleList",
+                return CacheContext.Get(CacheKey.ArticleList,
                      () => ServiceContext.Current.CreateService<IArticleService>().GetArticles());
             }
         }
