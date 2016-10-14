@@ -66,7 +66,7 @@ namespace Core.Config
         }
 
         /// <summary>
-        /// 物理删除
+        /// 逻辑删除
         /// </summary>
         /// <param name="key"></param>
         public void DeleteConfig(string key)

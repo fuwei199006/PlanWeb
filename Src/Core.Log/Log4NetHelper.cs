@@ -4,6 +4,7 @@ using System.Text;
 using Core.Config;
 using Core.Encrypt;
 using log4net;
+using log4net.Config;
 using Newtonsoft.Json;
 
 namespace Core.Log
@@ -13,17 +14,20 @@ namespace Core.Log
         static Log4NetHelper()
         {
             //初始化log4net配置
-            var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("LOG-LOG4NET");
+            //var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("LOG-LOG4NET");
+            //测试配置
+            var config = File.ReadAllText("Log4net.xml");
             //重写log4net配置里的连接字符串
-            config = config.Replace("{connectionString}", DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.Log));
+            config = config.Replace("{connectionString}",
+                DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.Log));
             var ms = new MemoryStream(Encoding.Default.GetBytes(config));
-            log4net.Config.XmlConfigurator.Configure(ms);
+            XmlConfigurator.Configure(ms);
         }
 
         public static void Debug(LoggerType loggerType, object message, Exception e)
         {
             var logger = LogManager.GetLogger(loggerType.ToString());
-            logger.Debug(SerializeObject(message), e);//123test
+            logger.Debug(SerializeObject(message), e); //123test
         }
 
         public static void Error(LoggerType loggerType, object message, Exception e)
@@ -54,8 +58,8 @@ namespace Core.Log
         {
             if (message is string || message == null)
                 return message;
-            else
-                return JsonConvert.SerializeObject(message, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            return JsonConvert.SerializeObject(message,
+                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
     }
 

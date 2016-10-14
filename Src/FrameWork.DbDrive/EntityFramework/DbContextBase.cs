@@ -122,7 +122,7 @@ namespace Framework.DbDrive.EntityFramework
             if (!LocalCachedConfigContext.Current.SystemConfig.IsMonitor)
             {
                 return;//是否打开数据的监控日志
-            } 
+            }
             foreach (
                 var dbEntry in
                     this.ChangeTracker.Entries<ModelBase>()
@@ -136,17 +136,19 @@ namespace Framework.DbDrive.EntityFramework
                 //    dbEntry.Entity.GetType().GetCustomAttributes(typeof (AuditableAttribute), false).SingleOrDefault()
                 //        as AuditableAttribute;
                 //if(auditableAttr==null)continue;
-                var operaterName = WcfContext.Current.Operater.Name;
+                //var operaterName = string.Empty;// WcfContext.Current.Operater.Name;
 
                 Task.Factory.StartNew(() =>
                 {
-                    var tableArr =
-                        dbEntry.Entity.GetType().GetCustomAttributes(typeof (TableAttribute),false).SingleOrDefault() as TableAttribute;
+                    
+                    var tableArr  = dbEntry.Entity.GetType().GetCustomAttributes(typeof (TableAttribute),false).SingleOrDefault() as TableAttribute;
                     var tableName = tableArr != null ? tableArr.Name : dbEntry.Entity.GetType().Name;
-                    var dbName = this.Database.Connection.Database;//
+                    var dbName    = this.Database.Connection.Database;// 
+                    var  operaterName= "Anoymous";               
                     var moduleName = dbEntry.Entity.GetType().FullName.Split('.').Skip(1).FirstOrDefault();
                     this.AuditLogger.WriteLog(dbEntry.Entity.Id, operaterName, moduleName, tableName,
-                        dbEntry.State.ToString(), dbEntry.Entity, dbName);
+                    dbEntry.State.ToString(), dbEntry.Entity, dbName);
+                    
                 });
             }
              

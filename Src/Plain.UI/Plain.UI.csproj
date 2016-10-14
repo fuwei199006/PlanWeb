@@ -233,8 +233,8 @@
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
-    <Content Include="Config\DaoConfig2.config" />
-    <None Include="Config\DaoConfig.config">
+    <Content Include="Config\DaoConfig.config" />
+    <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\DemoUI\.project" />

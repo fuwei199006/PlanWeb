@@ -53,6 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Log4NetHelper.cs" />
+    <Compile Include="Log4\IMyLog.cs" />
+    <Compile Include="Log4\MyLogImpl.cs" />
+    <Compile Include="Log4\MyLogManager.cs" />
+    <Compile Include="Log4\ReflectionLayout.cs" />
     <Compile Include="LogDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

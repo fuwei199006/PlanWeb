@@ -25,6 +25,7 @@ namespace Plain.Model.Models.Model
         [Required(ErrorMessage = "确认密码不能为空")]
         [System.ComponentModel.DataAnnotations.Compare("RegisterPassword", ErrorMessage = "两次密码输入不一致")]
         [StringLength(200, ErrorMessage = "密码长度不能小于6位", MinimumLength = 6)]
+
         [NotMapped]
         public string RegisterConfirmPassword { get; set; }
         public Nullable<System.DateTime> RegisterTime { get; set; }

@@ -1,5 +1,7 @@
 ﻿
 
+using Core.Config.ConfigModel;
+
 namespace Core.Config
 {
     public interface IConfigService

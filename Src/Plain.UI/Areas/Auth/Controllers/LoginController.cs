@@ -86,6 +86,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 ModelState.AddModelError("valideCode", "验证码不正确");
                 return View();
             }
+
             register.CreateTime = DateTime.Now;
             register.Expiretime = DateTime.Now.AddDays(7);
             register.RetisterIp = Fetch.UserIp;
