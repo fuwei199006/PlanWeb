@@ -1,0 +1,40 @@
+﻿@using Plain.Dto
+@using Plain.Web
+<div class="header">
+    <div id="" class="wrap">
+        <div id="" class="nav f_left">
+            <ul>
+                <li>时间</li>
+                <li>地点</li>
+                <li>人物</li>
+            </ul>
+        </div>
+        <div id="" class="nav f_right">
+            <ul>
+            
+                <li>登录</li>
+                <li><a href='@Url.Action("Register","Login")'>注册</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="wrap navgb">
+ 
+    <ul>
+        @foreach (var m in AdminCacheContext.Current.MenuItems[MenuType.Nav])
+        {
+            <li>
+                <a href='@m.MenuUrl'>@m.MenuName</a>
+            </li>
+        }
+
+    </ul>
+
+</div>
+
+
+<div class="wrap breadnav">
+    <span><em>当前位置：</em> <a href="javascript:void(0)">首页</a>&nbsp; </span>
+    <!--	 <div class="f_right">搜索：<input type="text"  class="search"/></div>-->
+</div>

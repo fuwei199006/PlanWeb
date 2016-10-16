@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuditableAttribute.cs" />
     <Compile Include="IAuditable.cs" />
     <Compile Include="IPagedList.cs" />
     <Compile Include="ModelBase.cs" />

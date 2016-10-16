@@ -15,4 +15,12 @@ namespace Plain.Dto
     {
         Yes,No
     }
+
+    public class MenuType
+    {
+        public const string Nav = "Nav";
+        public const string Item = "Item";
+        public const string Group = "Group";
+ 
+    }
 }

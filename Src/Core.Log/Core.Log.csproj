@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Log4NetHelper.cs" />
     <Compile Include="Log4\IMyLog.cs" />
+    <Compile Include="Log4\LogMessage.cs" />
     <Compile Include="Log4\MyLogImpl.cs" />
     <Compile Include="Log4\MyLogManager.cs" />
     <Compile Include="Log4\ReflectionLayout.cs" />
@@ -80,6 +81,11 @@
       <Project>{5716BF11-28E7-478F-80F5-D881CC87962A}</Project>
       <Name>Framework.DbDrive</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Log4net.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,27 @@
+﻿@using Core.Config
+@using Framework.Extention
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@LocalCachedConfigContext.Current.SettingConfig.WebSiteTitle</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/main.css")" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/register.css")" />
+    <link rel="stylesheet" href="@Url.StaticFile("/Content/css/font-awesome.min.css")" />
+    @RenderSection("PageSpecificStyleSheetIncludes", required: false)
+</head>
+<body>
+    @Html.Partial("_Header")
+    @RenderBody()
+    @Html.Partial("_Footer")
+</body>
+</html>
+
+<script type="text/javascript" src="@Url.StaticFile("/Scripts/jquery-1.10.2.min.js")"></script>
+@RenderSection("PageSpecificJavascriptIncludes", required: false)
