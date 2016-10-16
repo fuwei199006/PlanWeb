@@ -26,8 +26,8 @@ namespace Core.Config
         {
             get
             {
-                return this.Get<CacheConfig>(CacheKey.CacheConfig); 
-                
+                return this.Get<CacheConfig>(CacheKey.CacheConfig);
+
             }
         }
 
@@ -36,17 +36,11 @@ namespace Core.Config
             get
             {
                 return this.Get<DaoConfig>(CacheKey.DaoConfig);
-                
+
             }
         }
 
-        public SettingConfig SettingConfig
-        {
-            get
-            {
-                return this.Get<SettingConfig>(CacheKey.SettingConfig);
-            }
-        }
+
 
         public MailConfig Mail163Config
         {
@@ -56,11 +50,11 @@ namespace Core.Config
             }
         }
 
-        public SystemConfig SystemConfig
+        public SystemSettingConfig SystemConfig
         {
             get
             {
-                return this.Get<SystemConfig>(CacheKey.SystemConfig);
+                return this.Get<SystemSettingConfig>(CacheKey.SystemConfig);
             }
         }
     }

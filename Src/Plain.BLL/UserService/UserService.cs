@@ -37,5 +37,10 @@ namespace Plain.BLL.UserService
         {
             return this.GetEntityWithNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == 1);
         }
+
+        public Basic_UserInfo GetUserByUserId(int id)
+        {
+            return this.GetEntityById(id);
+        }
     }
 }

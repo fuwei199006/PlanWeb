@@ -21,6 +21,7 @@ namespace Plain.BLLTests.LoginService
             {
                 LoginName = "756091180@qq.com",
                 LoginUserId = 0,
+                LoginNickName = "大海",
                 LoginTime = DateTime.Now,
                 ExpireTime = DateTime.Now.AddHours(1),
                 LoginStatus = 1,

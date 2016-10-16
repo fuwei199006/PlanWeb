@@ -40,5 +40,8 @@ namespace Plain.Model.Models.Model
         public Nullable<System.DateTime> LastUpdateTime { get; set; }
 
         public Guid LoginToken { get; set; }
+
+         [Required(ErrorMessage = "êÇ³Æ²»ÄÜÎª¿Õ")]
+        public string LoginNickName { get; set; }
     }
 }

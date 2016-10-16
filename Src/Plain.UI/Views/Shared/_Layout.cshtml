@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Plain.Web
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>@AdminCacheContext.Current.AdminWebSetting.SystemSettingConfig.WebSiteTitle</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Plain/css/font-awesome.css" rel="stylesheet" />
@@ -50,7 +51,12 @@
 <script src="~/Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="~/Content/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="~/Content/plugins/fastclick/fastclick.min.js"></script>
-<script src="~/Content/AdminLTE/js/app.min.js"></script>
+@*<script src="~/Content/AdminLTE/js/app.min.js"></script>
 <script src="~/Content/AdminLTE/js/pages/dashboard.js"></script>
-<script src="~/Content/AdminLTE/js/demo.js"></script>
+<script src="~/Content/AdminLTE/js/demo.js"></script>*@
+<script src="~/Content/AdminLTE/js/admin.app.js"></script>
+@*<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>*@
+
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

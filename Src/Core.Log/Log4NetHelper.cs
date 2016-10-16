@@ -14,9 +14,9 @@ namespace Core.Log
         static Log4NetHelper()
         {
             //初始化log4net配置
-            //var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("LOG-LOG4NET");
+            var config = LocalCachedConfigContext.Current.ConfigService.GetConfig("LOG-LOG4NET");
             //测试配置
-            var config = File.ReadAllText("Log4net.xml");
+            //var config = File.ReadAllText("Log4net.xml");
             //重写log4net配置里的连接字符串
             config = config.Replace("{connectionString}",
                 DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.Log));

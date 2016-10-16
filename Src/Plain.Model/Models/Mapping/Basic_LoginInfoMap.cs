@@ -17,8 +17,9 @@ namespace Plain.Model.Models.Mapping
 			
 			this.ToTable("Basic_LoginInfo");
 			this.Property(t => t.Id).HasColumnName("Id"); 
-			this.Property(t => t.LoginUserId).HasColumnName("LoginUserId"); 
-			this.Property(t => t.LoginName).HasColumnName("LoginName"); 
+			this.Property(t => t.LoginUserId).HasColumnName("LoginUserId");
+            this.Property(t => t.LoginName).HasColumnName("LoginName");
+            this.Property(t => t.LoginNickName).HasColumnName("LoginNickName"); 
 			this.Property(t => t.LoginTime).HasColumnName("LoginTime"); 
 			this.Property(t => t.LoginStatus).HasColumnName("LoginStatus"); 
 			this.Property(t => t.LoginType).HasColumnName("LoginType"); 

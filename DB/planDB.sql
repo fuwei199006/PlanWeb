@@ -2,7 +2,7 @@
 * @Author: fuwei
 * @Date:   2016-08-21 17:01:55
 * @Last Modified by:   付威
-* @Last Modified time: 2016-09-18 22:43:55
+* @Last Modified time: 2016-10-16 19:36:07
 */
 
 --CREATE DATABASE PlanDB;
@@ -300,4 +300,9 @@ INSERT [dbo].[Basic_Config] ([Id], [ConfigKey], [ConfigValue], [CongfigStatus], 
 INSERT [dbo].[Basic_Config] ([Id], [ConfigKey], [ConfigValue], [CongfigStatus], [ConfigCategory], [CreateTime], [ModifyTime]) VALUES (3, N'SettingConfig', N' <SettingConfig > <WebSiteTitle>GMS管理系统</WebSiteTitle> </SettingConfig>', 1, N'Web', CAST(N'2016-08-27 00:00:00.000' AS DateTime), CAST(N'2016-08-27 00:00:00.000' AS DateTime))
 SET IDENTITY_INSERT [dbo].[Basic_Config] OFF
 
+
+
+--Update 
+
+ALTER TABLE dbo.Basic_LoginInfo ADD LoginNickName NVARCHAR(50) 
 

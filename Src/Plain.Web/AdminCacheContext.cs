@@ -28,6 +28,12 @@ namespace Plain.Web
         }
 
 
+        public AdminWebSettingCache AdminWebSetting
+        {
+            get { return AdminWebSettingCache.Current; }
+        }
+
+
 
     }
 }

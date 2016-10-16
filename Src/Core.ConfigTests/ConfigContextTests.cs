@@ -33,8 +33,8 @@ namespace Core.ConfigTests
         [TestMethod()]
         public void GetSettingConfigTest()
         {
-            var str = LocalCachedConfigContext.Current.SettingConfig;
-            var str1 = LocalCachedConfigContext.Current.SettingConfig;
+            var str = LocalCachedConfigContext.Current.SystemConfig.WebSiteTitle;
+            var str1 = LocalCachedConfigContext.Current.SystemConfig.WebSiteTitle;
             Assert.AreEqual(str, str1);
         }
         [TestMethod()]

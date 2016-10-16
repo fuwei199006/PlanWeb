@@ -182,6 +182,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\CMSAreaRegistration.cs" />
+    <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
     <Compile Include="Areas\CMS\Controllers\CmsHomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -1035,6 +1036,7 @@
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\AdminLTE-2.3.0\starter.html" />
+    <Content Include="Content\AdminLTE\js\admin.app.js" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -1121,6 +1123,7 @@
     <Content Include="Content\DemoUI\register.html" />
     <Content Include="Content\detail.png" />
     <Content Include="Content\Plain\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Plain\img\avatar.png" />
     <Content Include="Content\Plain\img\demo.jpg" />
     <Content Include="Content\Plain\img\list_style.png" />
     <Content Include="Content\Plain\img\logo.png" />
@@ -1862,6 +1865,7 @@
     <Content Include="Areas\Auth\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Content.cshtml" />
+    <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
     <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

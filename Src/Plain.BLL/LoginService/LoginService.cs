@@ -8,6 +8,7 @@ using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using Plain.BLL.UserService;
 using System.Linq;
+using Plain.Dto;
 
 namespace Plain.BLL.LoginService
 {
@@ -25,7 +26,7 @@ namespace Plain.BLL.LoginService
 
        
 
-        public Basic_LoginInfo Login(string loginName, string password,int loginType=1)
+        public Basic_LoginInfo Login(string loginName, string password,LoginType loginType=LoginType.NormalLogin)
         {
             Basic_LoginInfo loginInfo = null;
             var keyPass = MD5Encrypt.Md5(password);
@@ -38,6 +39,7 @@ namespace Plain.BLL.LoginService
                 loginInfo = this.GetEntity(r => r.LoginName == loginName && r.LoginIp == ip&&!r.IsDelete);
                 if (loginInfo != null)
                 {
+                    loginInfo.LoginNickName = user.NickName;
                     loginInfo.LastUpdateTime=DateTime.Now;
                     loginInfo.ExpireTime = DateTime.Now.AddHours(1);
                     loginInfo.LoginIp = Fetch.UserIp;
@@ -46,7 +48,8 @@ namespace Plain.BLL.LoginService
                 else
                 {
                     loginInfo = new Basic_LoginInfo(user.Id,loginName);
-                    loginInfo.LoginType = loginType;
+                    loginInfo.LoginType =(int) loginType;
+                    loginInfo.LoginNickName = user.NickName;
                     loginInfo.ExpireTime = DateTime.Now.AddHours(1);
                     loginInfo.LoginIp = Fetch.UserIp;
                     this.Add(loginInfo);

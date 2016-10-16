@@ -12,5 +12,7 @@ namespace Plain.BLL.UserService
         Basic_UserInfo  EmailExist(string email);
         Basic_UserInfo  UserPass(string loginName,string pwd);
 
+        Basic_UserInfo GetUserByUserId(int id);
+
     }
 }

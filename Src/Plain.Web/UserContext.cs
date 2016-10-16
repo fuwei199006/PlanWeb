@@ -3,6 +3,7 @@ using Core.Cache;
 using Core.Exception;
 using Core.Service;
 using Plain.BLL.LoginService;
+using Plain.BLL.UserService;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using Plain.Dto;
@@ -18,7 +19,7 @@ namespace Plain.Web
             this.AuthCookie = authCookie;
         }
 
-        public Basic_LoginInfo LoginInfo
+        public Basic_LoginInfo LoginInfo 
         {
             get
             {
@@ -40,5 +41,19 @@ namespace Plain.Web
                 });
             }
         }
+
+        public Basic_UserInfo BasicUserInfo
+        {
+            get
+            {
+                if (LoginInfo != null)
+                {
+                    return ServiceContext.Current.CreateService<IUserService>().GetUserByUserId(LoginInfo.LoginUserId);
+                }
+                return null;
+            }
+        }
+
+
     }
 }

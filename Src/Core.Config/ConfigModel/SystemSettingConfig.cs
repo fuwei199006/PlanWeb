@@ -2,7 +2,8 @@
 
 namespace Core.Config.ConfigModel
 {
-    public class SystemConfig
+    [Serializable]
+    public class SystemSettingConfig
     {
         public bool IsMonitor { get; set; }//数据日志
 
@@ -13,8 +14,11 @@ namespace Core.Config.ConfigModel
         public Guid SystemId { get; set; }
 
         public bool IsRunning { get; set; }
+        public string WebSiteTitle { get; set; }
+        public string WebSiteDescription { get; set; }
+        public string WebSiteKeyWords { get; set; }
     }
 
 
-   
+
 }
