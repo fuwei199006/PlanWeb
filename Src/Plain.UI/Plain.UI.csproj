@@ -1860,13 +1860,13 @@
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
-    <Content Include="Config\DaoConfig2.config" />
+    <Content Include="Config\DaoConfig.config" />
     <Content Include="Areas\Auth\Views\Role\Index.cshtml" />
     <Content Include="Areas\Auth\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Content.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
-    <None Include="Config\DaoConfig.config">
+    <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\DemoUI\.project" />
