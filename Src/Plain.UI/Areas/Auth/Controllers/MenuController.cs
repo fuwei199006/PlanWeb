@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Framework.Contract;
+using Framework.Extention;
+using Plain.Dto.Request;
+using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
+using Plain.Web;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
     public class MenuController : BaseController
     {
         // GET: Auth/Menu
-        public ActionResult Index()
+        public ActionResult Index(MenuRequest menuRequest)
         {
-            return View();
+            PagedList<Basic_Menu> menuList =
+                AdminCacheContext.Current.MenuItems.Menus.ToList().ToPagedList(menuRequest.PageIndex+1,menuRequest.PageSize,AdminMenuCache.Current.Menus.Count);
+
+            return View(menuList);
         }
     }
 }

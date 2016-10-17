@@ -2,7 +2,7 @@
 //新菜单根据Url决定逻辑
 (function () {
     var locationHref = window.location.href;
-    $(".sidebar-menu ul").each(function (index,value) {
+    $(".sidebar-menu ul").each(function (index, value) {
 
         var $a = $(value).find("li>a");
         var len = $a.length;
@@ -14,7 +14,7 @@
                 return false;
             }
         }
-      
-         
+
+
     });
 })();

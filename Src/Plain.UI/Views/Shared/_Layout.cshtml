@@ -28,7 +28,21 @@
             @Html.Partial("_Menu")
         </aside>
         <div class="content-wrapper" style="min-height: 916px;">
-            @RenderBody()
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+            <section class="content-header">
+                <h1>
+                    Dashboard
+                    <small>Control panel</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+            <section class="content">
+                @RenderBody()
+            </section>
         </div>
         @Html.Partial("_Theme")
         @Html.Partial("_Footer")
@@ -53,10 +67,10 @@
 <script src="~/Content/plugins/fastclick/fastclick.min.js"></script>
 <script src="~/Content/AdminLTE/js/app.min.js"></script>
 <script src="~/Content/AdminLTE/js/pages/dashboard.js"></script>
- 
+
 <script src="~/Content/AdminLTE/js/admin.app.js"></script>
 @*<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>*@
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>*@
 
 @RenderSection("PageSpecificJavascriptIncludes", required: false)
