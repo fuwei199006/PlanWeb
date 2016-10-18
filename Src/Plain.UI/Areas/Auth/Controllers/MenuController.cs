@@ -18,9 +18,14 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Index(MenuRequest menuRequest)
         {
             PagedList<Basic_Menu> menuList =
-                AdminCacheContext.Current.MenuItems.Menus.ToList().ToPagedList(menuRequest.PageIndex+1,menuRequest.PageSize,AdminMenuCache.Current.Menus.Count);
+                AdminCacheContext.Current.MenuItems.Menus.ToList().ToPagedList(menuRequest.PageIndex,menuRequest.PageSize,AdminMenuCache.Current.Menus.Count);
 
             return View(menuList);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View();
         }
     }
 }

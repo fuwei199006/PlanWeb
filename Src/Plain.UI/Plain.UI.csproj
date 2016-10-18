@@ -1037,6 +1037,9 @@
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\AdminLTE-2.3.0\starter.html" />
     <Content Include="Content\AdminLTE\js\admin.app.js" />
+    <Content Include="Content\Thickbox\jquery.thickbox.js" />
+    <Content Include="Content\Thickbox\jquery.thickbox.css" />
+    <Content Include="Content\Thickbox\jquery.thickbox.min.js" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -1850,6 +1853,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Thickbox\loadingAnimation.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1866,6 +1870,7 @@
     <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Content.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Auth\Views\Menu\Edit.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -2060,6 +2065,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Theme.cshtml" />
+    <Content Include="Views\Shared\_LayoutEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

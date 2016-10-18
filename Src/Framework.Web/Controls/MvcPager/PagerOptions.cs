@@ -35,7 +35,7 @@ namespace Framework.Web.Controls.MvcPager
             InvalidPageIndexErrorMessage = "页索引无效";
             PageIndexOutOfRangeErrorMessage = "页索引超出范围";
             MaxPageIndex = 0;
-            CssClass = "pages";
+            CssClass = "pagination pagination-sm no-margin pull-right";
             ShowTotalItemCount = false;
         }
 

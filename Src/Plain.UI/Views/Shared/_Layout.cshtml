@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@AdminCacheContext.Current.AdminWebSetting.SystemSettingConfig.WebSiteTitle</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Plain/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="~/Content/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" />
@@ -17,6 +17,15 @@
     <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
     <link href="~/Content/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+    <link href="~/Content/Thickbox/jquery.thickbox.css" rel="stylesheet" />
+    <style>
+        .paged {
+            z-index: 3;
+            color: #23527c;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+    </style>
     @RenderSection("PageSpecificCssIncludes", required: false)
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -67,8 +76,8 @@
 <script src="~/Content/plugins/fastclick/fastclick.min.js"></script>
 <script src="~/Content/AdminLTE/js/app.min.js"></script>
 <script src="~/Content/AdminLTE/js/pages/dashboard.js"></script>
-
 <script src="~/Content/AdminLTE/js/admin.app.js"></script>
+<script src="~/Content/Thickbox/jquery.thickbox.js"></script>
 @*<script>
         $.widget.bridge('uibutton', $.ui.button);
     </script>*@
