@@ -6,6 +6,7 @@
 
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
+
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">菜单管理</h3>
@@ -45,7 +46,7 @@
                     <td>@(menu.CreateTime.HasValue ? menu.CreateTime.Value.ToString("yyyy-MM-dd") : "")</td>
                     <td>@(menu.MenuStatus ? "是" : "否")</td>
                     <td>
-                        <a class="label label-warning thickbox" title='编辑' href="@Url.Action("Edit", new { id = menu.Id })?TB_iframe=true&height=350&width=800&top=20">
+                        <a class="label label-warning thickbox" title='编辑' href="@Url.Action("Edit", new { id = menu.Id })?TB_iframe=true&height=350&width=500">
                             <i class="fa fa-edit"></i>
                             编辑
                         </a>
