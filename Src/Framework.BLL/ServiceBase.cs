@@ -4,17 +4,21 @@ using System.Linq.Expressions;
 using Framework.Contract;
 using Framework.DAL;
 using System.Linq;
+using Framework.Dao;
 
 namespace Framework.BLL
 {
     public   class ServiceBase<T>:IServiceBase<T> where T : ModelBase
     {
         private  ResposityBase<T> CurrentResposity { get;set; }
+
+        private BaseFrameDao<T> BaseDao { get; set; }
          
 
-        public ServiceBase(ResposityBase<T> resposityBase)
+        public ServiceBase(ResposityBase<T> resposityBase,BaseFrameDao<T> baseFrameDao)
         {
             CurrentResposity = resposityBase;
+            BaseDao = baseFrameDao;
         }
 
         #region 基础的代码封装
@@ -72,6 +76,10 @@ namespace Framework.BLL
         {
             return this.GetEntityWithNoTracking(r => r.Id == id);
         }
+
+        #endregion
+
+        #region 运行sql的方法
 
         #endregion
     }

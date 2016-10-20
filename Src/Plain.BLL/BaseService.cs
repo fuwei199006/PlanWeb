@@ -5,6 +5,7 @@ using Core.Service;
 using Framework.BLL;
 using Framework.Contract;
 using Framework.DAL;
+using Framework.Dao;
 using Plain.DAL;
 
 namespace Plain.BLL
@@ -13,7 +14,7 @@ namespace Plain.BLL
     {
 
 
-        public BaseService() : base(ServiceContext.CreateService<BaseResposity<T>>())
+        public BaseService() : base(ServiceContext.CreateService<BaseResposity<T>>(), ServiceContext.CreateService<BaseFrameDao<T>>())
         {
 
         }

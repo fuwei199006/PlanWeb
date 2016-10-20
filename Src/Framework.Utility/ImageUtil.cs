@@ -49,9 +49,7 @@ namespace Framework.Utility
         /// </summary>
         public ImageUtil()
         {
-            //
-            // TODO: 在此处添加构造函数逻辑
-            //
+            
         }
 
         /// <summary>

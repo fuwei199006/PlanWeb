@@ -10,29 +10,31 @@ namespace Plain.Dto
 {
     public enum MsgType
     {
-        Error,Success,Info
+        Error, Success, Info
     }
 
     public enum ReturnInfo
     {
-        Yes,No
+        Yes, No
     }
 
-    public class MenuType
+    public enum MenuType
     {
-        public const string Nav = "Nav";
-        public const string Item = "Item";
-        public const string Group = "Group";
- 
+        [EnumTitle("导航菜单")]
+        Nav = 0,
+        [EnumTitle("群组菜单")]
+        Group = 1,
+        [EnumTitle("子菜单")]
+        Item = 2
     }
 
     public enum LoginType
     {
         [EnumTitle("单点登录")]
-        SingleLogin=1,
+        SingleLogin = 1,
         [EnumTitle("正常登录")]
-        NormalLogin=2,
+        NormalLogin = 2,
         [EnumTitle("接口调用登录")]
-        ApiLogin=3
+        ApiLogin = 3
     }
 }

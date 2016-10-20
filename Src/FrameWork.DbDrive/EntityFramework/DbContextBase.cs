@@ -11,6 +11,8 @@ using Core.Config;
 using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
+using System.Data.SqlClient;
+using System.Data.Entity.Infrastructure;
 
 namespace Framework.DbDrive.EntityFramework
 {
@@ -112,6 +114,18 @@ namespace Framework.DbDrive.EntityFramework
             this.WriteLog();
             return base.SaveChanges();
         }
+
+        public DbRawSqlQuery<T> ExceSql<T>(string sql) where T : class
+        {
+            return this.Database.SqlQuery<T>(sql);
+        }
+
+        public DbRawSqlQuery<T> ExceSql<T>(string sql, SqlParameter[] parameters) where T : class
+        {
+            return this.Database.SqlQuery<T>(sql, parameters);
+        }
+        
+        //todo:添加存储过程的执行
 
 
         //dbLog

@@ -116,7 +116,7 @@ namespace Framework.Web
         }
         public virtual void ClearOperater()
         {
-            //TODO
+            
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
