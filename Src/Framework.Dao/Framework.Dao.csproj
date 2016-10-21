@@ -49,9 +49,14 @@
   <ItemGroup>
     <Compile Include="BaseFrameDao.cs" />
     <Compile Include="IBaseFrameDao.cs" />
+    <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FrameWork.DbDrive\Framework.DbDrive.csproj">
       <Project>{5716BF11-28E7-478F-80F5-D881CC87962A}</Project>
       <Name>Framework.DbDrive</Name>

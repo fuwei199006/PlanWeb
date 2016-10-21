@@ -5,6 +5,7 @@ using Framework.Contract;
 using Framework.DAL;
 using System.Linq;
 using Framework.Dao;
+using System.Data.SqlClient;
 
 namespace Framework.BLL
 {
@@ -12,13 +13,13 @@ namespace Framework.BLL
     {
         private  ResposityBase<T> CurrentResposity { get;set; }
 
-        private BaseFrameDao<T> BaseDao { get; set; }
+        //private BaseFrameDao<T> BaseDao { get; set; }
          
 
-        public ServiceBase(ResposityBase<T> resposityBase,BaseFrameDao<T> baseFrameDao)
+        public ServiceBase(ResposityBase<T> resposityBase)
         {
             CurrentResposity = resposityBase;
-            BaseDao = baseFrameDao;
+            //BaseDao = baseFrameDao;
         }
 
         #region 基础的代码封装
@@ -79,8 +80,6 @@ namespace Framework.BLL
 
         #endregion
 
-        #region 运行sql的方法
-
-        #endregion
+      
     }
 }

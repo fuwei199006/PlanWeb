@@ -9,20 +9,27 @@ using System.Data.SqlClient;
 
 namespace Framework.Dao
 {
-    public abstract class BaseFrameDao<T>: IBaseFrameDao<T> where T:class
+    public abstract class BaseFrameDao<F>: IBaseFrameDao<F> where F:class
     {
         protected virtual DbContextBase CurrentContextBase { get; set; }
 
-        public List<T> ExceSql(string sql) 
+        public BaseFrameDao()
         {
-            return CurrentContextBase.ExceSql<T>(sql).ToList();
+            SetCurrentDbContext();
+        }
+        public List<F> ExceSql<F>(string sql) where F:class
+        {
+            return CurrentContextBase.ExceSql<F>(sql).ToList();
         }
 
-        public List<T> ExceSql(string sql, SqlParameter[] parameters)  
+        public List<F> ExceSql<F>(string sql, SqlParameter[] parameters) where F : class
         {
-            return CurrentContextBase.ExceSql<T>(sql, parameters).ToList();
+            return CurrentContextBase.ExceSql<F>(sql, parameters).ToList(); 
         }
-
+        //public PagedList<F> ExceSqlPagedList<F>(string sql, int pageSize, int pageIndex) where F : class
+        //{
+        //    return CurrentContextBase.ExceSqlPagedList<F>(sql, pageSize, pageIndex);
+        //}
         public abstract void SetCurrentDbContext();
 
        

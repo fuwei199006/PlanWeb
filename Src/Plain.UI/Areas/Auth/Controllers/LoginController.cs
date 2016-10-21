@@ -12,6 +12,7 @@ using Plain.Dto;
 using Plain.Model.Models;
 using Plain.UI.Controllers;
 using Plain.Model.Models.Model;
+using Plain.BLL.MenuService;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
@@ -20,18 +21,21 @@ namespace Plain.UI.Areas.Auth.Controllers
         private readonly ILoginService _loginService;
         private readonly IRegisterService _registerService;
         private readonly IUserService _userService;
+        private readonly IMenuService _menuService;
 
-        public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService)
+        public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService,IMenuService menuService)
         {
             _loginService = loginService;
             _registerService = registerService;
             _userService = userService;
+            _menuService = menuService;
         }
 
         // GET: Login
            [AuthorizeIgnore]
         public ActionResult Index()
         {
+          
             return View();
         }
         [AuthorizeIgnore]

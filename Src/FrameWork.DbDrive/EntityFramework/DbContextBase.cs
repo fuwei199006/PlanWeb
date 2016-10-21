@@ -124,7 +124,13 @@ namespace Framework.DbDrive.EntityFramework
         {
             return this.Database.SqlQuery<T>(sql, parameters);
         }
-        
+
+        public PagedList<T> ExceSqlPagedList<T>(string sql,int pageSize,int pageIndex) where T : class
+        {
+            return this.Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageIndex, pageSize);
+        }
+
+
         //todo:添加存储过程的执行
 
 

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Basice_MenuDto.cs" />
+    <Compile Include="Basic_MenuDto.cs" />
     <Compile Include="CacheKey.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

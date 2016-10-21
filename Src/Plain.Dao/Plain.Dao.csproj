@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDao.cs" />
+    <Compile Include="IBaseDao.cs" />
     <Compile Include="MenuDao\IMenuDao.cs" />
     <Compile Include="MenuDao\MenuDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

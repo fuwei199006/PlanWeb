@@ -2,6 +2,7 @@
 using Plain.Model.Models;
 using Plain.Model.Models.Mapping;
 using Plain.Model.Models.Model;
+using Plain.Dto;
 
 namespace Plain.BLL.MenuService
 {
@@ -9,5 +10,7 @@ namespace Plain.BLL.MenuService
     {
         List<Basic_Menu> GetMenusByType(string type);
         List<Basic_Menu> GetMenus();
+        List<Basic_MenuDto> GetMenuDtos();
+
     }
 }

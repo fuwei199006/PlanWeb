@@ -16,6 +16,7 @@ using Framework.BLL;
 using Plain.BLL;
 using Plain.BLL.LoginService;
 using Plan.UI;
+using Plain.Dao;
 
 namespace Plain.UI
 {
@@ -34,8 +35,10 @@ namespace Plain.UI
             builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
                 .Where(t => typeof(BaseService<>).IsClass&&!t.IsAbstract)
                 .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
-     
-     
+
+            builder.RegisterAssemblyTypes(typeof(BaseDao<>).Assembly)
+                   .Where(t => typeof(BaseDao<>).IsClass && !t.IsAbstract)
+                   .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
             builder.RegisterFilterProvider();
             var container = builder.Build();
           

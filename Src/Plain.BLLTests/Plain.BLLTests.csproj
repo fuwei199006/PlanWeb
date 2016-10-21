@@ -61,6 +61,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="LoginService\LoginServiceTests.cs" />
+    <Compile Include="MenuService\MenuServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterService\RegisterServiceTests.cs" />
   </ItemGroup>
@@ -88,6 +89,10 @@
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
       <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100ad75-5e10-4fec-8b04-55a59e5f5c7a}</Project>
+      <Name>Plain.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>

@@ -101,6 +101,10 @@
       <Project>{9380619E-4D80-4B53-81B2-D477BAD419FF}</Project>
       <Name>Plain.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Plain.Dao\Plain.Dao.csproj">
+      <Project>{D370F112-CDFA-49EB-A7E6-E84300DACDA6}</Project>
+      <Name>Plain.Dao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
       <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
       <Name>Plain.Dto</Name>

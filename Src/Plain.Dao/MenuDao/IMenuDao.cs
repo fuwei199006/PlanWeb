@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Plain.Dao.MenuDao
 {
-   public interface IMenuDao 
+    public interface IMenuDao
     {
-        List<Basice_MenuDto> GetMenuDtos();
+        List<Basic_MenuDto> GetMenuDto();
     }
 }

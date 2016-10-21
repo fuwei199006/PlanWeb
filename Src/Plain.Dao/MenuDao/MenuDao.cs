@@ -1,4 +1,4 @@
-﻿using Plain.Dao.MenuDao;
+﻿using Plain.Dao;
 using Plain.Dto;
 using System;
 using System.Collections.Generic;
@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Plain.Dao.MenuDao
 {
-    public class MenuDao:BaseDao<Basice_MenuDto>, IMenuDao
+   public class MenuDao:BaseDao<Basic_MenuDto>,IMenuDao
     {
-        public List<Basice_MenuDto> GetMenuDtos()
+        public List<Basic_MenuDto> GetMenuDto()
         {
-            var sql = @"
-                SELECT  m.Id ,
+            var sql = @"SELECT  m.Id ,
                         m.MenuName ,
                         m.MenuUrl ,
                         m.MenuType ,
@@ -26,7 +25,7 @@ namespace Plain.Dao.MenuDao
                         n.MenuType AS ParentMenuType
                 FROM    dbo.Basic_Menu m
                        LEFT JOIN dbo.Basic_Menu n ON m.MenuParentId = n.Id;";
-            return this.ExceSql(sql); ;
+            return this.ExceSql<Basic_MenuDto>(sql);
         }
     }
 }
