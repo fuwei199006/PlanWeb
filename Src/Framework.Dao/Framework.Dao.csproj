@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="BaseFrameDao.cs" />
     <Compile Include="IBaseFrameDao.cs" />
-    <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

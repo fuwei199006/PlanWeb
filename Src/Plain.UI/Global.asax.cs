@@ -36,9 +36,7 @@ namespace Plain.UI
                 .Where(t => typeof(BaseService<>).IsClass&&!t.IsAbstract)
                 .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
 
-            builder.RegisterAssemblyTypes(typeof(BaseDao<>).Assembly)
-                   .Where(t => typeof(BaseDao<>).IsClass && !t.IsAbstract)
-                   .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
+   
             builder.RegisterFilterProvider();
             var container = builder.Build();
           

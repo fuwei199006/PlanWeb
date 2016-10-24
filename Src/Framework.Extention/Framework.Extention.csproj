@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AssemblyExtention.cs" />
     <Compile Include="ConverterExtention.cs" />
+    <Compile Include="EnumExtention.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1036,6 +1036,18 @@
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\AdminLTE-2.3.0\starter.html" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\plugins\metric\metro.css" />
+    <Content Include="Content\plugins\metric\style.css" />
+    <Content Include="Content\plugins\metric\style_blue.css" />
+    <Content Include="Content\plugins\metric\style_brown.css" />
+    <Content Include="Content\plugins\metric\style_default.css" />
+    <Content Include="Content\plugins\metric\style_light.css" />
+    <Content Include="Content\plugins\metric\style_purple.css" />
+    <Content Include="Content\plugins\metric\style_responsive.css" />
     <Content Include="Scripts\admin.main.js" />
     <Content Include="Content\Images\avatar.gif" />
     <Content Include="Content\Images\error.gif" />
@@ -1048,8 +1060,6 @@
     <Content Include="Content\Thickbox\jquery.thickbox.js" />
     <Content Include="Content\Thickbox\jquery.thickbox.css" />
     <Content Include="Content\Thickbox\jquery.thickbox.min.js" />
-    <Content Include="Content\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
@@ -1892,7 +1902,6 @@
     <Content Include="Content\Plain\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Plain\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Plain\fonts\FontAwesome.otf" />
-    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />

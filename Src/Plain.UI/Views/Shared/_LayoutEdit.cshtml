@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="~/Content/Plain/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="~/Content/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" />
@@ -22,6 +23,8 @@
     <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
     <link href="~/Content/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
     <link href="~/Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/metric/metro.css" rel="stylesheet" />
+    <link href="~/Content/plugins/metric/style.css" rel="stylesheet" />
     @*<link href="~/Content/Thickbox/jquery.thickbox.css" rel="stylesheet" />*@
     <style>
         .bottom {
@@ -41,6 +44,7 @@
             @RenderSection("MainContent", required: false)
             @RenderBody()
         </div>
+        <div style="height: 80px"></div>
         <div class="box-footer bottom">
             <button type="submit" id="submit" class="btn  btn-default"><i class="fa fa-check"></i> 提交</button>
             <span id="submitloading" style="display: none;"><img src='@Url.StaticFile("/content/images/loading.gif")' /></span>

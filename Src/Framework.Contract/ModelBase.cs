@@ -11,6 +11,6 @@ namespace Framework.Contract
         }
 
         public virtual int Id{ get; set; }
-        public virtual DateTime CreateTime { get; set; }
+        public virtual DateTime? CreateTime { get; set; }
     }
 }

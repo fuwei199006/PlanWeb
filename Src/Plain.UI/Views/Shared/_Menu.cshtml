@@ -27,9 +27,9 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
         <li class="header">功能区</li>
-        @foreach (var menu in AdminCacheContext.Current.MenuItems[MenuType.Group])
+        @foreach (var menu in AdminCacheContext.Current.MenuItems[MenuType.Group.ToString()])
         {
-            var itemMenu = AdminCacheContext.Current.MenuItems[MenuType.Item, menu.Id];
+            var itemMenu = AdminCacheContext.Current.MenuItems[MenuType.Item.ToString(), menu.Id];
             if (itemMenu != null && itemMenu.Count > 0)
             {
                 <li class="treeview">
