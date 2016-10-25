@@ -68,28 +68,27 @@
         };
 
         return o.normalize();
-    };
+    }
 
     // extract CSS color property from element, going up in the DOM
     // if it's "transparent"
     $.color.extract = function (elem, css) {
         var c;
-
         do {
             c = elem.css(css).toLowerCase();
             // keep going until we find an element that has color, or
-            // we hit the body or root (have no parent)
+            // we hit the body
             if (c != '' && c != 'transparent')
                 break;
             elem = elem.parent();
-        } while (elem.length && !$.nodeName(elem.get(0), "body"));
+        } while (!$.nodeName(elem.get(0), "body"));
 
         // catch Safari's way of signalling transparent
         if (c == "rgba(0, 0, 0, 0)")
             c = "transparent";
         
         return $.color.parse(c);
-    };
+    }
     
     // parse CSS color string (like "rgb(10, 32, 43)" or "#fff"),
     // returns color object, if parsing failed, you get black (0, 0,
@@ -130,7 +129,7 @@
             res = lookupColors[name] || [0, 0, 0];
             return m(res[0], res[1], res[2]);
         }
-    };
+    }
     
     var lookupColors = {
         aqua:[0,255,255],

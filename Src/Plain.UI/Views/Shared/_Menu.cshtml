@@ -1,61 +1,70 @@
 ﻿@using Plain.Dto
 @using Plain.Web
 
-<!-- sidebar: style can be found in sidebar.less -->
-<section class="sidebar" style="height: auto;">
-    <!-- Sidebar user panel -->
-    <div class="user-panel">
-        <div class="pull-left image">
-         
-            <img src="~/Content/Plain/img/avatar.png" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-            <p>@AdminUserContext.Current.LoginInfo.LoginNickName</p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-    </div>
-    <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <!-- /.search form -->
-    <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu">
-        <li class="header">功能区</li>
+
+<div class="page-sidebar nav-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul>
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"><h3 style="margin-left:-160px; line-height:23px;  color:#666; ">功能菜单</h3></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li>
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <form class="sidebar-search dn">
+                <div class="input-box">
+                    <a href="javascript:;" class="remove"></a>
+                    <input type="text" placeholder="Search..." />
+                    <input type="button" class="submit" value=" " />
+                </div>
+            </form>
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        <li class="start ">
+            <a href="#">
+                <i class="icon-home"></i>
+                <span class="title">管理首页</span>
+            </a>
+        </li>
         @foreach (var menu in AdminCacheContext.Current.MenuItems[MenuType.Group.ToString()])
         {
+
             var itemMenu = AdminCacheContext.Current.MenuItems[MenuType.Item.ToString(), menu.Id];
             if (itemMenu != null && itemMenu.Count > 0)
             {
-                <li class="treeview">
-                    <a href="@menu.MenuUrl">
-                        <i class="fa fa-dashboard"></i> <span>@menu.MenuName</span> <i class="fa fa-angle-left pull-right"></i>
+                <li class="has-sub">
+                    <a href="javascript:void(0);">
+
+                        <i class="icon-cog"></i> <span class="title">@menu.MenuName</span> <i class="fa fa-angle-left pull-right"></i>
+                        <span class='arrow'></span>
+                        <ul class="sub">
+                            @foreach (var m in itemMenu)
+                            {
+                                <li><a href="@m.MenuUrl"><i class="fa fa-circle-o"></i> @m.MenuName</a></li>
+                            }
+                        </ul>
                     </a>
-                    <ul class="treeview-menu">
-                        @foreach (var m in itemMenu)
-                        {
-                            <li><a href="@m.MenuUrl"><i class="fa fa-circle-o"></i> @m.MenuName</a></li>
-                        }
-                    </ul>
                 </li>
             }
             else
             {
                 <li>
                     <a href="@menu.MenuUrl">
-                        <i class="fa fa-calendar"></i> <span>@menu.MenuName</span>
-                        <small class="label pull-right bg-red">0</small>
+                        <i class="fa fa-calendar"></i>
+                        <span>@menu.MenuName</span>
+
+
                     </a>
                 </li>
             }
+ 
 
 
         }
 
+
     </ul>
-</section>
+
+</div>
+

@@ -1329,24 +1329,24 @@ a:focus {
 .progress-sm .progress-bar {
   border-radius: 1px;
 }
-.progress.xs,
-.progress-xs {
+.progress.sm,
+.progress-sm {
   height: 7px;
 }
-.progress.xs,
-.progress-xs,
-.progress.xs .progress-bar,
-.progress-xs .progress-bar {
+.progress.sm,
+.progress-sm,
+.progress.sm .progress-bar,
+.progress-sm .progress-bar {
   border-radius: 1px;
 }
-.progress.xxs,
-.progress-xxs {
+.progress.xsm,
+.progress-xsm {
   height: 3px;
 }
-.progress.xxs,
-.progress-xxs,
-.progress.xxs .progress-bar,
-.progress-xxs .progress-bar {
+.progress.xsm,
+.progress-xsm,
+.progress.xsm .progress-bar,
+.progress-xsm .progress-bar {
   border-radius: 1px;
 }
 /* Vertical bars */
@@ -1366,12 +1366,12 @@ a:focus {
 .progress.vertical.progress-sm {
   width: 20px;
 }
-.progress.vertical.xs,
-.progress.vertical.progress-xs {
+.progress.vertical.sm,
+.progress.vertical.progress-sm {
   width: 10px;
 }
-.progress.vertical.xxs,
-.progress.vertical.progress-xxs {
+.progress.vertical.xsm,
+.progress.vertical.progress-xsm {
   width: 3px;
 }
 .progress-group .progress-text {
@@ -3344,10 +3344,10 @@ table.text-center th {
   width: 28px;
   font-size: 1.4em;
 }
-.btn-social.btn-xs {
+.btn-social.btn-sm {
   padding-left: 30px;
 }
-.btn-social.btn-xs > :first-child {
+.btn-social.btn-sm > :first-child {
   line-height: 20px;
   width: 20px;
   font-size: 1.2em;
@@ -3390,10 +3390,10 @@ table.text-center th {
   width: 28px;
   font-size: 1.4em;
 }
-.btn-social-icon.btn-xs {
+.btn-social-icon.btn-sm {
   padding-left: 30px;
 }
-.btn-social-icon.btn-xs > :first-child {
+.btn-social-icon.btn-sm > :first-child {
   line-height: 20px;
   width: 20px;
   font-size: 1.2em;
@@ -3415,7 +3415,7 @@ table.text-center th {
   padding-left: 0;
   padding-right: 0;
 }
-.btn-social-icon.btn-xs {
+.btn-social-icon.btn-sm {
   height: 22px;
   width: 22px;
   padding-left: 0;
