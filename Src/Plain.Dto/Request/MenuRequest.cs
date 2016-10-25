@@ -7,7 +7,7 @@ namespace Plain.Dto.Request
     {
         public MenuRequest()
         {
-            this.Top = 20;
+            this.Top = 10;
         }
     }
 }

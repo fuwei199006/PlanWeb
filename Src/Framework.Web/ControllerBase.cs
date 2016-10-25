@@ -24,7 +24,7 @@ namespace Framework.Web
 
         public virtual int PageSize
         {
-            get { return 15; }
+            get { return 10; }
         }
 
         protected ContentResult JsonP(string callback, object data)

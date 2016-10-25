@@ -34,17 +34,23 @@
             if (itemMenu != null && itemMenu.Count > 0)
             {
                 <li class="has-sub">
-                    <a href="javascript:void(0);">
+                    <a href="javascript:void(0);" data-role="1">
 
-                        <i class="icon-cog"></i> <span class="title">@menu.MenuName</span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="icon-cog"></i>
+                        <span class="title">@menu.MenuName</span>
                         <span class='arrow'></span>
+                    </a>
                         <ul class="sub">
                             @foreach (var m in itemMenu)
                             {
-                                <li><a href="@m.MenuUrl"><i class="fa fa-circle-o"></i> @m.MenuName</a></li>
+                                <li>
+                                    <a href="@m.MenuUrl">
+                                        @m.MenuName
+                                    </a>
+                                </li>
                             }
                         </ul>
-                    </a>
+                  
                 </li>
             }
             else
@@ -58,7 +64,7 @@
                     </a>
                 </li>
             }
- 
+
 
 
         }
