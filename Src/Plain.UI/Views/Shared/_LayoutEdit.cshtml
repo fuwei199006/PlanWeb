@@ -6,26 +6,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Metric/metro.css" rel="stylesheet" />
  
- 
-   
+    <link href="~/Content/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/metric/style.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    <link href="~/Content/Metric/admin.main.css" rel="stylesheet" />
+
     @RenderSection("PageSpecificCssIncludes", required: false)
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
 
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm", @class = "form-horizontal" }))
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm" }))
     {
 
-        <div class="box-body">
-            @RenderSection("MainContent", required: false)
-            @RenderBody()
-        </div>
+
+        @RenderSection("MainContent", required: false)
+        @RenderBody()
         <div style="height: 80px"></div>
-        <div class="box-footer bottom">
-            <button type="submit" id="submit" class="btn  btn-primary"><i class="fa fa-check"></i> 提交</button>
-            <span id="submitloading" style="display: none;"><img src='@Url.StaticFile("/content/images/loading.gif")' /></span>
-            <button type="button" class="btn  btn-danger" id="cancel">撤销</button>
+     
+        <div class="form-actions navbar-fixed-bottom">
+            <button type="submit" id="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+            <span id="submitloading" style="display:none;"><img src='@Url.StaticFile("/content/images/loading.gif")' /></span>
+            <button type="button" class="btn" id="cancel">撤销</button>
             @Html.ValidationSummary(false)
         </div>
     }
@@ -37,4 +44,21 @@
     </script>
 </body>
 </html>
- @RenderSection("PageSpecificJavascriptIncludes", required: false)
+<script src="~/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+ 
+<script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Content/plugins/js/jquery.blockui.js"></script>
+<script src="~/Content/plugins/js/jquery.cookie.js"></script>
+<script src="~/Content/plugins/js/excanvas.js"></script>
+<script src="~/Content/plugins/js/respond.js"></script>
+<script src="~/Content/plugins/uniform/jquery.uniform.min.js"></script>
+<script src="~/Content/plugins/data-tables/jquery.dataTables.js"></script>
+<script src="~/Content/plugins/data-tables/DT_bootstrap.js"></script>
+<script src="~/Content/plugins/js/jquery.pulsate.min.js"></script>
+<script src="~/Content/plugins/js/app.js"></script>
+<script src="~/Content/Thickbox/jquery.thickbox.js"></script>
+<script src="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="~/Content/plugins/js/jquery.numeric.js"></script>
+<script src="~/Content/plugins/js/jquery.ui.datapicker-zh-CN.js"></script>
+<script src="~/Content/plugins/js/admin.main.js"></script>
+@RenderSection("PageSpecificJavascriptIncludes", required: false)

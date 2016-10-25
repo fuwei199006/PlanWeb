@@ -108,7 +108,7 @@ namespace Plain.Web
 
         public override int PageSize
         {
-            get { return 15; }
+            get { return 10; }
         }
 
 
