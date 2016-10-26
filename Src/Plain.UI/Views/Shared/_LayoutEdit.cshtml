@@ -19,33 +19,26 @@
     @RenderSection("PageSpecificCssIncludes", required: false)
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-
-
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm" }))
     {
-
-
         @RenderSection("MainContent", required: false)
         @RenderBody()
         <div style="height: 80px"></div>
-     
+
+ 
         <div class="form-actions navbar-fixed-bottom">
             <button type="submit" id="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
-            <span id="submitloading" style="display:none;"><img src='@Url.StaticFile("/content/images/loading.gif")' /></span>
+            <span id="submitloading" style="display:none;"><img src='@Url.StaticFile("~/Content/Images/loading.gif")' /></span>
             <button type="button" class="btn" id="cancel">撤销</button>
             @Html.ValidationSummary(false)
         </div>
     }
     @RenderSection("OtherContent", required: false)
-
-    <!-- BEGIN JAVASCRIPTS -->
-    <script type="text/javascript">
-        var staticFileRoot = "@Url.StaticFile()";
-    </script>
+      <!-- BEGIN JAVASCRIPTS -->
+   
 </body>
 </html>
 <script src="~/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
- 
 <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
 <script src="~/Content/plugins/js/jquery.blockui.js"></script>
 <script src="~/Content/plugins/js/jquery.cookie.js"></script>
@@ -60,5 +53,5 @@
 <script src="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
 <script src="~/Content/plugins/js/jquery.numeric.js"></script>
 <script src="~/Content/plugins/js/jquery.ui.datapicker-zh-CN.js"></script>
-<script src="~/Content/plugins/js/admin.main.js"></script>
+<script src="~/Content/plugins/js/admin.edit.js"></script>
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

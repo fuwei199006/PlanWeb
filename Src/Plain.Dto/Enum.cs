@@ -37,4 +37,13 @@ namespace Plain.Dto
         [EnumTitle("接口调用登录")]
         ApiLogin = 3
     }
+
+
+    public enum StatusType
+    {
+        [EnumTitle("可用")]
+        Enable=1,
+        [EnumTitle("不可用")]
+        Disable =2
+    }
 }

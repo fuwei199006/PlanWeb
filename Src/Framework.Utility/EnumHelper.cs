@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Framework.Utility.ValideCode
+namespace Framework.Utility
 {
     /// <summary>
     /// 枚举帮助类
@@ -146,6 +146,7 @@ namespace Framework.Utility.ValideCode
         /// 返回键值对，建为枚举的EnumTitle中指定的名称和近义词名称，值为枚举项
         /// </summary>
         /// <typeparam name="T">枚举类型</typeparam>
+        /// ｛T，Title}
         /// <param name="language"></param>
         /// <returns></returns>
         public static Dictionary<string, T> GetTitleAndSynonyms<T>(Enum language = null) where T : struct

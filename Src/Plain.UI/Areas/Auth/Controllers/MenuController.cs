@@ -11,6 +11,7 @@ using Plain.UI.Controllers;
 using Plain.Web;
 using Plain.BLL.MenuService;
 using Plain.Dto;
+using Framework.Utility;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
@@ -26,15 +27,37 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Index(MenuRequest menuRequest)
         {
             PagedList<Basic_MenuDto> menuList =
-               _menuService.GetMenuDtos().ToPagedList(menuRequest.PageIndex,menuRequest.PageSize,AdminMenuCache.Current.Menus.Count);
+               _menuService.GetMenuDtos().ToPagedList(menuRequest.PageIndex, menuRequest.PageSize, AdminMenuCache.Current.Menus.Count);
 
             return View(menuList);
         }
 
+
         public ActionResult Edit(int id)
         {
-            
-            return View();
+            var menu = _menuService.GetMenuById(id);
+            ViewData["MenuTypes"] = EnumHelper.GetItemList<MenuType>().Select(r => new SelectListItem()
+            {
+                Value = r.Key.ToString(),
+                Text = r.Value.ToString()
+            });
+            ViewData["StatusTypes"] = EnumHelper.GetItemList<StatusType>().Select(r => new SelectListItem()
+            {
+                Value = r.Key.ToString(),
+                Text = r.Value.ToString()
+            });
+            return View(menu);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection formCollection)
+        {
+            var menu = _menuService.GetMenuById(id);
+            this.TryUpdateModel<Basic_Menu>(menu);
+            menu.CreateTime = DateTime.Now;
+            menu.ModifyTime = DateTime.Now;
+            _menuService.UpdateMenu(menu);
+            return this.RefreshParent();
         }
     }
 }
