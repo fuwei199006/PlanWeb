@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Framework.Contract;
 using Plain.Model.Models;
 using Plain.Model.Models.Mapping;
 using Plain.Model.Models.Model;
@@ -10,11 +11,13 @@ namespace Plain.BLL.MenuService
     {
         List<Basic_Menu> GetMenusByType(string type);
         List<Basic_Menu> GetMenus();
-        List<Basic_MenuDto> GetMenuDtos();
+        PagedList<Basic_MenuDto> GetMenuDtos(string menuName, int pageSize, int pageIndex);
         Basic_Menu GetMenuById(int id);
         Basic_Menu DeleteMenuById(int id);
 
         Basic_Menu UpdateMenu(Basic_Menu menu);
+
+        Basic_Menu AddMenu(Basic_Menu menu);
 
     }
 }

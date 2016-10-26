@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Framework.Contract;
 
 namespace Plain.Dao.MenuDao
 {
    public class MenuDao:BaseDao<Basic_MenuDto>,IMenuDao
     {
-        public List<Basic_MenuDto> GetMenuDto()
+       public PagedList<Basic_MenuDto> GetMenuDto(string menuName, int pageSize, int pageIndex)
         {
             var sql = @"SELECT  m.Id ,
                         m.MenuName ,
@@ -24,8 +25,9 @@ namespace Plain.Dao.MenuDao
                         n.MenuName AS ParentMenuName ,
                         n.MenuType AS ParentMenuType
                 FROM    dbo.Basic_Menu m
-                       LEFT JOIN dbo.Basic_Menu n ON m.MenuParentId = n.Id;";
-            return this.ExceSql<Basic_MenuDto>(sql);
+                       LEFT JOIN dbo.Basic_Menu n ON m.MenuParentId = n.Id WHERE   m.MenuName LIKE '%{0}%'  OR n.MenuName LIKE '%{0}%';";
+            sql = string.Format(sql, menuName);
+            return this.ExceSqlPagedList<Basic_MenuDto>(sql,pageSize,pageIndex);
         }
     }
 }

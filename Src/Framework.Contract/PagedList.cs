@@ -17,6 +17,14 @@ namespace Framework.Contract
             TotalItemCount = items.Count;
             this.AddRange(items.Skip(pageSize*(pageIndex - 1)).Take(pageSize));
         }
+        //todo：需要修改
+        public PagedList(IQueryable<T> items, int pageIndex, int pageSize,int totalCount)
+        {
+            PageSize = pageSize;
+            CurrentPageIndex = pageIndex;
+            TotalItemCount = totalCount;
+            this.AddRange(items);
+        }
         public PagedList(IList<T> items, int pageIndex, int pageSize,int totalCount)
         {
             PageSize = pageSize;

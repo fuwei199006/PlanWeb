@@ -127,7 +127,7 @@ namespace Framework.DbDrive.EntityFramework
 
         public PagedList<T> ExceSqlPagedList<T>(string sql,int pageSize,int pageIndex) where T : class
         {
-            return this.Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageIndex, pageSize);
+            return this.Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageSize, pageIndex);
         }
 
 

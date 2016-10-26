@@ -7,6 +7,7 @@ using Plain.Model.Models.Model;
 using Plain.Dto;
 using Plain.Dao.MenuDao;
 using System;
+using Framework.Contract;
 
 namespace Plain.BLL.MenuService
 {
@@ -34,14 +35,19 @@ namespace Plain.BLL.MenuService
             return this.Delete(GetMenuById(id));
         }
 
-        public List<Basic_MenuDto> GetMenuDtos()
+        public PagedList<Basic_MenuDto> GetMenuDtos(string menuName, int pageSize, int pageIndex)
         {
-            return DaoFactory.MenuDao.GetMenuDto();
+            return DaoFactory.MenuDao.GetMenuDto(menuName,pageSize, pageIndex);
         }
 
         public Basic_Menu UpdateMenu(Basic_Menu menu)
         {
             return this.Update(menu);
+        }
+
+        public Basic_Menu AddMenu(Basic_Menu menu)
+        {
+            return this.Add(menu);
         }
     }
 }
