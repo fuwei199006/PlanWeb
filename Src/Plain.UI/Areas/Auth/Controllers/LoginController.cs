@@ -112,12 +112,9 @@ namespace Plain.UI.Areas.Auth.Controllers
                     UserEmail = register.RegisterEmail,
                     NickName = register.RegisterName,
                     UserPwd = register.RegisterPassword,
-                    RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent),
-                    RegisterIp = register.RetisterIp,
-                    RegisterTime = register.RegisterTime,
                     ModifyTime = DateTime.Now,
                     CreateTime = DateTime.Now,
-                    UserStaus = 0
+                    UserStaus =(int)UserStausType.Disable,
                 };
                 _userService.AddUser(user);
             }

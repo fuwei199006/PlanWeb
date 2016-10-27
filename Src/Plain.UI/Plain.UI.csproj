@@ -184,6 +184,7 @@
     <Compile Include="App_Start\CMSAreaRegistration.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Auth\Controllers\UserController.cs" />
     <Compile Include="Areas\CMS\Controllers\CmsHomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2756,6 +2757,7 @@
     <Content Include="Content\plugins\jquery-validation\test\selects\index.html" />
     <Content Include="Content\plugins\jquery-validation\test\tabs.html" />
     <Content Include="Content\plugins\jquery-validation\test\test.js" />
+    <Content Include="Content\plugins\jQuery\jquery-migrate-1.2.1.min.js" />
     <Content Include="Content\plugins\jqvmap\.gitignore" />
     <Content Include="Content\plugins\jqvmap\jqvmap\data\jquery.vmap.sampledata.js" />
     <Content Include="Content\plugins\jqvmap\jqvmap\jquery.vmap.js" />
@@ -3614,14 +3616,15 @@
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
-    <Content Include="Config\DaoConfig.config" />
+    <Content Include="Config\DaoConfig2.config" />
     <Content Include="Areas\Auth\Views\Role\Index.cshtml" />
     <Content Include="Areas\Auth\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Content.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Edit.cshtml" />
-    <None Include="Config\DaoConfig1.config">
+    <Content Include="Areas\Auth\Views\User\Index.cshtml" />
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\DemoUI\.project" />

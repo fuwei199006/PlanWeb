@@ -12,9 +12,11 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.UserEmail).HasMaxLength(50);
 			this.Property(t => t.UserPwd).HasMaxLength(100);
 			this.Property(t => t.RealName).IsRequired().HasMaxLength(20);
-			this.Property(t => t.RegisterDevice).IsRequired().HasMaxLength(500);
-			this.Property(t => t.RegisterIp).IsRequired().HasMaxLength(10);
-			this.Property(t => t.RegiserHeader).IsRequired().HasMaxLength(200);
+			this.Property(t => t.MobilePhone).IsRequired().HasMaxLength(20);
+			this.Property(t => t.QQ).IsRequired().HasMaxLength(15);
+			this.Property(t => t.Weixin).IsRequired().HasMaxLength(20);
+			this.Property(t => t.Addr).IsRequired().HasMaxLength(100);
+			this.Property(t => t.OtherInfo).IsRequired().HasMaxLength(100);
 						this.ToTable("Basic_UserInfo");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.LoginName).HasColumnName("LoginName"); 
@@ -22,13 +24,15 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.UserEmail).HasColumnName("UserEmail"); 
 			this.Property(t => t.UserPwd).HasColumnName("UserPwd"); 
 			this.Property(t => t.RealName).HasColumnName("RealName"); 
-			this.Property(t => t.RegisterDevice).HasColumnName("RegisterDevice"); 
-			this.Property(t => t.RegisterIp).HasColumnName("RegisterIp"); 
-			this.Property(t => t.RegiserHeader).HasColumnName("RegiserHeader"); 
-			this.Property(t => t.RegisterTime).HasColumnName("RegisterTime"); 
 			this.Property(t => t.UserStaus).HasColumnName("UserStaus"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
+			this.Property(t => t.MobilePhone).HasColumnName("MobilePhone"); 
+			this.Property(t => t.BirthDay).HasColumnName("BirthDay"); 
+			this.Property(t => t.QQ).HasColumnName("QQ"); 
+			this.Property(t => t.Weixin).HasColumnName("Weixin"); 
+			this.Property(t => t.Addr).HasColumnName("Addr"); 
+			this.Property(t => t.OtherInfo).HasColumnName("OtherInfo"); 
 			          
         }
     }

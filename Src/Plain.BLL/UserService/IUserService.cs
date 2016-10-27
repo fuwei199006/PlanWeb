@@ -1,4 +1,5 @@
-﻿using Plain.Model.Models;
+﻿using Framework.Contract;
+using Plain.Model.Models;
 using Plain.Model.Models.Model;
 
 namespace Plain.BLL.UserService
@@ -13,6 +14,7 @@ namespace Plain.BLL.UserService
         Basic_UserInfo  UserPass(string loginName,string pwd);
 
         Basic_UserInfo GetUserByUserId(int id);
+        PagedList<Basic_UserInfo> GetUserByPage(string userName, int pageSize, int pageIndex);
 
     }
 }

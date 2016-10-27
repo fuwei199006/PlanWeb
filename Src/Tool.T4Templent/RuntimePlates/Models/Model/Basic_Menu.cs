@@ -12,7 +12,8 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public int? MenuParentId {get;set;}
 	 	   public DateTime? CreateTime {get;set;}
 	 	   public DateTime? ModifyTime {get;set;}
-	 	   public bool? MenuStatus {get;set;}
+	 	   public int? MenuStatus {get;set;}
+	 	   public string MenuIcon {get;set;}
 	   }
 }
 

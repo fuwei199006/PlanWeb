@@ -6,6 +6,7 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
     {
        	   public int Id {get;set;}
 	 	   public int LoginUserId {get;set;}
+	 	   public string LoginNickName {get;set;}
 	 	   public string LoginName {get;set;}
 	 	   public DateTime? LoginTime {get;set;}
 	 	   public int LoginStatus {get;set;}

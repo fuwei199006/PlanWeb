@@ -5,6 +5,7 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
     public partial class Basic_DbMonitorLog:ModelBase
     {
        	   public int Id {get;set;}
+	 	   public string ModuleId {get;set;}
 	 	   public string TableName {get;set;}
 	 	   public string DbName {get;set;}
 	 	   public string EventType {get;set;}

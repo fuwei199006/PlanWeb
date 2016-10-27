@@ -42,8 +42,20 @@ namespace Plain.Dto
     public enum StatusType
     {
         [EnumTitle("可用")]
-        Enable=1,
+        Enable = 1,
         [EnumTitle("禁用")]
-        Disable =0
+        Disable = 0
+    }
+
+    public enum UserStausType
+    {
+        [EnumTitle("禁用")]
+        Disable = 1,
+        [EnumTitle("可用")]
+        Enable = 2,
+        [EnumTitle("未激活")]
+        UnActive = 3,
+        [EnumTitle("激活")]
+        Active = 4
     }
 }

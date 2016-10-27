@@ -2,6 +2,7 @@
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Linq;
+using Framework.Contract;
 
 namespace Plain.BLL.UserService
 {
@@ -41,6 +42,15 @@ namespace Plain.BLL.UserService
         public Basic_UserInfo GetUserByUserId(int id)
         {
             return this.GetEntityById(id);
+        }
+
+        public PagedList<Basic_UserInfo> GetUserByPage(string userName, int pageSize, int pageIndex)
+        {
+            if (string.IsNullOrEmpty(userName))
+            {
+                return this.LoadEntitiesByPage(r => true, r => r.Id, pageSize, pageIndex);
+            }
+            return this.LoadEntitiesByPage(r => r.LoginName.Contains(userName), r=>r.Id, pageSize, pageIndex);
         }
     }
 }

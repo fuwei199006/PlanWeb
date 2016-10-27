@@ -84,6 +84,10 @@ $("#checkall").click(function () {
 });
 
 $("#delete").click(function () {
+    if ($("input:checkbox[name='ids']:checked").length === 0) {
+        alert("请选择要删除的数据!");
+        return false;
+    }
     var message = "你确定要删除勾选的记录吗?";
     if ($(this).attr("message"))
         message = $(this).attr("message") + "，" + message;

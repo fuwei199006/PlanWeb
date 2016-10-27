@@ -7,6 +7,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
         public Basic_DbMonitorLogMap()
         {
 			this.HasKey(t => t.Id);
+			this.Property(t => t.ModuleId).IsRequired().HasMaxLength(20);
 			this.Property(t => t.TableName).HasMaxLength(100);
 			this.Property(t => t.DbName).HasMaxLength(40);
 			this.Property(t => t.EventType).HasMaxLength(20);
@@ -15,6 +16,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.ModuleName).IsRequired().HasMaxLength(50);
 						this.ToTable("Basic_DbMonitorLog");
 			this.Property(t => t.Id).HasColumnName("Id"); 
+			this.Property(t => t.ModuleId).HasColumnName("ModuleId"); 
 			this.Property(t => t.TableName).HasColumnName("TableName"); 
 			this.Property(t => t.DbName).HasColumnName("DbName"); 
 			this.Property(t => t.EventType).HasColumnName("EventType"); 

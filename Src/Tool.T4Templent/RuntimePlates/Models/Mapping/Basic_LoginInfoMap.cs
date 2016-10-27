@@ -7,12 +7,14 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
         public Basic_LoginInfoMap()
         {
 			this.HasKey(t => t.Id);
+			this.Property(t => t.LoginNickName).IsRequired().HasMaxLength(50);
 			this.Property(t => t.LoginName).IsRequired().HasMaxLength(50);
 			this.Property(t => t.LoginIp).IsRequired().HasMaxLength(10);
 			this.Property(t => t.LoginHeader).IsRequired().HasMaxLength(100);
 						this.ToTable("Basic_LoginInfo");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.LoginUserId).HasColumnName("LoginUserId"); 
+			this.Property(t => t.LoginNickName).HasColumnName("LoginNickName"); 
 			this.Property(t => t.LoginName).HasColumnName("LoginName"); 
 			this.Property(t => t.LoginTime).HasColumnName("LoginTime"); 
 			this.Property(t => t.LoginStatus).HasColumnName("LoginStatus"); 
