@@ -36,15 +36,18 @@
 </div>
 
 
- @using (Html.BeginForm("Delete", "User", FormMethod.Post, new { id = "mainForm" }))
+ @using (Html.BeginForm("Delete", "Menu", FormMethod.Post, new { id = "mainForm" }))
  {
     <table class="table table-striped table-hover ">
         <tr>
-            <th></th>
+            <th style="width: 8px;">
+                <input type="checkbox" id="checkall" class="group-checkable" />
+            </th>
             <th>序号</th>
             <th>菜单名称</th>
             <th>菜单链接</th>
             <th>菜单类型</th>
+            <th>菜单图标</th>
             <th>排序</th>
             <th>父级菜单</th>
             <th>创建时间</th>
@@ -54,15 +57,16 @@
         @foreach (var menu in Model)
         {
             <tr>
-                <td><input type="checkbox" /></td>
+                <td><input type="checkbox" class="checkboxes" name='ids' value='@menu.Id' /></td>
                 <td>@menu.Id</td>
                 <td>@menu.MenuName</td>
                 <td>@menu.MenuUrl</td>
                 <td>@menu.MenuType</td>
+                <td><i class="@menu.MenuIcon">@menu.MenuIcon</i></td>
                 <td>@menu.MenuSort</td>
                 <td>@menu.ParentMenuName</td>
                 <td>@(menu.CreateTime.HasValue ? menu.CreateTime.Value.ToString("yyyy-MM-dd") : "")</td>
-                <td>@(menu.MenuStatus ? "是" : "否")</td>
+                <td><span class="label label-@(menu.MenuStatus == 1 ? "success" : "inverse")">@(menu.MenuStatus == 1 ? "可用" : "禁用")</span></td>
                 <td>
                     <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = menu.Id })?TB_iframe=true&height=350&width=400">
                         <i class="icon-edit"></i>

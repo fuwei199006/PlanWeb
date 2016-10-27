@@ -69,7 +69,7 @@ Page sidebar
   top:1px;
   width: 7px;
   height: 39px;
-  background-image: url("../img/sidebar-menu-arrow-green.png");
+  background-image: url("../Images/sidebar-menu-arrow-green.png");
 }  
 
 .page-sidebar > ul > li.active > a{
@@ -110,14 +110,14 @@ Page sidebar
 }
 
 .page-sidebar .sidebar-search .submit {
-  background-image: url(../img/search-icon-white.png);
+  background-image: url(../Images/search-icon-white.png);
 }
 
 /***
 Sidebar toggler
 ***/
 .sidebar-toggler {  
-  background-image: url(../img/sidebar-toggler-light.jpg);
+  background-image: url(../Images/sidebar-toggler-light.jpg);
   background-color: #333;
 }
 
@@ -127,7 +127,7 @@ Sidebar toggler
 }
 
 .sidebar-closed .page-sidebar .sidebar-search.open .remove {  
-  background-image: url("../img/sidebar-search-close-light.png");
+  background-image: url("../Images/sidebar-search-close-light.png");
 }
 
 /* sub menu bg color on hover menu item */

@@ -22,10 +22,11 @@ namespace Plain.Dao.MenuDao
                         m.CreateTime ,
                         m.ModifyTime ,
                         m.MenuStatus ,
+                        m.MenuIcon ,
                         n.MenuName AS ParentMenuName ,
                         n.MenuType AS ParentMenuType
                 FROM    dbo.Basic_Menu m
-                       LEFT JOIN dbo.Basic_Menu n ON m.MenuParentId = n.Id WHERE   m.MenuName LIKE '%{0}%'  OR n.MenuName LIKE '%{0}%';";
+                       LEFT JOIN dbo.Basic_Menu n ON m.MenuParentId = n.Id WHERE   m.MenuName LIKE '%{0}%'  OR n.MenuName LIKE '%{0}%' Order by m.Id, m.MenuSort;";
             sql = string.Format(sql, menuName);
             return this.ExceSqlPagedList<Basic_MenuDto>(sql,pageSize,pageIndex);
         }

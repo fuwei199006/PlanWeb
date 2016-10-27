@@ -43,7 +43,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             });
             ViewData["StatusTypes"] = EnumHelper.GetItemValueList<StatusType>().Select(r => new SelectListItem()
             {
-                Value = r.Key == 0 ? "true" : "false",
+                 Value = r.Key.ToString(),
                 Text = r.Value.ToString()
             });
             return View(menu);
@@ -71,7 +71,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             });
             ViewData["StatusTypes"] = EnumHelper.GetItemValueList<StatusType>().Select(r => new SelectListItem()
             {
-                Value = r.Key==0?"true":"false",
+                Value = r.Key.ToString(),
                 Text = r.Value.ToString()
             });
             return View("Edit");
@@ -86,6 +86,13 @@ namespace Plain.UI.Areas.Auth.Controllers
             menu.ModifyTime=DateTime.Now;
             _menuService.AddMenu(menu);
             return this.RefreshParent();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(List<int> ids)
+        {
+            this._menuService.DeleteMenus(ids);
+            return RedirectToAction("Index"); 
         }
     }
 }

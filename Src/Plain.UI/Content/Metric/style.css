@@ -115,7 +115,7 @@ Close icon used for modal dialog and other UI element close buttons
   width: 9px;
   height: 9px;
   background-repeat: no-repeat !important;
-  background-image: url("../img/remove-icon-small.png") !important;
+  background-image: url("../Images/remove-icon-small.png") !important;
 }
 
 /***
@@ -453,7 +453,7 @@ Page sidebar
   display: block;
   width: 8px;
   height: 25px;
-  background-image: url("../img/sidebar-menu-arrow.png");
+  background-image: url("../Images/sidebar-menu-arrow.png");
   float: right;
   position: absolute;
   right:0px;
@@ -531,7 +531,7 @@ Page sidebar
   margin-top: 8px;
   width: 13px;
   height: 13px;
-  background-image: url(../img/search-icon.png);
+  background-image: url(../Images/search-icon.png);
   background-repeat: no-repeat;
 }
  
@@ -1065,29 +1065,29 @@ Portlets
 }
 
 .portlet-title .tools > a.remove {
-  background-image:url(../img/portlet-remove-icon.png);
+  background-image:url(../Images/portlet-remove-icon.png);
   background-repeat: no-repeat;
   width: 11px;
 }
 
 .portlet-title .tools > a.config {
-  background-image:url(../img/portlet-config-icon.png);
+  background-image:url(../Images/portlet-config-icon.png);
   background-repeat: no-repeat;
   width: 12px;
 }
 
 .portlet-title .tools > a.reload {
-  background-image:url(../img/portlet-reload-icon.png);
+  background-image:url(../Images/portlet-reload-icon.png);
   width: 13px;
 }
 
 .portlet-title .tools > a.expand {
-  background-image:url(../img/portlet-expand-icon.png);
+  background-image:url(../Images/portlet-expand-icon.png);
   width: 14px;
 }
 
 .portlet-title .tools > a.collapse {
-  background-image:url(../img/portlet-collapse-icon.png);
+  background-image:url(../Images/portlet-collapse-icon.png);
   width: 14px;
 }
 
@@ -1283,27 +1283,27 @@ Box portlet
 
 .portlet.box .portlet-title .tools > a.remove, 
 .portlet.solid .portlet-title .tools > a.remove {
-  background-image:url(../img/portlet-remove-icon-white.png);
+  background-image:url(../Images/portlet-remove-icon-white.png);
 }
 
 .portlet.box .portlet-title .tools > a.config,
 .portlet.solid .portlet-title .tools > a.config {
-  background-image:url(../img/portlet-config-icon-white.png);
+  background-image:url(../Images/portlet-config-icon-white.png);
 }
 
 .portlet.box .portlet-title .tools > a.reload,
 .portlet.solid .portlet-title .tools > a.reload {
-  background-image:url(../img/portlet-reload-icon-white.png);
+  background-image:url(../Images/portlet-reload-icon-white.png);
 }
 
 .portlet.box .portlet-title .tools > a.expand,
 .portlet.solid .portlet-title .tools > a.expand {
-  background-image:url(../img/portlet-expand-icon-white.png);
+  background-image:url(../Images/portlet-expand-icon-white.png);
 }
 
 .portlet.box .portlet-title .tools > a.collapse,
 .portlet.solid .portlet-title .tools > a.collapse {
-  background-image:url(../img/portlet-collapse-icon-white.png);
+  background-image:url(../Images/portlet-collapse-icon-white.png);
 }
 
 /* portlet buttons */
@@ -2089,7 +2089,7 @@ Zoom icon overlay on images
 }
 
 .zoom .zoom-icon {
-  background-image:url("../img/overlay-icon.png");
+  background-image:url("../Images/overlay-icon.png");
   background-color: #222;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -3134,7 +3134,7 @@ Styler Panel
 }
 
 .color-panel .icon-color {
-  background:#c9c9c9 url(../img/icon-color.png) center no-repeat !important;
+  background:#c9c9c9 url(../Images/icon-color.png) center no-repeat !important;
 }
 
 .color-panel .icon-color:hover {
@@ -3143,7 +3143,7 @@ Styler Panel
 
 .color-panel .icon-color-close {
   display:none;
-  background:#3d3d3d url(../img/icon-color-close.png) center no-repeat !important;
+  background:#3d3d3d url(../Images/icon-color-close.png) center no-repeat !important;
 }
 
 .color-panel .icon-color-close:hover {
@@ -4111,11 +4111,11 @@ Profile Page
 }
 
 .sale-summary li i.icon-img-up {
-  background:url(../img/icon-img-up.png) no-repeat !important;
+  background:url(../Images/icon-img-up.png) no-repeat !important;
 }
 
 .sale-summary li i.icon-img-down {
-  background:url(../img/icon-img-down.png) no-repeat !important;
+  background:url(../Images/icon-img-down.png) no-repeat !important;
 }
 
 .sale-summary .portlet-title h4 {

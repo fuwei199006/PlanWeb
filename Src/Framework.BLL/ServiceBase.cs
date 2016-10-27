@@ -77,9 +77,22 @@ namespace Framework.BLL
         {
             return this.GetEntityWithNoTracking(r => r.Id == id);
         }
+        public virtual IQueryable<T> GetEntities(IList<int> ids)
+        {
+            return LoadEntities(r => ids.Contains(r.Id));
+        }
+        public virtual IQueryable<T> GetEntitiesNoTracking(IList<int> ids)
+        {
+            return LoadEntitiesNoTracking(r => ids.Contains(r.Id));
+        }
+        public virtual void DeleteEntities(IList<int> ids)
+        {
+            var entities = LoadEntities(r => ids.Contains(r.Id));
+            this.CurrentResposity.DeleteRang(entities.ToList());
+        }
 
         #endregion
 
-      
+
     }
 }

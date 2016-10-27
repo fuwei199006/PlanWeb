@@ -21,7 +21,7 @@ namespace Plain.BLL.MenuService
 
         public List<Basic_Menu> GetMenus()
         {
-            return this.LoadEntitiesNoTracking(r=>r.MenuStatus).OrderBy(r => r.MenuSort).ToList();
+            return this.LoadEntitiesNoTracking(r=>r.MenuStatus!=0).OrderBy(r => r.MenuSort).ToList();
         }
 
 
@@ -48,6 +48,11 @@ namespace Plain.BLL.MenuService
         public Basic_Menu AddMenu(Basic_Menu menu)
         {
             return this.Add(menu);
+        }
+
+        public void DeleteMenus(IList<int> ids)
+        {
+              this.DeleteEntities(ids);
         }
     }
 }

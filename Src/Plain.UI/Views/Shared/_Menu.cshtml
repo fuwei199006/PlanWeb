@@ -12,11 +12,11 @@
         </li>
         <li>
             <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-            <form class="sidebar-search dn">
+            <form class="sidebar-search">
                 <div class="input-box">
                     <a href="javascript:;" class="remove"></a>
                     <input type="text" placeholder="Search..." />
-                    <input type="button" class="submit" value=" " />
+                    <input type="button" class="submit" value="" />
                 </div>
             </form>
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
@@ -36,28 +36,29 @@
                 <li class="has-sub">
                     <a href="javascript:void(0);" data-role="1">
 
-                        <i class="icon-cog"></i>
+                        <i class="@menu.MenuIcon"></i>
                         <span class="title">@menu.MenuName</span>
                         <span class='arrow'></span>
                     </a>
-                        <ul class="sub">
-                            @foreach (var m in itemMenu)
-                            {
-                                <li>
-                                    <a href="@m.MenuUrl">
-                                        @m.MenuName
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                  
+                    <ul class="sub">
+                        @foreach (var m in itemMenu)
+                        {
+                            <li>
+                                <a href="@m.MenuUrl">
+                                    <i class="@m.MenuIcon"></i>
+                                    &nbsp;@m.MenuName
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
                 </li>
             }
             else
             {
                 <li>
                     <a href="@menu.MenuUrl">
-                        <i class="fa fa-calendar"></i>
+                        <i class="@menu.MenuIcon"></i>
                         <span>@menu.MenuName</span>
 
 

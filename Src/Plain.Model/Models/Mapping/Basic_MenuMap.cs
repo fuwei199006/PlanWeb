@@ -14,8 +14,10 @@ namespace Plain.Model.Models.Mapping
 			.IsRequired().HasMaxLength(100);
 			this.Property(t => t.MenuType)
 			.IsRequired().HasMaxLength(10);
-			
-			this.ToTable("Basic_Menu");
+            this.Property(t => t.MenuIcon)
+            .IsRequired().HasMaxLength(20);
+
+            this.ToTable("Basic_Menu");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.MenuName).HasColumnName("MenuName"); 
 			this.Property(t => t.MenuUrl).HasColumnName("MenuUrl"); 
@@ -25,8 +27,9 @@ namespace Plain.Model.Models.Mapping
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
 			this.Property(t => t.MenuStatus).HasColumnName("MenuStatus"); 
-			
-          
+			this.Property(t => t.MenuIcon).HasColumnName("MenuIcon");
+
+
         }
     }
 }

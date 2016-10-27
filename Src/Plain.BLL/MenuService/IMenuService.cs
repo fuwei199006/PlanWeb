@@ -18,6 +18,7 @@ namespace Plain.BLL.MenuService
         Basic_Menu UpdateMenu(Basic_Menu menu);
 
         Basic_Menu AddMenu(Basic_Menu menu);
+        void DeleteMenus(IList<int> ids);
 
     }
 }

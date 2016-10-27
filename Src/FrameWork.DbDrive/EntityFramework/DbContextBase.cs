@@ -16,12 +16,12 @@ using System.Data.Entity.Infrastructure;
 
 namespace Framework.DbDrive.EntityFramework
 {
-    public class DbContextBase:DbContext,IDataRepository, IDisposable
+    public class DbContextBase : DbContext, IDataRepository, IDisposable
     {
         private static readonly object Lok = new object();
         public DbContextBase(string connectionString)
         {
-            this.Database.Connection.ConnectionString =DESEncrypt.Decode(connectionString);
+            this.Database.Connection.ConnectionString = DESEncrypt.Decode(connectionString);
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
@@ -30,7 +30,7 @@ namespace Framework.DbDrive.EntityFramework
         {
             this.AuditLogger = auditLogger;
         }
-      
+
         public IAuditable AuditLogger { get; set; }
         public T Add<T>(T entity) where T : ModelBase
         {
@@ -45,7 +45,7 @@ namespace Framework.DbDrive.EntityFramework
             var set = this.Set<T>();
             set.AddRange(entity);
             this.SaveChanges();
-            
+
         }
 
         public T Update<T>(T entity) where T : ModelBase
@@ -57,7 +57,16 @@ namespace Framework.DbDrive.EntityFramework
 
             return entity;
         }
-
+        public void UpdateRang<T>(IList<T> entities) where T : ModelBase
+        {
+            var set = this.Set<T>();
+            foreach (var entity in entities)
+            {
+                set.Attach(entity);
+                this.Entry<T>(entity).State = EntityState.Modified;
+            }
+            this.SaveChanges();
+        }
         public T Delete<T>(T entity) where T : ModelBase
         {
             var set = this.Set<T>();
@@ -67,9 +76,21 @@ namespace Framework.DbDrive.EntityFramework
             return entity;
         }
 
-     
+        public void DeleteRange<T>(IList<T> entities) where T : ModelBase
+        {
+            var set = this.Set<T>();
+            foreach (var entity in entities)
+            {
+                set.Attach(entity);
+                this.Entry<T>(entity).State = EntityState.Deleted;
+            }
 
-        public T GetEntity<T>(Expression<Func<T, bool>> conditions=null)where T : ModelBase
+            this.SaveChanges();
+
+        }
+
+
+        public T GetEntity<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
             if (conditions != null)
             {
@@ -125,7 +146,7 @@ namespace Framework.DbDrive.EntityFramework
             return this.Database.SqlQuery<T>(sql, parameters);
         }
 
-        public PagedList<T> ExceSqlPagedList<T>(string sql,int pageSize,int pageIndex) where T : class
+        public PagedList<T> ExceSqlPagedList<T>(string sql, int pageSize, int pageIndex) where T : class
         {
             return this.Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageSize, pageIndex);
         }
@@ -137,7 +158,7 @@ namespace Framework.DbDrive.EntityFramework
         //dbLog
         internal void WriteLog()
         {
-            if(this.AuditLogger==null)
+            if (this.AuditLogger == null)
                 return;
             if (!LocalCachedConfigContext.Current.SystemConfig.IsMonitor)
             {
@@ -152,23 +173,23 @@ namespace Framework.DbDrive.EntityFramework
                                 p.State == EntityState.Modified))
             {
 
-           
+
 
                 Task.Factory.StartNew(() =>
                 {
-                    
-                    var tableArr  = dbEntry.Entity.GetType().GetCustomAttributes(typeof (TableAttribute),false).SingleOrDefault() as TableAttribute;
+
+                    var tableArr = dbEntry.Entity.GetType().GetCustomAttributes(typeof(TableAttribute), false).SingleOrDefault() as TableAttribute;
                     var tableName = tableArr != null ? tableArr.Name : dbEntry.Entity.GetType().Name;
-                    var dbName    = this.Database.Connection.Database;// 
-                    var  operaterName= "Anoymous";               
+                    var dbName = this.Database.Connection.Database;// 
+                    var operaterName = "Anoymous";
                     var moduleName = dbEntry.Entity.GetType().FullName.Split('.').Skip(1).FirstOrDefault();
                     this.AuditLogger.WriteLog(dbEntry.Entity.Id, operaterName, moduleName, tableName,
                     dbEntry.State.ToString(), dbEntry.Entity, dbName);
-                    
+
                 });
             }
-             
+
         }
- 
+
     }
 }

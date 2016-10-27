@@ -17,8 +17,9 @@ namespace Plain.Dto
         public string MenuType { get; set; }
         public Nullable<int> MenuSort { get; set; }
         public Nullable<int> MenuParentId { get; set; }
-        public bool MenuStatus { get; set; }
+        public int  MenuStatus { get; set; }
         public string ParentMenuName { get; set; }
         public string ParentMenuType { get; set; }
+        public string MenuIcon { get; set; }
     }
 }

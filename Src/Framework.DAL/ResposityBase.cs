@@ -30,14 +30,22 @@ namespace Framework.DAL
         {
             return this.CurrentContextBase.Update(entity);
         }
-
+        public virtual void UpdateRang(IList<T> entities)
+        {
+            this.CurrentContextBase.UpdateRang(entities);
+        }
         public virtual T Delete(T entity)
         {
             return this.CurrentContextBase.Delete(entity);
         }
+        public virtual void DeleteRang(IList<T> entities)
+        {
+              this.CurrentContextBase.DeleteRange(entities);
+        }
 
 
-      
+
+
         public T GetEntity(Expression<Func<T, bool>> conditions) 
         {
             return this.CurrentContextBase.GetEntity(conditions);
@@ -72,7 +80,21 @@ namespace Framework.DAL
         {
             return this.GetEntityWithNoTracking(r => r.Id == id);
         }
- 
+
+        public virtual IQueryable<T> GetEntities(IList<int> ids)
+        {
+            return LoadEntities(r => ids.Contains(r.Id));
+        }
+        public virtual IQueryable<T> GetEntitiesNoTracking(IList<int> ids)
+        {
+            return LoadEntitiesNoTracking(r => ids.Contains(r.Id));
+        }
+        public virtual void DeleteEntities(IList<int> ids)
+        {
+            var entities= LoadEntities(r => ids.Contains(r.Id));
+            this.CurrentContextBase.DeleteRange(entities.ToList());
+        }
+
 
 
 

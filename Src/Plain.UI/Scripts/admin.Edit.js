@@ -8,11 +8,11 @@
         if (mainForm.valid()) {
             $("#submitloading").show();
         } else {
-            $(".validation-summary-errors").hide(1000);
+            $(".validation-summary-errors").hide(800);
         }
     });
 
     //$("input[type='text']").blur(function () { $(this).removeClass("highlight"); }).focus(function () { $(this).addClass("highlight"); });
 
-    //$(".integer").numeric(false, function () { alert("只能输入数字"); this.value = ""; this.focus(); });
+    $(".integer").numeric(false, function () { alert("只能输入数字"); this.value = ""; this.focus(); });
 });

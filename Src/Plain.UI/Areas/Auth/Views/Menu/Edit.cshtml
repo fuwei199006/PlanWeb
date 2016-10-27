@@ -11,14 +11,16 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>菜单名称</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.MenuName, new { @class = "m-wrap" })
+                    @Html.TextBoxFor(x => x.MenuName, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.MenuName)</span>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>菜单链接</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.MenuUrl, new { @class = "m-wrap" })
+                    @Html.TextBoxFor(x => x.MenuUrl, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.MenuUrl)</span>
                 </div>
             </div>
             <div class="control-group">
@@ -28,9 +30,17 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label"><span class="required">*</span>菜单图标</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.MenuIcon, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.MenuIcon)</span>
+                </div>
+            </div>
+            <div class="control-group">
                 <label class="control-label"><span class="required">*</span>排序</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.MenuSort, new { @class = "m-wrap  " })
+                    @Html.TextBoxFor(x => x.MenuSort, new { @class = "m-wrap  small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.MenuSort)</span>
                 </div>
             </div>
             <div class="control-group">

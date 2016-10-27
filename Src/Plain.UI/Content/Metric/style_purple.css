@@ -108,14 +108,14 @@ Page sidebar
 }
 
 .page-sidebar .sidebar-search .submit {
-  background-image: url(../img/search-icon-purple.png);
+  background-image: url(../Images/search-icon-purple.png);
 }
 
 /***
 Sidebar toggler
 ***/
 .sidebar-toggler {  
-  background-image: url(../img/sidebar-toggler-purple.jpg);
+  background-image: url(../Images/sidebar-toggler-purple.jpg);
   background-color: #333;
 }
 
@@ -125,7 +125,7 @@ Sidebar toggler
 }
 
 .sidebar-closed .page-sidebar .sidebar-search.open .remove {  
-  background-image: url("../img/sidebar-search-close-purple.png");
+  background-image: url("../Images/sidebar-search-close-purple.png");
 }
 
 /* sub menu bg color on hover menu item */

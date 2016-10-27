@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Framework.Contract;
+using Framework.DAL;
 using System.Linq;
-
 namespace Framework.BLL
 {
     public interface IServiceBase<T> where T : ModelBase
@@ -41,6 +41,13 @@ namespace Framework.BLL
         T GetEntityById(int id);
 
         T GetEntityByIdNoTracking(int id);
+
+        IQueryable<T> GetEntities(IList<int> ids);
+
+        IQueryable<T> GetEntitiesNoTracking(IList<int> ids);
+
+        void DeleteEntities(IList<int> ids);
+
 
         #endregion
 

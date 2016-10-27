@@ -43,7 +43,7 @@ namespace Plain.Dto
     {
         [EnumTitle("可用")]
         Enable=1,
-        [EnumTitle("不可用")]
+        [EnumTitle("禁用")]
         Disable =0
     }
 }

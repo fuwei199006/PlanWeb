@@ -15,10 +15,10 @@ namespace Plain.BLL.MenuService.Tests
         [TestMethod()]
         public void GetMenuDtoTest()
         {
-            //var menservice = new MenuService();
-            //var res=menservice.GetMenuDto();
+            var menservice = new MenuService();
+            var res = menservice.GetMenuDtos("人员管理", 1,100).FirstOrDefault();
 
-            //Assert.AreEqual(res.Count > 0, true);
+            Assert.AreEqual(res.MenuIcon, "icon-user");
 
         }
     }
