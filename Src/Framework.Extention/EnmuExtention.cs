@@ -7,8 +7,5 @@ using System.Threading.Tasks;
 
 namespace Framework.Extention
 {
-    public static class EnmuExtention
-    {
-      
-    }
+   
 }

@@ -319,6 +319,23 @@ namespace Framework.Utility
         }
 
 
+        public static string GetEnumTitleByValue<TEnum>(int value) where TEnum : struct
+        {
+
+            if (!typeof(TEnum).IsEnum)
+            {
+                throw new Exception("参数必须是枚举！");
+            }
+            var dic = GetItemValueList<TEnum>();
+            if (dic.ContainsKey(value))
+            {
+                return dic[value];
+            }
+            return string.Empty;
+
+        }
+
+
     }
 
 

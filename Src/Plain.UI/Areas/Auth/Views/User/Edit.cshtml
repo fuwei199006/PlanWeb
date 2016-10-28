@@ -1,5 +1,5 @@
 ﻿@using Plain.Web
-@using Framework.Utility;
+@using Framework.Web.Controls;
 @{
     ViewBag.Title = "编辑";
 
@@ -7,10 +7,10 @@
 }
 @model Plain.Model.Models.Model.Basic_UserInfo
 @section PageSpecificCssIncludes{
-        <link href="~/Content/Metronic/media/css/datepicker.css" rel="stylesheet" />
- }
+    <link href="~/Content/Metronic/media/css/datepicker.css" rel="stylesheet" />
+}
 @section MainContent{
- 
+
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
         <div class="row-fluid">
             <div class="control-group">
@@ -24,7 +24,8 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>性别</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => EnumHelper.GetEnumTitle(x.Sex), ViewData["Sex"] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
+                    @Html.CheckBoxList("Sex");
+                 
 
                 </div>
             </div>
@@ -33,7 +34,7 @@
                 <div class="controls">
                     <div class="input-append date form_datetime">
 
-                        @Html.TextBoxFor(x => x.BirthDay.ToString("yyyy-mm-dd"), new { @class = "m-wrap small hasDatepicker",id="txtBirthDay" })
+                        @Html.TextBoxFor(x => x.BirthDay, new { @class = "m-wrap small hasDatepicker", id = "txtBirthDay" })
                         <span class="add-on"><i class="icon-remove"></i></span>
                         <span class="add-on"><i class="icon-calendar"></i></span>
 
@@ -46,14 +47,14 @@
                 <label class="control-label"> 邮箱</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.UserEmail, new { @class = "m-wrap small" })
- 
+
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label"> 手机号</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.MobilePhone, new { @class = "m-wrap  small" })
-              
+
                 </div>
             </div>
             <div class="control-group">
@@ -86,19 +87,19 @@
                     @Html.TextAreaFor(x => x.OtherInfo, new { @class = "m-wrap" })
                 </div>
             </div>
-         
+
         </div>
     </div>
 }
 
 
 @section PageSpecificJavascriptIncludes{
-<script src="~/Content/Metronic/media/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/Metronic/media/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#txtBirthDay").datepicker({
-                format: "yyyy-mm-dd" 
-                 
+                format: "yyyy-mm-dd"
+
             });
         });
     </script>

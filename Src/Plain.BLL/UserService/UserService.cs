@@ -3,6 +3,7 @@ using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Linq;
 using Framework.Contract;
+using Plain.Dto;
 
 namespace Plain.BLL.UserService
 {
@@ -23,7 +24,7 @@ namespace Plain.BLL.UserService
         {
            var result= this.GetEntity(r => r.UserEmail == email && r.UserStaus == 0);
             if (result == null) return null;
-            result.UserStaus = 1;//Active User
+            result.UserStaus = (int)UserStausType.Active;//Active User
             result.ModifyTime = DateTime.Now;
         
             return this.Update(result);
@@ -36,7 +37,7 @@ namespace Plain.BLL.UserService
 
         public Basic_UserInfo UserPass(string loginName, string pwd)
         {
-            return this.GetEntityWithNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == 1);
+            return this.GetEntityWithNoTracking(r => r.LoginName == loginName && r.UserPwd == pwd && r.UserStaus == (int)UserStausType.Active);
         }
 
         public Basic_UserInfo GetUserByUserId(int id)
