@@ -13,11 +13,11 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.UserEmail).HasMaxLength(50);
             this.Property(t => t.UserPwd).HasMaxLength(100);
             this.Property(t => t.RealName).IsRequired().HasMaxLength(20);
-            this.Property(t => t.MobilePhone).IsRequired().HasMaxLength(20);
-            this.Property(t => t.QQ).IsRequired().HasMaxLength(15);
-            this.Property(t => t.Weixin).IsRequired().HasMaxLength(20);
-            this.Property(t => t.Addr).IsRequired().HasMaxLength(100);
-            this.Property(t => t.OtherInfo).IsRequired().HasMaxLength(100);
+            this.Property(t => t.MobilePhone).HasMaxLength(20);
+            this.Property(t => t.QQ).HasMaxLength(15);
+            this.Property(t => t.Weixin).HasMaxLength(20);
+            this.Property(t => t.Addr).HasMaxLength(100);
+            this.Property(t => t.OtherInfo).HasMaxLength(100);
 
 
             this.ToTable("Basic_UserInfo");

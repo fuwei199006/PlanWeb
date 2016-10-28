@@ -52,5 +52,10 @@ namespace Plain.BLL.UserService
             }
             return this.LoadEntitiesByPage(r => r.LoginName.Contains(userName), r=>r.Id, pageSize, pageIndex);
         }
+
+        public Basic_UserInfo UpdateUser(Basic_UserInfo userInfo)
+        {
+           return this.Update(userInfo);
+        }
     }
 }

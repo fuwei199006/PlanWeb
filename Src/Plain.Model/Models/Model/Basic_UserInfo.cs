@@ -2,16 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Framework.Contract;
+using System.ComponentModel.DataAnnotations;
 
 namespace Plain.Model.Models.Model
 {
     public partial class Basic_UserInfo : ModelBase
     {
-        public int Id { get; set; }
+ 
         public string LoginName { get; set; }
         public string NickName { get; set; }
         public string UserEmail { get; set; }
         public string UserPwd { get; set; }
+        [Required(ErrorMessage = "姓名不能为空")]
         public string RealName { get; set; }
         [NotMapped]
         public string Age { get; set; }

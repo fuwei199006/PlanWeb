@@ -3624,6 +3624,7 @@
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Edit.cshtml" />
     <Content Include="Areas\Auth\Views\User\Index.cshtml" />
+    <Content Include="Areas\Auth\Views\User\Edit.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

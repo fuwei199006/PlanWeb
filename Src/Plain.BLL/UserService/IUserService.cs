@@ -16,5 +16,7 @@ namespace Plain.BLL.UserService
         Basic_UserInfo GetUserByUserId(int id);
         PagedList<Basic_UserInfo> GetUserByPage(string userName, int pageSize, int pageIndex);
 
+        Basic_UserInfo UpdateUser(Basic_UserInfo userInfo);
+
     }
 }

@@ -58,4 +58,12 @@ namespace Plain.Dto
         [EnumTitle("激活")]
         Active = 4
     }
+
+    public enum SexType
+    {
+        [EnumTitle("女")]
+        Female = 0,
+        [EnumTitle("男")]
+        Male = 1
+    }
 }
