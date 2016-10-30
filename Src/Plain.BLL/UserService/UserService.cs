@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Linq;
@@ -57,6 +58,12 @@ namespace Plain.BLL.UserService
         public Basic_UserInfo UpdateUser(Basic_UserInfo userInfo)
         {
            return this.Update(userInfo);
+        }
+
+        public void DeleteUser(List<int> ids)
+        {
+             this.DeleteEntities(ids);
+            
         }
     }
 }

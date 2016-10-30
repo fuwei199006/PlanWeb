@@ -1,4 +1,5 @@
-﻿using Framework.Contract;
+﻿using System.Collections.Generic;
+using Framework.Contract;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 
@@ -17,6 +18,7 @@ namespace Plain.BLL.UserService
         PagedList<Basic_UserInfo> GetUserByPage(string userName, int pageSize, int pageIndex);
 
         Basic_UserInfo UpdateUser(Basic_UserInfo userInfo);
+        void DeleteUser(List<int> ids);
 
     }
 }
