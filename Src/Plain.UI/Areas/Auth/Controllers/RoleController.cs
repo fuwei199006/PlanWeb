@@ -1,4 +1,10 @@
-﻿using System;
+﻿using Framework.Utility;
+using Plain.BLL.RoleService;
+using Plain.Dto;
+using Plain.Dto.Request;
+using Plain.Model.Models.Model;
+using Plain.UI.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +12,61 @@ using System.Web.Mvc;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
-    public class RoleController : Controller
+    public class RoleController : BaseController
     {
-        // GET: Auth/Role
-        public ActionResult Index()
+        private readonly IRoleService _roleService;
+
+        public RoleController(IRoleService roleService)
         {
-            return View();
+            _roleService = roleService;
+        }
+
+        // GET: Auth/Role
+        public ActionResult Index(RoleRequest request)
+        {
+            var roleList = _roleService.GetRoleListByPage(request);
+            return View(roleList);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
+            {
+                Value = x.Key.ToString(),
+                Text = x.Value
+
+            });
+            var role = this._roleService.GetRoleById(id);
+            return View(role);
+        }
+        [HttpPost]
+        public ActionResult Edit(int id,FormCollection formCollection)
+        {
+            var role = this._roleService.GetRoleById(id);
+            this.TryUpdateModel(role);
+            role.ModifyTime = DateTime.Now;
+            return this.RefreshParent();
+        }
+        [HttpPost]
+        public ActionResult Create(FormCollection formCollection)
+        {
+            var role = new Basic_Role();
+            this.TryUpdateModel(role);
+            role.ModifyTime = DateTime.Now;
+            role.CreateTime = DateTime.Now;
+            this._roleService.AddRole(role);
+            return this.RefreshParent();
+        }
+
+        public ActionResult Create()
+        {
+            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
+            {
+                Value = x.Key.ToString(),
+                Text = x.Value
+
+            });
+            return View("Edit");
         }
     }
 }

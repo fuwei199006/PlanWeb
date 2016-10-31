@@ -8,7 +8,7 @@ namespace Plain.Model.Models.Model
     {
  
         public string RoleName { get; set; }
-        public Nullable<bool> RoleStatus { get; set; }
+        public Nullable<int> RoleStatus { get; set; }
  
         public Nullable<System.DateTime> ModifyTime { get; set; }
     }

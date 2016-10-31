@@ -47,7 +47,7 @@ namespace Plain.Dto
         Disable = 0
     }
 
-    public enum UserStausType
+    public enum UserStausType 
     {
         [EnumTitle("禁用")]
         Disable = 1,

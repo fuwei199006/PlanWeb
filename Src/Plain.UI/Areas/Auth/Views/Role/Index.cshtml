@@ -22,7 +22,7 @@
                     <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
                 </label>
                 <label>
-                    <span>用户名：</span>
+                    <span>角色名：</span>
                     @Html.TextBox("LoginName", null, new { @class = "m-wrap small" })
                 </label>
 
@@ -47,6 +47,7 @@
             <th>序号</th>
             <th>角色名称</th>
             <th>是否可用 </th>
+            <th>操作 </th>
         
         </tr>
         @foreach (var role in Model)
@@ -58,7 +59,7 @@
                 <td>@role.RoleStatus</td>
                
                 <td>
-                    <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = user.Id })?TB_iframe=true&height=450&width=600">
+                    <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = role.Id })?TB_iframe=true&height=250&width=400">
                         <i class="icon-edit"></i>
                         编辑
                     </a>

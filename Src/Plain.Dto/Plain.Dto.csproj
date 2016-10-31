@@ -46,6 +46,7 @@
     <Compile Include="Enum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\MenuRequest.cs" />
+    <Compile Include="Request\RoleRequest.cs" />
     <Compile Include="Request\UserRequest.cs" />
   </ItemGroup>
   <ItemGroup>
