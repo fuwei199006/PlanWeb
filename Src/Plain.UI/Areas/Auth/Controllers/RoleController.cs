@@ -33,7 +33,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             var role = this._roleService.GetRoleById(id);
@@ -43,8 +43,9 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Edit(int id,FormCollection formCollection)
         {
             var role = this._roleService.GetRoleById(id);
-            this.TryUpdateModel(role);
+            this.TryUpdateModel<Basic_Role>(role);
             role.ModifyTime = DateTime.Now;
+            _roleService.UpdateRole(role);
             return this.RefreshParent();
         }
         [HttpPost]

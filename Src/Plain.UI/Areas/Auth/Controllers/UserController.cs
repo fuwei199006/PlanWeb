@@ -40,7 +40,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value.ToString()
+                Text = x.Value
 
             });
             var user = _userService.GetUserByUserId(id);

@@ -10,6 +10,6 @@ namespace Plain.Model.Models.Model
         public string RoleName { get; set; }
         public  int  RoleStatus { get; set; }
  
-        public Nullable<System.DateTime> ModifyTime { get; set; }
+        public DateTime? ModifyTime { get; set; }
     }
 }

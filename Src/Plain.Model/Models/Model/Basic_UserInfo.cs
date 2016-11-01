@@ -8,7 +8,6 @@ namespace Plain.Model.Models.Model
 {
     public partial class Basic_UserInfo : ModelBase
     {
-        public int Id { get; set; }
         public string LoginName { get; set; }
         public string NickName { get; set; }
         [RegularExpression(@"^\w+\.?\w+@\w+\.\w+$", ErrorMessage = "电子邮件地址无效")]
@@ -19,7 +18,7 @@ namespace Plain.Model.Models.Model
         [NotMapped]
         public string Age { get; set; }
         public Nullable<int> UserStaus { get; set; }
-        public Nullable<System.DateTime> ModifyTime { get; set; }
+        public DateTime? ModifyTime { get; set; }
         public string MobilePhone { get; set; }
         public DateTime? BirthDay { get; set; }
         public string QQ { get; set; }
