@@ -34,13 +34,13 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             var user = _userService.GetUserByUserId(id);
@@ -64,13 +64,13 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             return View("Edit");
@@ -82,7 +82,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem

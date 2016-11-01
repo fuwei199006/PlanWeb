@@ -63,10 +63,16 @@ namespace Plain.UI.Areas.Auth.Controllers
             ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
-                Text = x.Value
+                Text = x.Value.ToString()
 
             });
             return View("Edit");
+        }
+
+        public ActionResult Delete(List<int> ids)
+        {
+            _roleService.DeleteRoles(ids);
+            return RedirectToAction("Index");
         }
     }
 }

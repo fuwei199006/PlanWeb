@@ -16,6 +16,11 @@ namespace Plain.BLL.RoleService
            return this.Add(role);
         }
 
+        public void DeleteRoles(List<int> ids)
+        {
+            this.DeleteEntities(ids);
+        }
+
         public Basic_Role GetRoleById(int id)
         {
             return GetEntityById(id);

@@ -17,5 +17,7 @@ namespace Plain.BLL.RoleService
         Basic_Role GetRoleById(int id);
 
         Basic_Role UpdateRole(Basic_Role role);
+
+        void DeleteRoles(List<int> ids);
     }
 }

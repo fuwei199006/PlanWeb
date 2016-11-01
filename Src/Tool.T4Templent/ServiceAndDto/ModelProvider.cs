@@ -17,7 +17,8 @@ namespace Tool.T4Templent.ServiceAndDto
         static ModelProvider()
         {
             SqlDbHelper = new MssqlDbHelper();
-            SqlDbHelper.conStr =  DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
+            SqlDbHelper.conStr = DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
+            //SqlDbHelper.conStr = "server=10.4.254.169;database=oas;user id=ptmoas;password=ptmoas";
 
 
         }
