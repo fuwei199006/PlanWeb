@@ -183,6 +183,7 @@
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\CMSAreaRegistration.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Auth\Controllers\PowerController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
     <Compile Include="Areas\Auth\Controllers\UserController.cs" />
     <Compile Include="Areas\CMS\Controllers\CmsHomeController.cs" />
@@ -3626,6 +3627,8 @@
     <Content Include="Areas\Auth\Views\User\Index.cshtml" />
     <Content Include="Areas\Auth\Views\User\Edit.cshtml" />
     <Content Include="Areas\Auth\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Auth\Views\Power\Index.cshtml" />
+    <Content Include="Areas\Auth\Views\Power\Edit.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

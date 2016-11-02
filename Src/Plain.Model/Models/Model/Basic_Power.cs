@@ -6,10 +6,10 @@ namespace Plain.Model.Models.Model
 {
     public partial class Basic_Power : ModelBase
     {
-        public int Id { get; set; }
+
         public string PoweName { get; set; }
-        public Nullable<bool> PowerStatus { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public Nullable<System.DateTime> ModifyTime { get; set; }
+        public int PowerStatus { get; set; }
+
+        public DateTime ModifyTime { get; set; }
     }
 }

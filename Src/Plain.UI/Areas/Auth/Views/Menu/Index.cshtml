@@ -10,7 +10,7 @@
     <div class="span4">
         <div>
             <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
-            <a class="btn blue thickbox" title='添加新用户' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 新增</a>
+            <a class="btn blue thickbox" title='添加菜单' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 新增</a>
         </div>
     </div>
     <div class="span8">
@@ -65,7 +65,7 @@
                 <td><i class="@menu.MenuIcon">@menu.MenuIcon</i></td>
                 <td>@menu.MenuSort</td>
                 <td>@menu.ParentMenuName</td>
-                <td>@(menu.CreateTime.HasValue ? menu.CreateTime.Value.ToString("yyyy-MM-dd") : "")</td>
+                <td>@(menu.CreateTime.ToString("yyyy-MM-dd"))</td>
                 <td><span class="label label-@(menu.MenuStatus == 1 ? "success" : "inverse")">@(menu.MenuStatus == 1 ? "可用" : "禁用")</span></td>
                 <td>
                     <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = menu.Id })?TB_iframe=true&height=350&width=400">

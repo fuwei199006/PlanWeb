@@ -17,8 +17,8 @@ namespace Tool.T4Templent.ServiceAndDto
         static ModelProvider()
         {
             SqlDbHelper = new MssqlDbHelper();
-            SqlDbHelper.conStr = DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
-            //SqlDbHelper.conStr = "server=10.4.254.169;database=oas;user id=ptmoas;password=ptmoas";
+            //SqlDbHelper.conStr = DESEncrypt.Decode(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig);
+            SqlDbHelper.conStr = "server=.;database=PlanDb;user id=sa;password=Abc12345";
 
 
         }
@@ -40,9 +40,10 @@ namespace Tool.T4Templent.ServiceAndDto
             var sql = string.Format(@"    SELECT    col.name AS Name ,
                                     type.name AS SqlType,
 			                        col.length AS Length,
-			                        col.isnullable AS IsNullAble
+			                        col.isnullable AS IsNullAble,g.value as Commit
                           FROM      sys.syscolumns col
                                     JOIN sys.systypes type ON type.xusertype = col.xtype
+                                   left   join   sys.extended_properties   g   on   col.id=g.major_id   and   col.colid=g.minor_id
                           WHERE     id = OBJECT_ID('{0}')
                           ORDER BY  col.colorder", tableName);
             var dbFiled = SqlDbHelper.ExecReturnDataSet(sql).Tables[0];
@@ -69,14 +70,14 @@ namespace Tool.T4Templent.ServiceAndDto
         /// <returns></returns>
         public string CheckFiled(string filedName)
         {
-            string[] keyWords =new string[] { "abstract", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is", "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void", "while" };
+            string[] keyWords = new string[] { "abstract", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else", "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach", "goto", "if", "implicit", "in", "int", "interface", "internal", "is", "lock", "long", "namespace", "new", "null", "object", "operator", "out", "override", "params", "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void", "while" };
             if (keyWords.Contains(filedName))
             {
                 return "_" + filedName;
             }
             return filedName;
         }
- 
+
 
     }
 
@@ -98,6 +99,7 @@ namespace Tool.T4Templent.ServiceAndDto
         public int IsNullable { get; set; }
 
         public bool IsPrimaryKey { get; set; }
+        public string Commit { get; set; }
         private string GetCsharpMapping(string dataType)
         {
             string retType = "";
@@ -115,7 +117,7 @@ namespace Tool.T4Templent.ServiceAndDto
                 return "long";
             if (dataType.Equals("bit"))
                 return "bool";
-            if (dataType.Equals("money") || dataType.Equals("smallmoney") || dataType.Equals("numeric")|| dataType.Equals("decimal"))
+            if (dataType.Equals("money") || dataType.Equals("smallmoney") || dataType.Equals("numeric") || dataType.Equals("decimal"))
                 return "decimal";
             if (dataType.Equals("datetime") || dataType.Equals("smalldatetime") || dataType.Equals("timestamp") || dataType.Equals("date"))
                 return "DateTime";
