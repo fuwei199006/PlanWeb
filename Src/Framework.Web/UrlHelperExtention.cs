@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Core.Cache;
+using Core.Config;
+using System;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Framework.Extention
+namespace Framework.Web
 {
     public static class UrlHelperExtention
     {
@@ -57,7 +60,7 @@ namespace Framework.Extention
             return url;
         }
 
-
+    
         /// <summary>
         /// 得到图片文件，缩略图，根据参数(width:100,height:75)返回如：
         /// http://...../upload/editorial/day_111013/thumb/201110130326326847_100_75.jpg

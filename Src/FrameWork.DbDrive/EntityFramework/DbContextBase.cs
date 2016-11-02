@@ -154,7 +154,6 @@ namespace Framework.DbDrive.EntityFramework
 
         //todo:添加存储过程的执行
 
-
         //dbLog
         internal void WriteLog()
         {

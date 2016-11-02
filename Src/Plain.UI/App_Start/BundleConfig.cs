@@ -1,5 +1,9 @@
-﻿using System.Web;
+﻿
+using System.Web;
 using System.Web.Optimization;
+using Framework.Extention;
+using System.Web.Mvc;
+using Framework.Web;
 
 namespace Plan.UI
 {
@@ -8,6 +12,7 @@ namespace Plan.UI
         // 有关绑定的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+             
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -19,13 +24,9 @@ namespace Plan.UI
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            
+     
         }
     }
 }

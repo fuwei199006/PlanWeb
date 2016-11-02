@@ -17,6 +17,13 @@ namespace Core.Config.ConfigModel
         public string WebSiteTitle { get; set; }
         public string WebSiteDescription { get; set; }
         public string WebSiteKeyWords { get; set; }
+
+        //js和css用文件分离
+        public string CurrentJsAndCssDoain { get; set; }
+
+        //文件分离
+        //todo:读写在一台服务器上面，后面再修改
+        public string CurrentFileDomain { get; set; }
     }
 
 
