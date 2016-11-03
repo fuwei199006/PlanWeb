@@ -1,5 +1,6 @@
 ﻿@using Plain.Web
 @using Framework.Web.Controls;
+@using Framework.Web;
 @{
     ViewBag.Title = "编辑";
 
@@ -8,7 +9,7 @@
 @model Plain.Model.Models.Model.Basic_UserInfo
  
 @section PageSpecificCssIncludes{
-    <link href="~/Content/Metronic/media/css/datepicker.css" rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/Metronic/media/css/datepicker.css")' rel="stylesheet" />
 }
 @section MainContent{
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">

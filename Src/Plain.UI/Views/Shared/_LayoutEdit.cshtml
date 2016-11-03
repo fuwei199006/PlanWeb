@@ -8,13 +8,12 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/Metric/metro.css" rel="stylesheet" />
-
-    <link href="~/Content/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/metric/style.css" rel="stylesheet" />
-    <link href="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
-    <link href="~/Content/Metric/admin.main.css" rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/bootstrap/css/bootstrap.min.css")' rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/Metric/metro.css")' rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/plugins/font-awesome/css/font-awesome.min.css")' rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/metric/style.css")' rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css")' rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/Metric/admin.main.css")' rel="stylesheet" />
 
     @RenderSection("PageSpecificCssIncludes", required: false)
 </head>
@@ -38,24 +37,24 @@
 
 </body>
 </html>
-<script src="~/Content/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<script src="~/Content/plugins/jQuery/jquery-migrate-1.2.1.min.js"></script>
-<script src="~/Content/plugins/breakpoints/breakpoints.js"></script>
-<script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
-<script src="~/Scripts/jquery.blockui.js"></script>
-<script src="~/Scripts/jquery.cookie.js"></script>
-<script src="~/Scripts/excanvas.js"></script>
-<script src="~/Scripts/respond.js"></script>
-<script src="~/Content/plugins/uniform/jquery.uniform.min.js"></script>
-<script src="~/Content/plugins/data-tables/jquery.dataTables.js"></script>
-<script src="~/Content/plugins/data-tables/DT_bootstrap.js"></script>
-<script src="~/Scripts/jquery.pulsate.min.js"></script>
-<script src="~/Scripts/app.js"></script>
-<script src="~/Content/Thickbox/jquery.thickbox.js"></script>
-<script src="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
-<script src="~/Scripts/jquery.numeric.js"></script>
-<script src="~/Scripts/jquery.ui.datapicker-zh-CN.js"></script>
-<script src="~/Scripts/admin.edit.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src='@Url.StaticFile("~/Content/plugins/jQuery/jQuery-2.1.4.min.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/jQuery/jquery-migrate-1.2.1.min.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/breakpoints/breakpoints.js")'></script>
+<script src='@Url.StaticFile("~/Content/bootstrap/js/bootstrap.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.blockui.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.cookie.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/excanvas.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/respond.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/uniform/jquery.uniform.min.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/data-tables/jquery.dataTables.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/data-tables/DT_bootstrap.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.pulsate.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/app.js")'></script>
+<script src='@Url.StaticFile("~/Content/Thickbox/jquery.thickbox.js")'></script>
+<script src='@Url.StaticFile("~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.numeric.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.ui.datapicker-zh-CN.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/admin.edit.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.min.js")'></script>
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

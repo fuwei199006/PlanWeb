@@ -26,5 +26,7 @@ namespace Plain.Model.Models.Model
         public string Addr { get; set; }
         public string OtherInfo { get; set; }
         public int Sex { get; set; }
+
+
     }
 }
