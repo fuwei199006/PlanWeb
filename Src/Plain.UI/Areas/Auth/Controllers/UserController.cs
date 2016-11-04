@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Core.Encrypt;
 using Plain.BLL.UserService;
-using Plain.Dto.Request;
 using Framework.Utility;
-using Plain.Dto;
 using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
+using Plain.Dto.Request;
+using Plain.Dto;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
