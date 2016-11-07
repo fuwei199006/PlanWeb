@@ -3691,6 +3691,7 @@
     <Content Include="Areas\Auth\Views\Role\Edit.cshtml" />
     <Content Include="Areas\Auth\Views\Power\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Power\Edit.cshtml" />
+    <Content Include="Areas\Auth\Views\User\Detail.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

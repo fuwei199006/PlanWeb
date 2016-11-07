@@ -106,5 +106,11 @@ namespace Plain.UI.Areas.Auth.Controllers
             this._userService.DeleteUser(ids);
             return RedirectToAction("Index"); 
         }
+
+        public ActionResult Detail(int id)
+        {
+            var user = _userService.GetUserByUserId(id);
+            return View(user);
+        }
     }
 }

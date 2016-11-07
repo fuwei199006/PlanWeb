@@ -110,22 +110,10 @@
     <script>
         $(function () {
             $("#btnView").click(function () {
-                $("#dialog_simple").dialog({
-                    resizable: false,
-                    height: "auto",
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                        "保存": function () {
-                            dialog.dialog("close");
-                        },
-                        "取消": function () {
-                            $(this).dialog("close");
-                        }
-                    }
+                App.showDialog($("#dialog_simple"), {
+                    url: '@Url.Action("Detail")',
+                    params:{id:1}
                 });
-                $('#dialog_simple').dialog('open');
-                return false;
             });
         });
     </script>

@@ -23,7 +23,8 @@
     <link href='@Url.StaticFile("~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css")' rel="stylesheet" />
     <link href='@Url.StaticFile("~/Content/Metric/admin.main.css")' rel="stylesheet" />
     <link href='@Url.StaticFile("~/Content/Thickbox/jquery.thickbox.css")' rel="stylesheet" />
-
+    <link href="~/Content/plugins/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery-ui-bootstrap/css/custom-theme/jquery.ui.1.10.0.ie.css" rel="stylesheet" />
     <link href="~/Content/plugins/jquery-ui-bootstrap/assets/css/docs.css" rel="stylesheet" />
     @RenderSection("PageSpecificCssIncludes", required: false)
 
@@ -115,7 +116,7 @@
 <script src='@Url.StaticFile("~/Scripts/jquery.numeric.js")'></script>
 <script src='@Url.StaticFile("~/Scripts/jquery.ui.datapicker-zh-CN.js")'></script>
 <script src='@Url.StaticFile("~/Scripts/admin.main.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/app.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/app.js")' type="text/javascript" charset="utf-8"></script>
  
 <script type="text/javascript">
 
@@ -123,8 +124,9 @@
 
         App.init(); // initlayout and core plugins
 
+
     });
 
-
+    //App.blockUI($("body"),"");
 </script>
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

@@ -1,4 +1,4 @@
-var App = function () {
+﻿var App = function () {
 
     var isIE8 = false; // IE8 mode
     var isIE9 = false;
@@ -27,7 +27,7 @@ var App = function () {
             isIE9 = true;
         }
 
-        var isIE10 = !! navigator.userAgent.match(/MSIE 10/);
+        var isIE10 = !!navigator.userAgent.match(/MSIE 10/);
 
         if (isIE10) {
             jQuery('html').addClass('ie10'); // set ie10 class on html element.
@@ -1002,15 +1002,15 @@ var App = function () {
         function chart1() {
             var d1 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.25)
-            d1.push([i, Math.sin(i)]);
+                d1.push([i, Math.sin(i)]);
 
             var d2 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.25)
-            d2.push([i, Math.cos(i)]);
+                d2.push([i, Math.cos(i)]);
 
             var d3 = [];
             for (var i = 0; i < Math.PI * 2; i += 0.1)
-            d3.push([i, Math.tan(i)]);
+                d3.push([i, Math.tan(i)]);
 
             $.plot($("#chart_1"), [{
                 label: "sin(x)",
@@ -1260,7 +1260,7 @@ var App = function () {
 
                     // find the nearest points, x-wise
                     for (j = 0; j < series.data.length; ++j)
-                    if (series.data[j][0] > pos.x) break;
+                        if (series.data[j][0] > pos.x) break;
 
                     // now interpolate
                     var y, p1 = series.data[j - 1],
@@ -1330,15 +1330,15 @@ var App = function () {
         function chart5() {
             var d1 = [];
             for (var i = 0; i <= 10; i += 1)
-            d1.push([i, parseInt(Math.random() * 30)]);
+                d1.push([i, parseInt(Math.random() * 30)]);
 
             var d2 = [];
             for (var i = 0; i <= 10; i += 1)
-            d2.push([i, parseInt(Math.random() * 30)]);
+                d2.push([i, parseInt(Math.random() * 30)]);
 
             var d3 = [];
             for (var i = 0; i <= 10; i += 1)
-            d3.push([i, parseInt(Math.random() * 30)]);
+                d3.push([i, parseInt(Math.random() * 30)]);
 
             var stack = 0,
                 bars = true,
@@ -1710,17 +1710,17 @@ var App = function () {
             });
         }
     }
-    
+
     var handlePulsate = function () {
-    
+
         if (!jQuery().pulsate) {
             return;
         }
-  
+
         if (isIE8 == true) {
             return; // pulsate plugin does not support IE8 and below
         }
-        
+
         if (jQuery().pulsate) {
 
             jQuery('#pulsate-regular').pulsate({
@@ -3334,10 +3334,10 @@ var App = function () {
         },
 
         // wrapper function to  block element(indicate loading)
-        blockUI: function (el, loaderOnTop) {
-            lastBlockedUI = el;
-            jQuery(el).block({
-                message: '<img src="./Images/loading.gif" align="absmiddle">',
+        blockUI: function (el) {
+            lastBlockedUI = el || jQuery("body");
+            jQuery(lastBlockedUI).block({
+                message: '<img src="../Content/Images/loadingAnimation.gif" align="absmiddle"/><br/><span> 请稍等.....</span>',
                 css: {
                     border: 'none',
                     padding: '2px',
@@ -3353,7 +3353,8 @@ var App = function () {
 
         // wrapper function to  un-block element(finish loading)
         unblockUI: function (el) {
-            jQuery(el).unblock({
+            lastBlockedUI = el || jQuery("body");
+            jQuery(lastBlockedUI).unblock({
                 onUnblock: function () {
                     jQuery(el).removeAttr("style");
                 }
@@ -3402,8 +3403,48 @@ var App = function () {
             } catch (e) {
                 return false;
             }
+        },
+        showDialog: function (el, option) {
+            var _deafult = {
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "取消": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            }
+            var parentThis = this;
+            var finalOption = $.extend(option, _deafult, true);
+            if (!!finalOption.url) {
+                this.blockUI();
+                jQuery.get(finalOption.url, finalOption.params, function (res) {
+                    el.html(res);
+                    el.dialog(finalOption);
+                    el.dialog('open');
+                    parentThis.unblockUI();
+                }).error(function (e) {
+                    console.error(e);
+                    parentThis.unblockUI();
+                });
+
+                return false;
+            }
+            else if (!!finalOption.url) { }
         }
+
+
 
     };
 
 }();
+
+//# region  Commod方法
+
+//var PlainCommon = function () {
+
+//}
+
+//# endregion 
