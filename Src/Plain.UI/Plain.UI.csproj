@@ -2215,6 +2215,7 @@
     <Content Include="Content\Metronic\ui_tiles.html" />
     <Content Include="Content\Metronic\ui_tree.html" />
     <Content Include="Content\Metronic\ui_typography.html" />
+    <Content Include="Content\Plain\css\Dialog.css" />
     <Content Include="Content\plugins\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="Content\plugins\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="Content\plugins\bootstrap-colorpicker\img\hue.png" />
