@@ -3405,34 +3405,59 @@
             }
         },
         showDialog: function (el, option) {
-            var _deafult = {
-                resizable: false,
-                height: "auto",
-                width: 400,
-                modal: true,
-                buttons: {
-                    "取消": function () {
-                        $(this).dialog("close");
-                    }
-                }
-            }
-            var parentThis = this;
-            var finalOption = $.extend(option, _deafult, true);
-            if (!!finalOption.url) {
-                this.blockUI();
-                jQuery.get(finalOption.url, finalOption.params, function (res) {
-                    el.html(res);
-                    el.dialog(finalOption);
-                    el.dialog('open');
-                    parentThis.unblockUI();
-                }).error(function (e) {
-                    console.error(e);
-                    parentThis.unblockUI();
-                });
+            ShowDialogCenter(option);
+            //var _deafult = {
+            //    title: "  <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'></button> <h3>" + option.title + "</h3> </div>",
+            //    resizable: false,
+            //    autoOpen:false,
+            //    height: "auto",
+            //    width: 600,
+            //    modal: true,
+            //    buttons: [
+            //              {
+            //                  text: "Delete",
+            //                  click: function () {
+            //                  },
+            //                  "class": "ui-button-danger"
+            //              },
+            //              {
+            //                  text: "Edit",
+            //                  click: function () {
+            //                  },
+            //                  "class": "ui-button-warning"
+            //              },
+            //              {
+            //                  text: "other",
+            //                  click: function () {
+            //                  },
+            //                  "class": "ui-button-inverse"
+            //              },
+            //              {
+            //                  text: "Close",
+            //                  click: function () {
+            //                      $(this).dialog("close");
+            //                  }
+            //              }
+            //    ]
+            //}
+            //var parentThis = this;
+            //var finalOption = $.extend(option, _deafult, true);
+            //if (!!finalOption.url) {
+            //    //this.blockUI();
+            //    jQuery.get(finalOption.url, finalOption.params, function (res) {
+            //        el.html(res);
+            //        el.dialog(finalOption);
+            //        parentThis.unblockUI();
+            //        el.dialog('open');
+            //        //
+            //    }).error(function (e) {
+            //        console.error(e);
+            //        parentThis.unblockUI();
+            //    });
 
-                return false;
-            }
-            else if (!!finalOption.url) { }
+            //    return false;
+            //}
+            //else if (!!finalOption.url) { }
         }
 
 

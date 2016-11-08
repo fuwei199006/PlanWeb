@@ -146,7 +146,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 this.CookieContext.UserToken = loginInfo.LoginToken;
                 this.CookieContext.UserName = loginInfo.LoginName;
                 this.CookieContext.UserId = loginInfo.LoginUserId;
-                return RedirectToAction("Index", "CmsHome",new{Area="CMS"});
+                return RedirectToAction("Index", "Menu", new{Area="Auth"});
             }
             ModelState.AddModelError("valideCode", "用户名或密码不正确");
             return View("Index");

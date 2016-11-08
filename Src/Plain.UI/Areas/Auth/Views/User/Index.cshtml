@@ -112,7 +112,8 @@
             $("#btnView").click(function () {
                 App.showDialog($("#dialog_simple"), {
                     url: '@Url.Action("Detail")',
-                    params:{id:1}
+                    data: { id: 1 },
+                    title:"修改人员"
                 });
             });
         });
