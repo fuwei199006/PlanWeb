@@ -2290,6 +2290,25 @@
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\plugins\bootstrap-dialog\.gitignore" />
+    <Content Include="Content\plugins\bootstrap-dialog\changelog.txt" />
+    <Content Include="Content\plugins\bootstrap-dialog\dist\css\bootstrap-dialog.css" />
+    <Content Include="Content\plugins\bootstrap-dialog\dist\css\bootstrap-dialog.min.css" />
+    <Content Include="Content\plugins\bootstrap-dialog\dist\js\bootstrap-dialog.js" />
+    <Content Include="Content\plugins\bootstrap-dialog\dist\js\bootstrap-dialog.min.js" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\images\pig.ico" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\index.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\append-to-div.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\button-event.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\custom-dialog-id.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\only-one-dialog.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\reopen-dialog.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\spinning-icon.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\play\tabindex.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\examples\remote.html" />
+    <Content Include="Content\plugins\bootstrap-dialog\gulpfile.js" />
+    <Content Include="Content\plugins\bootstrap-dialog\src\css\bootstrap-dialog.css" />
+    <Content Include="Content\plugins\bootstrap-dialog\src\js\bootstrap-dialog.js" />
     <Content Include="Content\plugins\breakpoints\breakpoints.js" />
     <Content Include="Content\plugins\breakpoints\example.html" />
     <Content Include="Content\plugins\chosen-bootstrap\.gitignore" />
@@ -3974,6 +3993,7 @@
     <Content Include="Content\Thickbox\jquery.thickbox.min.js.map">
       <DependentUpon>jquery.thickbox.min.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\ace.css" />
     <Content Include="Scripts\admin.edit.js" />
     <Content Include="Scripts\admin.main.js" />
     <Content Include="Scripts\app.js" />
@@ -4048,6 +4068,15 @@
     <Content Include="Content\Metronic\media\image\glyphiconshalflings-regular.ttf" />
     <Content Include="Content\Metronic\media\image\glyphiconshalflings-regular.woff" />
     <Content Include="Content\Metronic\media\image\js" />
+    <Content Include="Content\plugins\bootstrap-dialog\.eslintignore" />
+    <Content Include="Content\plugins\bootstrap-dialog\.eslintrc" />
+    <Content Include="Content\plugins\bootstrap-dialog\.npmignore" />
+    <Content Include="Content\plugins\bootstrap-dialog\bower.json" />
+    <Content Include="Content\plugins\bootstrap-dialog\composer.json" />
+    <Content Include="Content\plugins\bootstrap-dialog\dist\less\bootstrap-dialog.less" />
+    <Content Include="Content\plugins\bootstrap-dialog\package.json" />
+    <Content Include="Content\plugins\bootstrap-dialog\README.md" />
+    <Content Include="Content\plugins\bootstrap-dialog\src\less\bootstrap-dialog.less" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

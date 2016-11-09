@@ -3345,7 +3345,7 @@
                 },
                 overlayCSS: {
                     backgroundColor: '#000',
-                    opacity: 0.05,
+                    opacity: 0.8,
                     cursor: 'wait'
                 }
             });
@@ -3405,59 +3405,71 @@
             }
         },
         showDialog: function (el, option) {
-            ShowDialogCenter(option);
-            //var _deafult = {
-            //    title: "  <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'></button> <h3>" + option.title + "</h3> </div>",
-            //    resizable: false,
-            //    autoOpen:false,
-            //    height: "auto",
-            //    width: 600,
-            //    modal: true,
-            //    buttons: [
-            //              {
-            //                  text: "Delete",
-            //                  click: function () {
-            //                  },
-            //                  "class": "ui-button-danger"
-            //              },
-            //              {
-            //                  text: "Edit",
-            //                  click: function () {
-            //                  },
-            //                  "class": "ui-button-warning"
-            //              },
-            //              {
-            //                  text: "other",
-            //                  click: function () {
-            //                  },
-            //                  "class": "ui-button-inverse"
-            //              },
-            //              {
-            //                  text: "Close",
-            //                  click: function () {
-            //                      $(this).dialog("close");
-            //                  }
-            //              }
-            //    ]
-            //}
-            //var parentThis = this;
-            //var finalOption = $.extend(option, _deafult, true);
-            //if (!!finalOption.url) {
-            //    //this.blockUI();
-            //    jQuery.get(finalOption.url, finalOption.params, function (res) {
-            //        el.html(res);
-            //        el.dialog(finalOption);
-            //        parentThis.unblockUI();
-            //        el.dialog('open');
-            //        //
-            //    }).error(function (e) {
-            //        console.error(e);
-            //        parentThis.unblockUI();
-            //    });
+            //BootstrapDialog.show({
+            //    title: 'Example',
+            //    message: '<h1>412341234123</h1>',
+            //    buttons: [{
+            //        label: 'Close',
+            //        action: function (dialog) {
+            //            dialog.close();
+            //        }
+            //    }]
+            //});
+         
+            var _deafult = {
+                title:   option.title  ,
+                resizable: false,
+                autoOpen:false,
+                height: "auto",
+                width: 600,
+                modal: true,
+                closeIcon:"",
+                buttons: [
+                          {
+                              label: "Delete",
+                              action: function () {
+                              },
+                              "class": "ui-button-danger"
+                          },
+                          {
+                              label: "Edit",
+                              action: function () {
+                              },
+                              "class": "ui-button-warning"
+                          },
+                          {
+                              label: "other",
+                              action: function () {
+                              },
+                              "class": "ui-button-inverse"
+                          },
+                          {
+                              label: "Close",
+                              action: function () {
+                                  $(this).dialog("close");
+                              }
+                          }
+                ]
+            }
+            var parentThis = this;
+            var finalOption = $.extend(option, _deafult, true);
+            if (!!finalOption.url) {
+                //this.blockUI();
+                jQuery.get(finalOption.url, finalOption.data, function (res) {
+ 
+                    finalOption.message = res;
+                    BootstrapDialog.show(finalOption);
+                    parentThis.unblockUI();
+                 
+                    //
+                }).error(function (e) {
+                    console.error(e);
+                    parentThis.unblockUI();
+                });
 
-            //    return false;
-            //}
-            //else if (!!finalOption.url) { }
+                return false;
+            }
+            else if (!!finalOption.url) { }
         }
 
 
