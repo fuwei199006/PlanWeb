@@ -1038,6 +1038,14 @@
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\AdminLTE-2.3.0\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\AdminLTE-2.3.0\starter.html" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\js\npm.js" />
     <Content Include="Content\Images\arrow-down.png" />
     <Content Include="Content\Images\avatar.png" />
     <Content Include="Content\Images\avatar1.jpg" />
@@ -2282,14 +2290,6 @@
     <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
     <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
     <Content Include="Content\plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
-    <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
-    <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="Content\bootstrap\js\bootstrap.js" />
-    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\plugins\bootstrap-dialog\.gitignore" />
     <Content Include="Content\plugins\bootstrap-dialog\changelog.txt" />
     <Content Include="Content\plugins\bootstrap-dialog\dist\css\bootstrap-dialog.css" />
@@ -4077,6 +4077,14 @@
     <Content Include="Content\plugins\bootstrap-dialog\package.json" />
     <Content Include="Content\plugins\bootstrap-dialog\README.md" />
     <Content Include="Content\plugins\bootstrap-dialog\src\less\bootstrap-dialog.less" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

@@ -90,4 +90,7 @@ h4{border-bottom: 1px solid #EEEEEE;}
 .pages span{ color:#000; padding:4px 10px; background-color:#ddd; margin:5px; }
 
 
- 
+ .bootstrap-dialog.type-default .modal-header {
+ background-color: #e8e8e8;
+
+}

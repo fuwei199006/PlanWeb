@@ -3337,7 +3337,7 @@
         blockUI: function (el) {
             lastBlockedUI = el || jQuery("body");
             jQuery(lastBlockedUI).block({
-                message: '<img src="../Content/Images/loadingAnimation.gif" align="absmiddle"/><br/><span> 请稍等.....</span>',
+                message: '<img src="../Content/Images/loadingAnimation.gif" align="absmiddle"/>',
                 css: {
                     border: 'none',
                     padding: '2px',
@@ -3405,61 +3405,28 @@
             }
         },
         showDialog: function (el, option) {
-            //BootstrapDialog.show({
-            //    title: 'Example',
-            //    message: '<h1>412341234123</h1>',
-            //    buttons: [{
-            //        label: 'Close',
-            //        action: function (dialog) {
-            //            dialog.close();
-            //        }
-            //    }]
-            //});
+          
          
             var _deafult = {
-                title:   option.title  ,
-                resizable: false,
-                autoOpen:false,
-                height: "auto",
-                width: 600,
-                modal: true,
-                closeIcon:"",
-                buttons: [
-                          {
-                              label: "Delete",
-                              action: function () {
-                              },
-                              "class": "ui-button-danger"
-                          },
-                          {
-                              label: "Edit",
-                              action: function () {
-                              },
-                              "class": "ui-button-warning"
-                          },
-                          {
-                              label: "other",
-                              action: function () {
-                              },
-                              "class": "ui-button-inverse"
-                          },
-                          {
-                              label: "Close",
-                              action: function () {
-                                  $(this).dialog("close");
-                              }
-                          }
-                ]
+                title: option.title,
+                type:BootstrapDialog.TYPE_DEFAULT,
+                closeIcon: "",
+                 top:20,
+                nl2br:false,
             }
+        
             var parentThis = this;
             var finalOption = $.extend(option, _deafult, true);
             if (!!finalOption.url) {
-                //this.blockUI();
+                this.blockUI();
                 jQuery.get(finalOption.url, finalOption.data, function (res) {
- 
-                    finalOption.message = res;
-                    BootstrapDialog.show(finalOption);
                     parentThis.unblockUI();
+                    finalOption.message = res;
+                    var dialogInstance = new BootstrapDialog();
+              
+                    dialogInstance.setType(BootstrapDialog.TYPE_DEFAULT);
+                     
+                    BootstrapDialog.show(finalOption);
                  
                     //
                 }).error(function (e) {
