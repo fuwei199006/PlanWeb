@@ -95,5 +95,34 @@ $("#delete").click(function () {
         $("#mainForm").submit();
 });
 
+$(function () {
+
+    var option = {};
+    jQuery(".pl_dialog").each(function (index, value) {
+
+        var $this = $(value);
+        var href = $this.attr("href");
+        var paras = converUrlParas(href);
+       
+       
+        $this.click(function (e) {
+            if (paras["Dialog"] === "true") {
+                option.title = $this.attr("title") || "";
+                option.height = paras["height"] || "";
+                option.width = paras["width"] || "";
+                option.url = href.split('?')[0];
+                App.showDialog(option);
+            }
+                return false;
+            });
+       
+       
+      
+
+    });
+
+
+});
+
 
 

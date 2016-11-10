@@ -15,6 +15,7 @@ namespace Plain.UI.Areas.Auth.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
+ 
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -25,6 +26,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var userPageList = _userService.GetUserByPage(userRequest.LoginName, userRequest.PageSize,
                 userRequest.PageIndex);
+ 
             return View(userPageList);
         }
 

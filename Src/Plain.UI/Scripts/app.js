@@ -3223,6 +3223,7 @@
         })
     }
 
+    
     return {
 
         //main function to initiate template pages
@@ -3404,17 +3405,20 @@
                 return false;
             }
         },
-        showDialog: function (el, option) {
-          
-         
+        showDialog: function (option) {
             var _deafult = {
                 title: option.title,
-                type:BootstrapDialog.TYPE_DEFAULT,
+                type: BootstrapDialog.TYPE_DEFAULT,
                 closeIcon: "",
-                 top:20,
-                nl2br:false,
+                nl2br: false,
+                buttons: [{
+                    label:"关闭",
+                    action: function (dialogItself) {
+                        dialogItself.close();
+                    }
+                }]
             }
-        
+
             var parentThis = this;
             var finalOption = $.extend(option, _deafult, true);
             if (!!finalOption.url) {
@@ -3422,12 +3426,7 @@
                 jQuery.get(finalOption.url, finalOption.data, function (res) {
                     parentThis.unblockUI();
                     finalOption.message = res;
-                    var dialogInstance = new BootstrapDialog();
-              
-                    dialogInstance.setType(BootstrapDialog.TYPE_DEFAULT);
-                     
                     BootstrapDialog.show(finalOption);
-                 
                     //
                 }).error(function (e) {
                     console.error(e);

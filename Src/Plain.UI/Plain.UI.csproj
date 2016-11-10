@@ -3650,6 +3650,7 @@
     <Content Include="Areas\Auth\Views\Power\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Power\Edit.cshtml" />
     <Content Include="Areas\Auth\Views\User\Detail.cshtml" />
+    <Content Include="Areas\Auth\Views\Role\RoleList.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -3993,7 +3994,6 @@
     <Content Include="Content\Thickbox\jquery.thickbox.min.js.map">
       <DependentUpon>jquery.thickbox.min.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\ace.css" />
     <Content Include="Scripts\admin.edit.js" />
     <Content Include="Scripts\admin.main.js" />
     <Content Include="Scripts\app.js" />
@@ -4046,6 +4046,7 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Theme.cshtml" />
     <Content Include="Views\Shared\_LayoutEdit.cshtml" />
+    <Content Include="Scripts\admin.utility.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

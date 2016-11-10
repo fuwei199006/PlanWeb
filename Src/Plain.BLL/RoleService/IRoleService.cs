@@ -12,6 +12,7 @@ namespace Plain.BLL.RoleService
     public interface IRoleService
     {
         PagedList<Basic_Role> GetRoleListByPage(RoleRequest request);
+        List<Basic_Role> GetRoleList();
 
         Basic_Role AddRole(Basic_Role role);
         Basic_Role GetRoleById(int id);

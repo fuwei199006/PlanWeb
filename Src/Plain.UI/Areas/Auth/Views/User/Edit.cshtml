@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "编辑";
 
+    //Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
     Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
 }
 @model Plain.Model.Models.Model.Basic_UserInfo
@@ -26,7 +27,8 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>性别</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => x.Sex, ViewData["Sex"] as IEnumerable<SelectListItem>, new {@class = "m-wrap  small"})
+                    @Html.CheckBoxFor(m => m.Sex==0)
+                    @*@Html.DropDownListFor(x => x.Sex, ViewData["Sex"] as IEnumerable<SelectListItem>, new {@class = "m-wrap  small"})*@
                 </div>
             </div>
             <div class="control-group">
@@ -47,11 +49,7 @@
                 <label class="control-label"> 邮箱</label>
                 <div class="controls">
                     @Html.TextBoxFor(x => x.UserEmail, new {@class = "m-wrap small"})
-                    <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = Model.Id})?TB_iframe=true&height=450&width=600">
-                        <i class="icon-edit"></i>
-                        编辑
-                    </a>
-
+             
                 </div>
             </div>
             <div class="control-group">

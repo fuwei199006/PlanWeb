@@ -1,4 +1,5 @@
 ﻿using Framework.Contract;
+using Plain.Dto;
 using Plain.Dto.Request;
 using Plain.Model.Models.Model;
 using System;
@@ -24,6 +25,11 @@ namespace Plain.BLL.RoleService
         public Basic_Role GetRoleById(int id)
         {
             return GetEntityById(id);
+        }
+
+        public List<Basic_Role> GetRoleList()
+        {
+            return this.LoadEntitiesNoTracking(r => r.RoleStatus == (int)StatusType.Enable).ToList();
         }
 
         public PagedList<Basic_Role> GetRoleListByPage(RoleRequest request)

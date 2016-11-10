@@ -75,5 +75,12 @@ namespace Plain.UI.Areas.Auth.Controllers
             _roleService.DeleteRoles(ids);
             return RedirectToAction("Index");
         }
+
+        public ActionResult RoleList()
+        {
+            var roleList = _roleService.GetRoleList();
+            ViewData["RoleIds"] = new SelectList(roleList, "Id", "RoleName"); 
+            return View();
+        }
     }
 }

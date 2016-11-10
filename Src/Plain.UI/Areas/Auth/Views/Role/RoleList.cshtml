@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "编辑";
+
+    Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
+}
+@using Framework.Web.Controls;
+@model List<Plain.Model.Models.Model.Basic_Role>
+@section MainContent{
+    
+    @Html.CheckBoxList("RoleIds")
+
+}

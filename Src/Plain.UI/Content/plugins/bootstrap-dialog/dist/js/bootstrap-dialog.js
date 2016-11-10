@@ -394,7 +394,7 @@
         },
         createModal: function () {
             //var $modal = $('<div class="modal" role="dialog" aria-hidden="true"></div>');
-            var $modal = $('<div class="modal" role="dialog" aria-hidden="true" style="top:30%"></div>');
+            var $modal = $('<div class="modal" role="dialog" aria-hidden="true" style="top:20%"></div>');
             $modal.prop('id', this.getId());
             $modal.attr('aria-labelledby', this.getId() + '_title');
 
