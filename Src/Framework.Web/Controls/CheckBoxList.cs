@@ -67,6 +67,7 @@ namespace Framework.Web.Controls
             HtmlAttributes.Add("id", id);
             HtmlAttributes.Add("name", name);
             HtmlAttributes.Add("style", "border:none;");
+ 
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -82,7 +83,8 @@ namespace Framework.Web.Controls
                 TagBuilder tagBuilder = new TagBuilder("input");
                 tagBuilder.MergeAttributes<string, object>(newHtmlAttributes);
                 string inputAllHtml = tagBuilder.ToString(TagRenderMode.SelfClosing);
-                string containerFormat = isHorizon ? @"<label> {0}  {1}</label>" : @"<p><label> {0}  {1}</label></p>";
+                //string containerFormat = isHorizon ? @"<label> {0}  {1}</label>" : @"<p><label> {0}  {1}</label></p>";
+                string containerFormat = isHorizon ? @"<label class='checkbox'> <div class='checker'><span >{0}</span></div> {1} </label>" : @"<label class='checkbox line'> <div class='checker'><span >{0}</span></div> {1} </label>";
                 stringBuilder.AppendFormat(containerFormat,
                    inputAllHtml, selectItem.Text);
             }
