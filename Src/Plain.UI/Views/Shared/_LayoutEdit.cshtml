@@ -10,12 +10,15 @@
 
     <link href='@Url.StaticFile("~/Content/bootstrap/css/bootstrap.min.css")' rel="stylesheet" />
     <link href='@Url.StaticFile("~/Content/Metric/metro.css")' rel="stylesheet" />
-    <link href='@Url.StaticFile("~/Content/bootstrap/css/bootstrap-responsive.css")' rel="stylesheet" />
     <link href='@Url.StaticFile("~/Content/plugins/font-awesome/css/font-awesome.min.css")' rel="stylesheet" />
-    <link href='@Url.StaticFile("~/Content/metric/style.css")' rel="stylesheet" />
-    <link href='@Url.StaticFile("~/Content/plugins/uniform/css/uniform.default.css")' rel="stylesheet" />
+
     <link href="~/Content/Metronic/media/css/style-metro.css" rel="stylesheet" />
- 
+    <link href="~/Content/Metronic/media/css/style.css" rel="stylesheet" />
+    <link href='@Url.StaticFile("~/Content/metric/style.css")' rel="stylesheet" />
+
+    <link href="~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+  
+    <link href='@Url.StaticFile("~/Content/plugins/uniform/css/uniform.default.css")' rel="stylesheet" />
 
     @RenderSection("PageSpecificCssIncludes", required: false)
 </head>
@@ -42,21 +45,24 @@
 <script src='@Url.StaticFile("~/Content/plugins/jQuery/jQuery-2.1.4.min.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/jQuery/jquery-migrate-1.2.1.min.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/breakpoints/breakpoints.js")'></script>
-<script src='@Url.StaticFile("~/Content/bootstrap/js/bootstrap.min.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.blockui.js")'></script>
+<script src='@Url.StaticFile("~/Content/bootstrap/js/bootstrap.js")'></script>
 <script src='@Url.StaticFile("~/Scripts/jquery.cookie.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/excanvas.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/respond.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/uniform/jquery.uniform.min.js")'></script>
-<script src='@Url.StaticFile("~/Content/plugins/data-tables/jquery.dataTables.js")'></script>
-<script src='@Url.StaticFile("~/Content/plugins/data-tables/DT_bootstrap.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.pulsate.min.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/app.js")'></script>
-<script src='@Url.StaticFile("~/Content/Thickbox/jquery.thickbox.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.numeric.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.ui.datapicker-zh-CN.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/admin.edit.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.validate.min.js")'></script>
-<script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/app.js")' type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/admin.edit.js"></script>
+<script type="text/javascript">
+
+    jQuery(document).ready(function () {
+
+        App.init(); // initlayout and core plugins
+
+
+    });
+
+    //App.blockUI($("body"),"");
+</script>
+
+
 @RenderSection("PageSpecificJavascriptIncludes", required: false)

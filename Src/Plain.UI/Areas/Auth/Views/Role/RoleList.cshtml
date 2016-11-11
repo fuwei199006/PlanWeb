@@ -6,9 +6,38 @@
 @using Framework.Web.Controls;
 @model List<Plain.Model.Models.Model.Basic_Role>
 @section MainContent{
-     
+
+    <div class="portlet paddingless">
+
+        <div class="portlet-title line">
+
+            <div class="caption"><i class="icon-bell"></i>Feeds</div>
+
+            <div class="tools">
+
+                <a href="javascript:void(0);" class="collapse"></a>
+
+                @*<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+                <a href="" class="reload"></a>
+
+                <a href="" class="remove"></a>*@
+
+            </div>
+
+        </div>
+
+        <div class="portlet-body" style="display: block;">
+
             <div class="controls">
-    @Html.CheckBoxList("RoleIds")
-</div>
-         
+                @Html.CheckBoxList("RoleIds")
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 }
