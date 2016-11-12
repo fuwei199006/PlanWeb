@@ -9,7 +9,7 @@ namespace Plain.Model.Models.Model
 
         public string PoweName { get; set; }
         public int PowerStatus { get; set; }
-
+        public string PowerGroup { get; set; }
         public DateTime ModifyTime { get; set; }
     }
 }

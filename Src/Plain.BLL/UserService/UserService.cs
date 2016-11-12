@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Linq;
+using Core.Service;
 using Framework.Contract;
+using Plain.BLL.RoleService;
+using Plain.BLL.UserRoleService;
 using Plain.Dto;
 
 namespace Plain.BLL.UserService
@@ -17,6 +20,7 @@ namespace Plain.BLL.UserService
 
         public Basic_UserInfo GetUserByEmail(string email)
         {
+            if (string.IsNullOrEmpty(email)) return null;
              return this.GetEntityWithNoTracking(r => r.UserEmail == email&&r.UserStaus==1);
             
         }
@@ -43,7 +47,12 @@ namespace Plain.BLL.UserService
 
         public Basic_UserInfo GetUserByUserId(int id)
         {
-            return this.GetEntityById(id);
+
+            var user = this.GetEntityById(id);
+            var userRoles =
+                ServiceContext.Current.CreateService<IUserRoleService>().GetUserRolesByUserId(user.Id);
+            user.Roles = ServiceContext.Current.CreateService<IRoleService>().GetRoleListByRoleIds(userRoles.Select(x => x.RoleId).ToList());
+            return user;
         }
 
         public PagedList<Basic_UserInfo> GetUserByPage(string userName, int pageSize, int pageIndex)

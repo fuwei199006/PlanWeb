@@ -12,7 +12,12 @@ namespace Plain.BLL.RoleService
 {
    public class RoleService : BaseService<Basic_Role>,IRoleService
     {
-        public Basic_Role AddRole(Basic_Role role)
+       public List<Basic_Role> GetRoleListByRoleIds(List<int> ids)
+       {
+           return this.LoadEntities(r => ids.Contains(r.Id)).ToList();
+       }
+
+       public Basic_Role AddRole(Basic_Role role)
         {
            return this.Add(role);
         }

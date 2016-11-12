@@ -75,7 +75,7 @@
                 <td>@(user.BirthDay.HasValue ? user.BirthDay.Value.ToString("yyyy-MM-dd") : "")</td>
                 <td>@user.UserEmail</td>
                 <td>系统管理员、数据管理员、人事...
-                    <a class="btn mini primary  thickbox" title='添加角色' id="btnAddRole" href="@Url.Action("RoleList","Role" )?TB_iframe=true&height=450&width=600">
+                    <a class="btn mini primary  thickbox" title='添加角色' id="btnAddRole" href="@Url.Action("RoleList", "User", new { id = user.Id })?TB_iframe=true&height=450&width=600">
                         <i class="icon icon-list-alt"></i>
                         添加
                     </a>

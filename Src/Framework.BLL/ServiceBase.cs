@@ -36,7 +36,10 @@ namespace Framework.BLL
         {
             return this.CurrentResposity.Update(entity);
         }
-
+        public virtual void  UpdateRang(IList<T> entities)
+        {
+              this.CurrentResposity.UpdateRang(entities);
+        }
         public virtual T Delete(T entity)
         {
             return this.CurrentResposity.Delete(entity);

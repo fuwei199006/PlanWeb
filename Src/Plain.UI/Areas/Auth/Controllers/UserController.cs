@@ -5,6 +5,8 @@ using System.Web.Mvc;
 using Core.Encrypt;
 using Plain.BLL.UserService;
 using Framework.Utility;
+using Plain.BLL.RoleService;
+using Plain.BLL.UserRoleService;
 using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
 using Plain.Dto.Request;
@@ -15,10 +17,13 @@ namespace Plain.UI.Areas.Auth.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
- 
-        public UserController(IUserService userService)
+        private readonly IUserRoleService _userRoleService;
+        private readonly IRoleService _roleService;
+        public UserController(IUserService userService, IUserRoleService userRoleService, IRoleService roleService)
         {
             _userService = userService;
+            _userRoleService = userRoleService;
+            _roleService = roleService;
         }
 
         // GET: Auth/User
@@ -112,6 +117,14 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Detail(int id)
         {
             var user = _userService.GetUserByUserId(id);
+            return View(user);
+        }
+
+        public ActionResult RoleList(int id)
+        {
+            var user = _userService.GetUserByUserId(id);
+
+            ViewData["RoleIds"] = new SelectList(user.Roles, "Id", "RoleName");
             return View(user);
         }
     }

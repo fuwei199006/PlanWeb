@@ -9,6 +9,8 @@ namespace Plain.Model.Models.Model
  
         public string RoleName { get; set; }
         public  int  RoleStatus { get; set; }
+
+        public string RoleGroup { get; set; }
  
         public DateTime? ModifyTime { get; set; }
     }

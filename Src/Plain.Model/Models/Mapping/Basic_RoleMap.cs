@@ -10,12 +10,16 @@ namespace Plain.Model.Models.Mapping
             this.HasKey(t => t.Id);
             this.Property(t => t.RoleName)
             .IsRequired().HasMaxLength(50);
+            this.Property(t => t.RoleGroup)
+                     .HasMaxLength(10);
             this.Property(t => t.RoleStatus)
              .IsRequired();
+
             this.ToTable("Basic_Role");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.RoleName).HasColumnName("RoleName");
             this.Property(t => t.RoleStatus).HasColumnName("RoleStatus");
+            this.Property(t => t.RoleGroup).HasColumnName("RoleGroup");
             this.Property(t => t.CreateTime).HasColumnName("CreateTime");
             this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
 

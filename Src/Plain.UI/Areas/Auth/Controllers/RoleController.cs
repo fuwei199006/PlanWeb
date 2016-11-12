@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Plain.BLL.UserRoleService;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
@@ -16,9 +17,12 @@ namespace Plain.UI.Areas.Auth.Controllers
     {
         private readonly IRoleService _roleService;
 
-        public RoleController(IRoleService roleService)
+        private readonly IUserRoleService _userRoleService;
+
+        public RoleController(IRoleService roleService, IUserRoleService userRoleService)
         {
             _roleService = roleService;
+            _userRoleService = userRoleService;
         }
 
         // GET: Auth/Role
@@ -76,11 +80,6 @@ namespace Plain.UI.Areas.Auth.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult RoleList()
-        {
-            var roleList = _roleService.GetRoleList();
-            ViewData["RoleIds"] = new SelectList(roleList, "Id", "RoleName"); 
-            return View();
-        }
+       
     }
 }
