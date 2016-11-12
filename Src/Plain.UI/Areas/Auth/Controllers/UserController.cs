@@ -120,9 +120,9 @@ namespace Plain.UI.Areas.Auth.Controllers
             return View(user);
         }
 
-        public ActionResult RoleList(int id)
+        public ActionResult RoleList(int userId)
         {
-            var user = _userService.GetUserByUserId(id);
+            var user = _userService.GetUserByUserId(userId);
 
             ViewData["RoleIds"] = new SelectList(user.Roles, "Id", "RoleName");
             return View(user);
