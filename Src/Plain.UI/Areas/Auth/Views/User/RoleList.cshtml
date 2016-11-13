@@ -4,35 +4,50 @@
     Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
 }
 @using Framework.Web.Controls;
-@model  Plain.Model.Models.Model.Basic_UserInfo 
+@using Plain.Model.Models.Model
+@model  Plain.Model.Models.Model.Basic_UserInfo
 @section MainContent{
 
-    <div class="portlet paddingless">
+    <div class="page-container  row-fluid">
+        @foreach (var group in ViewBag.Group.Keys)
+        {
+            <div class="portlet paddingless">
 
-        <div class="portlet-title line">
+                <div class="portlet-title line">
 
-            <div class="caption"><i class="icon-bell"></i>Feeds</div>
+                    <div class="caption captionMargin">
+                        <i class="icon-bell"></i>
+                        <span class="roleGroup">@ViewBag.Group[group]</span>
+                    </div>
 
-            <div class="tools">
+                    <div class="tools">
 
-                <a href="javascript:void(0);" class="collapse"></a>
- 
+                        <a href="javascript:void(0);" class="collapse"></a>
+
+
+                    </div>
+
+                </div>
+
+                <div class="portlet-body" style="display: block;">
+
+                    <div class="controls">
+                        @foreach (var item in ((List<Basic_Role>)ViewBag.role).Where(r => r.RoleGroup == group.ToString()))
+                        {
+                            <label class="checkbox">
+                                @Html.CheckBox("RoleIds", Model.RoleIds.Contains(item.Id), new { value = item.Id })@item.RoleName
+                            </label>
+                        }
+
+
+                    </div>
+
+                </div>
 
             </div>
-
-        </div>
-
-        <div class="portlet-body" style="display: block;">
-
-            <div class="controls">
-                @Html.CheckBoxList("RoleIds")
-
-
-            </div>
-
-        </div>
-
+        }
     </div>
+
 
 
 }

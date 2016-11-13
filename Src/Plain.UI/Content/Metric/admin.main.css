@@ -90,7 +90,20 @@ h4{border-bottom: 1px solid #EEEEEE;}
 .pages span{ color:#000; padding:4px 10px; background-color:#ddd; margin:5px; }
 
 
+/*弹出框的样式*/
  .bootstrap-dialog.type-default .modal-header {
  background-color: #e8e8e8;
 
+}
+
+ /*角色选择页面的样式*/
+ .roleGroup {
+     font-size: 13px;
+ }
+.portlet-title  .captionMargin {
+     margin-top: 10px;
+     margin-left: 10px;
+ }
+.portlet-title .tools {
+    margin: 5px;
 }

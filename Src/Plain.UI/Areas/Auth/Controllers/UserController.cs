@@ -123,8 +123,9 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult RoleList(int userId)
         {
             var user = _userService.GetUserByUserId(userId);
-
-            ViewData["RoleIds"] = new SelectList(user.Roles, "Id", "RoleName");
+            var roleList = _roleService.GetRoleList();
+            ViewBag.Group = EnumHelper.GetItemValueList<RoleGroup>();
+            ViewBag.role = roleList;
             return View(user);
         }
     }

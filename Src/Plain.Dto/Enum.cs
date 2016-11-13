@@ -8,6 +8,8 @@ using Framework.Utility.ValideCode;
 
 namespace Plain.Dto
 {
+
+    //todo:现在的主数据的获取都是通过程序集的反射的方式获取，后面可以改成由配置文件决定读取的方式，db,程序集，xml文件
     public enum MsgType
     {
         Error, Success, Info
@@ -47,7 +49,7 @@ namespace Plain.Dto
         Disable = 0
     }
 
-    public enum UserStausType 
+    public enum UserStausType
     {
         [EnumTitle("禁用")]
         Disable = 1,
@@ -65,5 +67,17 @@ namespace Plain.Dto
         Female = 0,
         [EnumTitle("男")]
         Male = 1
+    }
+
+    public enum RoleGroup
+    {
+        [EnumTitle("系统角色")]
+        SystemRole = 1,
+        [EnumTitle("数据角色")]
+        DataRole = 2,
+        [EnumTitle("部门角色")]
+        DeptRole = 3,
+        [EnumTitle("其它角色")]
+        OtherRole = 4,
     }
 }
