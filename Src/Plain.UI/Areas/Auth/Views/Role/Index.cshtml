@@ -46,6 +46,7 @@
             </th>
             <th>序号</th>
             <th>角色名称</th>
+            <th>角色分组</th>
             <th>是否可用 </th>
             <th>操作 </th>
         
@@ -56,6 +57,7 @@
                 <td><input type="checkbox" class="checkboxes" name='ids' value='@role.Id' /></td>
                 <td>@role.Id</td>
                 <td>@role.RoleName</td>
+                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<RoleGroup>(int.Parse(role.RoleGroup)))</td>
                 <td><span class="label label-@(role.RoleStatus == 1 ? "success" : "inverse")">@(role.RoleStatus == 1 ? "可用" : "禁用")</span></td>
                
                 <td>

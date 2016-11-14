@@ -35,7 +35,8 @@
                         @foreach (var item in ((List<Basic_Role>)ViewBag.role).Where(r => r.RoleGroup == group.ToString()))
                         {
                             <label class="checkbox">
-                                @Html.CheckBox("RoleIds", Model.RoleIds.Contains(item.Id), new { value = item.Id })@item.RoleName
+                                <input type="checkbox" class="checkboxes" name='RoleIds' value='@item.Id' @(Model.RoleIds.Contains(item.Id)?"checked=true":"")/>@item.RoleName
+                                @*@Html.CheckBox("RoleIds", Model.RoleIds.Contains(item.Id), new { value = item.Id,@class="checkboxes" })*@
                             </label>
                         }
 

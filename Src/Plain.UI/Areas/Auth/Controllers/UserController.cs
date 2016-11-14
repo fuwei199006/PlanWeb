@@ -31,7 +31,10 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var userPageList = _userService.GetUserByPage(userRequest.LoginName, userRequest.PageSize,
                 userRequest.PageIndex);
- 
+             foreach(var user in userPageList)
+            {
+                user.Roles = _userService.GetUserByUserId(user.Id).Roles;
+            }
             return View(userPageList);
         }
 
@@ -120,13 +123,29 @@ namespace Plain.UI.Areas.Auth.Controllers
             return View(user);
         }
 
-        public ActionResult RoleList(int userId)
+        public ActionResult RoleList(int id)
         {
-            var user = _userService.GetUserByUserId(userId);
+            var user = _userService.GetUserByUserId(id);
             var roleList = _roleService.GetRoleList();
             ViewBag.Group = EnumHelper.GetItemValueList<RoleGroup>();
             ViewBag.role = roleList;
             return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult RoleList(int id,List<int> RoleIds)
+        {
+            _userRoleService.DeleteUserRoles(id);
+            var userRoleList = RoleIds.Select(x => new Basic_UserRole
+            {
+                UserId = id,
+                RoleId = x,
+                MappingStatus = true,
+                CreateTime = DateTime.Now,
+                ModifyTime = DateTime.Now
+            }).ToList();
+            _userRoleService.AddUserRole(userRoleList);
+            return this.RefreshParent();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Plain.Model.Models.Model;
+using System;
 
 namespace Plain.BLL.UserRoleService
 {
@@ -31,6 +32,7 @@ namespace Plain.BLL.UserRoleService
             foreach (var basicUserRole in userRoles)
             {
                 basicUserRole.MappingStatus = false;
+                basicUserRole.ModifyTime = DateTime.Now;
             }
             this.UpdateRang(userRoles);
         }
