@@ -80,4 +80,16 @@ namespace Plain.Dto
         [EnumTitle("其它角色")]
         OtherRole = 4,
     }
+
+    public enum PowerGroup
+    {
+        [EnumTitle("系统角色")]
+        SystemPower = 1,
+        [EnumTitle("数据角色")]
+        DataPower = 2,
+        [EnumTitle("部门角色")]
+        DeptPower = 3,
+        [EnumTitle("其它角色")]
+        OtherPower = 4,
+    }
 }

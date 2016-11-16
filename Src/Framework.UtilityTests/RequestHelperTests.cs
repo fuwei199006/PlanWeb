@@ -2,6 +2,7 @@
 using System.Text;
 using Framework.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Web;
 
 namespace Framework.Utility.Tests
 {
@@ -23,6 +24,14 @@ namespace Framework.UtilityTests
     [TestClass()]
     public class GetDeviceDtoTests
     {
+
+        [TestMethod]
+        public void GetStr()
+        {
+            var sql = @"Mozilla / 5.0(Windows NT 6.1; WOW64) AppleWebKit / \r\n\r\r\r\r\t\r\r537.36(KHTML, like Gecko) Chrome / 53.0.2785.30 Safari / 537.36";
+            var res = StringUtil.DeleteUnVisibleChar(sql);
+            var html = HttpUtility.UrlDecode(sql);
+        }
         [TestMethod()]
         public void GetDeviceDtoTest()
         {

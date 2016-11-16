@@ -40,6 +40,13 @@ namespace Plain.UI.Areas.Auth.Controllers
                 Text = x.Value.ToString()
 
             });
+
+            ViewData["RoleGroup"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
+            {
+                Value = x.Key.ToString(),
+                Text = x.Value.ToString()
+
+            });
             var role = this._roleService.GetRoleById(id);
             return View(role);
         }

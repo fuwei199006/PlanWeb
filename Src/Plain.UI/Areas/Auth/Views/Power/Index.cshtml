@@ -47,6 +47,7 @@
             <th>序号</th>
             <th>权限名称</th>
             <th>权限状态 </th>
+            <th>权限分组 </th>
             <th>创建时间 </th>
             <th>操作 </th>
 
@@ -57,11 +58,13 @@
                 <td><input type="checkbox" class="checkboxes" name='ids' value='@power.Id' /></td>
                 <td>@power.Id</td>
                 <td>@power.PoweName</td>
-                <td>@power.CreateTime.ToString("yyyy-MM-dd")</td>
                 <td><span class="label label-@(power.PowerStatus == 1 ? "success" : "inverse")">@(power.PowerStatus == 1 ? "可用" : "禁用")</span></td>
 
+                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<PowerGroup>(int.Parse(@power.PowerGroup)))</td>
+                <td>@power.CreateTime.ToString("yyyy-MM-dd")</td>
+      
                 <td>
-                    <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = power.Id })?TB_iframe=true&height=250&width=400">
+                    <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new { id = power.Id })?TB_iframe=true&height=300&width=400">
                         <i class="icon-edit"></i>
                         编辑
                     </a>
