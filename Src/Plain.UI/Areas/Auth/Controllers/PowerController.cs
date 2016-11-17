@@ -60,6 +60,13 @@ namespace Plain.UI.Areas.Auth.Controllers
                 Text = x.Value.ToString()
 
             });
+
+            ViewData["PowerGroupDrop"] = EnumHelper.GetItemValueList<PowerGroup>().Select(x => new SelectListItem
+            {
+                Value = x.Key.ToString(),
+                Text = x.Value.ToString()
+
+            });
             var power = _powerService.GetPowerById(id);
             return View(power);
         }
@@ -67,7 +74,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection formCollection)
         {
-           
+            
             var power = _powerService.GetPowerById(id);
             this.TryUpdateModel(power);
             power.ModifyTime = DateTime.Now;

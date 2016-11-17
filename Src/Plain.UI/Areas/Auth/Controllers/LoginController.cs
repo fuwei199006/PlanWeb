@@ -174,5 +174,16 @@ namespace Plain.UI.Areas.Auth.Controllers
             return File(bytes, @"image/jpeg");
 
         }
+
+
+        [AuthorizeIgnore]
+        public ActionResult LoginOut()
+        {
+            this._loginService.LoginOut(this.CookieContext.UserToken);
+            this.CookieContext.UserToken = Guid.Empty;
+            this.CookieContext.UserName = string.Empty;
+            this.CookieContext.UserId = 0;
+            return RedirectToAction("Index");
+        }
     }
 }

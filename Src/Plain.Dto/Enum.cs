@@ -83,13 +83,13 @@ namespace Plain.Dto
 
     public enum PowerGroup
     {
-        [EnumTitle("系统角色")]
+        [EnumTitle("系统权限")]
         SystemPower = 1,
-        [EnumTitle("数据角色")]
+        [EnumTitle("数据权限")]
         DataPower = 2,
-        [EnumTitle("部门角色")]
+        [EnumTitle("部门权限")]
         DeptPower = 3,
-        [EnumTitle("其它角色")]
+        [EnumTitle("其它权限")]
         OtherPower = 4,
     }
 }

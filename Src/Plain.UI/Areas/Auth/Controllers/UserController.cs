@@ -94,7 +94,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 Text = x.Value.ToString()
 
             });
-            ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
+            ViewData["SexDrop"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
                 Text = x.Value

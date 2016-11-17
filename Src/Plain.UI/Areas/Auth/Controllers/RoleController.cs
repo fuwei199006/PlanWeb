@@ -41,7 +41,7 @@ namespace Plain.UI.Areas.Auth.Controllers
 
             });
 
-            ViewData["RoleGroup"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
+            ViewData["RoleGroupDrop"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
             {
                 Value = x.Key.ToString(),
                 Text = x.Value.ToString()
