@@ -14,7 +14,8 @@ namespace Plain.BLL.PowerService
         PagedList<Basic_Power> GetPowerPage(PowerRequest request);
 
 
-        IQueryable<Basic_Power> GetPowerList();
+        List<Basic_Power> GetPowerList();
+        IQueryable<Basic_Power> GetPowerListBtPowerIds(List<int> ids );
         Basic_Power GetPowerById(int id);
 
         Basic_Power UpdatePower(Basic_Power power);

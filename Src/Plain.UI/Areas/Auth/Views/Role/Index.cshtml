@@ -63,7 +63,7 @@
               
                 <td><span class="label label-@(role.RoleStatus == 1 ? "success" : "inverse")">@(role.RoleStatus == 1 ? "可用" : "禁用")</span></td>
                 <td>@StringUtil.CutString(string.Join(",", role.Powers.Select(x => x.PoweName)), 40)
-                <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("RoleList", "User", new { id = role.Id })?TB_iframe=true&height=450&width=600">
+                <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("PowerList", "Role", new { id = role.Id })?TB_iframe=true&height=450&width=600">
                     <i class="icon icon-list-alt"></i>
                     添加
                 </a></td>

@@ -21,14 +21,19 @@ namespace Plain.BLL.PowerService
             this.DeleteEntities(ids);
         }
 
+        public IQueryable<Basic_Power> GetPowerListBtPowerIds(List<int> ids)
+        {
+            return this.LoadEntitiesNoTracking(r => ids.Contains(r.Id));
+        }
+
         public Basic_Power GetPowerById(int id)
         {
             return this.GetEntityById(id);
         }
 
-        public IQueryable<Basic_Power> GetPowerList()
+        public List<Basic_Power> GetPowerList()
         {
-            return this.LoadEntitiesNoTracking();
+            return this.LoadEntitiesNoTracking(r=>r.PowerStatus==1).ToList();
         }
 
         public PagedList<Basic_Power> GetPowerPage(PowerRequest request)

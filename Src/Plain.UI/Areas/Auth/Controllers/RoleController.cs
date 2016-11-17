@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Plain.BLL.PowerRoleService;
+using Plain.BLL.PowerService;
 using Plain.BLL.UserRoleService;
 
 namespace Plain.UI.Areas.Auth.Controllers
@@ -17,12 +19,17 @@ namespace Plain.UI.Areas.Auth.Controllers
     {
         private readonly IRoleService _roleService;
 
-        private readonly IUserRoleService _userRoleService;
 
-        public RoleController(IRoleService roleService, IUserRoleService userRoleService)
+        private readonly IPowerService _powerService;
+
+        private readonly IPowerRoleService _powerRoleService;
+
+        public RoleController(IRoleService roleService , IPowerService powerService, IPowerRoleService powerRoleService)
         {
             _roleService = roleService;
-            _userRoleService = userRoleService;
+          
+            _powerService = powerService;
+            _powerRoleService = powerRoleService;
         }
 
         // GET: Auth/Role
@@ -51,7 +58,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             return View(role);
         }
         [HttpPost]
-        public ActionResult Edit(int id,FormCollection formCollection)
+        public ActionResult Edit(int id, FormCollection formCollection)
         {
             var role = this._roleService.GetRoleById(id);
             this.TryUpdateModel<Basic_Role>(role);
@@ -88,12 +95,32 @@ namespace Plain.UI.Areas.Auth.Controllers
         }
 
 
-        public ActionResult PowerRole()
+        public ActionResult PowerList(int id)
         {
-            return new EmptyResult();
+            var role = _roleService.GetRoleById(id);
+            var powerList = _powerService.GetPowerList();
+            ViewBag.Group = EnumHelper.GetItemValueList<PowerGroup>();
+            ViewBag.Power = powerList;
+            return View(role);
         }
 
+        [HttpPost]
+        public ActionResult PowerList(int id, List<int> PowerIds)
+        {
+            _powerRoleService.DeletePowerRoleByRoleId(id);
+            var powerRoleList = PowerIds.Select(x => new Basic_PowerRole()
+            {
+                RoleId = id,
+                PowerId = x,
+                MappingStatus = true,
+                CreateTime = DateTime.Now,
+                ModifyTime = DateTime.Now
+            }).ToList();
+            _powerRoleService.AddPowerRoleRange(powerRoleList);
+            return this.RefreshParent();
 
+ 
+        }
 
     }
 }

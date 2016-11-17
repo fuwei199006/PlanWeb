@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Framework.Contract;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Plain.Model.Models.Model
 {
@@ -20,5 +21,10 @@ namespace Plain.Model.Models.Model
         {
             get;set;
         }
+
+        public List<int> PowerIds
+        {
+            get { return Powers.Select(x => x.Id).ToList(); }
+        } 
     }
 }
