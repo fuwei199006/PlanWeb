@@ -87,6 +87,13 @@ namespace Plain.UI.Areas.Auth.Controllers
             return RedirectToAction("Index");
         }
 
-       
+
+        public ActionResult PowerRole()
+        {
+            return new EmptyResult();
+        }
+
+
+
     }
 }

@@ -50,7 +50,7 @@ namespace Framework.Utility.ValideCode
 
         private void ImageBmp(out Bitmap bitmap, string validataCode)
         {
-            var width = (int) (this.validataCodeLength*this.validataCodeSize);
+            var width = (int) ((this.validataCodeLength*this.validataCodeSize)*1.2);
             bitmap = new Bitmap(width, this.imageHeight);
             this.DisposeImageBmp(ref bitmap);
             this.CreateImageBmp(ref  bitmap,validataCode);

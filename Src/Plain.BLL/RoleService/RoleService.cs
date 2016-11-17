@@ -1,4 +1,6 @@
-﻿using Framework.Contract;
+﻿using Core.Service;
+using Framework.Contract;
+using Plain.BLL.PowerService;
 using Plain.Dto;
 using Plain.Dto.Request;
 using Plain.Model.Models.Model;
@@ -39,11 +41,19 @@ namespace Plain.BLL.RoleService
 
         public PagedList<Basic_Role> GetRoleListByPage(RoleRequest request)
         {
+            PagedList<Basic_Role> pageRoles = null;
             if (string.IsNullOrEmpty(request.RoleName))
             {
-                return this.LoadEntitiesByPage(r =>true, r => r.Id, request.PageSize, request.PageIndex);
+                pageRoles= this.LoadEntitiesByPage(r =>true, r => r.Id, request.PageSize, request.PageIndex);
             }
-            return this.LoadEntitiesByPage(r => r.RoleName.Contains(request.RoleName), r => r.Id, request.PageSize, request.PageIndex);
+            pageRoles= this.LoadEntitiesByPage(r => r.RoleName.Contains(request.RoleName), r => r.Id, request.PageSize, request.PageIndex);
+
+            foreach (var item in pageRoles)
+            {
+                var powerIds = ServiceContext.Current.CreateService<IPowerService>();
+                //item.Powers = ServiceContext.Current.CreateService<IPowerService>().get
+            }
+            return pageRoles;
         }
 
         public Basic_Role UpdateRole(Basic_Role role)

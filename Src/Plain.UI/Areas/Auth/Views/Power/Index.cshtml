@@ -94,6 +94,7 @@
                         window.location.reload();
                     }
                 }).error(function (e) {
+                    App.unblockUI();
                     alert(e.message);
                 });
             });
