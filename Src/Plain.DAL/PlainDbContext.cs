@@ -43,6 +43,7 @@ namespace Plain.DAL
             modelBuilder.Configurations.Add(new Basic_UserInfoMap());
             modelBuilder.Configurations.Add(new Basic_ArticleMap());
             modelBuilder.Configurations.Add(new Basic_CommitMap());
+            modelBuilder.Configurations.Add(new Basic_PowerMenuMap());
 
             //这里添加Mapping信息
             base.OnModelCreating(modelBuilder);

@@ -277,7 +277,19 @@ CREATE TABLE Basice_ActionHistory
           ModifyTime DATETIME
         );
 	
-
+    CREATE TABLE Basic_PowerMenu
+        (
+          Id INT PRIMARY KEY
+                 IDENTITY ,
+          PowerId INT NOT NULL ,
+          MenuId INT NOT NULL ,
+          MappingStatus BIT NOT NULL
+                            DEFAULT 1 ,
+          CreateTime DATETIME NOT NULL
+                              DEFAULT GETDATE() ,
+          ModifyTime DATETIME NOT NULL
+                              DEFAULT GETDATE()
+        ); 
 ---config数据 
 USE [PlanDB]
 GO

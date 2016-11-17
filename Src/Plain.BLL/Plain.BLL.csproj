@@ -58,6 +58,8 @@
     <Compile Include="LoginService\LoginService.cs" />
     <Compile Include="MenuService\IMenuService.cs" />
     <Compile Include="MenuService\MenuService.cs" />
+    <Compile Include="PowerMenuService\IPowerMenuService.cs" />
+    <Compile Include="PowerMenuService\PowerMenuService.cs" />
     <Compile Include="PowerService\IPowerService.cs" />
     <Compile Include="PowerService\PowerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,7 +126,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="RolePowerService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

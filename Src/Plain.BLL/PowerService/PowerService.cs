@@ -26,6 +26,11 @@ namespace Plain.BLL.PowerService
             return this.GetEntityById(id);
         }
 
+        public IQueryable<Basic_Power> GetPowerList()
+        {
+            return this.LoadEntitiesNoTracking();
+        }
+
         public PagedList<Basic_Power> GetPowerPage(PowerRequest request)
         {
             if (string.IsNullOrEmpty(request.PowerName))

@@ -1,4 +1,6 @@
 ﻿using Framework.Utility;
+using Plain.BLL.MenuService;
+using Plain.BLL.PowerMenuService;
 using Plain.BLL.PowerService;
 using Plain.Dto;
 using Plain.Dto.Request;
@@ -16,10 +18,14 @@ namespace Plain.UI.Areas.Auth.Controllers
     {
 
         private readonly IPowerService _powerService;
+        private readonly IMenuService _menuService;
+        private readonly IPowerMenuService _powerMenuService;
 
-        public PowerController(IPowerService powerService)
+        public PowerController(IPowerService powerService, IMenuService menuService, IPowerMenuService powerMenuService)
         {
             _powerService = powerService;
+            _menuService = menuService;
+            _powerMenuService = powerMenuService;
         }
 
         // GET: Auth/Power
@@ -74,7 +80,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection formCollection)
         {
-            
+
             var power = _powerService.GetPowerById(id);
             this.TryUpdateModel(power);
             power.ModifyTime = DateTime.Now;
@@ -86,6 +92,51 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             this._powerService.DeletePower(ids);
             return RedirectToAction("Index");
+        }
+
+        public string ExecPower()
+        {
+            try
+            {
+                _powerMenuService.ClearPowerMenu();
+                var powerIds = _powerService.GetPowerList().Select(x => x.Id).ToList();
+                _powerService.DeletePower(powerIds);
+                var menus = _menuService.GetMenus();
+                var powerMenuList = new List<Basic_PowerMenu>();
+                foreach (var item in menus)
+                {
+                    var power = new Basic_Power()
+                    {
+                        PoweName = item.MenuName + "权限",
+                        PowerGroup = ((int)PowerGroup.SystemPower).ToString(),
+                        PowerStatus=1,
+                        CreateTime = DateTime.Now,
+                        ModifyTime = DateTime.Now
+                    };
+                    var res = _powerService.AddPower(power);
+                    powerMenuList.Add(new Basic_PowerMenu()
+                    {
+                        MenuId = item.Id,
+                        PowerId = res.Id,
+                        CreateTime = DateTime.Now,
+                        ModifyTime = DateTime.Now,
+                        MappingStatus = true
+                    });
+
+                }
+
+                _powerMenuService.AddPowerMenuRang(powerMenuList);
+            }
+            catch (ArgumentNullException e)
+            {
+
+                return e.Message;
+            }
+            return string.Empty;
+       
+
+
+
         }
     }
 }

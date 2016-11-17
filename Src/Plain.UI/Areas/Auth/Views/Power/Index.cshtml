@@ -12,6 +12,7 @@
         <div>
             <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
             <a class="btn blue thickbox" title='添加权限' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 新增</a>
+            <a class="btn btn-primary" id="btnExecPower" href="javascript:;"><i class="icon-arrow-right icon-white"></i> 生成权限</a>
         </div>
     </div>
     <div class="span8">
@@ -79,3 +80,24 @@
 <div class="dataTables_paginate paging_bootstrap pagination">
     @Html.Pager(Model, new PagerOptions() { AutoHide = true, ShowTotalItemCount = true })
 </div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $(function () {
+            $("#btnExecPower").click(function () {
+                App.blockUI();
+                $.post('@Url.Action("ExecPower", "Power")', function (res) {
+                    App.unblockUI();
+                    if (!!res) {
+                        alert(res);
+                    }
+                    else {
+                        window.location.reload();
+                    }
+                }).error(function (e) {
+                    alert(e.message);
+                });
+            });
+        });
+    </script>
+    
+    }
