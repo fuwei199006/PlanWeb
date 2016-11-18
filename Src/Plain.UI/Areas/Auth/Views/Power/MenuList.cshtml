@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "编辑";
+
+    Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
+}
+@using Framework.Web.Controls;
+@using Plain.Model.Models.Model
+@model  Plain.Model.Models.Model.Basic_Power
+@section MainContent{
+    <div class="page-container  row-fluid">
+        @foreach (var group in ViewBag.Group.Keys)
+        {
+            <div class="portlet paddingless">
+
+                <div class="portlet-title line">
+
+                    <div class="caption captionMargin">
+                        <i class="icon-bell"></i>
+                        <span class="roleGroup">@ViewBag.Group[group]</span>
+                    </div>
+
+                    <div class="tools">
+
+                        <a href="javascript:void(0);" class="collapse"></a>
+
+
+                    </div>
+
+                </div>
+
+                <div class="portlet-body" style="display: block;">
+
+                    <div class="controls">
+                        @foreach (var item in ((List<Basic_Menu>)ViewBag.Menus).Where(r => r.MenuType == group.ToString()))
+                        {
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkboxes" name='MenuIds' value='@item.Id' @(Model.MenuIds.Contains(item.Id) ? "checked=true" : "") />@item.MenuName
+                                @*@Html.CheckBox("RoleIds", Model.RoleIds.Contains(item.Id), new { value = item.Id,@class="checkboxes" })*@
+                            </label>
+                        }
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+    </div>
+
+
+
+}

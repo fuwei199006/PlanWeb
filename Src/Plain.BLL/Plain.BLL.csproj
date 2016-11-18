@@ -60,12 +60,12 @@
     <Compile Include="MenuService\MenuService.cs" />
     <Compile Include="PowerMenuService\IPowerMenuService.cs" />
     <Compile Include="PowerMenuService\PowerMenuService.cs" />
+    <Compile Include="PowerRoleService\IPowerRoleService.cs" />
     <Compile Include="PowerService\IPowerService.cs" />
     <Compile Include="PowerService\PowerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterService\IRegisterService.cs" />
     <Compile Include="RegisterService\RegisterService.cs" />
-    <Compile Include="PowerRoleService\IPowerRoleService.cs" />
     <Compile Include="PowerRoleService\PowerRoleService.cs" />
     <Compile Include="RoleService\IRoleService.cs" />
     <Compile Include="RoleService\RoleService.cs" />

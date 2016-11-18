@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Plain.Dto.Request;
 using Plain.Model.Models.Model;
 using Framework.Contract;
+using Core.Service;
+using Plain.BLL.PowerMenuService;
+using Plain.BLL.MenuService;
 
 namespace Plain.BLL.PowerService
 {
@@ -28,7 +31,11 @@ namespace Plain.BLL.PowerService
 
         public Basic_Power GetPowerById(int id)
         {
-            return this.GetEntityById(id);
+            var power= this.GetEntityById(id);
+            var menuIds = ServiceContext.Current.CreateService<IPowerMenuService>().GetPowerMenusByPowerId(power.Id).Select(x => x.MenuId).ToList();
+            var menus = ServiceContext.Current.CreateService<IMenuService>().GetMenuByIds(menuIds);
+            power.Menus = menus;
+            return power;
         }
 
         public List<Basic_Power> GetPowerList()
@@ -38,11 +45,25 @@ namespace Plain.BLL.PowerService
 
         public PagedList<Basic_Power> GetPowerPage(PowerRequest request)
         {
+            PagedList<Basic_Power> pageList = null;
             if (string.IsNullOrEmpty(request.PowerName))
             {
-                return this.LoadEntitiesByPage(r => true, r => r.CreateTime, request.PageSize, request.PageIndex);
+                pageList= this.LoadEntitiesByPage(r => true, r => r.CreateTime, request.PageSize, request.PageIndex);
             }
-            return this.LoadEntitiesByPage(r => r.PoweName.Contains(request.PowerName), r => r.CreateTime, request.PageSize, request.PageIndex);
+            else
+            {
+                pageList = this.LoadEntitiesByPage(r => r.PoweName.Contains(request.PowerName), r => r.CreateTime, request.PageSize, request.PageIndex);
+            }
+
+            foreach (var item in pageList)
+            {
+
+                var menuIds = ServiceContext.Current.CreateService<IPowerMenuService>().GetPowerMenusByPowerId(item.Id).Select(x => x.MenuId).ToList();
+                var menus = ServiceContext.Current.CreateService<IMenuService>().GetMenuByIds(menuIds);
+                item.Menus = menus;
+            }
+
+            return pageList;
 
         }
 

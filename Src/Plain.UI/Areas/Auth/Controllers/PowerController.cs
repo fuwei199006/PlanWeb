@@ -109,7 +109,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                     {
                         PoweName = item.MenuName + "权限",
                         PowerGroup = ((int)PowerGroup.SystemPower).ToString(),
-                        PowerStatus=1,
+                        PowerStatus = 1,
                         CreateTime = DateTime.Now,
                         ModifyTime = DateTime.Now
                     };
@@ -133,10 +133,41 @@ namespace Plain.UI.Areas.Auth.Controllers
                 return e.Message;
             }
             return string.Empty;
-       
+        }
 
 
 
+        public ActionResult MenuList(int id)
+        {
+            var power = _powerService.GetPowerById(id);
+            var menuList = _menuService.GetMenus();
+            ViewBag.Group = EnumHelper.GetItemValueList<MenuType>();
+            ViewBag.Menus = menuList;
+            return View(power);
+        }
+
+        [HttpPost]
+        public ActionResult MenuList(int id, List<int> MenuIds)
+        {
+            _powerMenuService.DeleteByPowerId(id);
+            if (MenuIds != null)
+            {
+                var powerMenuList = new List<Basic_PowerMenu>();
+                foreach (var item in MenuIds)
+                {
+                    powerMenuList.Add(new Basic_PowerMenu()
+                    {
+                        PowerId = id,
+                        MenuId = item,
+                        MappingStatus = true,
+                        CreateTime = DateTime.Now,
+                        ModifyTime = DateTime.Now
+                    });
+                }
+                _powerMenuService.AddPowerMenuRang(powerMenuList);
+            }
+
+            return this.RefreshParent();
         }
     }
 }

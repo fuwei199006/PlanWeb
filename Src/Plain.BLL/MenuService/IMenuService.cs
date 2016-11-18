@@ -13,6 +13,7 @@ namespace Plain.BLL.MenuService
         List<Basic_Menu> GetMenus();
         PagedList<Basic_MenuDto> GetMenuDtos(string menuName, int pageSize, int pageIndex);
         Basic_Menu GetMenuById(int id);
+        List<Basic_Menu> GetMenuByIds(List<int> ids);
         Basic_Menu DeleteMenuById(int id);
 
         Basic_Menu UpdateMenu(Basic_Menu menu);

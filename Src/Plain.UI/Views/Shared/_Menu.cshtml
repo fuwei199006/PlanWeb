@@ -28,10 +28,10 @@
                 <span class="title">管理首页</span>
             </a>
         </li>
-        @foreach (var menu in AdminCacheContext.Current.MenuItems[MenuType.Group.ToString()])
+        @foreach (var menu in AdminCacheContext.Current.MenuItems[((int)MenuType.Group).ToString()])
         {
 
-            var itemMenu = AdminCacheContext.Current.MenuItems[MenuType.Item.ToString(), menu.Id];
+            var itemMenu = AdminCacheContext.Current.MenuItems[((int)MenuType.Item).ToString(), menu.Id];
             if (itemMenu != null && itemMenu.Count > 0)
             {
                 <li class="has-sub">

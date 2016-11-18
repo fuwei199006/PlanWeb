@@ -136,15 +136,19 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult RoleList(int id,List<int> RoleIds)
         {
             _userRoleService.DeleteUserRoles(id);
-            var userRoleList = RoleIds.Select(x => new Basic_UserRole
+            if (RoleIds != null)
             {
-                UserId = id,
-                RoleId = x,
-                MappingStatus = true,
-                CreateTime = DateTime.Now,
-                ModifyTime = DateTime.Now
-            }).ToList();
-            _userRoleService.AddUserRole(userRoleList);
+                var userRoleList = RoleIds.Select(x => new Basic_UserRole
+                {
+                    UserId = id,
+                    RoleId = x,
+                    MappingStatus = true,
+                    CreateTime = DateTime.Now,
+                    ModifyTime = DateTime.Now
+                }).ToList();
+                _userRoleService.AddUserRole(userRoleList);
+            }
+  
             return this.RefreshParent();
         }
     }

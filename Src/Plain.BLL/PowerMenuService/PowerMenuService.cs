@@ -24,7 +24,7 @@ namespace Plain.BLL.PowerMenuService
 
         public void DeleteByPowerId(int powerId)
         {
-            var powers = this.GetPowerMenusByMenuId(powerId).ToList();
+            var powers = this.GetPowerMenusByPowerId(powerId).ToList();
             this.DeletePowerMenus(powers);
         }
 

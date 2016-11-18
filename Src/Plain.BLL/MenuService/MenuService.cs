@@ -54,5 +54,10 @@ namespace Plain.BLL.MenuService
         {
               this.DeleteEntities(ids);
         }
+
+        public List<Basic_Menu> GetMenuByIds(List<int> ids)
+        {
+            return this.LoadEntitiesNoTracking(r => ids.Contains(r.Id)&&r.MenuStatus==1).ToList();
+        }
     }
 }

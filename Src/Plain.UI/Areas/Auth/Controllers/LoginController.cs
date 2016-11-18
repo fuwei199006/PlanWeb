@@ -138,6 +138,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             if (string.IsNullOrEmpty(valideCode))
             {
                 ModelState.AddModelError("valideCode","验证码不能为空");
+                return View("Index");
             }
             
             var loginInfo = this._loginService.Login(loginName, password);

@@ -24,10 +24,10 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         private readonly IPowerRoleService _powerRoleService;
 
-        public RoleController(IRoleService roleService , IPowerService powerService, IPowerRoleService powerRoleService)
+        public RoleController(IRoleService roleService, IPowerService powerService, IPowerRoleService powerRoleService)
         {
             _roleService = roleService;
-          
+
             _powerService = powerService;
             _powerRoleService = powerRoleService;
         }
@@ -108,18 +108,22 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult PowerList(int id, List<int> PowerIds)
         {
             _powerRoleService.DeletePowerRoleByRoleId(id);
-            var powerRoleList = PowerIds.Select(x => new Basic_PowerRole()
+            if (PowerIds != null)
             {
-                RoleId = id,
-                PowerId = x,
-                MappingStatus = true,
-                CreateTime = DateTime.Now,
-                ModifyTime = DateTime.Now
-            }).ToList();
-            _powerRoleService.AddPowerRoleRange(powerRoleList);
+                var powerRoleList = PowerIds.Select(x => new Basic_PowerRole()
+                {
+                    RoleId = id,
+                    PowerId = x,
+                    MappingStatus = true,
+                    CreateTime = DateTime.Now,
+                    ModifyTime = DateTime.Now
+                }).ToList();
+                _powerRoleService.AddPowerRoleRange(powerRoleList);
+            }
+
             return this.RefreshParent();
 
- 
+
         }
 
     }
