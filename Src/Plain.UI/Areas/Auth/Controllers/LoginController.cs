@@ -133,15 +133,15 @@ namespace Plain.UI.Areas.Auth.Controllers
     
         [AuthorizeIgnore]
         [HttpPost]
-        public ActionResult Login(string loginNameFor, string password, string valideCode)
+        public ActionResult Login(string loginName,string password,string valideCode)
         {
             if (string.IsNullOrEmpty(valideCode))
             {
                 ModelState.AddModelError("valideCode","验证码不能为空");
                 return View("Index");
             }
-
-            var loginInfo = this._loginService.Login(loginNameFor, password);
+            
+            var loginInfo = this._loginService.Login(loginName, password);
             if (loginInfo != null)
             {
                 this.CookieContext.UserToken = loginInfo.LoginToken;

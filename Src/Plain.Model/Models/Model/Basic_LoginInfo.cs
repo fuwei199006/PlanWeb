@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using Framework.Contract;
 
@@ -29,12 +28,8 @@ namespace Plain.Model.Models.Model
         public int LoginUserId { get; set; }
         [RegularExpression(@"^\w+\.?\w+@\w+\.\w+$", ErrorMessage = "电子邮件地址无效")]
         [Required(ErrorMessage = "电子邮件不能为空")]
-        [Remote("ValideUser", "Login", ErrorMessage = "该邮箱已经注册")]
+        [Remote("ValideUser", "Login", ErrorMessage = "该邮箱还未注册")]
         public string LoginName { get; set; }
-
-        [NotMapped]
-        [Required(ErrorMessage = "登录名不能为空")]
-        public string LoginNameFor { get; set; }
         public int LoginStatus { get; set; }
         public int LoginType { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
