@@ -41,7 +41,10 @@ namespace Plain.Model.Models.Model
         public List<int> RoleIds
         {
             get { return this.Roles.Select(x => x.Id).ToList(); }
-        } 
+        }
+
+        [NotMapped]
+        public List<Basic_PowerRole> Powers { get; set; } 
 
     }
 }

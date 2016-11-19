@@ -1,5 +1,6 @@
 ﻿@model Framework.Contract.PagedList<Plain.Dto.Basic_MenuDto>
 @using Framework.Web.Controls.MvcPager
+@using Plain.Dto
 @using Plain.Web
 @{
     ViewBag.Title = "菜单管理";
@@ -61,7 +62,7 @@
                 <td>@menu.Id</td>
                 <td>@menu.MenuName</td>
                 <td>@menu.MenuUrl</td>
-                <td>@menu.MenuType</td>
+                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<MenuType>(int.Parse(@menu.MenuType)))</td>
                 <td><i class="@menu.MenuIcon">@menu.MenuIcon</i></td>
                 <td>@menu.MenuSort</td>
                 <td>@menu.ParentMenuName</td>

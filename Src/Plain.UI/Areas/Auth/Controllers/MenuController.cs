@@ -36,7 +36,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Edit(int id)
         {
             var menu = _menuService.GetMenuById(id);
-            ViewData["MenuTypes"] = EnumHelper.GetItemList<MenuType>().Select(r => new SelectListItem()
+            ViewData["MenuTypes"] = EnumHelper.GetItemValueList<MenuType>().Select(r => new SelectListItem()
             {
                 Value = r.Key.ToString(),
                 Text = r.Value.ToString()
@@ -64,7 +64,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Create()
         {
 
-            ViewData["MenuTypes"] = EnumHelper.GetItemList<MenuType>().Select(r => new SelectListItem()
+            ViewData["MenuTypes"] = EnumHelper.GetItemValueList<MenuType>().Select(r => new SelectListItem()
             {
                 Value = r.Key.ToString(),
                 Text = r.Value.ToString()

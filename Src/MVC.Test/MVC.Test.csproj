@@ -60,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3b149ade-26c3-4da3-92f5-c613559fb50f}</Project>
       <Name>Plain.Model</Name>

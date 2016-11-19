@@ -14,12 +14,13 @@
     <div class="itemContent">
         <span>电子邮箱：</span>
         <span class="itemWrap">
-            @Html.TextBoxFor(x => x.LoginName, new
+            @Html.TextBoxFor(x => x.LoginNameFor, new
            {
-               placeholder = "请输入电子邮箱",
-               id = "txtEmail"
+               placeholder = "登录名",
+               id = "txtEmail",
+               name = "loginName"
            })
-            <em class="errorMsg" id="emailErrorMsg">@Html.ValidationMessageFor(m => m.LoginName)</em>
+            <em class="errorMsg" id="emailErrorMsg">@Html.ValidationMessageFor(m => m.LoginNameFor)</em>
         </span>
     </div>
         <div class="itemContent">
