@@ -24,7 +24,7 @@ namespace Plain.Web
             get
             {
                 return CacheContext.Get(CacheKey.PlainMenu,
-                     () => ServiceContext.Current.CreateService<IMenuService>().GetMenus());
+                     () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByLoginName(AdminCookieContext.Current.UserName));
             }
         }
 

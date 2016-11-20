@@ -1,0 +1,72 @@
+﻿@using Plain.Dto
+@using Plain.Web
+ 
+@{
+    ViewBag.Title = "菜单管理";
+
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+@section PageSpecificJavascriptIncludes{
+
+    <script type="text/javascript">
+        $("#navigation").hide();
+        $(".sub").show();
+        $(".has-sub>a").each(function () {
+            $(this).css("background-color", "#313131");
+
+        });
+    </script>
+}
+
+
+<div class="p10 m10">
+    <!-- BEGIN BLOCKQUOTES PORTLET-->
+    <div class="portlet">
+        <div class="portlet-title">
+
+            <h4><i class="icon-reorder"></i>@AdminCacheContext.Current.AdminWebSetting.SystemSettingConfig.WebSiteTitle</h4>
+            <div class="tools">
+                <a href="javascript:;" class="collapse"></a>
+                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                <a href="javascript:;" class="reload"></a>
+                <a href="javascript:;" class="remove"></a>
+            </div>
+        </div>
+
+        <div class="portlet-body">
+            <h3></h3>
+            <blockquote>
+                <p>欢迎使用 @AdminCacheContext.Current.AdminWebSetting.SystemSettingConfig.WebSiteTitle</p>
+            </blockquote>
+        </div>
+    </div>
+    <!-- END BLOCKQUOTES PORTLET-->
+</div>
+
+
+<div class="portlet box red m10">
+    <div class="portlet-title">
+        <h4><i class="icon-reorder"></i>功能列表</h4>
+
+        <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <ul>
+            @foreach (var group in AdminCacheContext.Current.MenuItems[((int)MenuType.Group).ToString()])
+            {
+                var itemMenu = AdminCacheContext.Current.MenuItems[((int)MenuType.Item).ToString(), group.Id];
+                <li><h4>@group.MenuName</h4></li>
+                <ul class="dl-horizontal unstyled">
+                    
+                 @foreach (var m in itemMenu)
+                 {
+                        <li class="m10 floatleft"><a href="@m.MenuUrl" class="btn red-stripe">@m.MenuName <span class="muted">10</span></a></li>
+                    }
+                </ul>
+            }
+
+        </ul>
+    </div>
+</div>

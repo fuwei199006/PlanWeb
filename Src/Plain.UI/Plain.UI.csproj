@@ -3660,6 +3660,7 @@
     <Content Include="Areas\Auth\Views\User\RoleList.cshtml" />
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
+    <Content Include="Areas\Auth\Views\Login\Home.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

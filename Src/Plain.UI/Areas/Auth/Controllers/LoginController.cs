@@ -147,7 +147,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 this.CookieContext.UserToken = loginInfo.LoginToken;
                 this.CookieContext.UserName = loginInfo.LoginName;
                 this.CookieContext.UserId = loginInfo.LoginUserId;
-                return RedirectToAction("Index", "Menu", new{Area="Auth"});
+                return RedirectToAction("Home");
             }
             ModelState.AddModelError("valideCode", "用户名或密码不正确");
             return View("Index");
@@ -185,6 +185,11 @@ namespace Plain.UI.Areas.Auth.Controllers
             this.CookieContext.UserName = string.Empty;
             this.CookieContext.UserId = 0;
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Home()
+        {
+            return View();
         }
     }
 }

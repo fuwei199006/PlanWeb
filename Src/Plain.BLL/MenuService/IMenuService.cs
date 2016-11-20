@@ -21,5 +21,7 @@ namespace Plain.BLL.MenuService
         Basic_Menu AddMenu(Basic_Menu menu);
         void DeleteMenus(IList<int> ids);
 
+        List<Basic_Menu> GetMenusByLoginName(string loginName);
+
     }
 }

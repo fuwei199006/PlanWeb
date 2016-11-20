@@ -2,10 +2,12 @@
 using Plain.Dto;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Framework.Contract;
+using Plain.Model.Models.Model;
 
 namespace Plain.Dao.MenuDao
 {
@@ -30,5 +32,23 @@ namespace Plain.Dao.MenuDao
             sql = string.Format(sql, menuName);
             return this.ExceSqlPagedList<Basic_MenuDto>(sql,pageSize,pageIndex);
         }
+
+       public List<Basic_Menu> GetMenuByUserName(string loginName)
+       {
+            var sql=@"SELECT  menu.* FROM    dbo.Basic_UserInfo userinfo
+                                JOIN dbo.Basic_UserRole userRole ON userRole.UserId = userinfo.Id
+                                                                    AND userRole.MappingStatus = 1
+                                JOIN dbo.Basic_PowerRole powerRole ON userRole.RoleId = powerRole.RoleId
+                                                                      AND powerRole.MappingStatus = 1
+                                JOIN dbo.Basic_PowerMenu powerMenu ON powerRole.PowerId = powerMenu.PowerId
+                                                                      AND powerMenu.MappingStatus = 1
+                                JOIN dbo.Basic_Menu menu ON menu.Id = powerMenu.MenuId
+                        WHERE   userinfo.LoginName =@loginName";
+           var dbParas = new SqlParameter[]
+           {
+               new SqlParameter("@loginName", loginName),
+           };
+           return this.ExceSql<Basic_Menu>(sql, dbParas);
+       }
     }
 }
