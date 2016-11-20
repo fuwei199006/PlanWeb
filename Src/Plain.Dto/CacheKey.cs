@@ -8,7 +8,7 @@ namespace Plain.Dto
 {
    public class CacheKey
     {
-        public const string PlainMenu = "PlainMenu";
+        public const string PlainMenu = "PlainMenu_{0}";
         public const string ArticleList = "ArticleList";
         public const string LoginInfo = "LoginInfo";
        public const string SystemTitle = "SystemTitle";

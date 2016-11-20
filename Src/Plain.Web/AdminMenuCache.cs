@@ -23,7 +23,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(CacheKey.PlainMenu,
+                return CacheContext.Get(string.Format(CacheKey.PlainMenu, AdminCookieContext.Current.UserName),
                      () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByLoginName(AdminCookieContext.Current.UserName));
             }
         }
