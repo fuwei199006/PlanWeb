@@ -23,7 +23,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         private readonly IUserService _userService;
         private readonly IMenuService _menuService;
 
-        public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService,IMenuService menuService)
+        public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService, IMenuService menuService)
         {
             _loginService = loginService;
             _registerService = registerService;
@@ -32,17 +32,17 @@ namespace Plain.UI.Areas.Auth.Controllers
         }
 
         // GET: Login
-           [AuthorizeIgnore]
+        [AuthorizeIgnore]
         public ActionResult Index()
         {
-          
+
             return View();
         }
         [AuthorizeIgnore]
         public ActionResult Register(string token)
         {
 
-            
+
             if (string.IsNullOrEmpty(token))
             {
                 return View();
@@ -53,7 +53,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 //跳转到错误页面，已经过期
                 return SkipAndAlert("注册信息不存在，请先注册,3秒后自动跳转注册页面", MsgType.Error, true, Url.Action("Register"));
             }
-              if (register.Expiretime < DateTime.Now)
+            if (register.Expiretime < DateTime.Now)
             {
                 //跳转到错误页面，已经过期
                 return SkipAndAlert("注册信息已经过期，请重新注册,3秒后自动跳转注册页面", MsgType.Error, true, Url.Action("Register"));
@@ -67,10 +67,10 @@ namespace Plain.UI.Areas.Auth.Controllers
             }
             if (result != null)
             {
-              
+
                 return SkipAndAlert("注册成功,欢迎您的加入!", MsgType.Success, true, Url.Action("Index", "Home"));
             }
-            
+
             return SkipAndAlert("系统出错，先休息一下吧！", MsgType.Error);
         }
 
@@ -101,7 +101,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             register.RegisterStatus = true;
             register.RegisterPhone = "NaN";//代表没有手机号
             register.RegisterToken = Guid.NewGuid();
- 
+
             var result = _registerService.AddRegister(register);
             var existUser = _userService.EmailExist(result.RegisterEmail);
             if (existUser == null)//防止重复注册
@@ -114,11 +114,11 @@ namespace Plain.UI.Areas.Auth.Controllers
                     UserPwd = register.RegisterPassword,
                     ModifyTime = DateTime.Now,
                     CreateTime = DateTime.Now,
-                    UserStaus =(int)UserStausType.Disable,
+                    UserStaus = (int)UserStausType.Disable,
                 };
                 _userService.AddUser(user);
             }
-         
+
             var sentRes = MailContext.SendEmail(result.RegisterEmail, "Plain平台注册", @"<meta charset='utf-8'/><body><p>Plain 模板测试 </p><p> 点击下面的链接完成注册：" + Request.Url + "?token=" + result.RegisterToken.ToString() + "</p></body> ");
             if (sentRes)
             {
@@ -130,24 +130,50 @@ namespace Plain.UI.Areas.Auth.Controllers
 
 
         }
-    
+
         [AuthorizeIgnore]
         [HttpPost]
-        public ActionResult Login(string loginName,string password,string valideCode)
+        public ActionResult Login(string loginName, string password, string valideCode)
         {
             if (string.IsNullOrEmpty(valideCode))
             {
-                ModelState.AddModelError("valideCode","验证码不能为空");
+                ModelState.AddModelError("valideCode", "验证码不能为空");
                 return View("Index");
             }
-            
+
+            //todo:全部修改成资源文件。
+            var user = _userService.GetUserByEmail(loginName);
+            if (user == null)
+            {
+                ModelState.AddModelError("valideCode", "用户不存在");
+                return View("Index");
+            }
+            else
+            {
+                if (user.UserStaus == (int)UserStausType.Lock)
+                {
+                    ModelState.AddModelError("valideCode", "用户账号已经被锁定，请联系管理员wells_services@163.com");
+                    return View("Index");
+                }
+                else if (user.UserStaus != (int)UserStausType.Active)
+                {
+                    ModelState.AddModelError("valideCode", "用户账号尚未激活，如有疑问请联系，请联系管理员wells_services@163.com");
+                    return View("Index");
+                }
+            }
             var loginInfo = this._loginService.Login(loginName, password);
             if (loginInfo != null)
             {
                 this.CookieContext.UserToken = loginInfo.LoginToken;
                 this.CookieContext.UserName = loginInfo.LoginName;
                 this.CookieContext.UserId = loginInfo.LoginUserId;
-                return RedirectToAction("Home");
+                return RedirectToAction("Index", "Home");
+            }
+            this.CookieContext.LoginErrorTimes++;
+            if (this.CookieContext.LoginErrorTimes > 5)
+            {
+                //登录错误大于5次，账号锁定
+                _userService.LockUser(user.Id);
             }
             ModelState.AddModelError("valideCode", "用户名或密码不正确");
             return View("Index");
@@ -187,9 +213,5 @@ namespace Plain.UI.Areas.Auth.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Home()
-        {
-            return View();
-        }
     }
 }

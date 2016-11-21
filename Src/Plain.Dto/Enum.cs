@@ -58,7 +58,9 @@ namespace Plain.Dto
         [EnumTitle("未激活")]
         UnActive = 3,
         [EnumTitle("激活")]
-        Active = 4
+        Active = 4,
+        [EnumTitle("锁定")]
+        Lock = 5
     }
 
     public enum SexType

@@ -23,6 +23,10 @@ namespace Plain.Web
             ViewBag.SkipUrl = "";
             return View();
         }
+        public ActionResult Error()
+        {
+            return View();
+        }
 
         [ValidateInput(false)]
         public ActionResult SkipAndInfo(string msg, MsgType type, bool isAutoSkip, string skipUrl)
@@ -56,7 +60,7 @@ namespace Plain.Web
             base.OnActionExecuting(filterContext);
             if (this.LoginInfo == null)
             {
-                filterContext.Result = RedirectToAction("Index", "Login");
+                filterContext.Result = RedirectToAction("Index", "Login",new { Area = "Auth" });
                 return;
             }
         }

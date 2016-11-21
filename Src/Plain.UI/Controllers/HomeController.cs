@@ -7,12 +7,12 @@ using Plain.UI.Areas.Auth.Controllers;
 
 namespace Plain.UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Login",new {Area="Auth"});
+              return View();
         }
     }
 }

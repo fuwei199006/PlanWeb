@@ -126,7 +126,7 @@ namespace Framework.DbDrive.EntityFramework
         {
             var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions);
 
-            return queryList.OrderByDescending(orderBy).ToPagedList(pageIndex, pageSize);
+            return queryList.OrderBy(orderBy).ToPagedList(pageIndex, pageSize);
 
         }
 
@@ -159,10 +159,12 @@ namespace Framework.DbDrive.EntityFramework
         {
             if (this.AuditLogger == null)
                 return;
+#if !DEBUG
             if (!LocalCachedConfigContext.Current.SystemConfig.IsMonitor)
             {
                 return;//是否打开数据的监控日志
             }
+#endif 
             foreach (
                 var dbEntry in
                     this.ChangeTracker.Entries<ModelBase>()

@@ -35,7 +35,7 @@ namespace Plain.Dao.MenuDao
 
        public List<Basic_Menu> GetMenuByUserName(string loginName)
        {
-            var sql=@"SELECT  menu.* FROM    dbo.Basic_UserInfo userinfo
+            var sql= @"SELECT  DISTINCT menu.* FROM    dbo.Basic_UserInfo userinfo
                                 JOIN dbo.Basic_UserRole userRole ON userRole.UserId = userinfo.Id
                                                                     AND userRole.MappingStatus = 1
                                 JOIN dbo.Basic_PowerRole powerRole ON userRole.RoleId = powerRole.RoleId

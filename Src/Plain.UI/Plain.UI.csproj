@@ -3660,7 +3660,6 @@
     <Content Include="Areas\Auth\Views\User\RoleList.cshtml" />
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
-    <Content Include="Areas\Auth\Views\Login\Home.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -4057,6 +4056,7 @@
     <Content Include="Views\Shared\_Theme.cshtml" />
     <Content Include="Views\Shared\_LayoutEdit.cshtml" />
     <Content Include="Scripts\admin.utility.js" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

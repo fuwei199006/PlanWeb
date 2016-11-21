@@ -7,8 +7,10 @@
     mainForm.submit(function () {
         if (mainForm.valid()) {
             $("#submitloading").show();
+       
         } else {
-            $(".validation-summary-errors").hide(800);
+            //$(".validation-summary-errors").show();
+            //$(".validation-summary-errors").hide(30000);
         }
     });
 

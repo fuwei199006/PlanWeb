@@ -1,5 +1,5 @@
 ﻿ @{
-  
+     var i = 1;
      Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 @using Framework.Web.Controls.MvcPager
@@ -57,7 +57,7 @@
         {
             <tr>
                 <td><input type="checkbox" class="checkboxes" name='ids' value='@role.Id' /></td>
-                <td>@role.Id</td>
+                <td>@(i++)</td>
                 <td>@role.RoleName</td>
                 <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<RoleGroup>(int.Parse(role.RoleGroup)))</td>
               

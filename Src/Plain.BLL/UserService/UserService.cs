@@ -21,7 +21,7 @@ namespace Plain.BLL.UserService
         public Basic_UserInfo GetUserByEmail(string email)
         {
             if (string.IsNullOrEmpty(email)) return null;
-             return this.GetEntityWithNoTracking(r => r.UserEmail == email&&r.UserStaus==1);
+             return this.GetEntityWithNoTracking(r => r.UserEmail == email);
             
         }
 
@@ -73,6 +73,13 @@ namespace Plain.BLL.UserService
         {
              this.DeleteEntities(ids);
             
+        }
+
+        public Basic_UserInfo LockUser(int userId)
+        {
+            var user = this.GetEntityById(userId);
+            user.UserStaus = (int)UserStausType.Lock;
+           return this.Update(user);
         }
     }
 }

@@ -29,7 +29,7 @@
             <button type="submit" id="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
             <span id="submitloading" style="display:none;"><img src='@Url.StaticFile("~/Content/Images/loading.gif")' /></span>
             <button type="button" class="btn" id="cancel">撤销</button>
-            @Html.ValidationSummary(false)
+            @*@Html.ValidationSummary(false)*@
         </div>
     }
     @RenderSection("OtherContent", required: false)
@@ -44,6 +44,8 @@
 <script src='@Url.StaticFile("~/Scripts/jquery.cookie.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/uniform/jquery.uniform.min.js")'></script>
 <script src='@Url.StaticFile("~/Content/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.min.js")'></script>
+<script src='@Url.StaticFile("~/Scripts/jquery.validate.unobtrusive.js")'></script>
 <script src='@Url.StaticFile("~/Scripts/app.js")' type="text/javascript" charset="utf-8"></script>
 
 <script src="~/Scripts/admin.edit.js"></script>

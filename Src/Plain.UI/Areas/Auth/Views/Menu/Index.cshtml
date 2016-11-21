@@ -4,7 +4,7 @@
 @using Plain.Web
 @{
     ViewBag.Title = "菜单管理";
-
+    var i = 1;
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 <div class="row-fluid">
@@ -59,7 +59,7 @@
         {
             <tr>
                 <td><input type="checkbox" class="checkboxes" name='ids' value='@menu.Id' /></td>
-                <td>@menu.Id</td>
+                <td>@(i++)</td>
                 <td>@menu.MenuName</td>
                 <td>@menu.MenuUrl</td>
                 <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<MenuType>(int.Parse(@menu.MenuType)))</td>

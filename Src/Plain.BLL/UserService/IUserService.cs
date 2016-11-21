@@ -20,5 +20,7 @@ namespace Plain.BLL.UserService
         Basic_UserInfo UpdateUser(Basic_UserInfo userInfo);
         void DeleteUser(List<int> ids);
 
+        Basic_UserInfo LockUser(int userId);
+
     }
 }

@@ -85,6 +85,12 @@ namespace Plain.UI.Areas.Auth.Controllers
                 Text = x.Value.ToString()
 
             });
+            ViewData["RoleGroupDrop"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
+            {
+                Value = x.Key.ToString(),
+                Text = x.Value.ToString()
+
+            });
             return View("Edit");
         }
 

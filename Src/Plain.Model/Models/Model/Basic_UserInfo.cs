@@ -17,13 +17,14 @@ namespace Plain.Model.Models.Model
         public string LoginName { get; set; }
         public string NickName { get; set; }
         [RegularExpression(@"^\w+\.?\w+@\w+\.\w+$", ErrorMessage = "电子邮件地址无效")]
+        [Required(ErrorMessage = "电子邮件地址不能为空")]
         public string UserEmail { get; set; }
         public string UserPwd { get; set; }
         [Required(ErrorMessage = "真实姓名不能为空")]
         public string RealName { get; set; }
         [NotMapped]
         public string Age { get; set; }
-        public Nullable<int> UserStaus { get; set; }
+        public int UserStaus { get; set; }
         public DateTime? ModifyTime { get; set; }
         public string MobilePhone { get; set; }
         public DateTime? BirthDay { get; set; }
