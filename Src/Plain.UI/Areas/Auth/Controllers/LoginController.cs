@@ -23,6 +23,10 @@ namespace Plain.UI.Areas.Auth.Controllers
         private readonly IUserService _userService;
         private readonly IMenuService _menuService;
 
+        public LoginController()
+        {
+            
+        }
         public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService, IMenuService menuService)
         {
             _loginService = loginService;

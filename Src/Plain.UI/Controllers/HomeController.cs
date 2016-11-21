@@ -14,7 +14,7 @@ namespace Plain.UI.Controllers
  
         [PermessionIgnore]
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string error)
         {
               return View();
         }

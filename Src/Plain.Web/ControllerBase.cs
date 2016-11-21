@@ -26,15 +26,14 @@ namespace Plain.Web
             return View();
         }
         [PermessionIgnore]
-        public ActionResult Error500()
+        [AuthorizeIgnore]
+        public ActionResult Error(string error,int code)
         {
+            ViewData["error"] = error;
+            ViewData["code"] = code;
             return View();
         }
-        [PermessionIgnore]
-        public ActionResult Error404()
-        {
-            return View();
-        }
+      
         [ValidateInput(false)]
         public ActionResult SkipAndInfo(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {

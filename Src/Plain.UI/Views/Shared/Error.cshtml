@@ -1,8 +1,7 @@
-﻿
-@{
+﻿@{
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
- 
+
 
 
 @section PageSpecificCssIncludes{
@@ -10,11 +9,11 @@
 }
 <div class="row-fluid">
 
-    <div class="span12 page-404">
+    <div class="span12 page-@ViewData["code"]">
 
         <div class="number">
 
-          404
+            @ViewData["code"]
 
         </div>
 
@@ -24,8 +23,11 @@
 
             <p>
 
-                @*We are fixing it!<br />*@
-
+             
+                    @ViewData["error"]
+ 
+             
+                <br />
                 一会再来吧..........<br /><br />
 
             </p>
