@@ -25,11 +25,16 @@ namespace Plain.Web
             ViewBag.SkipUrl = "";
             return View();
         }
-        public ActionResult Error()
+        [PermessionIgnore]
+        public ActionResult Error500()
         {
             return View();
         }
-
+        [PermessionIgnore]
+        public ActionResult Error404()
+        {
+            return View();
+        }
         [ValidateInput(false)]
         public ActionResult SkipAndInfo(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {
@@ -52,7 +57,9 @@ namespace Plain.Web
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:" + filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
+            //SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:" + filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
+
+            
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -66,6 +73,7 @@ namespace Plain.Web
                 filterContext.Result = RedirectToAction("Index", "Login", new { Area = "Auth" });
                 return;
             }
+
 
             #region 菜单的验证
             var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
