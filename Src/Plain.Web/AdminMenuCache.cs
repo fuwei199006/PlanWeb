@@ -41,7 +41,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(string.Format("{0}_{1}",key,parntId),
+                return CacheContext.Get(string.Format(CacheKey.Menu, key,parntId),
                      () => Menus.Where(r => r.MenuType == key&&r.MenuParentId==parntId).ToList());
             }
         } 

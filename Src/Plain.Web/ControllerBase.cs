@@ -8,10 +8,12 @@ using Framework.Web;
 using Plain.Dto;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using System.Linq;
+using Framework.Utility;
 
 namespace Plain.Web
 {
-    public abstract class ControllerBase:Framework.Web.ControllerBase
+    public abstract class ControllerBase : Framework.Web.ControllerBase
     {
 
         [ValidateInput(false)]
@@ -50,19 +52,30 @@ namespace Plain.Web
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:"+filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
+            SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:" + filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
             var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
             if (noAuthorizeAttributes.Length > 0)
                 return;
             base.OnActionExecuting(filterContext);
             if (this.LoginInfo == null)
             {
-                filterContext.Result = RedirectToAction("Index", "Login",new { Area = "Auth" });
+                filterContext.Result = RedirectToAction("Index", "Login", new { Area = "Auth" });
                 return;
             }
+
+            #region 菜单的验证
+            var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
+            if (!urlList.Contains(Request.Url.AbsolutePath.ToString()))
+            {
+                filterContext.Result = this.Stop("没有权限", Url.Action("Index", "Home"));
+                return;
+            }
+            #endregion
+
         }
         public AdminCookieContext CookieContext
         {
@@ -99,7 +112,7 @@ namespace Plain.Web
             }
         }
 
-        public static AdminCacheContext  CacheContext
+        public static AdminCacheContext CacheContext
         {
             get
             {
@@ -107,7 +120,7 @@ namespace Plain.Web
             }
         }
 
-       
+
 
         public override int PageSize
         {

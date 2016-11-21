@@ -69,7 +69,7 @@ namespace Framework.Web
         /// <returns></returns>
         public ContentResult Back(string notice)
         {
-            var content=new StringBuilder("<script>");
+            var content = new StringBuilder("<script>");
             if (!string.IsNullOrEmpty(notice))
             {
                 content.AppendFormat("alert('{0}');", notice);
@@ -80,7 +80,7 @@ namespace Framework.Web
 
         public ContentResult PageReturn(string msg, string url = null)
         {
-            var content=new StringBuilder("<script type='text/javascript'>");
+            var content = new StringBuilder("<script type='text/javascript'>");
             if (!string.IsNullOrEmpty(msg))
             {
                 content.AppendFormat("alert('{0}')", msg);
@@ -116,7 +116,7 @@ namespace Framework.Web
         }
         public virtual void ClearOperater()
         {
-            
+
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -137,7 +137,7 @@ namespace Framework.Web
             //在方法执行前，附加上PageSize值
             filterContext.ActionParameters.Values.Where(r => r is Request)
                 .ToList()
-                .ForEach(v => ((Request) v).PageSize = this.PageSize);
+                .ForEach(v => ((Request)v).PageSize = this.PageSize);
         }
 
         /// <summary>
@@ -151,15 +151,15 @@ namespace Framework.Web
         {
             get
             {
-                var exceptionContext=new WebExceptionContext()
+                var exceptionContext = new WebExceptionContext()
                 {
                     IP = Fetch.UserIp,
-                   CurrentUrl = Fetch.CurrentUrl,
-                   RefUrl = (Request==null||Request.UrlReferrer==null)?string.Empty:Request.UrlReferrer.AbsoluteUri,
-                   IsAjaxRequest = Request != null && Request.IsAjaxRequest(),
-                   FormData = Request==null?null:Request.Form,
-                   QueryData = Request==null?null:Request.QueryString,
-                   RouteData = (Request==null||Request.RequestContext==null||Request.RequestContext.RouteData==null)?null:Request.RequestContext.RouteData.Values
+                    CurrentUrl = Fetch.CurrentUrl,
+                    RefUrl = (Request == null || Request.UrlReferrer == null) ? string.Empty : Request.UrlReferrer.AbsoluteUri,
+                    IsAjaxRequest = Request != null && Request.IsAjaxRequest(),
+                    FormData = Request == null ? null : Request.Form,
+                    QueryData = Request == null ? null : Request.QueryString,
+                    RouteData = (Request == null || Request.RequestContext == null || Request.RequestContext.RouteData == null) ? null : Request.RequestContext.RouteData.Values
 
                 };
                 return exceptionContext;
@@ -186,7 +186,7 @@ namespace Framework.Web
     }
 
 
-        public class WebExceptionContext
+    public class WebExceptionContext
     {
         public string IP { get; set; }
         public string CurrentUrl { get; set; }

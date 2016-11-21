@@ -12,5 +12,6 @@ namespace Plain.Dto
         public const string ArticleList = "ArticleList";
         public const string LoginInfo = "LoginInfo";
        public const string SystemTitle = "SystemTitle";
+        public const string Menu = "Menu_{0}_{1}";
     }
 }
