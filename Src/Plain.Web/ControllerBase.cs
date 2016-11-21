@@ -68,8 +68,9 @@ namespace Plain.Web
             }
 
             #region 菜单的验证
+            var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
             var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
-            if (!urlList.Contains(Request.Url.AbsolutePath.ToString()))
+            if (!urlList.Contains(Request.Url.AbsolutePath.ToString())&& noPermessionIgnore.Length==0)
             {
                 filterContext.Result = this.Stop("没有权限", Url.Action("Index", "Home"));
                 return;

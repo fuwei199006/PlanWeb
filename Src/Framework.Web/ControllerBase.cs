@@ -13,6 +13,11 @@ namespace Framework.Web
 {
     public class ControllerBase : Controller
     {
+
+        //protected override ContentResult   Content(string content, string contentType, Encoding contentEncoding)
+        //{
+        //    return new ContentResult();
+        //}
         public virtual Operater Operater
         {
             get

@@ -66,6 +66,8 @@
     <Compile Include="Controls\RadioBoxList.cs" />
     <Compile Include="Controls\SeoPager.cs" />
     <Compile Include="HttpContextBase.cs" />
+    <Compile Include="PermessionIgnoreAttribute.cs" />
+    <Compile Include="PermissionAttribute.cs" />
     <Compile Include="PlainPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrlHelperExtention.cs" />
@@ -94,6 +96,10 @@
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
       <Name>Framework.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
+      <Name>Plain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

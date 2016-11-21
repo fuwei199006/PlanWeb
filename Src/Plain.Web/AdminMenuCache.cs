@@ -23,7 +23,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(string.Format(CacheKey.PlainMenu, AdminCookieContext.Current.UserName),
+                return CacheContext.Get(string.Format(CacheKey.PlainMenu, AdminCookieContext.Current.UserToken),
                      () => ServiceContext.Current.CreateService<IMenuService>().GetMenusByLoginName(AdminCookieContext.Current.UserName));
             }
         }
@@ -32,7 +32,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(key,
+                return CacheContext.Get(string.Format(CacheKey.Menu, key, AdminCookieContext.Current.UserToken,string.Empty),
                      () => Menus.Where(r=>r.MenuType==key).ToList());
             }
         }
@@ -41,7 +41,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(string.Format(CacheKey.Menu, key,parntId),
+                return CacheContext.Get(string.Format(CacheKey.Menu, key,parntId, AdminCookieContext.Current.UserToken),
                      () => Menus.Where(r => r.MenuType == key&&r.MenuParentId==parntId).ToList());
             }
         } 

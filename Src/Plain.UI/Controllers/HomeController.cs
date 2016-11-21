@@ -10,7 +10,9 @@ namespace Plain.UI.Controllers
 {
     public class HomeController : BaseController
     {
-        [AuthorizeIgnoreAttribute]
+
+ 
+        [PermessionIgnore]
         // GET: Home
         public ActionResult Index()
         {
