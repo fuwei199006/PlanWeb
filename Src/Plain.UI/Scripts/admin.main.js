@@ -6,7 +6,7 @@
     });
     var currentTheme = $.cookie('currentTheme');
     if (currentTheme != null && currentTheme) {
-        $('#style_color').attr("href", "/assets/css/style_" + currentTheme + ".css");
+        $('#style_color').attr("href", "/Content/metric/style_" + currentTheme + ".css");
     }
 })();
 

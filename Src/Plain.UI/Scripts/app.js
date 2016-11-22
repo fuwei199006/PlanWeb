@@ -2879,7 +2879,7 @@
         });
 
         var setColor = function (color) {
-            $('#style_color').attr("href", "/assets/css/style_" + color + ".css");
+            $('#style_color').attr("href", "/Content/metric/style_" + color + ".css");
         }
 
         var setLayout = function () {

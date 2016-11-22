@@ -18,6 +18,7 @@ using Plain.BLL.LoginService;
 using Plan.UI;
 using Plain.Dao;
 using Plain.UI.Controllers;
+using System.Data.SqlClient;
 
 namespace Plain.UI
 {
@@ -31,6 +32,8 @@ namespace Plain.UI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
@@ -64,36 +67,26 @@ namespace Plain.UI
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
-            Exception exception = Server.GetLastError();
-            Response.Clear();
-           var statusCode = (exception is HttpException)?(exception as HttpException).GetHttpCode():500;
-            RouteData routeData = new RouteData();
-            routeData.Values.Add("controller", "Home");
-            switch (statusCode)
-            {
-                case 404:
-                    // Page not found.  
-                    routeData.Values.Add("action", "Error");
-                    break;
-                case 500:
-                    // Server error.  
-                    routeData.Values.Add("action", "Error");
-                    break;
-            }
-            // Pass exception details to the target error View.  
-            routeData.Values.Add("error", exception.Message);
-            routeData.Values.Add("code", statusCode);
-            // Clear the error on server.  
+            var error = Server.GetLastError();
+            Response.ContentType = "text/html;";
+            var httpError = error as HttpException;
+            var statusCode = httpError == null ? 500 : httpError.GetHttpCode();
+            var errorMsg = error.Message;
+            var routeData = new RouteData();
+            routeData.Values["controller"] = "Home";
+            routeData.Values["action"] = "TError";
+            routeData.Values["code"] = statusCode;
+            routeData.Values["error"] = errorMsg;
+            //if (error is SqlException)
+            //{
+            //    routeData.Values["isFull"] = 1;
+            //}
+            IController errorManager = new BaseController();
+            HttpContextWrapper wrapper = new HttpContextWrapper(Context);
             Server.ClearError();
-            // Call target Controller and pass the routeData.  
-            IController errorController = new BaseController();
-            Context.Response.ContentType = "text/html; charset=utf-8";
-            errorController.Execute(new RequestContext(
-           new HttpContextWrapper(Context), routeData));
-
+            var rc = new RequestContext(wrapper, routeData);
+            errorManager.Execute(rc);
         }
-
         protected void Session_End(object sender, EventArgs e)
         {
 

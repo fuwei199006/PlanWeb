@@ -12,7 +12,6 @@ namespace Core.Service
 
         /// 暂时使用引用服务方式，可以改造成注入，或使用WCF服务方式
         /// 
-       
         public static ServiceFactory Current
         {
             get
@@ -22,11 +21,20 @@ namespace Core.Service
             set { if (value == null) throw new ArgumentNullException("value"); }
         }
 
-      
 
         public static T CreateService<T>() where T : class
         {
             var service = Current.CreateService<T>();
+            //
+            //可以拦截，写日志
+            //
+            var gernerator = new ProxyGenerator();
+            var dynamicProxy = gernerator.CreateClassProxy<T>(new InvokeInterceptor());
+            return dynamicProxy;
+        }
+        public static T CreateService<T>(ServiceFactory serviceFactory) where T : class
+        {
+            var service = serviceFactory.CreateService<T>();
             //
             //可以拦截，写日志
             //

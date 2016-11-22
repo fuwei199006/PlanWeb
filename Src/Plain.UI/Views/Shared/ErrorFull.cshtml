@@ -1,0 +1,58 @@
+﻿ @using Plain.Web
+@using Framework.Web
+@{
+    Layout = null;
+}
+<link href='@Url.StaticFile("~/Content/bootstrap/css/bootstrap.min.css")' rel="stylesheet" />
+<link href='@Url.StaticFile("~/Content/Metric/metro.css")' rel="stylesheet" />
+<link href='@Url.StaticFile("~/Content/bootstrap/css/bootstrap-responsive.min.css")' rel="stylesheet" />
+<link href='@Url.StaticFile("~/Content/metric/style.css")' rel="stylesheet" />
+<link href='@Url.StaticFile("~/Content/metric/style_responsive.css")' rel="stylesheet" />
+<link href='@Url.StaticFile("~/Content/metric/style_default.css")' rel="stylesheet" />
+ 
+ 
+ 
+ 
+<link href="~/Content/Metronic/media/css/error.css" rel="stylesheet" />
+ 
+<body class="page-@ViewData["code"]-full-page">
+
+    <div class="row-fluid">
+
+        <div class="span12 page-@ViewData["code"]">
+
+            <div class="number">
+
+                @ViewData["code"]
+
+            </div>
+
+            <div class="details">
+
+                @if (ViewData["code"].ToString() == "500")
+            {
+                    <h3>Opps, 系统错误.....</h3>
+                }
+                else
+                {
+                    <h3>Opps, 好像什么东西找不到了.....</h3>
+                }
+
+
+                <p>
+
+
+                    @Html.Raw(ViewData["error"])
+
+
+                    <br />
+                    一会再来吧..... <br /><br />
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>

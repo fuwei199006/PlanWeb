@@ -58,14 +58,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -3648,7 +3640,7 @@
     <Content Include="Areas\CMS\Views\CmsHome\Index.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\ArticleView.cshtml" />
     <Content Include="Areas\CMS\Views\CmsHome\Page.cshtml" />
-    <Content Include="Config\DaoConfig.config" />
+    <Content Include="Config\DaoConfig2.config" />
     <Content Include="Areas\Auth\Views\Role\Index.cshtml" />
     <Content Include="Areas\Auth\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
@@ -3664,7 +3656,7 @@
     <Content Include="Areas\Auth\Views\User\RoleList.cshtml" />
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
-    <None Include="Config\DaoConfig1.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\DemoUI\.project" />
@@ -4060,7 +4052,7 @@
     <Content Include="Views\Shared\_Theme.cshtml" />
     <Content Include="Views\Shared\_LayoutEdit.cshtml" />
     <Content Include="Scripts\admin.utility.js" />
-    <Content Include="Views\Shared\Error500.cshtml" />
+    <Content Include="Views\Shared\ErrorFull.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -4143,10 +4135,6 @@
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{f920b0f7-0da7-4f08-90b7-f5390503295e}</Project>
       <Name>Plain.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Plain.CMS\Plain.CMS.csproj">
-      <Project>{F21496D5-47DF-4749-870C-26C855D49175}</Project>
-      <Name>Plain.CMS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.DAL\Plain.DAL.csproj">
       <Project>{9380619e-4d80-4b53-81b2-d477bad419ff}</Project>

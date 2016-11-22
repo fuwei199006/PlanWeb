@@ -21,6 +21,7 @@ namespace Framework.DbDrive.EntityFramework
         private static readonly object Lok = new object();
         public DbContextBase(string connectionString)
         {
+            this.Database.Initialize(false);
             this.Database.Connection.ConnectionString = DESEncrypt.Decode(connectionString);
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;

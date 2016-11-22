@@ -10,6 +10,8 @@ using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Linq;
 using Framework.Utility;
+using System.Web.Routing;
+using System.Data.SqlClient;
 
 namespace Plain.Web
 {
@@ -27,13 +29,32 @@ namespace Plain.Web
         }
         [PermessionIgnore]
         [AuthorizeIgnore]
-        public ActionResult Error(string error,int code)
+        public ActionResult Error()
         {
-            ViewData["error"] = error;
-            ViewData["code"] = code;
-            return View();
+            string error = Request["error"];
+            int code = Request["code"] == null ? 500 : int.Parse(Request["code"]);
+            return TError(error, code);
         }
-      
+
+
+        [PermessionIgnore]
+        [AuthorizeIgnore]
+        public ActionResult TError(string error, int code,int isFull=0)
+        {
+
+            ViewData["code"] = code;
+            ViewData["error"] = string.Empty;
+#if DEBUG
+            ViewData["error"] = error;
+#endif
+            if (Request.UrlReferrer != null && Fetch.ServerDomain == Request.UrlReferrer.Host&&isFull!=1)
+            {
+                return View("Error");
+            }
+            return View("ErrorFull");
+
+
+        }
         [ValidateInput(false)]
         public ActionResult SkipAndInfo(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {
@@ -56,8 +77,20 @@ namespace Plain.Web
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            //SkipAndAlert("系统出错，先休息一下吧！<br/>错误信息:" + filterContext.Exception.Message, MsgType.Error, true, Url.Action("Register"));
 
+            //ViewData["code"] = 500;
+            var error = string.Empty;
+#if DEBUG
+            error = filterContext.Exception.Message;
+#endif
+            if (filterContext.Exception is SqlException)
+            {
+                filterContext.Result = TError(error, 500,1);
+            }
+            else
+            {
+                filterContext.Result = TError(error, 500);
+            }
             
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -75,13 +108,26 @@ namespace Plain.Web
 
 
             #region 菜单的验证
-            var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
-            var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
-            if (!urlList.Contains(Request.Url.AbsolutePath.ToString())&& noPermessionIgnore.Length==0)
+
+            if (LoginInfo.LoginNickName != LocalCachedConfigContext.Current.SysAdmin)
             {
-                filterContext.Result = this.Stop("没有权限", Url.Action("Index", "Home"));
-                return;
+                var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
+                var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
+                if (!urlList.Contains(Request.Url.AbsolutePath.ToString()) && noPermessionIgnore.Length == 0)
+                {
+                    if (Request["type"] == null)
+                    {
+                        filterContext.Result = this.FrameStop("没有权限,3秒后自动刷新");
+                    }
+                    else
+                    {
+                        filterContext.Result = this.Stop("没有权限,3秒后自动刷新", Url.Action("Index", "Home"));
+                    }
+
+                    return;
+                }
             }
+
             #endregion
 
         }

@@ -27,7 +27,9 @@ namespace Plain.Dto
         [EnumTitle("群组菜单")]
         Group = 1,
         [EnumTitle("子菜单")]
-        Item = 2
+        Item = 2,
+        [EnumTitle("功能")]
+        Function = 3
     }
 
     public enum LoginType

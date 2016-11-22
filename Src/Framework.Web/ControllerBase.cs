@@ -79,7 +79,7 @@ namespace Framework.Web
             {
                 content.AppendFormat("alert('{0}');", notice);
             }
-            content.Append("<history.go(-1)</script>");
+            content.Append("history.go(-1)</script>");
             return this.Content(content.ToString());
         }
 
@@ -100,12 +100,22 @@ namespace Framework.Web
 
         public ContentResult Stop(string notice, string redirect, bool isAlert = false)
         {
-            var content = "<meta http-equiv='refresh' content='1;url=" + redirect + "' /><body style='margin-top:0px;color:red;font-size:24px;'>" + notice + "</body>";
+            var content = "<meta http-equiv='refresh' content='3;url=" + redirect + "' /><body style='margin-top:0px;color:red;font-size:20px;'>" + notice + "</body>";
 
             if (isAlert)
                 content = string.Format("<script>alert('{0}'); window.location.href='{1}'</script>", notice, redirect);
 
             return this.Content(content);
+        }
+
+        public ContentResult FrameStop(string notice)
+        {
+            var content = "<body style='margin-top:0px;color:red;font-size:20px;'>" + notice + "</body>";
+
+            var script = " <script>setTimeout(function(){parent.location.reload(1)},3000);</script>";
+
+
+            return this.Content(content + script);
         }
         /// <summary>
         /// 在方法执行前更新操作人

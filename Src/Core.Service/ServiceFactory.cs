@@ -9,10 +9,7 @@ namespace Core.Service
     public abstract class ServiceFactory
     {
         public abstract T CreateService<T>() where T : class;
-
-  
     }
-
     public class ResfServiceFactory : ServiceFactory
     {
         public override T CreateService<T>()
@@ -25,7 +22,6 @@ namespace Core.Service
             return CacheContext.Get<T>(string.Format("Service_{0}", interFanceName), () => AssemblyHelper.FindTypeByInterface<T>());
         }
     }
-
     public class CacheServiceFactory : ServiceFactory
     {
         public override T CreateService<T>()
@@ -49,7 +45,6 @@ namespace Core.Service
             return proxy;
         }
     }
-
     public class ContextServiceFactory: ServiceFactory  
     {
         public override T CreateService<T>()

@@ -19,16 +19,24 @@
 
         <div class="details">
 
-            <h3>Opps, 未找到.....</h3>
+            @if (ViewData["code"].ToString() == "500")
+            {
+                <h3>Opps, 系统错误.....</h3>
+            }
+            else
+            {
+                <h3>Opps, 好像什么东西找不到了.....</h3>
+            }
+
 
             <p>
 
-             
-                    @ViewData["error"]
- 
-             
+
+                @Html.Raw(ViewData["error"])
+
+
                 <br />
-                一会再来吧..........<br /><br />
+                一会再来吧..... <br /><br />
 
             </p>
 

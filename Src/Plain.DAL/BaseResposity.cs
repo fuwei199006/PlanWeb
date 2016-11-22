@@ -17,7 +17,7 @@ namespace Plain.DAL
         public override sealed void SetCurrentDbContext()
         {
 
-            CurrentContextBase = ServiceContext.CreateService<PlainDbContext>() as PlainDbContext;
+            CurrentContextBase = ServiceContext.CreateService<PlainDbContext>(new ContextServiceFactory()) as PlainDbContext;
 
         }
     }

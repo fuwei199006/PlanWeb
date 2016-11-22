@@ -57,5 +57,16 @@ namespace Core.Config
                 return this.Get<SystemSettingConfig>(CacheKey.SystemConfig);
             }
         }
+
+        /// <summary>
+        /// 系统超级管理员
+        /// </summary>
+        public string  SysAdmin
+        {
+            get
+            {
+                return "admin";
+            }
+        }
     }
 }
