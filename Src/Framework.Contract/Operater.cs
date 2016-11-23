@@ -15,5 +15,7 @@ namespace Framework.Contract
         public Guid Token { get; set; }
         public int UserId { get; set; }
         public string Method { get; set; }
+
+        public string Device { get; set; }
     }
 }

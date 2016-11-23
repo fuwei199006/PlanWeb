@@ -3223,7 +3223,7 @@
         })
     }
 
-    
+     
     return {
 
         //main function to initiate template pages
@@ -3303,6 +3303,7 @@
             handleGoTop(); //handles scroll to top functionality in the footer
             handleAccordions(); //handles accordions
             handleFormWizards(); // handles form wizards
+          
         },
 
         // login page setup

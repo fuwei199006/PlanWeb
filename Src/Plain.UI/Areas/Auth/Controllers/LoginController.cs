@@ -13,6 +13,7 @@ using Plain.Model.Models;
 using Plain.UI.Controllers;
 using Plain.Model.Models.Model;
 using Plain.BLL.MenuService;
+using System.Threading;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {
@@ -25,7 +26,7 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public LoginController()
         {
-            
+
         }
         public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService, IMenuService menuService)
         {
@@ -215,6 +216,19 @@ namespace Plain.UI.Areas.Auth.Controllers
             this.CookieContext.UserName = string.Empty;
             this.CookieContext.UserId = 0;
             return RedirectToAction("Index");
+        }
+        [PermessionIgnore]
+        public string GetOnlinePerson(int onlineCount)
+        {
+            var online = this._loginService.GetOnlineUser().Count;
+
+            while (online == onlineCount)
+            {
+                online = this._loginService.GetOnlineUser().Count;
+                Thread.Sleep(1000);
+            }
+            return online.ToString();
+
         }
 
     }

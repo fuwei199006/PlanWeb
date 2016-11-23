@@ -16,7 +16,10 @@ namespace Plain.BLL.LoginService
     {
         public Basic_LoginInfo GetLoginInfoByToken(Guid token)
         {
-            return this.GetEntity(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
+            var loginInfo= this.GetEntity(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
+            loginInfo.ExpireTime = DateTime.Now.AddHours(1);
+            loginInfo.LastUpdateTime = DateTime.Now;
+            return this.Update(loginInfo);
         }
 
         public Basic_LoginInfo GetLoginInfoByLoginName(string loginName)
@@ -95,7 +98,7 @@ namespace Plain.BLL.LoginService
 
         public List<Basic_LoginInfo> GetOnlineUser()
         {
-            return this.LoadEntitiesNoTracking(r => r.IsDelete&&r.ExpireTime>DateTime.Now).ToList();
+            return this.LoadEntitiesNoTracking(r => !r.IsDelete&&r.ExpireTime>DateTime.Now).ToList();
 
         }
     }

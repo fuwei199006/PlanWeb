@@ -128,10 +128,21 @@
     jQuery(document).ready(function () {
 
         App.init(); // initlayout and core plugins
-
-
+        var getOnlinePerson = function () {
+            debugger;
+            $.post('@Url.Action("GetOnlinePerson", "Login")', { onlineCount: $("#spnOnline").val() ||0}, function (res) {
+                debugger;
+                if (!!Number(res) &&Number(res) !== 0) {
+                    $("#spnOnline").html(res);
+                }
+                getOnlinePerson();
+            });
+        }
+        getOnlinePerson();
     });
 
     //App.blockUI($("body"),"");
 </script>
+ 
+
 @RenderSection("PageSpecificJavascriptIncludes", required: false)
