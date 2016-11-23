@@ -107,3 +107,7 @@ h4{border-bottom: 1px solid #EEEEEE;}
 .portlet-title .tools {
     margin: 5px;
 }
+
+.portlet-body{
+    margin-left:10px;
+}

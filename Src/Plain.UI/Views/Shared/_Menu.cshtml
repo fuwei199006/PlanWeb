@@ -45,11 +45,12 @@
                         @foreach (var m in itemMenu)
                         {
                             <li>
-                                <a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl+"?type="+menu.MenuType)">
-                                    <i class="@m.MenuIcon"></i>
-                                    &nbsp;@m.MenuName
-                                </a>
-                            </li>
+                                @*<a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl+"?type="+menu.MenuType)">*@
+                                    <a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl)">
+                                        <i class="@m.MenuIcon"></i>
+                                        &nbsp;@m.MenuName
+                                    </a>
+</li>
                         }
                     </ul>
 
@@ -58,13 +59,14 @@
             else
             {
                 <li>
-                    <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl+"?type="+menu.MenuType)">
-                        <i class="@menu.MenuIcon"></i>
-                        <span>@menu.MenuName</span>
+                    @*<a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl+"?type="+menu.MenuType)">*@
+                        <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl)">
+                            <i class="@menu.MenuIcon"></i>
+                            <span>@menu.MenuName</span>
 
 
-                    </a>
-                </li>
+                        </a>
+</li>
             }
 
 

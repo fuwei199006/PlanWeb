@@ -26,7 +26,7 @@
                 </label>
                 <label>
                     <span>权限名称：</span>
-                    @Html.TextBox("PoweName", null, new { @class = "m-wrap small" })
+                    @Html.TextBox("PowerName", null, new { @class = "m-wrap small" })
                 </label>
 
             </div>
@@ -67,7 +67,7 @@
                 <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<PowerGroup>(int.Parse(@power.PowerGroup)))</td>
                 <td>
                     @StringUtil.CutString(string.Join(",", power.Menus.Select(x => x.MenuName)), 40)
-                <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("MenuList", "Power", new { id =power.Id })?TB_iframe=true&height=450&width=600">
+                <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("MenuList", "Power", new { id =power.Id })?TB_iframe=true&height=650&width=800">
                     <i class="icon icon-list-alt"></i>
                     添加
                 </a>

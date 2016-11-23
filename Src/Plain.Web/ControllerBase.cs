@@ -77,7 +77,7 @@ namespace Plain.Web
 
         protected override void OnException(ExceptionContext filterContext)
         {
-
+            //todo:如果数据库的连接出错，可能会有空白的现象
             //ViewData["code"] = 500;
             var error = string.Empty;
 #if DEBUG
@@ -115,7 +115,7 @@ namespace Plain.Web
                 var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
                 if (!urlList.Contains(Request.Url.AbsolutePath.ToString()) && noPermessionIgnore.Length == 0)
                 {
-                    if (Request["type"] == null)
+                    if (Request["id"]!= null)
                     {
                         filterContext.Result = this.FrameStop("没有权限,3秒后自动刷新");
                     }
