@@ -11,6 +11,7 @@ namespace Plain.BLL.LoginService
         Basic_LoginInfo GetLoginInfoByToken(Guid token);
         Basic_LoginInfo GetLoginInfoByLoginName(string loginName);
         Basic_LoginInfo Login(string loginName, string password, LoginType loginType = LoginType.NormalLogin);
+        Basic_LoginInfo LoginTest(string loginName, string password, LoginType loginType = LoginType.NormalLogin);
         List<Basic_LoginInfo> GetListLoginInfoByLoginName(string loginName);
         bool LoginOut(Guid loginName);
 

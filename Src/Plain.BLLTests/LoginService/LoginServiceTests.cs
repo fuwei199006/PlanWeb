@@ -1,11 +1,35 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading;
 using Framework.BLL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plain.BLL;
 using Plain.BLL.LoginService;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+namespace Plain.BLL.LoginService.Tests
+{
+    [TestClass()]
+    public class LoginServiceTests
+    {
+        [TestMethod()]
+        public void LoginTest()
+        {
+            ILoginService loginService = new BLL.LoginService.LoginService();
+            while (true)
+            {
+                ThreadPool.QueueUserWorkItem(r =>
+                {
+                    loginService.LoginTest("yunwei@163.com", "111111");
+                });
+
+            }
+             
+         
+
+        }
+    }
+}
 
 namespace Plain.BLLTests.LoginService
 {

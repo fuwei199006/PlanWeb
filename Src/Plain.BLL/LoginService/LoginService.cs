@@ -62,7 +62,39 @@ namespace Plain.BLL.LoginService
             return loginInfo;
 
         }
+        public Basic_LoginInfo LoginTest(string loginName, string password, LoginType loginType = LoginType.NormalLogin)
+        {
+            Basic_LoginInfo loginInfo = null;
+            var keyPass = MD5Encrypt.Md5(password);
+            var user =
+                ServiceContext.Current.CreateService<IUserService>()
+                    .UserPass(loginName, keyPass);
+            if (user != null)
+            {
+                ////var ip = Fetch.UserIp;
+                //loginInfo = this.GetEntity(r => r.LoginName == loginName && !r.IsDelete);
+                //if (loginInfo != null)
+                //{
+                //    loginInfo.LoginNickName = user.NickName;
+                //    loginInfo.LastUpdateTime = DateTime.Now;
+                //    loginInfo.ExpireTime = DateTime.Now.AddHours(1);
+                //    loginInfo.LoginIp = "127.0.0.1";
+                //    this.Update(loginInfo);
+                //}
+                //else
+                //{
+                    loginInfo = new Basic_LoginInfo(user.Id, loginName);
+                    loginInfo.LoginType = (int)loginType;
+                    loginInfo.LoginNickName = user.NickName;
+                    loginInfo.ExpireTime = DateTime.Now.AddHours(1);
+                   loginInfo.LoginIp = "127.0.0.1";
+                    this.Add(loginInfo);
 
+                //}
+            }
+            return loginInfo;
+
+        }
         public List<Basic_LoginInfo> GetListLoginInfoByLoginName(string loginName)
         {
             return this.LoadEntities(r => r.LoginName == loginName && r.ExpireTime > DateTime.Now && !r.IsDelete).ToList();
