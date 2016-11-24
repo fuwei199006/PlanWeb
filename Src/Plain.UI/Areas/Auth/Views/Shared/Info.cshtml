@@ -5,12 +5,12 @@
 
 @{
     ViewBag.Title = "错误信息";
-    Layout = Url.Content("~/Areas/CMS/Views/Shared/_Layout.cshtml");
+    Layout = Url.Content("~/Areas/Auth/Views/Shared/_LoginLayout.cshtml");
 }
 
 @if (ViewBag.IsAutoSkip)
 {
-    <meta http-equiv='refresh' content='3;url=@ViewBag.SkipUrl' />
+    @*<meta http-equiv='refresh' content='3;url=@ViewBag.SkipUrl' />*@
 }
 
 @if (ViewBag.MsgType == null || ViewBag.MsgType == MsgType.Error)

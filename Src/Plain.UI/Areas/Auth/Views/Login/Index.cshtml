@@ -4,9 +4,10 @@
     ViewBag.Title = "登录";
     ViewBag.PageInfo = "会员登录";
     ViewBag.TabInfo = "邮箱登录";
-    Layout = Url.Content("~/Areas/Auth/Views/Shared/_Layout.cshtml");
+
+    Layout = Url.Content("~/Areas/Auth/Views/Shared/_LoginLayout.cshtml");
 }
- 
+
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "registerFrm" }))
 {
 
@@ -15,22 +16,22 @@
         <span>电子邮箱：</span>
         <span class="itemWrap">
             @Html.TextBoxFor(x => x.LoginName, new
-           {
-               placeholder = "请输入电子邮箱",
-               id = "txtEmail"
-           })
+       {
+           placeholder = "请输入电子邮箱",
+           id = "txtEmail"
+       })
             <em class="errorMsg" id="emailErrorMsg">@Html.ValidationMessageFor(m => m.LoginName)</em>
         </span>
     </div>
-        <div class="itemContent">
-            <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
-            <span class="itemWrap">
-                @Html.Password("Password", "", new { placeholder = "请输入密码" })
+    <div class="itemContent">
+        <span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+        <span class="itemWrap">
+            @Html.Password("Password", "", new { placeholder = "请输入密码" })
 
 
-                <em class="errorMsg">@Html.ValidationMessage("Password")</em>
-            </span>
-        </div>
+            <em class="errorMsg">@Html.ValidationMessage("Password")</em>
+        </span>
+    </div>
 
         <div class="itemContent">
             <span>&nbsp;验&nbsp;证&nbsp;码：</span>
@@ -50,8 +51,8 @@
 
         </div>
         <div class="userContact ">
-            <input class="submit" id="btnSubmit" type="submit"   value="登录" />
-          
+            <input class="submit" id="btnSubmit" type="submit" value="登录" />
+
         </div>
 
 
@@ -63,7 +64,7 @@
         $(function () {
 
             $("#chkAgree").click(function () {
-               
+
             });
         });
     </script>

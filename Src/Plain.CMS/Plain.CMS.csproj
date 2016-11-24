@@ -207,7 +207,6 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\CmsHome\ArticleView.cshtml" />
     <Content Include="Views\CmsHome\index.cshtml" />
     <Content Include="Views\CmsHome\Page.cshtml" />
@@ -223,6 +222,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67f618d6-b22f-435d-ad61-c2f820815a2a}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
       <Project>{265EB8A8-EC67-4BBE-9036-8B76C28C4859}</Project>
       <Name>Framework.Web</Name>
@@ -230,6 +233,10 @@
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
       <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3b149ade-26c3-4da3-92f5-c613559fb50f}</Project>
+      <Name>Plain.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.Web\Plain.Web.csproj">
       <Project>{48613701-eb05-4356-970f-83c08f80365f}</Project>

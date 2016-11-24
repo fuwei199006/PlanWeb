@@ -3636,9 +3636,6 @@
     <Content Include="Areas\Auth\Views\web.config" />
     <Content Include="Config\DaoConfig2.config" />
     <Content Include="Areas\Auth\Views\Role\Index.cshtml" />
-    <Content Include="Areas\Auth\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Auth\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Auth\Views\Shared\_Content.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Edit.cshtml" />
     <Content Include="Areas\Auth\Views\User\Index.cshtml" />
@@ -4044,6 +4041,7 @@
     <Content Include="Scripts\admin.utility.js" />
     <Content Include="Views\Shared\ErrorFull.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Auth\Views\Shared\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

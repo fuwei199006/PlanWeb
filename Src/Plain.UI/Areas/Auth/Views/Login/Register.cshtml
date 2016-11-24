@@ -5,33 +5,34 @@
     ViewBag.Title = "注册新用户";
     ViewBag.PageInfo = "会员注册";
     ViewBag.TabInfo = "邮箱注册";
-    Layout = Url.Content("~/Areas/Auth/Views/Shared/_Layout.cshtml");
+
+    Layout = Url.Content("~/Areas/Auth/Views/Shared/_LoginLayout.cshtml");
 }
 
- 
+
 
 
 @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { id = "registerFrm" }))
 {
-    
-        <div class="itemContent">
-            <span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
-            <span class="itemWrap">
-                @Html.TextBoxFor(x => x.RegisterName, new
-                       {
-                           placeholder = "昵称"
-                       })
-                <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterName)</em>
-            </span>
-        </div>
+
+    <div class="itemContent">
+        <span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
+        <span class="itemWrap">
+            @Html.TextBoxFor(x => x.RegisterName, new
+           {
+               placeholder = "昵称"
+           })
+            <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterName)</em>
+        </span>
+    </div>
         <div class="itemContent">
             <span>电子邮箱：</span>
             <span class="itemWrap">
                 @Html.TextBoxFor(x => x.RegisterEmail, new
-                       {
-                           placeholder = "请输入电子邮箱",
-                           id = "txtEmail"
-                       })
+           {
+               placeholder = "请输入电子邮箱",
+               id = "txtEmail"
+           })
                 <em class="errorMsg" id="emailErrorMsg">@Html.ValidationMessageFor(m => m.RegisterEmail)</em>
             </span>
         </div>
@@ -74,7 +75,7 @@
             <a class="skip">不注册，直接浏览</a>
             <!--<span class="f_right loginOther debug">QQ,微信</span>-->
         </div>
-    
+
 
 }
 
@@ -82,7 +83,7 @@
 
     <script>
         $(function () {
-           
+
             $("#chkAgree").click(function () {
                 if ($(this).prop("checked") === true) {
                     $("#btnSubmit").removeAttr("disabled");

@@ -17,17 +17,7 @@ namespace Plain.Web
 {
     public abstract class ControllerBase : Framework.Web.ControllerBase
     {
-        [PermessionIgnore]
-        [AuthorizeIgnore]
-        [ValidateInput(false)]
-        public ActionResult Info(string msg, MsgType type)
-        {
-            ViewBag.ErrorMsg = msg;
-            ViewBag.MsgType = type;
-            ViewBag.IsAutoSkip = false;
-            ViewBag.SkipUrl = "";
-            return View();
-        }
+ 
         [PermessionIgnore]
         [AuthorizeIgnore]
         public ActionResult Error()
@@ -71,13 +61,20 @@ namespace Plain.Web
         [AuthorizeIgnore]
         public ActionResult SkipAndAlert(string msg, MsgType type)
         {
-            return RedirectToAction("Info", new { msg, type });
+            ViewBag.ErrorMsg = msg;
+            ViewBag.MsgType = type;
+            ViewBag.IsAutoSkip = false;
+            return View("Info");
         }
         [PermessionIgnore]
         [AuthorizeIgnore]
         public ActionResult SkipAndAlert(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {
-            return RedirectToAction("SkipAndInfo", new { msg, type, isAutoSkip, skipUrl });
+            ViewBag.ErrorMsg = msg;
+            ViewBag.MsgType = type;
+            ViewBag.IsAutoSkip = true;
+            ViewBag.SkipUrl = skipUrl;
+            return View("Info");
         }
 
 
