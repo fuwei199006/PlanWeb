@@ -119,12 +119,12 @@
 
 .errorInfo {
     font-size: 18px;
-    color: red;
+    color: #b94a48;
 }
 
 .successInfo {
     font-size: 18px;
-    color: greenyellow;
+    color: #468847;
 }
 
 .attentionInfo {
