@@ -131,6 +131,9 @@
     font-size: 18px;
     color: #666;
 }
+.shareinfo i{
+    font-size:30px;
+}
 .fromContent{
     text-indent:15%;
 }
