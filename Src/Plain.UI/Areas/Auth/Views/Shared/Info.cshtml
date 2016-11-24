@@ -10,7 +10,7 @@
 
 @if (ViewBag.IsAutoSkip)
 {
-    <meta http-equiv='refresh' content='3;url=@ViewBag.SkipUrl' />
+    @*<meta http-equiv='refresh' content='3;url=@ViewBag.SkipUrl' />*@
 }
 
 @if (ViewBag.MsgType == null || ViewBag.MsgType == MsgType.Error)

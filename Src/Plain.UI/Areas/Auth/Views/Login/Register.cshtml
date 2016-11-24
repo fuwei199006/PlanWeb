@@ -11,20 +11,20 @@
 
 
 
+<div class="fromContent">
+    @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { id = "registerFrm" }))
+    {
 
-@using (Html.BeginForm("Register", "Login", FormMethod.Post, new { id = "registerFrm" }))
-{
-
-    <div class="itemContent">
-        <span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
-        <span class="itemWrap">
-            @Html.TextBoxFor(x => x.RegisterName, new
+        <div class="itemContent">
+            <span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
+            <span class="itemWrap">
+                @Html.TextBoxFor(x => x.RegisterName, new
            {
                placeholder = "昵称"
            })
-            <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterName)</em>
-        </span>
-    </div>
+                <em class="errorMsg">@Html.ValidationMessageFor(m => m.RegisterName)</em>
+            </span>
+        </div>
         <div class="itemContent">
             <span>电子邮箱：</span>
             <span class="itemWrap">
@@ -77,8 +77,8 @@
         </div>
 
 
-}
-
+    }
+</div>
 @section PageSpecificJavascriptIncludes{
 
     <script>
