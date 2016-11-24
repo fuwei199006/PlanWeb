@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Framework.Web;
 using Plain.BLL.Article;
-using Plain.UI.Controllers;
 
-namespace Plain.UI.Areas.CMS.Controllers
+namespace Plain.CMS.Controllers
 {
     public class CmsHomeController : BaseController
     {

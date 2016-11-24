@@ -1,5 +1,5 @@
 ﻿@using Plain.Dto
-@using Plain.Web
+ 
 <div class="header">
     <div id="" class="wrap">
         <div id="" class="nav f_left">
@@ -22,7 +22,7 @@
 <div class="wrap navgb">
  
     <ul>
-        @foreach (var m in AdminCacheContext.Current.MenuItems[MenuType.Nav])
+        @foreach (var m in AdminCacheContext.Current.MenuItems[((int)MenuType.Nav).ToString()])
         {
             <li>
                 <a href='@m.MenuUrl'>@m.MenuName</a>

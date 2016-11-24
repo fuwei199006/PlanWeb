@@ -17,7 +17,8 @@ namespace Plain.Web
 {
     public abstract class ControllerBase : Framework.Web.ControllerBase
     {
-
+        [PermessionIgnore]
+        [AuthorizeIgnore]
         [ValidateInput(false)]
         public ActionResult Info(string msg, MsgType type)
         {
@@ -55,6 +56,8 @@ namespace Plain.Web
 
 
         }
+        [PermessionIgnore]
+        [AuthorizeIgnore]
         [ValidateInput(false)]
         public ActionResult SkipAndInfo(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {
@@ -64,11 +67,14 @@ namespace Plain.Web
             ViewBag.SkipUrl = skipUrl;
             return View("Info");
         }
-
+        [PermessionIgnore]
+        [AuthorizeIgnore]
         public ActionResult SkipAndAlert(string msg, MsgType type)
         {
             return RedirectToAction("Info", new { msg, type });
         }
+        [PermessionIgnore]
+        [AuthorizeIgnore]
         public ActionResult SkipAndAlert(string msg, MsgType type, bool isAutoSkip, string skipUrl)
         {
             return RedirectToAction("SkipAndInfo", new { msg, type, isAutoSkip, skipUrl });
@@ -95,6 +101,7 @@ namespace Plain.Web
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
 
             var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
             if (noAuthorizeAttributes.Length > 0)

@@ -113,6 +113,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             {
                 var user = new Basic_UserInfo
                 {
+                    RealName=register.RegisterName,
                     LoginName = register.RegisterEmail,
                     UserEmail = register.RegisterEmail,
                     NickName = register.RegisterName,
@@ -222,11 +223,11 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var online = this._loginService.GetOnlineUser().Count;
 
-            while (online == onlineCount)
-            {
-                online = this._loginService.GetOnlineUser().Count;
-                Thread.Sleep(1000);
-            }
+            //while (online == onlineCount)
+            //{
+                //online = this._loginService.GetOnlineUser().Count;
+                //Thread.Sleep(5000);
+            //}
             return online.ToString();
 
         }

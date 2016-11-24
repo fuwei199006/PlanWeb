@@ -4,7 +4,7 @@
     ViewBag.Title = "登录";
     ViewBag.PageInfo = "会员登录";
     ViewBag.TabInfo = "邮箱登录";
-    Layout = Url.Content("~/Areas/Auth/Views/Shared/_LoginLayout.cshtml");
+    Layout = Url.Content("~/Areas/Auth/Views/Shared/_Layout.cshtml");
 }
  
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "registerFrm" }))
