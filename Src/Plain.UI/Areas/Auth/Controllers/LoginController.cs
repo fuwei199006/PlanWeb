@@ -120,7 +120,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                     UserPwd = register.RegisterPassword,
                     ModifyTime = DateTime.Now,
                     CreateTime = DateTime.Now,
-                    UserStaus = (int)UserStausType.Disable,
+                    UserStaus = (int)UserStausType.UnActive,
                 };
                 _userService.AddUser(user);
             }

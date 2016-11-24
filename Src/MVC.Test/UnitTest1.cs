@@ -23,12 +23,12 @@ namespace MVC.Test
                 RoleStatus = 1
             };
 
-            HtmlHelper<Basic_Role> helper = MvcHelper.GetHtmlHelper(dict);
+            //HtmlHelper<Basic_Role> helper = MvcHelper.GetHtmlHelper(dict);
 
 
-            // Act
-            MvcHtmlString html1 = helper.DropDownListFor(m => m.RoleStatus, GroupedItems1);
-            MvcHtmlString html = helper.DropDownListFor(m => m.RoleGroup, GroupedItems);
+            //// Act
+            //MvcHtmlString html1 = helper.DropDownListFor(m => m.RoleStatus, GroupedItems1);
+            //MvcHtmlString html = helper.DropDownListFor(m => m.RoleGroup, GroupedItems);
         }
         private List<SelectListItem> GroupedItems
         {

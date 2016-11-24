@@ -27,7 +27,7 @@ namespace Plain.BLL.UserService
 
         public Basic_UserInfo ActiveUserByEmail(string email)
         {
-           var result= this.GetEntity(r => r.UserEmail == email && r.UserStaus == 0);
+           var result= this.GetEntity(r => r.UserEmail == email && r.UserStaus == (int)UserStausType.UnActive);
             if (result == null) return null;
             result.UserStaus = (int)UserStausType.Active;//Active User
             result.ModifyTime = DateTime.Now;

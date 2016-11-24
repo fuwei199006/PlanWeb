@@ -53,15 +53,30 @@ namespace Plain.Dto
 
     public enum UserStausType
     {
+        /// <summary>
+        /// 不允许查询和使用,需要管理员禁用（可能对于长时间不用系统的人，账号禁用）
+        /// </summary>
         [EnumTitle("禁用")]
         Disable = 1,
+        /// <summary>
+        /// 允许查询，但不允许登录
+        /// </summary>
         [EnumTitle("可用")]
         Enable = 2,
-        [EnumTitle("未激活")]
+        /// <summary>
+        /// 允许查询，不允许登录，注册的时候初始化使用。
+        /// </summary>
+        [EnumTitle("未激活")] 
         UnActive = 3,
-        [EnumTitle("激活")]
+        /// <summary>
+        /// 系统正常使用用户
+        /// </summary>
+        [EnumTitle("激活")] 
         Active = 4,
-        [EnumTitle("锁定")]
+        /// <summary>
+        /// 可以查询，无法登录。系统已经锁定用户，无法使用。
+        /// </summary>
+        [EnumTitle("锁定")] 
         Lock = 5
     }
 
