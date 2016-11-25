@@ -3646,6 +3646,7 @@
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
     <Content Include="Areas\Config\Views\web.config" />
+    <Content Include="Areas\Config\Views\Config\Index.cshtml" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -4044,7 +4045,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Config\Views\Config\" />
     <Folder Include="Areas\Config\Views\Shared\" />
     <Folder Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />

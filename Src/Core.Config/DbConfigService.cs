@@ -87,7 +87,6 @@ namespace Core.Config
             var configFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config");
             if (!Directory.Exists(configFolder))
             {
-                ;
                 Directory.CreateDirectory(configFolder);
             }
             var configPath = configFolder + "//" + string.Format("{0}.config", key);

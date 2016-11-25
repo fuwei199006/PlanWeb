@@ -1,0 +1,35 @@
+﻿
+@{
+
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+@model Core.Config.ConfigModel.DaoConfig
+@using Core.Encrypt
+
+    <div class="alert">
+        <button class="close" data-dismiss="alert"></button>
+        <strong>系统配置相关：</strong>
+        下面是当前数据库的配置
+    </div>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>类别</th>
+                <th>值</th>
+                <th>是否可用</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>日志数据库</td>
+                <td>@DESEncrypt.Decode(Model.Log)</td>
+                <td>@Model.CreateTime.ToShortDateString()</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
