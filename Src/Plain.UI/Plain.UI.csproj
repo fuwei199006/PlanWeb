@@ -180,6 +180,8 @@
     <Compile Include="Areas\Auth\Controllers\PowerController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
     <Compile Include="Areas\Auth\Controllers\UserController.cs" />
+    <Compile Include="App_Start\ConfigAreaRegistration.cs" />
+    <Compile Include="Areas\Config\Controllers\ConfigController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Auth\Controllers\LoginController.cs" />
@@ -3643,6 +3645,7 @@
     <Content Include="Areas\Auth\Views\User\RoleList.cshtml" />
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
+    <Content Include="Areas\Config\Views\web.config" />
     <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -4041,6 +4044,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Config\Views\Config\" />
+    <Folder Include="Areas\Config\Views\Shared\" />
     <Folder Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />
   </ItemGroup>

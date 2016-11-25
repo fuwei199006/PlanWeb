@@ -8,7 +8,6 @@ namespace Core.Config.ConfigModel
         {
 
         }
-
         public CacheConfigItem[] CacheConfigItems { get; set; }
         public CacheProviderItem[] CacheProviderItems { get; set; }
     }

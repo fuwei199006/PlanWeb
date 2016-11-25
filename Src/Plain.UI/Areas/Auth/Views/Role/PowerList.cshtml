@@ -13,25 +13,20 @@
         @foreach (var group in ViewBag.Group.Keys)
         {
             <div class="portlet paddingless">
-
                 <div class="portlet-title line">
-
                     <div class="caption captionMargin">
                         <i class="icon-bell"></i>
                         <span class="roleGroup">@ViewBag.Group[group]</span>
                     </div>
-
                     <div class="tools">
 
                         <a href="javascript:void(0);" class="collapse"></a>
 
 
                     </div>
-
                 </div>
 
                 <div class="portlet-body" style="display: block;">
-
                     <div class="controls">
                         @foreach (var item in ((List<Basic_Power>)ViewBag.Power).Where(r => r.PowerGroup == group.ToString()))
                         {

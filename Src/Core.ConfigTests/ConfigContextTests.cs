@@ -66,7 +66,7 @@ namespace Core.ConfigTests
             };
             var xml = SerializationHelper.XmlSerialize(daoConfig);
             ConfigContext ct=new ConfigContext();
-            ct.Save("Dao-DaoConfig",xml);
+            //ct.Save("Dao-DaoConfig",xml);
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@ namespace Core.ConfigTests
             var xml = SerializationHelper.XmlSerialize(mainConfig);
            
             ConfigContext ct = new ConfigContext();
-            ct.Save("Message-Mail163Config", xml);
+            //ct.Save("Message-Mail163Config", xml);
         }
 
         [TestMethod]

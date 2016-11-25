@@ -190,12 +190,13 @@ namespace Plain.Web
         {
             get
             {
+                var _loginInfo = this.LoginInfo;//测试下是否多次访问,使用变量缓存。性能会好 
                 return new Operater
                 {
-                    Name = this.LoginInfo == null ? "" : LoginInfo.LoginName,
-                    IP = this.LoginInfo == null ? "" : LoginInfo.LoginIp,
-                    Token = this.LoginInfo == null ? Guid.Empty : LoginInfo.LoginToken,
-                    UserId = this.LoginInfo == null ? 0 : LoginInfo.LoginUserId,
+                    Name =  _loginInfo == null ? "" : _loginInfo.LoginName,
+                    IP =  _loginInfo == null ? "" : _loginInfo.LoginIp,
+                    Token = _loginInfo == null ? Guid.Empty : _loginInfo.LoginToken,
+                    UserId = _loginInfo == null ? 0 : _loginInfo.LoginUserId,
                     Time = DateTime.Now
 
                 };

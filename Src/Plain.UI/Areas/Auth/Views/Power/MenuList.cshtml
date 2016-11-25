@@ -1,7 +1,5 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "编辑";
-
     Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
 }
 @using Framework.Web.Controls;
@@ -12,25 +10,16 @@
         @foreach (var group in ViewBag.Group.Keys)
         {
             <div class="portlet paddingless">
-
                 <div class="portlet-title line">
-
                     <div class="caption captionMargin">
                         <i class="icon-bell"></i>
                         <span class="roleGroup">@ViewBag.Group[group]</span>
                     </div>
-
                     <div class="tools">
-
                         <a href="javascript:void(0);" class="collapse"></a>
-
-
                     </div>
-
                 </div>
-
                 <div class="portlet-body" style="display: block;">
-
                     <div class="controls">
                         @foreach (var item in ((List<Basic_Menu>)ViewBag.Menus).Where(r => r.MenuType == group.ToString()))
                         {
@@ -39,16 +28,9 @@
                                 @*@Html.CheckBox("RoleIds", Model.RoleIds.Contains(item.Id), new { value = item.Id,@class="checkboxes" })*@
                             </label>
                         }
-
-
                     </div>
-
                 </div>
-
             </div>
         }
     </div>
-
-
-
 }

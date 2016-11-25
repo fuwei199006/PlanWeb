@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Config</RootNamespace>
-    <AssemblyName>Core.Config</AssemblyName>
+    <RootNamespace>Console.Test</RootNamespace>
+    <AssemblyName>Console.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,39 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigModel\CacheConfig.cs" />
-    <Compile Include="ConfigModel\ConfigBase.cs" />
-    <Compile Include="ConfigContext.cs" />
-    <Compile Include="ConfigModel\DaoConfig.cs" />
-    <Compile Include="ConfigModel\MailConfig.cs" />
-    <Compile Include="ConfigModel\SystemSettingConfig.cs" />
-    <Compile Include="DbConfigService.cs" />
-    <Compile Include="FileConfigService.cs" />
-    <Compile Include="CachedConfig.cs" />
-    <Compile Include="IConfigService.cs" />
-    <Compile Include="IDbConfigService.cs" />
-    <Compile Include="IFileConfigService.cs" />
-    <Compile Include="LocalCachedConfigContext.cs" />
-    <Compile Include="MssqlDbHelper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Encryption\Core.Encrypt.csproj">
-      <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
-      <Name>Core.Encrypt</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Exception\Core.Exception.csproj">
-      <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
-      <Name>Core.Exception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
-      <Name>Framework.Extention</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
-      <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
-      <Name>Framework.Utility</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

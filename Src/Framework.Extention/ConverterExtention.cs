@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -11,17 +12,17 @@ namespace Framework.Extention
 
         public static int ToInt(this decimal value)
         {
-            var decimalNum = value - (int) value;
+            var decimalNum = value - (int)value;
             if (decimalNum >= 0.5m)
             {
-                return ((int) value) + 1;
+                return ((int)value) + 1;
             }
-            return (int) value;
+            return (int)value;
         }
 
         public static int ToInt(this double value)
         {
-            return ((decimal) value).ToInt();
+            return ((decimal)value).ToInt();
         }
 
         /// <summary>
@@ -32,11 +33,11 @@ namespace Framework.Extention
         /// <returns></returns>
         public static DateTime CutOff(this DateTime dateTime, long cutTicks = TimeSpan.TicksPerMillisecond)
         {
-            return new DateTime(dateTime.Ticks-(dateTime.Ticks%cutTicks),dateTime.Kind);
+            return new DateTime(dateTime.Ticks - (dateTime.Ticks % cutTicks), dateTime.Kind);
         }
 
 
-        public static string ToCnDataString(this DateTime  dateTime)
+        public static string ToCnDataString(this DateTime dateTime)
         {
             return dateTime.ToString("yyyy-MM-dd");
         }
@@ -48,7 +49,7 @@ namespace Framework.Extention
 
         public static string ToStar(this string s, int star = 1)
         {
-            var sb=new StringBuilder();
+            var sb = new StringBuilder();
             if (string.IsNullOrEmpty(s))
             {
                 return "*";
@@ -213,18 +214,42 @@ namespace Framework.Extention
                     if (dt.Columns.Contains(tempName))
                     {
                         // 判断此属性是否有Setter      
-                        if (!pi.CanWrite) continue;
+                        if (pi.CanWrite)
+                        {
+                            object value = dr[tempName];
+                            if (value != DBNull.Value)
+                                pi.SetValue(t, value, null);
+                        }
 
-                        object value = dr[tempName];
-                        if (value != DBNull.Value)
-                            pi.SetValue(t, value, null);
+
                     }
                 }
                 ts.Add(t);
             }
             return ts;
         }
- 
 
+        public static T ToEntity<T>(this DataTable dt, string filedName = "ConfigKey", string valueName = "ConfigValue")
+        {
+            // 获得此模型的类型   
+            Type type = typeof(T);
+            T t = Activator.CreateInstance<T>();
+            var propertys = t.GetType().GetProperties().Where(r => r.CanWrite);
+            foreach (DataRow dr in dt.Rows)
+            {
+                // 获得此模型的公共属性      
+                if (dt.Columns.Contains(filedName) && dt.Columns.Contains(valueName))
+                {
+                    var pi = propertys.Where(r => r.Name == dr[filedName].ToString()).FirstOrDefault();
+                    if (pi != null)
+                    {
+                        var value = Convert.ChangeType(dr[valueName], pi.PropertyType);
+                        if (value != DBNull.Value)
+                            pi.SetValue(t, value, null);
+                    }
+                }
+            }
+            return t;
+        }
     }
 }

@@ -361,3 +361,12 @@ ALTER TABLE dbo.Basic_LoginInfo ADD LoginNickName NVARCHAR(50)
   ALTER TABLE dbo.Basic_Role ADD RoleGroup NVARCHAR(10) NOT NULL DEFAULT 1
   
     ALTER TABLE dbo.Basic_Power ADD PowerGroup NVARCHAR(10) NOT NULL DEFAULT 1
+
+
+
+
+	ALTER TABLE dbo.Basic_Config ADD ConfigDesc NVARCHAR(200) 
+	ALTER TABLE dbo.Basic_Config ADD ConfigDateTag NVARCHAR(50) 
+
+	ALTER TABLE dbo.Basic_Config ADD ConfigItemType NVARCHAR(20) --list single
+	

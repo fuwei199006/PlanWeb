@@ -17,6 +17,7 @@ namespace Plain.BLL.LoginService
         public Basic_LoginInfo GetLoginInfoByToken(Guid token)
         {
             var loginInfo= this.GetEntity(r => r.LoginToken  == token&&r.ExpireTime>DateTime.Now&&!r.IsDelete);
+            if (loginInfo == null) return null;
             loginInfo.ExpireTime = DateTime.Now.AddHours(1);
             loginInfo.LastUpdateTime = DateTime.Now;
             return this.Update(loginInfo);
