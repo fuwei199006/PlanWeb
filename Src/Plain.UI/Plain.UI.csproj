@@ -3632,7 +3632,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Auth\Views\web.config" />
-    <Content Include="Config\DaoConfig2.config" />
+    <Content Include="Config\DaoConfig.config" />
     <Content Include="Areas\Auth\Views\Role\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Auth\Views\Menu\Edit.cshtml" />
@@ -3647,7 +3647,7 @@
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
     <Content Include="Areas\Config\Views\web.config" />
     <Content Include="Areas\Config\Views\Config\Index.cshtml" />
-    <None Include="Config\DaoConfig.config">
+    <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\DemoUI\.project" />
