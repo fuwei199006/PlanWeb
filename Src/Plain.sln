@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.FileService", "Plain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Test", "Console.Test\Console.Test.csproj", "{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Integration.Mvc", "Autofac.Integration.Mvc\Autofac.Integration.Mvc.csproj", "{505F5F7E-F8E3-4E6F-BC17-0860717DD393}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,6 +277,10 @@ Global
 		{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505F5F7E-F8E3-4E6F-BC17-0860717DD393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505F5F7E-F8E3-4E6F-BC17-0860717DD393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505F5F7E-F8E3-4E6F-BC17-0860717DD393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505F5F7E-F8E3-4E6F-BC17-0860717DD393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
