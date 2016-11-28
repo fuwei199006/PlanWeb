@@ -2,8 +2,7 @@
 {
     public class BaseController : Plain.Web.ControllerBase
     {
-     
-         
-  
+
+    
     }
 }

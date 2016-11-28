@@ -11,7 +11,8 @@ namespace Plain.BLL.ConfigService
  public   interface IConfigService: IBaseService<Basic_Config>
     {
 
-        DaoConfig GetDaoConfig();
-       
+        Basic_Config GetDaoConfig(string configKey);
+        Basic_Config GetConfigConfig(string configKey);
+
     }
 }

@@ -96,7 +96,8 @@
     <!-- BEGIN FOOTER -->
     @Html.Partial("_Footer")
     <!-- END FOOTER -->
-
+ 
+    <input type="hidden" id="staticRootUrl" value='@Url.StaticFile("~/Content")' />
 </body>
 </html>
 
@@ -121,13 +122,13 @@
 <script src='@Url.StaticFile("~/Scripts/app.js")' type="text/javascript" charset="utf-8"></script>
 <script src='@Url.StaticFile("~/Scripts/admin.main.js")'></script>
 <script type="text/javascript">
-
+    
     jQuery(document).ready(function () {
 
         App.init(); // initlayout and core plugins
         var getOnlinePerson = function () {
 
-            $.post('@Url.Action("GetOnlinePerson", "Login")', { onlineCount: $("#spnOnline").html() || 0 }, function (res) {
+            $.post('@Url.Action("GetOnlinePerson", "Login",new { Area="Auth"})', { onlineCount: $("#spnOnline").html() || 0 }, function (res) {
 
                 if (!!Number(res) && Number(res) !== 0) {
                     $("#spnOnline").html(res);
