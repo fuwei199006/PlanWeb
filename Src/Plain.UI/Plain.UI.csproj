@@ -65,9 +65,9 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\MVC5 源码\bin\Debug\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -3641,9 +3641,6 @@
     <Content Include="Areas\Config\Views\Config\DbList.cshtml" />
     <Content Include="Areas\Config\Views\Config\ConfigList.cshtml" />
     <Content Include="Areas\Config\Views\Config\DbEdit.cshtml" />
-    <None Include="Config\DaoConfig1.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="Content\DemoUI\.project" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.ttf" />
