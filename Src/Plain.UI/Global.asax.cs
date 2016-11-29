@@ -77,10 +77,6 @@ namespace Plain.UI
             routeData.Values["action"] = "TError";
             routeData.Values["code"] = statusCode;
             routeData.Values["error"] = errorMsg;
-            //if (error is SqlException)
-            //{
-            //    routeData.Values["isFull"] = 1;
-            //}
             IController errorManager = new BaseController();
             HttpContextWrapper wrapper = new HttpContextWrapper(Context);
             Server.ClearError();

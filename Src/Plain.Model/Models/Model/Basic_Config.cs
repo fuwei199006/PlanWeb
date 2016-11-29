@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Framework.Contract;
+using Core.Config.ConfigModel;
 
 namespace Plain.Model.Models.Model
 {
@@ -15,5 +16,7 @@ namespace Plain.Model.Models.Model
         public string ConfigItemType { get; set; }
 
         public System.DateTime ModifyTime { get; set; }
+
+        public ConfigBase ConfigBase { get; set; }
     }
 }

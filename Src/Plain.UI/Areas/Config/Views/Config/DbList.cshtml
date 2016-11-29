@@ -1,0 +1,62 @@
+﻿@{
+
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+@model  Plain.Model.Models.Model.Basic_Config
+@using Core.Config.ConfigModel;
+@using Framework.Utility;
+@using Core.Encrypt
+@{
+    var ConfigBase = Model.ConfigBase as DaoConfig;
+}
+<div class="row-fluid">
+    <div class="span4">
+        <a class="btn purple  thickbox" title='修改数据库信息' href="@Url.Action("DbEdit", new {key = CacheKey.DaoConfig})TB_iframe=true&height=280&width=600"><i class="icon-edit icon-white"></i> 修改</a>
+    </div>
+</div>
+<br/>
+<div class="alert">
+    <button class="close" data-dismiss="alert"></button>
+    <strong>系统配置相关：</strong>
+    下面是当前数据库的配置
+</div>
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>类别</th>
+            <th>值</th>
+            <th>是否可用</th>
+            <th>创建时间</th>
+            <th>描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>日志数据库</td>
+            <td>@DESEncrypt.Decode(ConfigBase.Log)</td>
+            <td>@(Model.CongfigStatus ? "是" : "否")</td>
+            <td>@Model.CreateTime.ToShortDateString()</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>业务数据库</td>
+            <td>@DESEncrypt.Decode(ConfigBase.BussinessDaoConfig)</td>
+            <td>@(Model.CongfigStatus ? "是" : "否")</td>
+            <td>@Model.CreateTime.ToShortDateString()</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>基础数据库</td>
+            <td>@DESEncrypt.Decode(ConfigBase.BaseDao)</td>
+            <td>@(Model.CongfigStatus ? "是" : "否")</td>
+            <td>@Model.CreateTime.ToShortDateString()</td>
+            <td></td>
+        </tr>
+    </tbody>
+
+</table>

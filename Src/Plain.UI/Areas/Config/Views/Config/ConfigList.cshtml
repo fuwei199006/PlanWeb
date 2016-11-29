@@ -1,0 +1,108 @@
+﻿@{
+
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+@model  Plain.Model.Models.Model.Basic_Config
+@using Core.Config.ConfigModel;
+@using Core.Encrypt
+@{
+    var ConfigBase = Model.ConfigBase as CacheConfig;
+}
+<div class="row-fluid">
+    <div class="span6">
+        <div class="alert">
+            <button class="close" data-dismiss="alert"></button>
+            <strong>系统配置相关：</strong>
+            下面是当前系统缓存的配置
+        </div>
+        <table class="table table-condensed table-hover ">
+            <thead>
+                <tr>
+ 
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                    <th>是否可用</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ConfigBase.CacheProviderItems)
+                {
+                <tr>
+ 
+                    <td>@item.Name</td>
+                    <td>@item.Type</td>
+                    <td>@item.Desc</td>
+                    <td>@(Model.CongfigStatus ? "是" : "否")</td>
+                    <td>@Model.CreateTime.ToShortDateString()</td>
+                    <td>
+                        <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new {id = 1})?TB_iframe=true&height=350&width=400">
+                            <i class="icon-edit"></i>
+                            编辑
+                        </a>
+                    </td>
+
+                </tr>
+                }
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+    <div class="span6">
+        <div class="alert">
+            <button class="close" data-dismiss="alert"></button>
+            <strong>系统配置相关：</strong>
+            下面是当前系统缓存的配置
+        </div>
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+ 
+                    <th>名称</th>
+                    <th>优先级</th>
+                    <th>过期时间</th>
+                    <th>是否绝对</th>
+                    <th>缓存类型</th>
+                    <th>键值匹配</th>
+                    <th>模块匹配</th>
+                    <th>是否可用</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ConfigBase.CacheConfigItems)
+                {
+                    <tr>
+ 
+                        <td>@item.Desc</td>
+                        <td>@item.Priority</td>
+                        <td>@item.Minitus</td>
+                        <td>@(item.IsAbsoluteExpiration ? "是" : "否")</td>
+                        <td>@item.ProviderName</td>
+                        <td>@item.KeyRegex</td>
+                        <td>@item.ModuleRegex</td>
+                        <td>@(Model.CongfigStatus ? "是" : "否")</td>
+                        <td>@Model.CreateTime.ToShortDateString()</td>
+                        <td>
+                            <a class="btn mini purple thickbox" title='编辑' href="@Url.Action("Edit", new {id = 1})?TB_iframe=true&height=350&width=400">
+                                <i class="icon-edit"></i>
+                                编辑
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
