@@ -33,7 +33,7 @@ namespace Autofac.Integration.Mvc
     /// If set, this is used to determine which model properties are injected.
     /// 
     /// </summary>
-    private readonly IPropertySelector _propertySelector;
+    //private readonly IPropertySelector _propertySelector;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:Autofac.Integration.Mvc.ExtensibleActionInvoker"/> class.
@@ -48,10 +48,10 @@ namespace Autofac.Integration.Mvc
     /// 
     /// </summary>
     /// <param name="propertySelector">The inject property selector.</param>
-    public ExtensibleActionInvoker(IPropertySelector propertySelector)
-    {
-      this._propertySelector = propertySelector;
-    }
+    //public ExtensibleActionInvoker(IPropertySelector propertySelector)
+    //{
+    //  this._propertySelector = propertySelector;
+    //}
 
     /// <summary>
     /// Gets the parameter value.
@@ -79,8 +79,8 @@ namespace Autofac.Integration.Mvc
       ILifetimeScope requestLifetimeScope = AutofacDependencyResolver.Current.RequestLifetimeScope;
       if (instance == null)
         instance = ResolutionExtensions.ResolveOptional((IComponentContext) requestLifetimeScope, parameterDescriptor.ParameterType);
-      if (this._propertySelector != null && instance != null)
-        ResolutionExtensions.InjectProperties<object>((IComponentContext) requestLifetimeScope, instance, this._propertySelector);
+      //if (this._propertySelector != null && instance != null)
+      //  ResolutionExtensions.InjectProperties<object>((IComponentContext) requestLifetimeScope, instance, this._propertySelector);
       return instance;
     }
   }

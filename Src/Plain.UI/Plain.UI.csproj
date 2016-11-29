@@ -41,10 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Autofac.4.1.0\lib\net45\Autofac.dll</HintPath>
-    </Reference>
     <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
@@ -4084,8 +4080,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Autofac.Integration.Mvc\Autofac.Integration.Mvc.csproj">
-      <Project>{505f5f7e-f8e3-4e6f-bc17-0860717dd393}</Project>
+      <Project>{505F5F7E-F8E3-4E6F-BC17-0860717DD393}</Project>
       <Name>Autofac.Integration.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Autofac\Autofac.csproj">
+      <Project>{9BB23AB3-9B36-4BE6-AC1F-285EAA7836EB}</Project>
+      <Name>Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
       <Project>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</Project>
