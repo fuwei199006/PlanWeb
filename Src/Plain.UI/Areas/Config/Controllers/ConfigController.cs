@@ -33,7 +33,16 @@ namespace Plain.UI.Areas.Config.Controllers
             basiceDao.Log = DESEncrypt.Decode(basiceDao.Log);
             return View(basiceDao);
         }
-
+        [HttpPost]
+        public ActionResult DbEdit(FormCollection collection)
+        {
+            var daoConfig = new DaoConfig();
+            TryUpdateModel(daoConfig);
+            daoConfig.BaseDao = DESEncrypt.Encode(daoConfig.BaseDao);
+            daoConfig.BussinessDaoConfig = DESEncrypt.Encode(daoConfig.BussinessDaoConfig);
+            daoConfig.Log = DESEncrypt.Encode(daoConfig.Log);
+            return this.RefreshParent();
+        }
 
         public ActionResult ConfigList()
         {

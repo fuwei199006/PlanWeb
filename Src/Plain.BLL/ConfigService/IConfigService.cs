@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Plain.BLL.ConfigService
 {
- public   interface IConfigService: IBaseService<Basic_Config>
+    public interface IConfigService : IBaseService<Basic_Config>
     {
 
         Basic_Config GetDaoConfig(string configKey);
         Basic_Config GetConfigConfig(string configKey);
-
+        Basic_Config UpdateConfig(string value, string configKey);
     }
 }

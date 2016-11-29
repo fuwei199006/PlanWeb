@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Framework.Utility;
 
 namespace Plain.BLL.ConfigService
 {
@@ -19,6 +20,14 @@ namespace Plain.BLL.ConfigService
             var basicDao = this.LoadEntitiesNoTracking(r => r.ConfigCategory == catergory && r.ConfigKey == key).FirstOrDefault();
             basicDao.ConfigBase = LocalCachedConfigContext.Current.CacheConfig;
             return basicDao;
+        }
+
+        public Basic_Config UpdateConfig(string value, string configKey)
+        {
+            var config = GetDaoConfig(CacheKey.DaoConfig);
+            config.ConfigValue = value;
+            config.ModifyTime = DateTime.Now;
+            return Update(config);
         }
 
         public Basic_Config GetDaoConfig(string configKey)
