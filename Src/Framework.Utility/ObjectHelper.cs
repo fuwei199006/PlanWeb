@@ -9,7 +9,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Framework.Utility 
 {
-    public class ObjectHelper
+    public static class ObjectHelper
     {
         /// <summary>
         /// 不同对象之间的深拷贝，最好属性名一样
@@ -18,14 +18,26 @@ namespace Framework.Utility
         /// <typeparam name="F">目的对象类型</typeparam>
         /// <param name="original">源对象</param>
         /// <returns>目的对象</returns>
-        public static F DeepCopy<T, F>(T original)
+        public static F DeepCopy<T, F>( this T original)
         {
             var json = SerializeHelper.JsonSerialize<T>(original);
             var result = SerializeHelper.JsonDeserialize<F>(json);
             return result;
         }
-
-        public static void DeepCopy<T, F>(T original, F desination)
+        /// <summary>
+        /// 相同对象之间的深拷贝，最好属性名一样
+        /// </summary>
+        /// <typeparam name="T">源对象类型</typeparam>
+        /// <typeparam name="F">目的对象类型</typeparam>
+        /// <param name="original">源对象</param>
+        /// <returns>目的对象</returns>
+        public static T DeepCopy<T>(this T original)
+        {
+            var json = SerializeHelper.JsonSerialize<T>(original);
+            var result = SerializeHelper.JsonDeserialize<T>(json);
+            return result;
+        }
+        public static void DeepCopy<T, F>(this T original, F desination)
         {
             desination = DeepCopy<T, F>(original);
         }

@@ -3638,9 +3638,9 @@
     <Content Include="Areas\Auth\Views\Role\PowerList.cshtml" />
     <Content Include="Areas\Auth\Views\Power\MenuList.cshtml" />
     <Content Include="Areas\Config\Views\web.config" />
-    <Content Include="Areas\Config\Views\Config\DbList.cshtml" />
-    <Content Include="Areas\Config\Views\Config\ConfigList.cshtml" />
-    <Content Include="Areas\Config\Views\Config\DbEdit.cshtml" />
+    <Content Include="Areas\Config\Views\Config\DbConfigList.cshtml" />
+    <Content Include="Areas\Config\Views\Config\CacheConfigList.cshtml" />
+    <Content Include="Areas\Config\Views\Config\DbConfigEdit.cshtml" />
     <Content Include="Content\DemoUI\.project" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\DemoUI\fonts\fontawesome-webfont.ttf" />

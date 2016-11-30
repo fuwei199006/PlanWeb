@@ -26,7 +26,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>基础数据库</label>
                 <div class="controls">
-                    @Html.TextBoxFor(x => x.BaseDao, new { @class = "m-wrap large" })
+                    @Html.TextBoxFor(x => x.BaseDao, new { @class = "m-wrap large",@readonly= "readonly" })
                     <span class="help-inline">@Html.ValidationMessageFor(m => m.Log)</span>
                 </div>
             </div>

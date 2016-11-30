@@ -5,7 +5,7 @@ namespace Console.Test
 {
     class Program
     {
-        static void Main(string[] args)
+        static void _Main(string[] args)
         {
             var res=new Person().Operator;
             System.Console.ReadKey();

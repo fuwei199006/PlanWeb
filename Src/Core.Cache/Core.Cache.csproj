@@ -48,6 +48,7 @@
     <Compile Include="CacheContext.cs" />
     <Compile Include="ICacheProvider.cs" />
     <Compile Include="LocalCacheProvider.cs" />
+    <Compile Include="MemcacheProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

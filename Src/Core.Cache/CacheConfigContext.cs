@@ -26,12 +26,7 @@ namespace Core.Cache
         }
 
 
-        public class WrapCacheConfigItem
-        {
-            public CacheConfigItem CacheConfigItem { get; set; }
-            public CacheProviderItem CacheProviderItem { get; set; }
-            public ICacheProvider CacheProvider { get; set; }
-        }
+       
         private static List<WrapCacheConfigItem> _wrapCacheConfigItems;
         internal static List<WrapCacheConfigItem> WrapCacheConfigItems
         {
@@ -74,8 +69,7 @@ namespace Core.Cache
                             _cacheProviders = new Dictionary<string, ICacheProvider>();
 
                             foreach (var i in CacheConfig.CacheProviderItems)
-                                // ReSharper disable once AssignNullToNotNullAttribute
-                                _cacheProviders.Add(i.Name, (ICacheProvider)Activator.CreateInstance(type: Type.GetType(i.Type)));
+                                _cacheProviders.Add(i.Name, (ICacheProvider)Activator.CreateInstance(Type.GetType(i.Type)));
                         }
                     }
                 }
@@ -106,11 +100,9 @@ namespace Core.Cache
             {
                 throw new GetCacheException("获得缓存数据出错！请确保配置正确");
             }
-
             lock (_olock)
             {
-                if (!_wrapCacheConfigItemDic.ContainsKey(key))
-                    _wrapCacheConfigItemDic.Add(key, currentWrapCacheConfigItem);
+               _wrapCacheConfigItemDic.Add(key, currentWrapCacheConfigItem);
             }
 
             return currentWrapCacheConfigItem;
@@ -123,34 +115,42 @@ namespace Core.Cache
         /// 得到网站项目的入口程序模块名名字，用于CacheConfigItem.ModuleRegex
         /// </summary>
         /// <returns></returns>
-        private static string moduleName;
+        private static string _moduleName;
         public static string ModuleName
         {
             get
             {
-                if (moduleName == null)
+                if (_moduleName == null)
                 {
                     lock (_olock)
                     {
-                        if (moduleName == null)
+                        if (_moduleName == null)
                         {
                             var entryAssembly = Assembly.GetEntryAssembly();
 
                             if (entryAssembly != null)
                             {
-                                moduleName = entryAssembly.FullName;
+                                _moduleName = entryAssembly.FullName;
                             }
                             else
                             {
-                                moduleName = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Name;
+                                _moduleName = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Name;
                             }
                         }
                     }
                 }
 
-                return moduleName;
+                return _moduleName;
             }
         }
 
+    }
+
+
+    public class WrapCacheConfigItem
+    {
+        public CacheConfigItem CacheConfigItem { get; set; }
+        public CacheProviderItem CacheProviderItem { get; set; }
+        public ICacheProvider CacheProvider { get; set; }
     }
 }

@@ -185,6 +185,12 @@ namespace Autofac.Core.Activators.Reflection
             var lambdaExpression = Expression.Lambda<Func<object[], object>>(newExpression, parametersExpression);
 
             return lambdaExpression.Compile();
+            
+
+            //生成的函数
+            //public void name (object [] args)
+            //{
+            //}
         }
     }
 }

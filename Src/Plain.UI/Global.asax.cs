@@ -19,6 +19,7 @@ using Plan.UI;
 using Plain.Dao;
 using Plain.UI.Controllers;
 using System.Data.SqlClient;
+using Plain.BLL.ConfigService;
 
 namespace Plain.UI
 {

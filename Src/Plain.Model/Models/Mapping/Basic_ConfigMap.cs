@@ -16,13 +16,13 @@ namespace Plain.Model.Models.Mapping
             .IsRequired().HasMaxLength(50);
 
             this.Property(t => t.ConfigDesc)
-          .IsRequired().HasMaxLength(200);
+          .HasMaxLength(200);
 
             this.Property(t => t.ConfigDateTag)
-           .IsRequired().HasMaxLength(50);
+           .HasMaxLength(50);
 
             this.Property(t => t.ConfigItemType)
-           .IsRequired().HasMaxLength(20);
+         .HasMaxLength(20);
 
             this.ToTable("Basic_Config");
             this.Property(t => t.Id).HasColumnName("Id");

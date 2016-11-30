@@ -1,9 +1,11 @@
-﻿using Core.Config.ConfigModel;
+﻿using System;
+using Core.Config.ConfigModel;
 using Core.Encrypt;
 using Framework.Utility;
 using Plain.BLL.ConfigService;
 using Plain.UI.Controllers;
 using System.Web.Mvc;
+using Plain.Model.Models.Model;
 
 namespace Plain.UI.Areas.Config.Controllers
 {
@@ -17,14 +19,14 @@ namespace Plain.UI.Areas.Config.Controllers
             _configService = configService;
         }
         // GET: Config/Config
-        public ActionResult DbList()
+        public ActionResult DbConfigList()
         {
             var basicConfig = _configService.GetDaoConfig(CacheKey.DaoConfig);
             return View(basicConfig);
         }
 
 
-        public ActionResult DbEdit(string key)
+        public ActionResult DbConfigEdit(string key)
         {
             var basicConfig = _configService.GetDaoConfig(key);
             var basiceDao = basicConfig.ConfigBase as DaoConfig;
@@ -41,10 +43,14 @@ namespace Plain.UI.Areas.Config.Controllers
             daoConfig.BaseDao = DESEncrypt.Encode(daoConfig.BaseDao);
             daoConfig.BussinessDaoConfig = DESEncrypt.Encode(daoConfig.BussinessDaoConfig);
             daoConfig.Log = DESEncrypt.Encode(daoConfig.Log);
+            daoConfig.Id = 1;
+            daoConfig.CreateTime=DateTime.Now;
+            var xmlConfigValue = SerializationHelper.XmlSerialize(daoConfig);
+            this._configService.UpdateConfig(xmlConfigValue, CacheKey.DaoConfig);
             return this.RefreshParent();
         }
 
-        public ActionResult ConfigList()
+        public ActionResult CacheConfigList()
         {
             var basicConfig = _configService.GetConfigConfig(CacheKey.CacheConfig);
             return View(basicConfig);

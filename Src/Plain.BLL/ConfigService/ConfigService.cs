@@ -18,7 +18,8 @@ namespace Plain.BLL.ConfigService
             var catergory = arr[0];
             var key = arr[1];
             var basicDao = this.LoadEntitiesNoTracking(r => r.ConfigCategory == catergory && r.ConfigKey == key).FirstOrDefault();
-            basicDao.ConfigBase = LocalCachedConfigContext.Current.CacheConfig;
+            //todo:引用类型,修改数据的时候要注意
+            basicDao.ConfigBase = LocalCachedConfigContext.Current.CacheConfig.DeepCopy();
             return basicDao;
         }
 
@@ -36,7 +37,8 @@ namespace Plain.BLL.ConfigService
             var catergory = arr[0];
             var key = arr[1];
             var basicDao = this.LoadEntitiesNoTracking(r => r.ConfigCategory == catergory && r.ConfigKey == key).FirstOrDefault();
-            basicDao.ConfigBase = LocalCachedConfigContext.Current.DaoConfig;
+            //todo:引用类型,修改数据的时候要注意
+            basicDao.ConfigBase = LocalCachedConfigContext.Current.DaoConfig.DeepCopy(); ;
             return basicDao;
         }
     }
