@@ -25,8 +25,13 @@ namespace Plain.UI.Areas.Config.Controllers
             return View(basicConfig);
         }
 
-
-        public ActionResult DbConfigEdit(string key)
+        /// <summary>
+        /// 修改db的数据的配置
+        /// todo:还不能立即生效
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public ActionResult DbConfigEdit(string key)//todo:此处可以去除参数
         {
             var basicConfig = _configService.GetDaoConfig(key);
             var basiceDao = basicConfig.ConfigBase as DaoConfig;
@@ -54,6 +59,12 @@ namespace Plain.UI.Areas.Config.Controllers
         {
             var basicConfig = _configService.GetConfigConfig(CacheKey.CacheConfig);
             return View(basicConfig);
+        }
+
+        public ActionResult CacheConfigEdit()
+        {
+            var cacheConfig = _configService.GetConfigConfig(CacheKey.CacheConfig);
+            return View(cacheConfig);
         }
     }
 }
