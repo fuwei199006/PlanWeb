@@ -12,7 +12,9 @@ namespace Plain.BLL.ConfigService
     {
 
         Basic_Config GetDaoConfig(string configKey);
-        Basic_Config GetConfigConfig(string configKey);
+        Basic_Config GetCacheConfig(string configKey);
+        Basic_Config GetSystemConfig(string configKey);
         Basic_Config UpdateConfig(string value, string configKey);
+        
     }
 }

@@ -20,8 +20,8 @@ namespace Framework.Utility
         /// <returns>目的对象</returns>
         public static F DeepCopy<T, F>( this T original)
         {
-            var json = SerializeHelper.JsonSerialize<T>(original);
-            var result = SerializeHelper.JsonDeserialize<F>(json);
+            var json = SerializationHelper.JsonSerialize<T>(original);
+            var result = SerializationHelper.JsonDeserialize<F>(json);
             return result;
         }
         /// <summary>
@@ -33,8 +33,8 @@ namespace Framework.Utility
         /// <returns>目的对象</returns>
         public static T DeepCopy<T>(this T original)
         {
-            var json = SerializeHelper.JsonSerialize<T>(original);
-            var result = SerializeHelper.JsonDeserialize<T>(json);
+            var json = SerializationHelper.JsonSerialize<T>(original);
+            var result = SerializationHelper.JsonDeserialize<T>(json);
             return result;
         }
         public static void DeepCopy<T, F>(this T original, F desination)

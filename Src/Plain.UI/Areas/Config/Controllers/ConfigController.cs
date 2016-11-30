@@ -57,14 +57,20 @@ namespace Plain.UI.Areas.Config.Controllers
 
         public ActionResult CacheConfigList()
         {
-            var basicConfig = _configService.GetConfigConfig(CacheKey.CacheConfig);
+            var basicConfig = _configService.GetCacheConfig(CacheKey.CacheConfig);
             return View(basicConfig);
         }
 
         public ActionResult CacheConfigEdit()
         {
-            var cacheConfig = _configService.GetConfigConfig(CacheKey.CacheConfig);
+            var cacheConfig = _configService.GetCacheConfig(CacheKey.CacheConfig);
             return View(cacheConfig);
+        }
+
+        public ActionResult SystemSetting()
+        {
+            var systemSetting = _configService.GetSystemConfig(CacheKey.SystemConfig);
+            return View(systemSetting);
         }
     }
 }

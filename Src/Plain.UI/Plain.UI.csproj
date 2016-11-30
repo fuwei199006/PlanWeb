@@ -4074,6 +4074,7 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Config\Views\Config\CacheConfigEdit.cshtml" />
+    <None Include="Areas\Config\Views\Config\SystemSetting.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
