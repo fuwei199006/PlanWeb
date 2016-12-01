@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <!-- BEGIN LOGO -->
         <a class="brand" href='@Url.Action("Index","Home")'>
-            Plain
+            @AdminCacheContext.Current.AdminWebSetting.SystemSettingConfig.WebSiteTitle
         </a>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->

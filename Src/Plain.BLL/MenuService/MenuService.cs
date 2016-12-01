@@ -7,6 +7,7 @@ using Plain.Model.Models.Model;
 using Plain.Dto;
 using Plain.Dao.MenuDao;
 using System;
+using System.Linq.Dynamic;
 using Framework.Contract;
 
 namespace Plain.BLL.MenuService

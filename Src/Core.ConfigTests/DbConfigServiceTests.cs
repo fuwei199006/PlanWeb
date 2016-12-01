@@ -35,7 +35,8 @@ namespace Core.Config.Tests
                 SystemId = Guid.NewGuid(),
                 WebSiteDescription = "Plain",
                 WebSiteKeyWords = "Plain",
-                WebSiteTitle ="Plain"
+                WebSiteTitle ="Plain",
+                SysAdmin = "admin"
             };
 
             var xml = SerializationHelper.XmlSerialize(config);

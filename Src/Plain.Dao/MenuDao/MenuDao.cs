@@ -43,7 +43,7 @@ namespace Plain.Dao.MenuDao
                                 JOIN dbo.Basic_PowerMenu powerMenu ON powerRole.PowerId = powerMenu.PowerId
                                                                       AND powerMenu.MappingStatus = 1
                                 JOIN dbo.Basic_Menu menu ON menu.Id = powerMenu.MenuId
-                        WHERE   userinfo.LoginName =@loginName";
+                        WHERE   userinfo.LoginName =@loginName AND menu.MenuStatus=1";
            var dbParas = new SqlParameter[]
            {
                new SqlParameter("@loginName", loginName),

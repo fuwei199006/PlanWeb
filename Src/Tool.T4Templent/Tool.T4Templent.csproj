@@ -162,7 +162,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Config\DaoConfig2.config" />
-    <None Include="packages.config" />
     <None Include="StaticPlates\CodeTemplates\T4Lib.ttinclude" />
   </ItemGroup>
   <ItemGroup>

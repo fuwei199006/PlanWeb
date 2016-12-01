@@ -46,9 +46,8 @@
       <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Memcached.ClientLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42c0400964dcc297, processorArchitecture=MSIL">
+    <Reference Include="Memcached.ClientLibrary">
       <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\Memcached.ClientLibrary.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

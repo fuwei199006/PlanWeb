@@ -59,10 +59,6 @@
       <Project>{33FD11A4-A778-48B7-9976-D3D74C373B8B}</Project>
       <Name>Core.Log</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tool.T4Templent\Tool.T4Templent.csproj">
-      <Project>{26C33E6B-637F-452A-8ED6-08476736D930}</Project>
-      <Name>Tool.T4Templent</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
