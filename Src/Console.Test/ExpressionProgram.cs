@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
  
-namespace Console.Test
+namespace PConsole.Test
 {
     public class ExpressionProgram
     {
-        public static void Main(string[] args)
+        public static void _Main(string[] args)
         {
             Expression firstArg = Expression.Constant(2);
             Expression secondArg = Expression.Constant(3);

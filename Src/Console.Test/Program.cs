@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Console.Test
+namespace PConsole.Test
 {
     class Program
     {

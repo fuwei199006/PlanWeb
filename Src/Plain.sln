@@ -99,7 +99,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.Api", "Plain.Api\Plai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.FileService", "Plain.FileService\Plain.FileService.csproj", "{CF23E9F9-FAB1-4EE0-8E9B-289F3A21F482}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Test", "Console.Test\Console.Test.csproj", "{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PConsole.Test", "Console.Test\PConsole.Test.csproj", "{319E5773-A0AB-46FA-B8CA-0AB6C4FC89D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Integration.Mvc", "Autofac.Integration.Mvc\Autofac.Integration.Mvc.csproj", "{505F5F7E-F8E3-4E6F-BC17-0860717DD393}"
 EndProject
