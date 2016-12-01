@@ -58,15 +58,6 @@ namespace Core.Config
             }
         }
 
-        /// <summary>
-        /// 系统超级管理员
-        /// </summary>
-        public string  SysAdmin
-        {
-            get
-            {
-                return "admin";
-            }
-        }
+
     }
 }

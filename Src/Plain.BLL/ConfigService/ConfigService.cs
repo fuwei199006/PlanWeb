@@ -45,6 +45,14 @@ namespace Plain.BLL.ConfigService
             return Update(config);
         }
 
+        public Basic_Config UpdateSystemConfig(string value, string configKey)
+        {
+            var config = GetSystemConfig(CacheKey.SystemConfig);
+            config.ConfigValue = value;
+            config.ModifyTime = DateTime.Now;
+            return Update(config);
+        }
+
         public Basic_Config GetDaoConfig(string configKey)
         {
 
@@ -53,5 +61,8 @@ namespace Plain.BLL.ConfigService
             basicDao.ConfigBase = SerializationHelper.XmlDeserialize<DaoConfig>(basicDao.ConfigValue);
             return basicDao;
         }
+
+
+       
     }
 }

@@ -13,9 +13,8 @@ namespace Framework.Utility
 
         public const string CacheConfig = "Cache-CacheConfig";
         public const string DaoConfig = "Dao-DaoConfig";
-        public const string SettingConfig = "Web-SettingConfig";
         public const string Mail163Config = "Message-Mail163Config";
-        public const string SystemConfig = "Sys-SystemConfig"; 
+        public const string SystemConfig = "Sys-SystemConfig";
 
         #endregion
 

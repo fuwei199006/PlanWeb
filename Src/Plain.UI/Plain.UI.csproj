@@ -4075,6 +4075,7 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Config\Views\Config\CacheConfigEdit.cshtml" />
     <None Include="Areas\Config\Views\Config\SystemSetting.cshtml" />
+    <None Include="Areas\Config\Views\Config\SystemSettingEdit.cshtml" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
@@ -4085,6 +4086,10 @@
     <ProjectReference Include="..\Autofac\Autofac.csproj">
       <Project>{9BB23AB3-9B36-4BE6-AC1F-285EAA7836EB}</Project>
       <Name>Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
+      <Project>{0440BB94-C62E-4F2A-84C7-42836C697035}</Project>
+      <Name>Core.Cache</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
       <Project>{CB29D7ED-3CE9-4789-9CA0-35C83B6448A7}</Project>

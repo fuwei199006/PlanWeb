@@ -1,0 +1,82 @@
+﻿@{
+
+    Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
+}
+@model   SystemSettingConfig
+@using Core.Config.ConfigModel;
+@using Framework.Utility;
+@using Core.Encrypt
+
+
+@section MainContent{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系统标题</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.WebSiteTitle, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.WebSiteTitle)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系统描述</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.WebSiteDescription, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.WebSiteDescription)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>SEO关键字</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.WebSiteKeyWords, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.WebSiteKeyWords)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>数据日志监控</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.IsDbMonitor, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.IsDbMonitor)</span>
+                </div>
+            </div><div class="control-group">
+                <label class="control-label"><span class="required">*</span>cookie过期时间(h)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CookieExpireTime, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.CookieExpireTime)</span>
+                </div>
+            </div><div class="control-group">
+                <label class="control-label"><span class="required">*</span>缓存过期时间(h)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CacheExpiteTime, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.CacheExpiteTime)</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>CDN服务器 </label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CdnDomain, new {@class = "m-wrap large"})
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.CdnDomain)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>文件服务器 </label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.FileDomain, new {@class = "m-wrap large"})
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.FileDomain)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>系统管理员	</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.SysAdmin, new { @class = "m-wrap large" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.SysAdmin)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

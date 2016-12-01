@@ -13,10 +13,10 @@
 
 <div class="row-fluid">
     <div class="span4">
-        <a class="btn purple  thickbox" title='修改系统设置' href="@Url.Action("DbConfigEdit", new {key = CacheKey.DaoConfig})TB_iframe=true&height=280&width=600"><i class="icon-edit icon-white"></i> 修改</a>
+        <a class="btn purple  thickbox" title='修改系统设置' href="@Url.Action("SystemSettingEdit", new {key = CacheKey.DaoConfig})TB_iframe=true&height=400&width=600"><i class="icon-edit icon-white"></i> 修改</a>
     </div>
 </div>
-<br />
+
 <div class="alert">
     <button class="close" data-dismiss="alert"></button>
     <strong>系统配置相关：</strong>
@@ -36,52 +36,58 @@
         <tr>
             <td>系统标题</td>
             <td> @configBase.WebSiteTitle</td>
-            <td></td>
+            <td>打开系统标签显示title</td>
         </tr>
         <tr>
             <td>系统描述</td>
             <td>@configBase.WebSiteDescription</td>
-            <td></td>
+            <td>只读，但无用</td>
         </tr>
 
         <tr>
             <td>SEO关键字</td>
             <td>@configBase.WebSiteKeyWords</td>
-            <td></td>
+            <td>搜索引擎能够搜索到的关键字</td>
         </tr>
 
         <tr>
             <td>数据日志监控</td>
             <td>@(configBase.IsDbMonitor ? "打开" : "关闭")</td>
-            <td></td>
+            <td>是否开启数据增删改的监控</td>
         </tr>
 
         <tr>
             <td>cookie过期时间(h)</td>
             <td>@configBase.CookieExpireTime</td>
-            <td></td>
+            <td>cookie过期时间。如果其它地方设置，则此处不生效</td>
         </tr>
         <tr>
             <td>缓存过期时间(h)</td>
             <td>@configBase.CacheExpiteTime</td>
-            <td></td>
+            <td>系统缓存设置时间，如果其它地方设置，则此处不生效</td>
         </tr>
         <tr>
             <td>CDN服务器</td>
             <td>@configBase.CdnDomain</td>
-            <td></td>
+            <td>js和css加载的服务器的地址</td>
         </tr>
         <tr>
             <td>文件服务器</td>
             <td>@configBase.FileDomain</td>
-            <td></td>
+            <td>文件上传和读取的服务器</td>
         </tr>
-
         <tr>
-            <td>系统标识</td>
-            <td>@configBase.SystemId</td>
-            <td></td>
+            <td>超级管理员</td>
+            <td>@configBase.SysAdmin</td>
+            <td>系统全部权限，不受系统权限的控制，多人用';'分开</td>
         </tr>
+    <tr>
+        <td>系统标识</td>
+        <td>@configBase.SystemId</td>
+        <td>系统唯一的标识（没想好怎么去用）</td>
+    </tr>
+
+    
     </tbody>
 
 </table>

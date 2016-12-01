@@ -15,6 +15,7 @@ namespace Plain.BLL.ConfigService
         Basic_Config GetCacheConfig(string configKey);
         Basic_Config GetSystemConfig(string configKey);
         Basic_Config UpdateConfig(string value, string configKey);
-        
+        Basic_Config UpdateSystemConfig(string value, string configKey);
+
     }
 }

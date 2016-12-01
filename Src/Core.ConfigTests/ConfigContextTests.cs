@@ -58,15 +58,15 @@ namespace Core.ConfigTests
         {
             var daoConfig=new DaoConfig()
             {
-                BaseDao = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=",
-                BussinessDaoConfig = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=",
+                BaseDao = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSVsv2tqHDs/rkWwCkoet4C4=",
+                BussinessDaoConfig = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSVsv2tqHDs/rkWwCkoet4C4=",
                 CreateTime = DateTime.Now,
-                Log = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSU+AC9GHwuYgT3PnAnt3YAQ=",
+                Log = "ufj0QNXJls9wJlTC/3hDnb5rI2z49A8a0gEhIQX+wJ6IHlzj7KTaSVsv2tqHDs/rkWwCkoet4C4=",
                 Id = 1
             };
             var xml = SerializationHelper.XmlSerialize(daoConfig);
             ConfigContext ct=new ConfigContext();
-            //ct.Save("Dao-DaoConfig",xml);
+            ct.Save("Dao-DaoConfig",xml);
         }
 
         [TestMethod]

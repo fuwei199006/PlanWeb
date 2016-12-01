@@ -11,7 +11,7 @@ namespace Core.Config.ConfigModel
 
         public int CacheExpiteTime { get; set; }
 
-        public Guid SystemId { get; set; }
+        public Guid SystemId { get; set; }//用户加密系统内的数据
 
         public bool  Runable { get; set; }//能否启动系统，一键关闭
 
@@ -27,6 +27,8 @@ namespace Core.Config.ConfigModel
         //文件分离
         //todo:读写在一台服务器上面，后面再修改
         public string FileDomain { get; set; }
+
+        public string SysAdmin { get; set; }// 系统超级管理员,不做权限的认证
     }
 
 

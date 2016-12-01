@@ -5,7 +5,9 @@ using Framework.Utility;
 using Plain.BLL.ConfigService;
 using Plain.UI.Controllers;
 using System.Web.Mvc;
+using Core.Cache;
 using Plain.Model.Models.Model;
+using Plain.Web;
 
 namespace Plain.UI.Areas.Config.Controllers
 {
@@ -61,7 +63,7 @@ namespace Plain.UI.Areas.Config.Controllers
             return View(basicConfig);
         }
 
-        public ActionResult CacheConfigEdit()
+        public ActionResult CacheConfigEdit(int id)
         {
             var cacheConfig = _configService.GetCacheConfig(CacheKey.CacheConfig);
             return View(cacheConfig);
@@ -71,6 +73,36 @@ namespace Plain.UI.Areas.Config.Controllers
         {
             var systemSetting = _configService.GetSystemConfig(CacheKey.SystemConfig);
             return View(systemSetting);
+        }
+
+        public ActionResult SystemSettingEdit()
+        {
+            var systemSetting = _configService.GetSystemConfig(CacheKey.SystemConfig);
+            return View(systemSetting.ConfigBase);
+        }
+        [HttpPost]
+        public ActionResult SystemSettingEdit(FormCollection collection)
+        {
+            var systemSetting = _configService.GetSystemConfig(CacheKey.SystemConfig);
+            var configBase = systemSetting.ConfigBase as SystemSettingConfig;
+            var systemValue=new SystemSettingConfig();
+            TryUpdateModel(systemValue);
+
+            configBase.WebSiteTitle = systemValue.WebSiteTitle;
+            configBase.WebSiteDescription = systemValue.WebSiteDescription;
+            configBase.WebSiteKeyWords = systemValue.WebSiteKeyWords;
+            configBase.CacheExpiteTime = systemValue.CacheExpiteTime;
+            configBase.CookieExpireTime = systemValue.CookieExpireTime;
+            configBase.CdnDomain = systemValue.CdnDomain;
+            configBase.FileDomain = systemValue.FileDomain;
+            configBase.Runable = systemValue.Runable;
+            configBase.IsDbMonitor = systemValue.IsDbMonitor;
+            //configBase.SystemId = systemValue.SystemId;
+            configBase.SysAdmin = systemValue.SysAdmin;
+
+            var xml= SerializationHelper.XmlSerialize(configBase);
+            this._configService.UpdateSystemConfig(xml, CacheKey.SystemConfig);
+            return this.RefreshParent();
         }
     }
 }

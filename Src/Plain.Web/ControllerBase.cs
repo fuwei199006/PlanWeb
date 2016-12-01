@@ -12,12 +12,13 @@ using System.Linq;
 using Framework.Utility;
 using System.Web.Routing;
 using System.Data.SqlClient;
+using Core.Cache;
 
 namespace Plain.Web
 {
     public abstract class ControllerBase : Framework.Web.ControllerBase
     {
- 
+
         [PermessionIgnore]
         [AuthorizeIgnore]
         public ActionResult Error()
@@ -30,7 +31,7 @@ namespace Plain.Web
 
         [PermessionIgnore]
         [AuthorizeIgnore]
-        public ActionResult TError(string error, int code,int isFull=0)
+        public ActionResult TError(string error, int code, int isFull = 0)
         {
 
             ViewData["code"] = code;
@@ -38,7 +39,7 @@ namespace Plain.Web
 #if DEBUG
             ViewData["error"] = error;
 #endif
-            if (Request.UrlReferrer != null && Fetch.ServerDomain == Request.UrlReferrer.Host&&isFull!=1)
+            if (Request.UrlReferrer != null && Fetch.ServerDomain == Request.UrlReferrer.Host && isFull != 1)
             {
                 return View("Error");
             }
@@ -88,13 +89,13 @@ namespace Plain.Web
 #endif
             if (filterContext.Exception is SqlException)
             {
-                filterContext.Result = TError(error, 500,1);
+                filterContext.Result = TError(error, 500, 1);
             }
             else
             {
                 filterContext.Result = TError(error, 500);
             }
-            
+
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -113,13 +114,15 @@ namespace Plain.Web
 
             #region 菜单的验证
 
-            if (LoginInfo.LoginNickName != LocalCachedConfigContext.Current.SysAdmin)
+
+            var sysAdmins = LocalCachedConfigContext.Current.SystemConfig.SysAdmin == null ? new List<string>() : LocalCachedConfigContext.Current.SystemConfig.SysAdmin.Split(';').Where(r => !string.IsNullOrEmpty(r));
+            if (!sysAdmins.Contains(LoginInfo.LoginNickName))
             {
                 var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
                 var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
                 if (!urlList.Contains(Request.Url.AbsolutePath.ToString()) && noPermessionIgnore.Length == 0)
                 {
-                    if (Request["id"]!= null)
+                    if (Request["id"] != null)
                     {
                         filterContext.Result = this.FrameStop("没有权限,3秒后自动刷新");
                     }
@@ -170,7 +173,7 @@ namespace Plain.Web
             }
         }
 
-        public static AdminCacheContext CacheContext
+        public static AdminCacheContext AdminCacheContext
         {
             get
             {
@@ -190,13 +193,13 @@ namespace Plain.Web
         {
             get
             {
-                var _loginInfo = this.LoginInfo;//测试下是否多次访问,使用变量缓存。性能会好 
+                var loginInfo = this.LoginInfo;//测试下是否多次访问,使用变量缓存。性能会好 
                 return new Operater
                 {
-                    Name =  _loginInfo == null ? "" : _loginInfo.LoginName,
-                    IP =  _loginInfo == null ? "" : _loginInfo.LoginIp,
-                    Token = _loginInfo == null ? Guid.Empty : _loginInfo.LoginToken,
-                    UserId = _loginInfo == null ? 0 : _loginInfo.LoginUserId,
+                    Name = loginInfo == null ? "" : loginInfo.LoginName,
+                    IP = loginInfo == null ? "" : loginInfo.LoginIp,
+                    Token = loginInfo == null ? Guid.Empty : loginInfo.LoginToken,
+                    UserId = loginInfo == null ? 0 : loginInfo.LoginUserId,
                     Time = DateTime.Now
 
                 };

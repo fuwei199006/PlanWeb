@@ -29,7 +29,7 @@ namespace Plain.CMS.Controllers
         // GET: CMS/CmsHome
         public ActionResult ArticleView(int id)
         {
-            var article = CacheContext.ArticleItems.Articles.FirstOrDefault(r => r.Id == id);
+            var article = AdminCacheContext.ArticleItems.Articles.FirstOrDefault(r => r.Id == id);
             //_articleService.GetArticlesById(id);
             return View(article);
         }
