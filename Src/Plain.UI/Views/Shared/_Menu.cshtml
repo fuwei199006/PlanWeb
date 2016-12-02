@@ -23,7 +23,7 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
         <li class="start ">
-            <a href='@Url.Action("Index","Home")'>
+            <a href='@Url.Action("Index","Home",new RouteValueDictionary(new {area=""}))'>
                 <i class="icon-home"></i>
                 <span class="title">管理首页</span>
             </a>
@@ -46,7 +46,7 @@
                         {
                             <li>
                                 @*<a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl+"?type="+menu.MenuType)">*@
-                                    <a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl)">
+                                    <a href="@(string.IsNullOrEmpty(m.MenuUrl) ? "javascript:void(0)" : Url.Content(m.MenuUrl))">
                                         <i class="@m.MenuIcon"></i>
                                         &nbsp;@m.MenuName
                                     </a>
@@ -60,7 +60,7 @@
             {
                 <li>
                     @*<a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl+"?type="+menu.MenuType)">*@
-                        <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl)">
+                        <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" :  Url.Content(menu.MenuUrl))">
                             <i class="@menu.MenuIcon"></i>
                             <span>@menu.MenuName</span>
 

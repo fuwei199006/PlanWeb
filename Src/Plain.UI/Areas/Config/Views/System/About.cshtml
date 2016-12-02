@@ -1,0 +1,16 @@
+﻿ @{
+
+     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+@model  Plain.Model.Models.Model.Basic_Config
+@using Core.Config.ConfigModel;
+@using Framework.Utility;
+@using Core.Encrypt
+@using Framework.Extention
+<div class="row row-fluid">
+    <div style="text-align: center">
+        <h4>edit by fuwei...</h4>
+        <h5>已经开发了@((DateTime.Now - "2016-08-21".ToDateTime()).Days)天</h5>
+        <h6>Version:1.0.0.0</h6>
+    </div>
+</div>
