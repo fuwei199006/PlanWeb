@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Core.Config.ConfigModel;
 using Core.Encrypt;
 using Framework.Utility;
@@ -6,8 +7,10 @@ using Plain.BLL.ConfigService;
 using Plain.UI.Controllers;
 using System.Web.Mvc;
 using Core.Cache;
+using Plain.Dto;
 using Plain.Model.Models.Model;
 using Plain.Web;
+using CacheKey = Framework.Utility.CacheKey;
 
 namespace Plain.UI.Areas.Config.Controllers
 {
@@ -78,6 +81,11 @@ namespace Plain.UI.Areas.Config.Controllers
         public ActionResult SystemSettingEdit()
         {
             var systemSetting = _configService.GetSystemConfig(CacheKey.SystemConfig);
+            ViewData["RunType"] = EnumHelper.GetItemValueList<RunType>().Select(r => new SelectListItem()
+            {
+                Value = r.Key==1?"True":"False",
+                Text = r.Value.ToString()
+            });
             return View(systemSetting.ConfigBase);
         }
         [HttpPost]

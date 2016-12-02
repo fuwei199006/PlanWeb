@@ -111,4 +111,13 @@ namespace Plain.Dto
         [EnumTitle("其它权限")]
         OtherPower = 4,
     }
+
+
+    public enum RunType
+    {
+        [EnumTitle("打开")]
+        On = 1,
+        [EnumTitle("关闭")]
+        Off = 0
+    }
 }

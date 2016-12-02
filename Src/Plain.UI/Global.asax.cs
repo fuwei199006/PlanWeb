@@ -20,6 +20,7 @@ using Plain.Dao;
 using Plain.UI.Controllers;
 using System.Data.SqlClient;
 using Core.Config;
+using Core.Exception;
 using Plain.BLL.ConfigService;
 
 namespace Plain.UI
@@ -29,10 +30,7 @@ namespace Plain.UI
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            //if (LocalCachedConfigContext.Current.SystemConfig.Runable)
-            //{
-            //    throw  
-            //}
+        
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

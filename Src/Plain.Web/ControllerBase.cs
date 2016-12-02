@@ -13,6 +13,7 @@ using Framework.Utility;
 using System.Web.Routing;
 using System.Data.SqlClient;
 using Core.Cache;
+using Core.Exception;
 
 namespace Plain.Web
 {
@@ -99,9 +100,24 @@ namespace Plain.Web
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
-
+            var sysAdmins = LocalCachedConfigContext.Current.SystemConfig.SysAdmin == null ? new List<string>() : LocalCachedConfigContext.Current.SystemConfig.SysAdmin.Split(';').Where(r => !string.IsNullOrEmpty(r));
+            var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
             var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
+            //系统关闭，只有超级管理员能打开
+            if (!sysAdmins.Contains(LoginInfo.LoginNickName) 
+                && !LocalCachedConfigContext.Current.SystemConfig.Runable 
+                && noPermessionIgnore.Length == 0 
+                && noAuthorizeAttributes.Length == 0)
+            {
+                throw new RunableException();
+            }
+
+            /**
+             * 这里是先验证登录，如果当前Action忽略了登录验证，也不会进行权限的验证
+             * 2016.12.02
+             * fuwei
+             * */
+          
             if (noAuthorizeAttributes.Length > 0)
                 return;
             base.OnActionExecuting(filterContext);
@@ -113,12 +129,9 @@ namespace Plain.Web
 
 
             #region 菜单的验证
-
-
-            var sysAdmins = LocalCachedConfigContext.Current.SystemConfig.SysAdmin == null ? new List<string>() : LocalCachedConfigContext.Current.SystemConfig.SysAdmin.Split(';').Where(r => !string.IsNullOrEmpty(r));
             if (!sysAdmins.Contains(LoginInfo.LoginNickName))
             {
-                var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
+         
                 var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
                 if (!urlList.Contains(Request.Url.AbsolutePath.ToString()) && noPermessionIgnore.Length == 0)
                 {
@@ -134,7 +147,7 @@ namespace Plain.Web
                     return;
                 }
             }
-
+      
             #endregion
 
         }

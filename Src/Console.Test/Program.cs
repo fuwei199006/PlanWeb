@@ -7,6 +7,8 @@ namespace PConsole.Test
     {
         static void _Main(string[] args)
         {
+             
+            string  s |= ("123");
             var res=new Person().Operator;
             System.Console.ReadKey();
         }
