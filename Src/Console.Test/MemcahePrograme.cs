@@ -48,19 +48,19 @@ namespace PConsole.Test
                 Console.WriteLine("6.缓存实体对象：{0} {1}", getStud.id, getStud.name);
 
             MClient.Add("Key1002", "我已设置过期时间1分钟", DateTime.Now.AddMinutes(1));
-            while (true)
-            {
-                if (MClient.KeyExists("Key1002"))
-                {
-                    Console.WriteLine("key:Key1002 Value:{0},当前时间：{1}", MClient.Get("Key1002"), DateTime.Now);
-                    Thread.Sleep(20000);
-                }
-                else
-                {
-                    Console.WriteLine("key:Key1002 我已过期,当前时间：{0}", DateTime.Now);
-                    break;
-                }
-            }
+            //while (true)
+            //{
+            //    if (MClient.KeyExists("Key1002"))
+            //    {
+            //        Console.WriteLine("key:Key1002 Value:{0},当前时间：{1}", MClient.Get("Key1002"), DateTime.Now);
+            //        //Thread.Sleep(20000);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("key:Key1002 我已过期,当前时间：{0}", DateTime.Now);
+            //        break;
+            //    }
+            //}
 
                 Console.ReadKey();
             }
