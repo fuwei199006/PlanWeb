@@ -29,10 +29,10 @@ namespace Plain.UI
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            if (LocalCachedConfigContext.Current.SystemConfig.Runable)
-            {
-                throw  
-            }
+            //if (LocalCachedConfigContext.Current.SystemConfig.Runable)
+            //{
+            //    throw  
+            //}
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
