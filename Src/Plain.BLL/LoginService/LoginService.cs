@@ -52,11 +52,13 @@ namespace Plain.BLL.LoginService
                 }
                 else
                 {
-                    loginInfo = new Basic_LoginInfo(user.Id,loginName);
-                    loginInfo.LoginType =(int) loginType;
-                    loginInfo.LoginNickName = user.NickName;
-                    loginInfo.ExpireTime = DateTime.Now.AddHours(1);
-                    loginInfo.LoginIp = Fetch.UserIp;
+                    loginInfo = new Basic_LoginInfo(user.Id, loginName)
+                    {
+                        LoginType = (int) loginType,
+                        LoginNickName = user.NickName,
+                        ExpireTime = DateTime.Now.AddHours(1),
+                        LoginIp = Fetch.UserIp
+                    };
                     this.Add(loginInfo);
 
                 }

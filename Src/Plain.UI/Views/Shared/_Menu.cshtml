@@ -23,11 +23,12 @@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
         <li class="start ">
-            <a href='@Url.Action("Index","Home", new {area="" })'>
-                <i class="icon-home"></i>
-                <span class="title">管理首页</span>
-            </a>
-        </li>
+            @*<a href='@Url.Action("Index","Home", new {area="" })'>*@ 
+                <a href='@Url.Content("~/Home/Index")'>
+                    <i class="icon-home"></i>
+                    <span class="title">管理首页</span>
+                </a>
+</li>
         @foreach (var menu in AdminCacheContext.Current.MenuItems[((int)MenuType.Group).ToString()])
         {
 

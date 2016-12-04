@@ -103,14 +103,7 @@ namespace Plain.Web
             var sysAdmins = LocalCachedConfigContext.Current.SystemConfig.SysAdmin == null ? new List<string>() : LocalCachedConfigContext.Current.SystemConfig.SysAdmin.Split(';').Where(r => !string.IsNullOrEmpty(r));
             var noPermessionIgnore = filterContext.ActionDescriptor.GetCustomAttributes(typeof(PermessionIgnoreAttribute), false);
             var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
-            //系统关闭，只有超级管理员能打开
-            if (!sysAdmins.Contains(LoginInfo.LoginNickName) 
-                && !LocalCachedConfigContext.Current.SystemConfig.Runable 
-                && noPermessionIgnore.Length == 0 
-                && noAuthorizeAttributes.Length == 0)
-            {
-                throw new RunableException();
-            }
+     
 
             /**
              * 这里是先验证登录，如果当前Action忽略了登录验证，也不会进行权限的验证
@@ -135,7 +128,7 @@ namespace Plain.Web
                 var urlList = AdminMenuCache.Current.Menus.Select(x => x.MenuUrl);
                 if (!urlList.Contains(Request.Url.AbsolutePath.ToString()) && noPermessionIgnore.Length == 0)
                 {
-                    if (Request["id"] != null)
+                    if (Request["id"] != null||Request["iframe"]!=null)
                     {
                         filterContext.Result = this.FrameStop("没有权限,3秒后自动刷新");
                     }
@@ -147,9 +140,17 @@ namespace Plain.Web
                     return;
                 }
             }
-      
+
             #endregion
 
+            //系统关闭，只有超级管理员能打开
+            if (!sysAdmins.Contains(LoginInfo.LoginNickName)
+                && !LocalCachedConfigContext.Current.SystemConfig.Runable
+                && noPermessionIgnore.Length == 0
+                && noAuthorizeAttributes.Length == 0)
+            {
+                throw new RunableException();
+            }
         }
         public AdminCookieContext CookieContext
         {

@@ -43,10 +43,8 @@ namespace Plain.UI
                 .Where(t => typeof(BaseService<>).IsClass && !t.IsAbstract)
                 .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
 
-
             builder.RegisterFilterProvider();
             var container = builder.Build();
-
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             //开始注入
@@ -73,11 +71,12 @@ namespace Plain.UI
             var error = Server.GetLastError();
             Response.ContentType = "text/html;";
             var httpError = error as HttpException;
-            var statusCode = httpError == null ? 500 : httpError.GetHttpCode();
+            var statusCode = httpError?.GetHttpCode() ?? 500;
             var errorMsg = error.Message;
             var routeData = new RouteData();
             routeData.Values["controller"] = "Home";
             routeData.Values["action"] = "TError";
+            routeData.Values["area"] = "";
             routeData.Values["code"] = statusCode;
             routeData.Values["error"] = errorMsg;
             IController errorManager = new BaseController();

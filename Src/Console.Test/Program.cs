@@ -8,7 +8,7 @@ namespace PConsole.Test
         static void _Main(string[] args)
         {
              
-            string  s |= ("123");
+            //string  s |= ("123");
             var res=new Person().Operator;
             System.Console.ReadKey();
         }
@@ -42,16 +42,16 @@ namespace PConsole.Test
             get
             {
    
-                unsafe
-                {
-                    GCHandle hander = GCHandle.Alloc(LoginInfo);
-                    var pin = GCHandle.ToIntPtr(hander);
+                //unsafe
+                //{
+                //    GCHandle hander = GCHandle.Alloc(LoginInfo);
+                //    var pin = GCHandle.ToIntPtr(hander);
 
-                    var _loginInfo = LoginInfo;
-                    GCHandle hander1 = GCHandle.Alloc(_loginInfo);
-                    var pin1 = GCHandle.ToIntPtr(hander);
-                    //todo:为什么地址是一样的，但是调用的效果不一样。为什么 ？？？？？？？？？
-                }
+                //    var _loginInfo = LoginInfo;
+                //    GCHandle hander1 = GCHandle.Alloc(_loginInfo);
+                //    var pin1 = GCHandle.ToIntPtr(hander);
+                //    //todo:为什么地址是一样的，但是调用的效果不一样。为什么 ？？？？？？？？？
+                //}
                 return new Operater
                 {
                     Name = LoginInfo == null ? "" : LoginInfo.LoginName,

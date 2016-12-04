@@ -23,7 +23,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get<Basic_LoginInfo>(CacheKey.LoginInfo, () =>
+                return CacheContext.Get(AuthCookie.UserToken.ToString(), () =>
                 {
                     if (AuthCookie.UserToken == Guid.Empty)
                     {

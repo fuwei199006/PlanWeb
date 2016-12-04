@@ -199,7 +199,17 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
                 urlNoQuery = url.split('TB_');
                 $("#TB_iframeContent").remove();
                 if (params['modal'] != "true") {//iframe no modal
-                    $("#TB_window").append("<div id='TB_title'><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close' style='color:#0c4857'>点击关闭</a> 或 按Esc键</div></div><iframe frameborder='0' hspace='0' src='" + urlNoQuery[0] + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;' > </iframe>");
+                    //$("#TB_window").append("<div id='TB_title'><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close' style='color:#0c4857'>点击关闭</a> 或 按Esc键</div></div><iframe frameborder='0' hspace='0' src='" + urlNoQuery[0] + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;' > </iframe>");
+                    
+
+                    //edit by fuwei
+                    //添加Iframe的打开标识
+                    //2016.12.03
+                    var lastUrl = urlNoQuery[0];
+                    if (urlNoQuery.length > 1) {
+                        lastUrl +="iframe=true";
+                    }
+                    $("#TB_window").append("<div id='TB_title'><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close' style='color:#0c4857'>点击关闭</a> 或 按Esc键</div></div><iframe frameborder='0' hspace='0' src='" + lastUrl + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;' > </iframe>");
                 } else {//iframe modal
                     $("#TB_overlay").unbind();
                     $("#TB_window").append("<iframe frameborder='0' hspace='0' src='" + urlNoQuery[0] + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;'> </iframe>");

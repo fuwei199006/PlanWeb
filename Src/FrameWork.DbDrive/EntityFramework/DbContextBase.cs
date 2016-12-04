@@ -162,7 +162,7 @@ namespace Framework.DbDrive.EntityFramework
             if (this.AuditLogger == null)
                 return;
 #if !DEBUG
-            if (!LocalCachedConfigContext.Current.SystemConfig.IsMonitor)
+            if (!LocalCachedConfigContext.Current.SystemConfig.IsDbMonitor)
             {
                 return;//是否打开数据的监控日志
             }
