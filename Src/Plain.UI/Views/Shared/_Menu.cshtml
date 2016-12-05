@@ -8,27 +8,27 @@
     <ul>
         <li>
             <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-            <div class="sidebar-toggler hidden-phone"><h3 style="margin-left:-160px; line-height:23px;  color:#666; ">功能菜单</h3></div>
+            <div class="sidebar-toggler hidden-phone"><h3 style="margin-left:-160px; line-height:23px;  ">功能菜单</h3></div>
             <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
         </li>
         <li>
             <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-            <form class="sidebar-search">
+            @*<form class="sidebar-search">
                 <div class="input-box">
                     <a href="javascript:;" class="remove"></a>
                     <input type="text" placeholder="Search..." />
                     <input type="button" class="submit" value="" />
                 </div>
-            </form>
+            </form>*@
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
         <li class="start ">
-            @*<a href='@Url.Action("Index","Home", new {area="" })'>*@ 
-                <a href='@Url.Content("~/Home/Index")'>
-                    <i class="icon-home"></i>
-                    <span class="title">管理首页</span>
-                </a>
-</li>
+            @*<a href='@Url.Action("Index","Home", new {area="" })'>*@
+            <a href='@Url.Content("~/Home/Index")'>
+                <i class="icon-home"></i>
+                <span class="title">管理首页</span>
+            </a>
+        </li>
         @foreach (var menu in AdminCacheContext.Current.MenuItems[((int)MenuType.Group).ToString()])
         {
 
@@ -36,7 +36,7 @@
             if (itemMenu != null && itemMenu.Count > 0)
             {
                 <li class="has-sub">
-                    <a href="javascript:void(0);" data-role="1">
+                    <a href="javascript:void(0);" >
 
                         <i class="@menu.MenuIcon"></i>
                         <span class="title">@menu.MenuName</span>
@@ -47,11 +47,11 @@
                         {
                             <li>
                                 @*<a href="@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0)":m.MenuUrl+"?type="+menu.MenuType)">*@
-                                    <a href="@(string.IsNullOrEmpty(m.MenuUrl) ? "javascript:void(0)" : Url.Content(m.MenuUrl))">
-                                        <i class="@m.MenuIcon"></i>
-                                        &nbsp;@m.MenuName
-                                    </a>
-</li>
+                                <a href="@(string.IsNullOrEmpty(m.MenuUrl) ? "javascript:void(0)" : Url.Content(m.MenuUrl))">
+                                    <i class="@m.MenuIcon"></i>
+                                    &nbsp;@m.MenuName
+                                </a>
+                            </li>
                         }
                     </ul>
 
@@ -61,13 +61,13 @@
             {
                 <li>
                     @*<a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" : menu.MenuUrl+"?type="+menu.MenuType)">*@
-                        <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" :  Url.Content(menu.MenuUrl))">
-                            <i class="@menu.MenuIcon"></i>
-                            <span>@menu.MenuName</span>
+                    <a href="@(string.IsNullOrEmpty(menu.MenuUrl) ? "javascript:void(0)" :  Url.Content(menu.MenuUrl))">
+                        <i class="@menu.MenuIcon"></i>
+                        <span>@menu.MenuName</span>
 
 
-                        </a>
-</li>
+                    </a>
+                </li>
             }
 
 

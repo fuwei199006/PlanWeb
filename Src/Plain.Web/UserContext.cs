@@ -10,7 +10,7 @@ using Plain.Dto;
 
 namespace Plain.Web
 {
-    public class UserContext
+    internal class UserContext
     {
         protected IAuthCookie AuthCookie;
 
@@ -23,7 +23,7 @@ namespace Plain.Web
         {
             get
             {
-                return CacheContext.Get(AuthCookie.UserToken.ToString(), () =>
+                return CacheContext.Get("LoginInfo_"+AuthCookie.UserToken.ToString(), () =>
                 {
                     if (AuthCookie.UserToken == Guid.Empty)
                     {
