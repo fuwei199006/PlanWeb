@@ -10,7 +10,7 @@ using Plain.Dto;
 
 namespace Plain.Web
 {
-    internal class UserContext
+    public class UserContext
     {
         protected IAuthCookie AuthCookie;
 
