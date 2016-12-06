@@ -10,11 +10,11 @@
 
     <script type="text/javascript">
         //$("#navigation").hide();
-        $(".sub").show();
-        $(".has-sub>a").each(function () {
-            $(this).css("background-color", "#313131");
+        //$(".sub").show();
+        //$(".has-sub>a").each(function () {
+        //    $(this).css("background-color", "#313131");
 
-        });
+        //});
     </script>
 }
 
@@ -29,7 +29,7 @@
                 <a href="javascript:;" class="collapse"></a>
                 @*<a href="#portlet-config" data-toggle="modal" class="config"></a>*@
                 @*<a href="javascript:;" class="reload"></a>*@
-            
+
             </div>
         </div>
 
@@ -66,7 +66,7 @@
                     {
                         //todo:可以修改成待处理的条数
                         @*<li class="m10 floatleft"><a href="@m.MenuUrl" class="btn red-stripe">@m.MenuName <span class="muted">10</span></a></li>*@
-                        <li class="m10 floatleft"><a href="@m.MenuUrl" class="btn red-stripe">@m.MenuName  </a></li>
+                        <li class="m10 floatleft"><a href="@Url.Content(m.MenuUrl)" class="btn red-stripe">@m.MenuName  </a></li>
                     }
                 </ul>
             }

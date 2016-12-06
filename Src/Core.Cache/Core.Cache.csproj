@@ -63,7 +63,7 @@
     <Compile Include="CacheConfigContext.cs" />
     <Compile Include="CacheContext.cs" />
     <Compile Include="ICacheProvider.cs" />
-    <Compile Include="ILocalCacheProvider.cs" />
+    <Compile Include="IAdvanceCacheProvider.cs" />
     <Compile Include="LocalCacheProvider.cs" />
     <Compile Include="MemcacheProvider.cs" />
     <Compile Include="MemcacheUtil.cs" />

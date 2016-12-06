@@ -6,7 +6,7 @@ using Framework.Utility;
 
 namespace Core.Cache
 {
-    public class LocalCacheProvider : ICacheProvider, ILocalCacheProvider
+    public class LocalCacheProvider : ICacheProvider, IAdvanceCacheProvider
     {
         public virtual object Get(string key)
         {

@@ -2,6 +2,7 @@
 
 namespace Framework.Contract
 {
+    [Serializable]
     public class ModelBase
     {
 

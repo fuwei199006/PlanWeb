@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq.Expressions;
+using System.Text;
 using System.Threading;
 using Memcached.ClientLibrary;
 using Console = System.Console;
@@ -8,7 +11,7 @@ namespace PConsole.Test
     public class MemcahePrograme
     {
 
-        public static void _Main(string[] args)
+        public static void Main(string[] args)
         {
             //参数设置
             string SockIOPoolName = "Test_SockIOPoolName";
@@ -23,8 +26,8 @@ namespace PConsole.Test
             MemcachedClient MClient = new MemcachedClient();
             MClient.PoolName = SockIOPoolName;
 
-            for (int i = 0; i < 10; i++)
-            {
+            //for (int i = 0; i < 10; i++)
+            //{
                 Console.WriteLine("1.创建memcache缓存Hello World");
                 MClient.Add("Key1001", "Hello World");
                 Console.WriteLine("2.查询缓存信息{0}", MClient.Get("Key1001"));
@@ -50,21 +53,8 @@ namespace PConsole.Test
                 Console.WriteLine("6.缓存实体对象：{0} {1}", getStud.id, getStud.name);
 
                 MClient.Add("Key1001", "我已设置过期时间1分钟", DateTime.Now.AddMinutes(1));
-            }
-
-            //while (true)
-            //{
-            //    if (MClient.KeyExists("Key1002"))
-            //    {
-            //        Console.WriteLine("key:Key1002 Value:{0},当前时间：{1}", MClient.Get("Key1002"), DateTime.Now);
-            //        //Thread.Sleep(20000);
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("key:Key1002 我已过期,当前时间：{0}", DateTime.Now);
-            //        break;
-            //    }
             //}
+            var arr = MClient.Stats();
 
             Console.ReadKey();
         }

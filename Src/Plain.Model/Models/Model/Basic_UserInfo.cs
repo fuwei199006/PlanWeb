@@ -7,6 +7,7 @@ using Framework.Contract;
 
 namespace Plain.Model.Models.Model
 {
+    [Serializable]
     public partial class Basic_UserInfo : ModelBase
     {
 

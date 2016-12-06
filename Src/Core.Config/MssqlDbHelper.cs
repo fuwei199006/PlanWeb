@@ -13,7 +13,7 @@ namespace Core.Config
             set { _conStr = value; }
         }
 
-        public  string GetDbName()
+        public string GetDbName()
         {
             var conn = new SqlConnection(_conStr);
             return conn.Database;
@@ -96,10 +96,14 @@ namespace Core.Config
             var conn = new SqlConnection(_conStr);
             try
             {
-                var adap = new SqlDataAdapter(sql, conn); //用一个DataAdapter
-                var ds = new DataSet();
-                adap.Fill(ds); //填充DataSet
-                return ds;
+                using (var adap = new SqlDataAdapter(sql, conn))  //用一个DataAdapter)
+                {
+                    var ds = new DataSet();
+                    adap.Fill(ds); //填充DataSet
+                    return ds;
+                }
+
+
             }
             catch (System.Exception ex)
             {
@@ -165,7 +169,7 @@ namespace Core.Config
                 conn.Close();
                 throw ex;
             }
-           
+
 
         }
 
@@ -204,7 +208,7 @@ namespace Core.Config
                 conn.Close();
                 throw ex;
             }
-           
+
 
         }
     }

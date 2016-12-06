@@ -12,7 +12,6 @@ namespace Core.Cache
             //参数设置
             //todo:改成配置
             string[] memcacheServiceList = { "127.0.0.1:11211" };
-
             //设置连接池
             var sPool = SockIOPool.GetInstance(SockIoPoolName);
             sPool.SetServers(memcacheServiceList);

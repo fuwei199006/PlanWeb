@@ -36,7 +36,7 @@ namespace Core.Cache
             }
             foreach (var cacheProvider in CacheConfigContext.CacheProviders.Values)
             {
-                var localCacheProvider = cacheProvider as ILocalCacheProvider;
+                var localCacheProvider = cacheProvider as IAdvanceCacheProvider;
                 localCacheProvider?.Clear(keyRegex);
             }
         }

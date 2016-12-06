@@ -102,7 +102,10 @@ namespace Core.Cache
             }
             lock (_olock)
             {
-               _wrapCacheConfigItemDic.Add(key, currentWrapCacheConfigItem);
+                if (!_wrapCacheConfigItemDic.ContainsKey(key))
+                {
+                    _wrapCacheConfigItemDic.Add(key, currentWrapCacheConfigItem);
+                }
             }
 
             return currentWrapCacheConfigItem;

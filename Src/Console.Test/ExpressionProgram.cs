@@ -6,7 +6,7 @@ namespace PConsole.Test
 {
     public class ExpressionProgram
     {
-        static void Main(string[] args)
+        static void _Main(string[] args)
         {
             System.Diagnostics.Process p = Process.GetCurrentProcess();
             p.ProcessorAffinity = (IntPtr)0x0001;
