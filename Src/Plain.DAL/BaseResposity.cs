@@ -18,6 +18,7 @@ namespace Plain.DAL
         {
 
             CurrentContextBase = ServiceContext.CreateService<PlainDbContext>(new ContextServiceFactory()) as PlainDbContext;
+            //CurrentContextBase = new PlainDbContext();
 
         }
     }

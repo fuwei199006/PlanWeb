@@ -6,7 +6,7 @@ using Framework.Utility;
 
 namespace Core.Cache
 {
-    public class LocalCacheProvider:ICacheProvider
+    public class LocalCacheProvider : ICacheProvider, IAdvanceCacheProvider
     {
         public virtual object Get(string key)
         {
@@ -15,23 +15,23 @@ namespace Core.Cache
 
         public virtual void Set(string key, object value)
         {
-             Caching.Set(key,value);
+            Caching.Set(key, value);
         }
 
         public virtual void Remove(string key)
         {
-             Caching.Remove(key);
+            Caching.Remove(key);
         }
 
         public virtual void Clear(string keyRegex)
         {
             var keys = new List<string>();
             var enumerator = HttpRuntime.Cache.GetEnumerator();
-            
+
             while (enumerator.MoveNext())
             {
                 var key = enumerator.Key.ToString();
-                if (Regex.IsMatch(key,keyRegex,RegexOptions.IgnoreCase))
+                if (Regex.IsMatch(key, keyRegex, RegexOptions.IgnoreCase))
                 {
                     keys.Add(key);
                 }
@@ -46,22 +46,22 @@ namespace Core.Cache
 
         public virtual void Set(string key, object value, int min)
         {
-             Caching.Set(key,value,min);
+            Caching.Set(key, value, min);
         }
-         
+
         public virtual void Set(string key, object value, int minutes, bool isAbsoluteExpiration, Action<string, object, string> onRemove)
         {
-           
-            
+
+
             Caching.Set(key, value, minutes, isAbsoluteExpiration, (k, v, reason) =>
             {
-                if (onRemove!=null)
+                if (onRemove != null)
                 {
                     onRemove(k, v, reason.ToString());
                 }
             });
         }
 
-        
+
     }
 }

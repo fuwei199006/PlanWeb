@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Plain.Model.Models.Model
 {
+    [Serializable]
     public partial class Basic_Menu : ModelBase
     {
         [Required(ErrorMessage = "菜单名称不能为空")]

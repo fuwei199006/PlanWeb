@@ -18,6 +18,7 @@ namespace Plain.DAL
         public PlainDbContext()
             : base(LocalCachedConfigContext.Current.DaoConfig.BussinessDaoConfig, new LogDbContext())
         {
+             
         }
 
 

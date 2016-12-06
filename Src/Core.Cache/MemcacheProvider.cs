@@ -1,38 +1,33 @@
 ﻿using System;
+using Memcached.ClientLibrary;
 
 namespace Core.Cache
 {
     public class MemcacheProvider : ICacheProvider
-     
     {
+
         public object Get(string key)
         {
-            throw new NotImplementedException();
+            return MemcacheUtil.Get(key);
         }
 
         public void Set(string key, object value)
         {
-            throw new NotImplementedException();
+            MemcacheUtil.Set(key, value);
         }
 
         public void Remove(string key)
         {
-        
+            MemcacheUtil.Remove(key);
         }
 
-        public void Clear(string regKey)
-        {
-         
-        }
+
 
         public void Set(string key, object value, int min)
         {
-       
+            MemcacheUtil.Set(key, value, min);
         }
 
-        public void Set(string key, object value, int minutes, bool isAbsoluteExpiration, Action<string, object, string> onRemove)
-        {
-        
-        }
+
     }
 }

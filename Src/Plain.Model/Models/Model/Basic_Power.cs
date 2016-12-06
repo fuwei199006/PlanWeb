@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace Plain.Model.Models.Model
 {
+    [Serializable]
     public partial class Basic_Power : ModelBase
     {
 

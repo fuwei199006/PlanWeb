@@ -24,8 +24,8 @@ namespace Plain.BLL.LoginService.Tests
                 });
 
             }
-             
-         
+
+
 
         }
     }
@@ -41,7 +41,7 @@ namespace Plain.BLLTests.LoginService
         {
 
             ILoginService loginService = new BLL.LoginService.LoginService();
-            var entity= loginService.AddLoginInfo(new Basic_LoginInfo()
+            var entity = loginService.AddLoginInfo(new Basic_LoginInfo()
             {
                 LoginName = "756091180@qq.com",
                 LoginUserId = 0,
@@ -58,14 +58,14 @@ namespace Plain.BLLTests.LoginService
                 CreateTime = DateTime.Now
             });
 
-            Assert.AreNotEqual(entity,null);
+            Assert.AreNotEqual(entity, null);
         }
 
         [TestMethod]
         public void TestAutofac()
         {
             var obje =
-                typeof (BaseService<>).IsAssignableFrom(typeof (BaseService<>).GetInterface(typeof (IBaseService<>).Name));
+                typeof(BaseService<>).IsAssignableFrom(typeof(BaseService<>).GetInterface(typeof(IBaseService<>).Name));
         }
 
 
@@ -74,9 +74,36 @@ namespace Plain.BLLTests.LoginService
         {
             ILoginService loginService = new BLL.LoginService.LoginService();
 
-          var res=  loginService.LoginOut(new Guid("CF107749-65CD-4F67-94FD-877C88A106C1"));
+            var res = loginService.LoginOut(new Guid("CF107749-65CD-4F67-94FD-877C88A106C1"));
 
-            Assert.AreEqual(res,true);
+            Assert.AreEqual(res, true);
+
+        }
+
+        [TestMethod()]
+        public void LogintTest()
+        {
+            ILoginService loginService = new BLL.LoginService.LoginService();
+            while (true)
+            {
+                try
+                {
+                    ThreadPool.QueueUserWorkItem(r =>
+                    {
+
+                        var res = loginService.GetLoginInfoByToken(new Guid("C1EA4C21-B049-4323-A010-6CA8273B4D6D"));
+                        Assert.AreEqual(res.LoginToken, "C1EA4C21-B049-4323-A010-6CA8273B4D6D");
+
+                    });
+                }
+                catch (Exception)
+                {
+
+                    break;
+                }
+
+            }
+
 
         }
     }

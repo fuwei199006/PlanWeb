@@ -68,22 +68,22 @@ namespace Plain.UI
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            var error = Server.GetLastError();
-            Response.ContentType = "text/html;";
-            var httpError = error as HttpException;
-            var statusCode = httpError?.GetHttpCode() ?? 500;
-            var errorMsg = error.Message;
-            var routeData = new RouteData();
-            routeData.Values["controller"] = "Home";
-            routeData.Values["action"] = "TError";
-            routeData.Values["area"] = "";
-            routeData.Values["code"] = statusCode;
-            routeData.Values["error"] = errorMsg;
-            IController errorManager = new BaseController();
-            HttpContextWrapper wrapper = new HttpContextWrapper(Context);
-            Server.ClearError();
-            var rc = new RequestContext(wrapper, routeData);
-            errorManager.Execute(rc);
+            //var error = Server.GetLastError();
+            //Response.ContentType = "text/html;";
+            //var httpError = error as HttpException;
+            //var statusCode = httpError?.GetHttpCode() ?? 500;
+            //var errorMsg = error.Message;
+            //var routeData = new RouteData();
+            //routeData.Values["controller"] = "Home";
+            //routeData.Values["action"] = "TError";
+            //routeData.Values["area"] = "";
+            //routeData.Values["code"] = statusCode;
+            //routeData.Values["error"] = errorMsg;
+            //IController errorManager = new BaseController();
+            //HttpContextWrapper wrapper = new HttpContextWrapper(Context);
+            //Server.ClearError();
+            //var rc = new RequestContext(wrapper, routeData);
+            //errorManager.Execute(rc);
         }
         protected void Session_End(object sender, EventArgs e)
         {
