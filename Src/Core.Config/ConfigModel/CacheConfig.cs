@@ -20,6 +20,9 @@ namespace Core.Config.ConfigModel
         public string Type { get; set; }
         [XmlAttribute(AttributeName = "desc")]
         public string Desc { get; set; }
+        [XmlAttribute(AttributeName = "Ips")]
+        public string Ips { get; set; }
+
 
     }
 

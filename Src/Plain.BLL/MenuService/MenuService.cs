@@ -12,6 +12,7 @@ using Framework.Contract;
 
 namespace Plain.BLL.MenuService
 {
+    [Serializable]
     public class MenuService: BaseService<Basic_Menu>, IMenuService
     {
       

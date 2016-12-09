@@ -96,6 +96,12 @@ namespace Core.Cache
                 Regex.IsMatch(key, r.CacheConfigItem.KeyRegex, RegexOptions.IgnoreCase))
                 .OrderByDescending(i => i.CacheConfigItem.Priority)
                 .FirstOrDefault();
+
+            //var currentWrapCacheConfigItems = WrapCacheConfigItems.Where(r =>
+            //    Regex.IsMatch(ModuleName, r.CacheConfigItem.ModuleRegex, RegexOptions.IgnoreCase) &&
+            //    Regex.IsMatch(key, r.CacheConfigItem.KeyRegex, RegexOptions.IgnoreCase))
+            //    .OrderByDescending(i => i.CacheConfigItem.Priority);
+             
             if (currentWrapCacheConfigItem == null)
             {
                 throw new GetCacheException("获得缓存数据出错！请确保配置正确");

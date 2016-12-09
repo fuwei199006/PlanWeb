@@ -44,6 +44,7 @@
     <Compile Include="AuthValideException.cs" />
     <Compile Include="BaseException.cs" />
     <Compile Include="CallMethodFailException.cs" />
+    <Compile Include="ConfigInvalidException.cs" />
     <Compile Include="ConfigNotExistException.cs" />
     <Compile Include="GetCacheException.cs" />
     <Compile Include="InterfaceConvertFailException.cs" />

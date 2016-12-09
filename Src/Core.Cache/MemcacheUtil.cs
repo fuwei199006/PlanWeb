@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using Core.Exception;
 using Memcached.ClientLibrary;
 
 namespace Core.Cache
@@ -9,15 +11,16 @@ namespace Core.Cache
         private const string SockIoPoolName = "PlainMemPool";
         static MemcacheUtil()
         {
-            //参数设置
-            //todo:改成配置
-            string[] memcacheServiceList = { "127.0.0.1:11211" };
-            //设置连接池
+            if (string.IsNullOrEmpty(MemcacheServiceList))
+            {
+                throw new ArgumentException("Memcache的服务器不正确。");
+            }
             var sPool = SockIOPool.GetInstance(SockIoPoolName);
-            sPool.SetServers(memcacheServiceList);
+            sPool.SetServers(MemcacheServiceList.Split(','));
             sPool.Initialize();
         }
 
+       public static string MemcacheServiceList { get; set; }
         private static MemcachedClient _memcachedClient;
 
         public static MemcachedClient MemcachedClient

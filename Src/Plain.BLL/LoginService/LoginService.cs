@@ -12,6 +12,7 @@ using Plain.Dto;
 
 namespace Plain.BLL.LoginService
 {
+    [Serializable]
     public class LoginService : BaseService<Basic_LoginInfo>, ILoginService
     {
         public Basic_LoginInfo GetLoginInfoByToken(Guid token)
