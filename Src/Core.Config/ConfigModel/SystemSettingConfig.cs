@@ -7,9 +7,9 @@ namespace Core.Config.ConfigModel
     {
         public bool IsDbMonitor { get; set; }//数据日志
 
-        public int CookieExpireTime { get; set; }
+        public int CookieExpireTime { get; set; }//min
 
-        public int CacheExpiteTime { get; set; }
+        public int CacheExpiteTime { get; set; }//min
 
         public Guid SystemId { get; set; }//用户加密系统内的数据
 

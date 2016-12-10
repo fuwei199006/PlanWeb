@@ -9,7 +9,7 @@ namespace Core.Cache
     {
 
         private const string SockIoPoolName = "PlainMemPool";
-        static MemcacheUtil()
+        private static void  MemcacheInit()
         {
             if (string.IsNullOrEmpty(MemcacheServiceList))
             {
@@ -29,6 +29,7 @@ namespace Core.Cache
             {
                 if (_memcachedClient == null)
                 {
+                    MemcacheInit();
                     _memcachedClient = new MemcachedClient { PoolName = SockIoPoolName };
                       
                 }
@@ -59,10 +60,7 @@ namespace Core.Cache
         {
             Set(key, value, 20);
         }
-        public static void Set(string key, object value, int minutes, Action<string, object, string> onRemove)
-        {
-
-        }
+ 
 
 
     }

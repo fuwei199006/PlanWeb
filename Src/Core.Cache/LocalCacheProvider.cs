@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web;
+using Core.Config;
 using Framework.Utility;
 
 namespace Core.Cache
@@ -15,7 +16,7 @@ namespace Core.Cache
 
         public virtual void Set(string key, object value)
         {
-            Caching.Set(key, value);
+            Caching.Set(key, value,LocalCachedConfigContext.Current.SystemConfig.CacheExpiteTime);
         }
 
         public virtual void Remove(string key)

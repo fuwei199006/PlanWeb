@@ -70,7 +70,6 @@ namespace Plain.UI.Areas.Auth.Controllers
             }
             if (result != null)
             {
-
                 return SkipAndAlert("注册成功,欢迎您的加入!", MsgType.Success, true, Url.Action("Index", "Home"));
             }
 
