@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Configuration;
+using Core.Config;
 using Core.Exception;
 using Memcached.ClientLibrary;
 
 namespace Core.Cache
 {
-    public class MemcacheUtil
+    public class MemcacheUtil:CacheBase
     {
 
         private const string SockIoPoolName = "PlainMemPool";
@@ -58,7 +59,7 @@ namespace Core.Cache
         }
         public static void Set(string key, object value)
         {
-            Set(key, value, 20);
+            Set(key, value, LocalCachedConfigContext.Current.SystemConfig.CacheExpiteTime);
         }
  
 

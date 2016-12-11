@@ -105,10 +105,11 @@ namespace Plain.Web
             var noAuthorizeAttributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(AuthorizeIgnoreAttribute), false);
      
 
-            /**
+            /**-------------------------------------------------------------------------------
              * 这里是先验证登录，如果当前Action忽略了登录验证，也不会进行权限的验证
              * 2016.12.02
              * fuwei
+             * --------------------------------------------------------------------------------
              * */
           
             if (noAuthorizeAttributes.Length > 0)

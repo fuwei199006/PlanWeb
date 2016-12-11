@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="CacheConfigContext.cs" />
     <Compile Include="CacheContext.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="ICacheProvider.cs" />
     <Compile Include="IAdvanceCacheProvider.cs" />
     <Compile Include="LocalCacheProvider.cs" />
