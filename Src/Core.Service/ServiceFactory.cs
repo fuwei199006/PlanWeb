@@ -45,7 +45,7 @@ namespace Core.Service
             return proxy;
         }
     }
-    public class ContextServiceFactory: ServiceFactory  
+    public class ContextServiceFactory : ServiceFactory
     {
         public override T CreateService<T>()
         {
@@ -58,20 +58,20 @@ namespace Core.Service
             {
                 interFanceName += "_" + typeof(T).GetGenericArguments()[0].Name;
             }
-            var instance = CallContext.GetData(interFanceName) ;
+            var instance = CallContext.GetData(interFanceName);
             //判断线程里面是否有数据
             if (instance == null) //线程的数据槽里面没有次上下文
             {
-                //config找教主要
+                //config
                 instance = Activator.CreateInstance(typeof(T)); //创建了一个EF上下文                  
                 //存储指定对象
                 CallContext.SetData(interFanceName, instance);
-            }
+            } 
             return (T)instance;
 
         }
 
-        
+
     }
 
 

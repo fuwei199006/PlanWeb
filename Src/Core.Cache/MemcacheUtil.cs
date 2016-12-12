@@ -6,7 +6,7 @@ using Memcached.ClientLibrary;
 
 namespace Core.Cache
 {
-    public class MemcacheUtil:CacheBase
+    public class MemcacheUtil 
     {
 
         private const string SockIoPoolName = "PlainMemPool";

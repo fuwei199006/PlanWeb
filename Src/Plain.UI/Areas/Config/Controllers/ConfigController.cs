@@ -46,7 +46,7 @@ namespace Plain.UI.Areas.Config.Controllers
             return View(basiceDao);
         }
         [HttpPost]
-        public ActionResult DbEdit(FormCollection collection)
+        public ActionResult DbConfigEdit(FormCollection collection)
         {
             var daoConfig = new DaoConfig();
             TryUpdateModel(daoConfig);

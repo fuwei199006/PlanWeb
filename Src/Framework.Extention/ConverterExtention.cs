@@ -186,6 +186,10 @@ namespace Framework.Extention
                 return defalut;
         }
 
+        public static string TrimAll(this string s)
+        {
+            return s.Replace(" ", "");
+        }
         /// <summary>
         /// DataTable转换成泛型List
         /// </summary>

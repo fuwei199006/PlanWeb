@@ -23,8 +23,8 @@ namespace Framework.DbDrive.EntityFramework
         {
             
             this.Database.Connection.ConnectionString = DESEncrypt.Decode(connectionString);
-            //this.Configuration.LazyLoadingEnabled = false;
-            //this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
             //this.Database.Initialize(false);
         }
         public DbContextBase(string connectionString, IAuditable auditLogger)

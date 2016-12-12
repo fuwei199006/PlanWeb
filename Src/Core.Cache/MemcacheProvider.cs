@@ -4,6 +4,7 @@ using System.Net.NetworkInformation;
 using Core.Config;
 using Core.Config.ConfigModel;
 using Core.Exception;
+using Framework.Extention;
 using Memcached.ClientLibrary;
 
 namespace Core.Cache
@@ -13,7 +14,7 @@ namespace Core.Cache
 
         public MemcacheProvider()
         {
-            var cacheProviderItem = LocalCachedConfigContext.Current.CacheConfig.CacheProviderItems.FirstOrDefault(r => r.Type == (this.GetType().FullName.ToString()+","+ this.GetType().Namespace));
+            var cacheProviderItem = LocalCachedConfigContext.Current.CacheConfig.CacheProviderItems.FirstOrDefault(r => r.Type.TrimAll() == (this.GetType().FullName.ToString()+","+ this.GetType().Namespace));
             if (cacheProviderItem == null)
             {
                 throw new ConfigInvalidException("配置错误:可能是使用的分布式缓存,但配置文件没有正确的配置成分布式的Provider");

@@ -54,12 +54,12 @@ namespace Framework.BLL
             return this.CurrentResposity.GetEntityWithNoTracking(conditions);
         }
     
-        public virtual IQueryable<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null)
+        public virtual List<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null)
         {
             return this.CurrentResposity.LoadEntitiesNoTracking(conditions);
         }
 
-        public virtual IQueryable<T> LoadEntities(Expression<Func<T, bool>> conditions = null)
+        public virtual List<T> LoadEntities(Expression<Func<T, bool>> conditions = null)
         {
             return this.CurrentResposity.LoadEntities(conditions);
         }
@@ -80,11 +80,11 @@ namespace Framework.BLL
         {
             return this.GetEntityWithNoTracking(r => r.Id == id);
         }
-        public virtual IQueryable<T> GetEntities(IList<int> ids)
+        public virtual List<T> GetEntities(IList<int> ids)
         {
             return LoadEntities(r => ids.Contains(r.Id));
         }
-        public virtual IQueryable<T> GetEntitiesNoTracking(IList<int> ids)
+        public virtual List<T> GetEntitiesNoTracking(IList<int> ids)
         {
             return LoadEntitiesNoTracking(r => ids.Contains(r.Id));
         }

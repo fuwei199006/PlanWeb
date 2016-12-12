@@ -24,7 +24,7 @@ namespace Plain.BLL.PowerService
             this.DeleteEntities(ids);
         }
 
-        public IQueryable<Basic_Power> GetPowerListBtPowerIds(List<int> ids)
+        public List<Basic_Power> GetPowerListBtPowerIds(List<int> ids)
         {
             return this.LoadEntitiesNoTracking(r => ids.Contains(r.Id));
         }

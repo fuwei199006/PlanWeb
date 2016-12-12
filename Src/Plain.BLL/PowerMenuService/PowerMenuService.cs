@@ -39,12 +39,12 @@ namespace Plain.BLL.PowerMenuService
 
         }
 
-        public IQueryable<Basic_PowerMenu> GetPowerMenusByMenuId(int menuId)
+        public List<Basic_PowerMenu> GetPowerMenusByMenuId(int menuId)
         {
             return this.LoadEntities(r => r.MenuId == menuId && r.MappingStatus);
         }
 
-        public IQueryable<Basic_PowerMenu> GetPowerMenusByPowerId(int powerId)
+        public List<Basic_PowerMenu> GetPowerMenusByPowerId(int powerId)
         {
             return this.LoadEntities(r => r.PowerId == powerId && r.MappingStatus);
         }

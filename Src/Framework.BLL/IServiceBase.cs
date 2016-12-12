@@ -27,9 +27,9 @@ namespace Framework.BLL
         T GetEntityWithNoTracking(Expression<Func<T, bool>> conditions);
 
 
-        IQueryable<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null);
+        List<T> LoadEntitiesNoTracking(Expression<Func<T, bool>> conditions = null);
 
-        IQueryable<T> LoadEntities(Expression<Func<T, bool>> conditions = null);
+        List<T> LoadEntities(Expression<Func<T, bool>> conditions = null);
 
 
         PagedList<T> LoadEntitiesByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex);
@@ -42,9 +42,9 @@ namespace Framework.BLL
 
         T GetEntityByIdNoTracking(int id);
 
-        IQueryable<T> GetEntities(IList<int> ids);
+        List<T> GetEntities(IList<int> ids);
 
-        IQueryable<T> GetEntitiesNoTracking(IList<int> ids);
+        List<T> GetEntitiesNoTracking(IList<int> ids);
 
         void DeleteEntities(IList<int> ids);
 

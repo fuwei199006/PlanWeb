@@ -15,8 +15,8 @@ namespace Plain.BLL.PowerMenuService
         void DeleteByPowerId(int powerId);
         void DeleteByMenuId(int menuId);
 
-        IQueryable<Basic_PowerMenu> GetPowerMenusByPowerId(int powerId);
-        IQueryable<Basic_PowerMenu> GetPowerMenusByMenuId(int menuId);
+        List<Basic_PowerMenu> GetPowerMenusByPowerId(int powerId);
+        List<Basic_PowerMenu> GetPowerMenusByMenuId(int menuId);
 
         void DeletePowerMenus(List<Basic_PowerMenu> powerMenus);
 
