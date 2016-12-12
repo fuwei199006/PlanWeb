@@ -12,24 +12,31 @@ namespace Framework.Dao
 {
     public abstract class BaseFrameDao<F> : IBaseFrameDao<F> where F : class
     {
-        protected virtual DbContextBase CurrentContextBase { get; set; }
+    
 
-        public BaseFrameDao()
-        {
-            SetCurrentDbContext();
-        }
+        
         public List<F> ExceSql<F>(string sql) where F : class
         {
-            return CurrentContextBase.ExceSql<F>(sql).ToList();
+            using (var dataBase = CreateDbContext())
+            {
+                return dataBase.ExceSql<F>(sql).ToList();
+            }
+         
         }
 
         public List<F> ExceSql<F>(string sql, SqlParameter[] parameters) where F : class
         {
-            return CurrentContextBase.ExceSql<F>(sql, parameters).ToList();
+            using (var dataBase = CreateDbContext())
+            {
+                return dataBase.ExceSql<F>(sql, parameters).ToList();
+            }
         }
         public PagedList<F> ExceSqlPagedList<F>(string sql, int pageSize, int pageIndex) where F : class
         {
-            return CurrentContextBase.ExceSqlPagedList<F>(sql, pageSize, pageIndex);
+            using (var dataBase = CreateDbContext())
+            {
+                return dataBase.ExceSqlPagedList<F>(sql, pageSize, pageIndex);
+            }
         }
 
         private string GetPageSql(string sql, int pageSize, int pageIndex, string pkName, bool isCount)
@@ -53,7 +60,7 @@ namespace Framework.Dao
             }
             return resultSql.ToString();
         }
-        public abstract void SetCurrentDbContext();
+        public abstract DbContextBase CreateDbContext();
 
 
     }
