@@ -98,6 +98,7 @@ namespace Plain.Web
             }
 
         }
+        //todo:拆开自定义过滤器
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sysAdmins = LocalCachedConfigContext.Current.SystemConfig.SysAdmin == null ? new List<string>() : LocalCachedConfigContext.Current.SystemConfig.SysAdmin.Split(';').Where(r => !string.IsNullOrEmpty(r));

@@ -12,9 +12,6 @@ namespace Framework.Dao
 {
     public abstract class BaseFrameDao<F> : IBaseFrameDao<F> where F : class
     {
-    
-
-        
         public List<F> ExceSql<F>(string sql) where F : class
         {
             using (var dataBase = CreateDbContext())
