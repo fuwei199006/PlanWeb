@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Framework.Utility;
-using Framework.Utility.ValideCode;
+﻿using Framework.Utility;
 
 namespace Plain.Dto
 {
