@@ -9,19 +9,9 @@ namespace Plain.Dao
 {
     public class BaseDao<T> : BaseFrameDao<T>, IBaseDao<T> where T:class
     {
- 
-        protected override DbContextBase CurrentContextBase { get; set; }
-        public BaseDao()
+        public override DbContextBase CreateDbContext()
         {
-            SetCurrentDbContext();
+          return  ServiceContext.CreateService<PlainDbContext>();
         }
-        public override sealed void SetCurrentDbContext()
-        {
-
-            CurrentContextBase = ServiceContext.CreateService<PlainDbContext>() as PlainDbContext;
-
-        }
-      
-
     }
 }
