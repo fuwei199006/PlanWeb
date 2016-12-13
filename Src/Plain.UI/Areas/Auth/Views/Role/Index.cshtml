@@ -5,6 +5,7 @@
 @using Framework.Web.Controls.MvcPager
 @using Plain.Dto
 @using Framework.Utility
+@using EnumHelper = Framework.Extention.EnumHelper
 @model Framework.Contract.PagedList<Plain.Model.Models.Model.Basic_Role>
            
 
@@ -59,7 +60,7 @@
                 <td><input type="checkbox" class="checkboxes" name='ids' value='@role.Id' /></td>
                 <td>@(i++)</td>
                 <td>@role.RoleName</td>
-                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<RoleGroup>(int.Parse(role.RoleGroup)))</td>
+                <td>@(EnumHelper.GetEnumTitleByValue<RoleGroup>(int.Parse(role.RoleGroup)))</td>
               
                 <td><span class="label label-@(role.RoleStatus == 1 ? "success" : "inverse")">@(role.RoleStatus == 1 ? "可用" : "禁用")</span></td>
                 <td>@StringUtil.CutString(string.Join(",", role.Powers.Select(x => x.PoweName)), 40)

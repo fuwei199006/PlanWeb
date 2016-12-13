@@ -73,6 +73,7 @@
     <Compile Include="AssemblyExtention.cs" />
     <Compile Include="EnmuExtention.cs" />
     <Compile Include="ConverterExtention.cs" />
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

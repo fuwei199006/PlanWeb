@@ -1,6 +1,7 @@
 ﻿@using Framework.Web.Controls.MvcPager
 @using Plain.Dto;
 @using Framework.Utility;
+@using EnumHelper = Framework.Extention.EnumHelper
 @model Framework.Contract.PagedList<Plain.Model.Models.Model.Basic_UserInfo>
 
 @{
@@ -72,7 +73,7 @@
                 <td>@user.LoginName</td>
                 <td>@user.NickName</td>
                 <td>@user.RealName</td>
-                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<SexType>(user.Sex))</td>
+                <td>@(EnumHelper.GetEnumTitleByValue<SexType>(user.Sex))</td>
                 <td>@(user.BirthDay.HasValue?(DateTime.Now.Year - user.BirthDay.Value.Year).ToString():"-")</td>
                 <td>@(user.BirthDay.HasValue ? user.BirthDay.Value.ToString("yyyy-MM-dd") : "-")</td>
                 <td>@user.UserEmail</td>
@@ -85,15 +86,15 @@
                 <td>
                     @if (user.UserStaus == 4)
                     {
-                        <span class="label label-success">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                        <span class="label label-success">@(EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
                     }
                     else if (user.UserStaus == 2 || user.UserStaus == 3)
                     {
-                        <span class="label label-warning">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                        <span class="label label-warning">@(EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
                     }
                     else
                     {
-                        <span class="label label-important">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                        <span class="label label-important">@(EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
                     }
 
                 </td>

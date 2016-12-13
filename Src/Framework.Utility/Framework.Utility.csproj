@@ -64,7 +64,6 @@
     <Compile Include="Collection.cs" />
     <Compile Include="Cookie.cs" />
     <Compile Include="Diff.cs" />
-    <Compile Include="EnumHelper.cs" />
     <Compile Include="Fetch.cs" />
     <Compile Include="FileWatchHelper.cs" />
     <Compile Include="GeoHelper.cs" />
