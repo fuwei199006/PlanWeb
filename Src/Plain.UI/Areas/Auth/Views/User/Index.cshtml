@@ -82,7 +82,21 @@
                         添加
                     </a>
                 </td>
-                <td>@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus)) </td>
+                <td>
+                    @if (user.UserStaus == 4)
+                    {
+                        <span class="label label-success">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                    }
+                    else if (user.UserStaus == 2 || user.UserStaus == 3)
+                    {
+                        <span class="label label-warning">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                    }
+                    else
+                    {
+                        <span class="label label-important">@(Framework.Utility.EnumHelper.GetEnumTitleByValue<UserStausType>(user.UserStaus))</span>
+                    }
+
+                </td>
                 <td>
                     <a class="btn mini primary  pl_dialog" title='查看' id="btnView" href="@Url.Action("Detail",new { id = user.Id })?Dialog=true">
                         <i class="icon icon-list-alt"></i>

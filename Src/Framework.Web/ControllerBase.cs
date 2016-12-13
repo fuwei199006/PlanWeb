@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
@@ -198,9 +199,19 @@ namespace Framework.Web
             //do nothing!
         }
 
+        //public Dictionary<int, EnumData> GetDatas()
+        //{
+            
+        //}
+
     }
 
 
+    public class EnumData
+    {
+        public  string Filed { get; set; }
+        public string Desc { get; set; }
+    }
     public class WebExceptionContext
     {
         public string IP { get; set; }
