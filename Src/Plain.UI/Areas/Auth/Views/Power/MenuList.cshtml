@@ -8,13 +8,13 @@
 @model  Plain.Model.Models.Model.Basic_Power
 @section MainContent{
     <div class="page-container  row-fluid">
-        @foreach (var group in (ViewData[WebKeys.MenuTypeDic] as Dictionary<string, string>).Keys)
+        @foreach (var group in (ViewData[WebKeys.MenuTypeDic] as Dictionary<int, string>).Keys)
         {
             <div class="portlet paddingless">
                 <div class="portlet-title line">
                     <div class="caption captionMargin">
                         <i class="icon-bell"></i>
-                        <span class="roleGroup">@ViewBag.Group[group]</span>
+                        <span class="roleGroup">@(((Dictionary<int, string>)ViewData[WebKeys.MenuTypeDic])[group])</span>
                     </div>
                     <div class="tools">
                         <a href="javascript:void(0);" class="collapse"></a>

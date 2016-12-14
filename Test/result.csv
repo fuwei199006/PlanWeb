@@ -1,0 +1,115 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,grpThreads,allThreads,URL,Latency,IdleTime
+1481723624204,5375,登录,200,OK,线程组 1-8,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3511,0
+1481723623900,5678,登录,200,OK,线程组 1-5,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3815,0
+1481723624000,5586,登录,200,OK,线程组 1-6,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3715,0
+1481723623560,6032,登录,200,OK,线程组 1-1,text,true,,19076,10,10,http://localhost:8080/Auth/Home,4155,0
+1481723623597,5998,登录,200,OK,线程组 1-2,text,true,,19076,10,10,http://localhost:8080/Auth/Home,4118,0
+1481723624100,5497,登录,200,OK,线程组 1-7,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3615,0
+1481723623696,5904,登录,200,OK,线程组 1-3,text,true,,19076,10,10,http://localhost:8080/Auth/Home,4019,0
+1481723623800,5803,登录,200,OK,线程组 1-4,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3915,0
+1481723624405,5199,登录,200,OK,线程组 1-10,text,true,,19076,10,10,http://localhost:8080/Auth/Home,4270,0
+1481723624304,5309,登录,200,OK,线程组 1-9,text,true,,19076,10,10,http://localhost:8080/Auth/Home,3413,0
+1481723629597,20,首页,200,OK,线程组 1-7,text,true,,17868,10,10,http://localhost:8080/Auth/Home,20,0
+1481723629600,23,首页,200,OK,线程组 1-3,text,true,,17868,10,10,http://localhost:8080/Auth/Home,23,0
+1481723629581,48,首页,200,OK,线程组 1-8,text,true,,17868,10,10,http://localhost:8080/Auth/Home,48,0
+1481723629585,49,首页,200,OK,线程组 1-6,text,true,,17868,10,10,http://localhost:8080/Auth/Home,49,0
+1481723629603,37,首页,200,OK,线程组 1-4,text,true,,17868,10,10,http://localhost:8080/Auth/Home,37,0
+1481723629605,40,首页,200,OK,线程组 1-10,text,true,,17868,10,10,http://localhost:8080/Auth/Home,40,0
+1481723629581,65,首页,200,OK,线程组 1-5,text,true,,17868,10,10,http://localhost:8080/Auth/Home,65,0
+1481723629595,54,首页,200,OK,线程组 1-2,text,true,,17868,10,10,http://localhost:8080/Auth/Home,54,0
+1481723629592,71,首页,200,OK,线程组 1-1,text,true,,17868,10,10,http://localhost:8080/Auth/Home,71,0
+1481723629623,1446,菜单,200,OK,线程组 1-3,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1446,0
+1481723629635,1434,菜单,200,OK,线程组 1-6,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1434,0
+1481723629650,1419,菜单,200,OK,线程组 1-2,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1419,0
+1481723629613,1470,首页,200,OK,线程组 1-9,text,true,,17868,10,10,http://localhost:8080/Auth/Home,1470,0
+1481723629646,1443,菜单,200,OK,线程组 1-10,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1443,0
+1481723629630,1473,菜单,200,OK,线程组 1-8,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1473,0
+1481723629641,1476,菜单,200,OK,线程组 1-4,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1476,0
+1481723629647,1475,菜单,200,OK,线程组 1-5,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1475,0
+1481723629664,1974,菜单,200,OK,线程组 1-1,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1974,0
+1481723631084,561,菜单,200,OK,线程组 1-9,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,560,0
+1481723629618,2033,菜单,200,OK,线程组 1-7,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,2032,0
+1481723631103,9131,角色,200,OK,线程组 1-8,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9131,0
+1481723631069,9168,角色,200,OK,线程组 1-3,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9168,0
+1481723631123,9114,角色,200,OK,线程组 1-5,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9114,0
+1481723631070,9178,角色,200,OK,线程组 1-2,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9178,0
+1481723631118,9130,角色,200,OK,线程组 1-4,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9130,0
+1481723631090,9168,角色,200,OK,线程组 1-10,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9167,0
+1481723631069,9231,角色,200,OK,线程组 1-6,text,true,,22661,10,10,http://localhost:8080/Auth/Role,9231,0
+1481723640239,4367,登录,200,OK,线程组 1-5,text,true,,18906,10,10,http://localhost:8080/Auth/Home,2749,0
+1481723640238,4382,登录,200,OK,线程组 1-3,text,true,,18906,10,10,http://localhost:8080/Auth/Home,2762,0
+1481723640249,4385,登录,200,OK,线程组 1-4,text,true,,18906,10,10,http://localhost:8080/Auth/Home,2767,0
+1481723640249,4399,登录,200,OK,线程组 1-2,text,true,,18906,10,10,http://localhost:8080/Auth/Home,2855,0
+1481723644634,59,首页,200,OK,线程组 1-4,text,true,,17868,10,10,http://localhost:8080/Auth/Home,59,0
+1481723644620,83,首页,200,OK,线程组 1-3,text,true,,17868,10,10,http://localhost:8080/Auth/Home,82,0
+1481723644648,64,首页,200,OK,线程组 1-2,text,true,,17868,10,10,http://localhost:8080/Auth/Home,64,0
+1481723644606,116,首页,200,OK,线程组 1-5,text,true,,17868,10,10,http://localhost:8080/Auth/Home,115,0
+1481723644694,674,菜单,200,OK,线程组 1-4,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,673,0
+1481723644713,1257,菜单,200,OK,线程组 1-2,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1257,0
+1481723631639,14919,角色,200,OK,线程组 1-1,text,true,,22661,10,10,http://localhost:8080/Auth/Role,14919,0
+1481723640235,6333,登录,200,OK,线程组 1-8,text,true,,18906,10,10,http://localhost:8080/Auth/Home,5810,0
+1481723640300,6278,登录,200,OK,线程组 1-6,text,true,,18906,10,10,http://localhost:8080/Auth/Home,5915,0
+1481723640258,6329,登录,200,OK,线程组 1-10,text,true,,18906,10,10,http://localhost:8080/Auth/Home,6101,0
+1481723644722,2015,菜单,200,OK,线程组 1-5,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,2015,0
+1481723646569,177,首页,200,OK,线程组 1-8,text,true,,17868,10,10,http://localhost:8080/Auth/Home,177,0
+1481723646579,177,首页,200,OK,线程组 1-6,text,true,,17868,10,10,http://localhost:8080/Auth/Home,177,0
+1481723646588,179,首页,200,OK,线程组 1-10,text,true,,17868,10,10,http://localhost:8080/Auth/Home,179,0
+1481723644703,2263,菜单,200,OK,线程组 1-3,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,2263,0
+1481723646757,1095,菜单,200,OK,线程组 1-6,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1095,0
+1481723646747,1625,菜单,200,OK,线程组 1-8,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1625,0
+1481723631651,17027,角色,200,OK,线程组 1-7,text,true,,22661,10,10,http://localhost:8080/Auth/Role,17027,0
+1481723646767,2415,菜单,200,OK,线程组 1-10,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,2415,0
+1481723631645,18895,角色,200,OK,线程组 1-9,text,true,,22661,10,10,http://localhost:8080/Auth/Role,18895,0
+1481723646558,4059,登录,200,OK,线程组 1-1,text,true,,18906,10,10,http://localhost:8080/Auth/Home,3930,0
+1481723650618,128,首页,200,OK,线程组 1-1,text,true,,17868,10,10,http://localhost:8080/Auth/Home,128,0
+1481723650747,1016,菜单,200,OK,线程组 1-1,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1016,0
+1481723648679,5929,登录,200,OK,线程组 1-7,text,true,,18906,10,10,http://localhost:8080/Auth/Home,5861,0
+1481723654608,123,首页,200,OK,线程组 1-7,text,true,,17868,10,10,http://localhost:8080/Auth/Home,123,0
+1481723650541,4608,登录,200,OK,线程组 1-9,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4342,0
+1481723655149,61,首页,200,OK,线程组 1-9,text,true,,17868,10,10,http://localhost:8080/Auth/Home,61,0
+1481723654732,1112,菜单,200,OK,线程组 1-7,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1112,0
+1481723655211,1108,菜单,200,OK,线程组 1-9,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,1107,0
+1481723645971,11743,角色,200,OK,线程组 1-2,text,true,,22661,10,10,http://localhost:8080/Auth/Role,11743,0
+1481723645368,12390,角色,200,OK,线程组 1-4,text,true,,22661,10,10,http://localhost:8080/Auth/Role,12390,0
+1481723646737,12384,角色,200,OK,线程组 1-5,text,true,,22661,10,10,http://localhost:8080/Auth/Role,12384,0
+1481723646966,14292,角色,200,OK,线程组 1-3,text,true,,22661,10,10,http://localhost:8080/Auth/Role,14292,0
+1481723647852,13421,角色,200,OK,线程组 1-6,text,true,,22661,10,10,http://localhost:8080/Auth/Role,13421,0
+1481723657760,4159,登录,200,OK,线程组 1-4,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4079,0
+1481723661920,35,首页,200,OK,线程组 1-4,text,true,,17868,10,10,http://localhost:8080/Auth/Home,35,0
+1481723657716,4306,登录,200,OK,线程组 1-2,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4243,0
+1481723662022,18,首页,200,OK,线程组 1-2,text,true,,17868,10,10,http://localhost:8080/Auth/Home,18,0
+1481723661956,894,菜单,200,OK,线程组 1-4,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,894,0
+1481723662040,897,菜单,200,OK,线程组 1-2,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,897,0
+1481723648373,14612,角色,200,OK,线程组 1-8,text,true,,22661,10,10,http://localhost:8080/Auth/Role,14612,0
+1481723659122,4402,登录,200,OK,线程组 1-5,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4377,0
+1481723663524,20,首页,200,OK,线程组 1-5,text,true,,17868,10,10,http://localhost:8080/Auth/Home,20,0
+1481723649183,14664,角色,200,OK,线程组 1-10,text,true,,22661,10,10,http://localhost:8080/Auth/Role,14664,0
+1481723651764,12189,角色,200,OK,线程组 1-1,text,true,,22661,10,10,http://localhost:8080/Auth/Role,12189,0
+1481723663544,947,菜单,200,OK,线程组 1-5,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,947,0
+1481723661275,4239,登录,200,OK,线程组 1-6,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4214,0
+1481723665515,43,首页,200,OK,线程组 1-6,text,true,,17868,10,10,http://localhost:8080/Auth/Home,43,0
+1481723661261,4393,登录,200,OK,线程组 1-3,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4352,0
+1481723665655,64,首页,200,OK,线程组 1-3,text,true,,17868,10,10,http://localhost:8080/Auth/Home,64,0
+1481723665559,647,菜单,200,OK,线程组 1-6,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,647,0
+1481723665720,883,菜单,200,OK,线程组 1-3,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,883,0
+1481723662986,4160,登录,200,OK,线程组 1-8,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4130,0
+1481723667147,43,首页,200,OK,线程组 1-8,text,true,,17868,10,10,http://localhost:8080/Auth/Home,43,0
+1481723663848,4109,登录,200,OK,线程组 1-10,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4061,0
+1481723667957,45,首页,200,OK,线程组 1-10,text,true,,17868,10,10,http://localhost:8080/Auth/Home,45,0
+1481723656319,11843,角色,200,OK,线程组 1-9,text,true,,22661,10,10,http://localhost:8080/Auth/Role,11843,0
+1481723667191,975,菜单,200,OK,线程组 1-8,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,975,0
+1481723663954,4256,登录,200,OK,线程组 1-1,text,true,,18906,10,10,http://localhost:8080/Auth/Home,4168,0
+1481723668210,11,首页,200,OK,线程组 1-1,text,true,,17868,10,10,http://localhost:8080/Auth/Home,11,0
+1481723655845,12675,角色,200,OK,线程组 1-7,text,true,,22661,10,10,http://localhost:8080/Auth/Role,12675,0
+1481723668003,854,菜单,200,OK,线程组 1-10,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,854,0
+1481723668222,755,菜单,200,OK,线程组 1-1,text,true,,25000,10,10,http://localhost:8080/Auth/Menu,755,0
+1481723668163,1745,登录,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-9,text,false,,2748,10,10,http://localhost:8080/Auth/Login/Login,0,0
+1481723666604,3305,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-3,text,false,,2748,10,10,http://localhost:8080/Auth/Role,0,0
+1481723662851,7060,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-4,text,false,,2748,8,8,http://localhost:8080/Auth/Role,0,0
+1481723662937,6976,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-2,text,false,,2748,7,7,http://localhost:8080/Auth/Role,0,0
+1481723664491,5423,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-5,text,false,,2748,6,6,http://localhost:8080/Auth/Role,0,0
+1481723668167,1748,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-8,text,false,,2748,5,5,http://localhost:8080/Auth/Role,0,0
+1481723666207,3709,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-6,text,false,,2748,4,4,http://localhost:8080/Auth/Role,0,0
+1481723668521,1396,登录,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-7,text,false,,2748,4,4,http://localhost:8080/Auth/Login/Login,0,0
+1481723668977,941,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-1,text,false,,2748,2,2,http://localhost:8080/Auth/Role,0,0
+1481723668858,1061,角色,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,线程组 1-10,text,false,,2748,1,1,http://localhost:8080/Auth/Role,0,0

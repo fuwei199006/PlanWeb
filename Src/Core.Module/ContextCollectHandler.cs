@@ -90,7 +90,7 @@ namespace Core.Module
                 res.Write("<p><h1>当前网站缓存列表</h1></p>");
                 var cacheItemList=new List<string>();
                  
-                var s = string.Format("<a href='?cacheClear=true' target='_blank'>[!点击清除所有缓存]</a>&nbsp&nbsp本地缓存百分比：{0}%&nbsp&nbsp本地剩余缓存空间:{1}", HttpRuntime.Cache.EffectivePercentagePhysicalMemoryLimit,HttpRuntime.Cache.EffectivePrivateBytesLimit);
+                var s = string.Format("<a href='?cacheClear=true' target='_blank'>[!点击清除所有缓存]</a>&nbsp&nbsp本地缓存百分比：{0}%&nbsp&nbsp本地剩余缓存空间:{1}MB", HttpRuntime.Cache.EffectivePercentagePhysicalMemoryLimit,Decimal.Round(decimal.Parse(HttpRuntime.Cache.EffectivePrivateBytesLimit.ToString())/(1024*1024),2));
                 cacheItemList.Add(s);
 
                 var cacheEnumerator = HttpRuntime.Cache.GetEnumerator();
