@@ -2,7 +2,8 @@
     ViewBag.Title = "编辑";
 
     Layout = Url.Content("~/Views/Shared/_LayoutEdit.cshtml");
-}@model Plain.Model.Models.Model.Basic_Role
+}@using Plain.Dto
+@model Plain.Model.Models.Model.Basic_Role
 @section MainContent{
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
         <div class="row-fluid">
@@ -16,14 +17,14 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>是否可用</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => x.RoleStatus, ViewData["StatusType"] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
+                    @Html.DropDownListFor(x => x.RoleStatus, ViewData[WebKeys.StatusTypeDrop] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>角色分组</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x =>x.RoleGroup, ViewData["RoleGroupDrop"] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
+                    @Html.DropDownListFor(x =>x.RoleGroup, ViewData[WebKeys.RoleGroupDrop] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
                 </div>
             </div>
         </div>

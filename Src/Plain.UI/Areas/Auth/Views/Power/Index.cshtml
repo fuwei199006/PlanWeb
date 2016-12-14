@@ -65,7 +65,7 @@
                 <td>@power.PoweName</td>
                 <td><span class="label label-@(power.PowerStatus == 1 ? "success" : "inverse")">@(power.PowerStatus == 1 ? "可用" : "禁用")</span></td>
 
-                <td>@(EnumHelper.GetEnumTitleByValue<PowerGroup>(int.Parse(@power.PowerGroup)))</td>
+                <td>@(EnumHelper.GetEnumTitleByValue<PowerGroup>(int.Parse(power.PowerGroup)))</td>
                 <td>
                     @StringUtil.CutString(string.Join(",", power.Menus.Select(x => x.MenuName)), 40)
                 <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("MenuList", "Power", new { id =power.Id })?TB_iframe=true&height=650&width=800">

@@ -38,12 +38,9 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Create()
         {
-            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+           
             return View("Edit");
         }
         [HttpPost]
@@ -60,19 +57,11 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+            SetDropEnumViewData<PowerGroup>(WebKeys.PowerGroupDrop);
 
-            ViewData["PowerGroupDrop"] = EnumHelper.GetItemValueList<PowerGroup>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
-
-            });
+  
             var power = _powerService.GetPowerById(id);
             return View(power);
         }
@@ -141,7 +130,8 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var power = _powerService.GetPowerById(id);
             var menuList = _menuService.GetMenus();
-            ViewBag.Group = EnumHelper.GetItemValueList<MenuType>();
+            SetDicEnumViewData<MenuType>(WebKeys.MenuTypeDic);
+            //ViewBag.Group = EnumHelper.GetItemValueList<MenuType>();
             ViewBag.Menus = menuList;
             return View(power);
         }

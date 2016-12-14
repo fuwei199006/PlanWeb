@@ -32,7 +32,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var userPageList = _userService.GetUserByPage(userRequest.LoginName, userRequest.PageSize,
                 userRequest.PageIndex);
-             foreach(var user in userPageList)
+            foreach (var user in userPageList)
             {
                 user.Roles = _userService.GetUserByUserId(user.Id).Roles;
             }
@@ -41,18 +41,11 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
-            ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value
+            SetDropEnumViewData<UserStausType>(WebKeys.UserStausTypeDrop);
+            SetDropEnumViewData<SexType>(WebKeys.SexTypeDrop);
 
-            });
+
             var user = _userService.GetUserByUserId(id);
             return View(user);
         }
@@ -71,36 +64,19 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Create()
         {
-            ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
-            ViewData["Sex"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
+            SetDropEnumViewData<UserStausType>(WebKeys.UserStausTypeDrop);
+            SetDropEnumViewData<SexType>(WebKeys.SexTypeDrop);
 
-            });
+    
             return View("Edit");
         }
 
         [HttpPost]
         public ActionResult Create(FormCollection formCollection)
         {
-            ViewData["UserStatus"] = EnumHelper.GetItemValueList<UserStausType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
-
-            });
-            ViewData["SexDrop"] = EnumHelper.GetItemValueList<SexType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value
-
-            });
+            SetDropEnumViewData<UserStausType>(WebKeys.UserStausTypeDrop);
+            SetDropEnumViewData<SexType>(WebKeys.SexTypeDrop);
             var user = new Basic_UserInfo();
             TryUpdateModel(user);
             user.LoginName = user.RealName;
@@ -115,7 +91,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Delete(List<int> ids)
         {
             this._userService.DeleteUser(ids);
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
 
         public ActionResult Detail(int id)
@@ -134,7 +110,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         }
 
         [HttpPost]
-        public ActionResult RoleList(int id,List<int> RoleIds)
+        public ActionResult RoleList(int id, List<int> RoleIds)
         {
             _userRoleService.DeleteUserRoles(id);
             if (RoleIds != null)
@@ -149,7 +125,7 @@ namespace Plain.UI.Areas.Auth.Controllers
                 }).ToList();
                 _userRoleService.AddUserRole(userRoleList);
             }
-  
+
             return this.RefreshParent();
         }
     }

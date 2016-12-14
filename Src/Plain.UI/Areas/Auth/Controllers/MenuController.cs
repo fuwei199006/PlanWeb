@@ -34,16 +34,11 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Edit(int id)
         {
             var menu = _menuService.GetMenuById(id);
-            ViewData["MenuTypes"] = EnumHelper.GetItemValueList<MenuType>().Select(r => new SelectListItem()
-            {
-                Value = r.Key.ToString(),
-                Text = r.Value.ToString()
-            });
-            ViewData["StatusTypes"] = EnumHelper.GetItemValueList<StatusType>().Select(r => new SelectListItem()
-            {
-                 Value = r.Key.ToString(),
-                Text = r.Value.ToString()
-            });
+
+            SetDropEnumViewData<MenuType>(WebKeys.MenuTypeDrop);
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+
+         
             return View(menu);
         }
 
@@ -62,16 +57,8 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Create()
         {
 
-            ViewData["MenuTypes"] = EnumHelper.GetItemValueList<MenuType>().Select(r => new SelectListItem()
-            {
-                Value = r.Key.ToString(),
-                Text = r.Value.ToString()
-            });
-            ViewData["StatusTypes"] = EnumHelper.GetItemValueList<StatusType>().Select(r => new SelectListItem()
-            {
-                Value = r.Key.ToString(),
-                Text = r.Value.ToString()
-            });
+            SetDropEnumViewData<MenuType>(WebKeys.MenuTypeDrop);
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
             return View("Edit");
         }
 

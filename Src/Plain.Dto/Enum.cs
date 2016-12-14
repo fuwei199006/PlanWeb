@@ -1,4 +1,5 @@
-﻿using Framework.Utility;
+﻿using Framework.Extention;
+using Framework.Utility;
 
 namespace Plain.Dto
 {

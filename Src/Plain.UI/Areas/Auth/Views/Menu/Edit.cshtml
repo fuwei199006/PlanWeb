@@ -1,4 +1,5 @@
-﻿@using Plain.Web
+﻿@using Plain.Dto
+@using Plain.Web
 @{
     ViewBag.Title = "编辑";
 
@@ -26,7 +27,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>菜单类型</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => x.MenuType, ViewData["MenuTypes"] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
+                    @Html.DropDownListFor(x => x.MenuType, ViewData[WebKeys.MenuTypeDrop] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
                 </div>
             </div>
             <div class="control-group">
@@ -62,7 +63,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>是否可用</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => x.MenuStatus, ViewData["StatusTypes"] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
+                    @Html.DropDownListFor(x => x.MenuStatus, ViewData[WebKeys.StatusTypeDrop] as IEnumerable<SelectListItem>, new { @class = "m-wrap  small" })
                 </div>
             </div>
         </div>

@@ -33,7 +33,10 @@ namespace Plain.Web
             get { return AdminWebSettingCache.Current; }
         }
 
-
+        public AdminMainDataContext AdminMainDataContext
+        {
+            get { return  AdminMainDataContext.Current;}
+        }
 
     }
 }

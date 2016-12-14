@@ -11,7 +11,7 @@ namespace PConsole.Test
     public class MemcahePrograme
     {
 
-        public static void Main(string[] args)
+        public static void _Main(string[] args)
         {
             //参数设置
             string SockIOPoolName = "Test_SockIOPoolName";

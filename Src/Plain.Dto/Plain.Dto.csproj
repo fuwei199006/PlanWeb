@@ -44,6 +44,8 @@
     <Compile Include="Basic_MenuDto.cs" />
     <Compile Include="CacheKey.cs" />
     <Compile Include="Enum.cs" />
+    <Compile Include="EnumProvider.cs" />
+    <Compile Include="IMainDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\MenuRequest.cs" />
     <Compile Include="Request\PowerRequest.cs" />
@@ -54,6 +56,10 @@
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
       <Project>{67f618d6-b22f-435d-ad61-c2f820815a2a}</Project>
       <Name>Framework.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
+      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
+      <Name>Framework.Extention</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>

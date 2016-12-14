@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AdminCacheContext.cs" />
     <Compile Include="AdminCookieContext.cs" />
+    <Compile Include="AdminMainDataContext.cs" />
     <Compile Include="AdminMenuCache.cs" />
     <Compile Include="AdminUserContext.cs" />
     <Compile Include="CmsArticleCache.cs" />

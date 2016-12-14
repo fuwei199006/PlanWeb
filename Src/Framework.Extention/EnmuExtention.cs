@@ -10,24 +10,17 @@ namespace Framework.Extention
 {
     public static class EnmuExtention
     {
-        public static T TryParse<T>(this string obj) where T : struct
+        public static readonly string ENUM_TITLE_SEPARATOR = ",";
+        public static T EnumTryParse<T>(this string obj) where T : struct
         {
             return EnumHelper.TryParse<T>(obj);
         }
-
         public static string GetEnumTitle<T>(this T t) where T : struct
         {
             return EnumHelper.GetEnumTitle(t as Enum);
         }
 
-        //public static Dictionary<TKey, EnumTitleAttribute> GetEnumTitleAttributes<TKey>() where TKey : struct
-        //{
-        //    return EnumHelper.GetItemAttributeList<TKey>();
-        //}
 
-        //public static Dictionary<string, EnumTitleAttribute> GetEnumFiledAttributes<TKey>() where TKey : struct
-        //{
-        //    return EnumHelper.GetEnumDictionary()<TKey>();
-        //}
+
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Framework.Extention;
 using Plain.Dto;
 
  
@@ -22,8 +23,14 @@ namespace Framework.Utility.ValideCode.Tests
         [TestMethod()]
         public void ParseTest()
         {
-            var res = EnumHelper.Parse<MenuType>("Nav");
+            var res = "Nav".EnumTryParse<MenuType>();
             Assert.AreEqual(res,MenuType.Nav);
+        }
+        [TestMethod()]
+        public void GetEnumTitleTest()
+        {
+            var res = MenuType.Function.GetEnumTitle();
+            Assert.AreEqual(res, "功能");
         }
         [TestMethod()]
         public void GetItemValueListTest()

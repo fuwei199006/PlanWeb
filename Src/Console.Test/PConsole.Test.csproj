@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpressionProgram.cs" />
+    <Compile Include="MdPrograme.cs" />
     <Compile Include="MemcahePrograme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

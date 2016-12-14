@@ -118,6 +118,8 @@ namespace Framework.Web
 
             return this.Content(content + script);
         }
+
+      
         /// <summary>
         /// 在方法执行前更新操作人
         /// </summary>
@@ -198,20 +200,12 @@ namespace Framework.Web
         {
             //do nothing!
         }
-
-        //public Dictionary<int, EnumData> GetDatas()
-        //{
-
-        //}
+ 
 
     }
 
 
-    public class EnumData
-    {
-        public  string Filed { get; set; }
-        public string Desc { get; set; }
-    }
+ 
     public class WebExceptionContext
     {
         public string IP { get; set; }

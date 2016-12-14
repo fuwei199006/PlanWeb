@@ -40,19 +40,12 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+            SetDropEnumViewData<RoleGroup>(WebKeys.RoleGroupDrop);
 
-            ViewData["RoleGroupDrop"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
 
-            });
+
             var role = this._roleService.GetRoleById(id);
             return View(role);
         }
@@ -78,18 +71,8 @@ namespace Plain.UI.Areas.Auth.Controllers
 
         public ActionResult Create()
         {
-            ViewData["StatusType"] = EnumHelper.GetItemValueList<StatusType>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
-
-            });
-            ViewData["RoleGroupDrop"] = EnumHelper.GetItemValueList<RoleGroup>().Select(x => new SelectListItem
-            {
-                Value = x.Key.ToString(),
-                Text = x.Value.ToString()
-
-            });
+            SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+            SetDropEnumViewData<RoleGroup>(WebKeys.RoleGroupDrop);
             return View("Edit");
         }
 
@@ -104,7 +87,8 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var role = _roleService.GetRoleById(id);
             var powerList = _powerService.GetPowerList();
-            ViewBag.Group = EnumHelper.GetItemValueList<PowerGroup>();
+            SetDicEnumViewData<RoleGroup>(WebKeys.RoleGroupDic);
+
             ViewBag.Power = powerList;
             return View(role);
         }
