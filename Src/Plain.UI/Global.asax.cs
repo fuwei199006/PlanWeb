@@ -1,43 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Web;
-using System.Web.Compilation;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 using Autofac;
-using Autofac.Core;
 using Autofac.Integration.Mvc;
-using Framework.BLL;
 using Plain.BLL;
-using Plain.BLL.LoginService;
 using Plan.UI;
-using Plain.Dao;
-using Plain.UI.Controllers;
-using System.Data.SqlClient;
-using Core.Config;
-using Core.Exception;
-using Plain.BLL.ConfigService;
+using System.Net.Http.Formatting;
 
 namespace Plain.UI
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
         {
         
             AreaRegistration.RegisterAllAreas();
-            
+
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
@@ -47,6 +38,8 @@ namespace Plain.UI
             builder.RegisterFilterProvider();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+            
 
             //开始注入
 
