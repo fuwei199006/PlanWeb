@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Framework.Extention;
 
-namespace Plain.Dto
+namespace Plain.Dto.MainData
 {
-    public class EnumProvider:IMainDataProvider
+    public class FileProvider:IMainDataProvider
     {
         public Dictionary<string, string> GetStrValueDescDictionary<T>()
         {
@@ -21,11 +20,6 @@ namespace Plain.Dto
         }
 
         public Dictionary<string, T> GetStrValueEntityDictionary<T>()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Dictionary<TKey, T> GetDictionary<TKey, T>()
         {
             throw new System.NotImplementedException();
         }

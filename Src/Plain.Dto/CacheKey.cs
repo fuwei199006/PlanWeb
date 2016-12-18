@@ -33,5 +33,8 @@ namespace Plain.Dto
         public const string UserStausTypeDrop = "UserStausTypeDrop";
         public const string SexTypeDrop = "SexTypeDrop";
         public const string MenuTypeDic = "MenuTypeDic";
+
+        public const string _Key_Fix_Item = "_Key_Fix_Item";
+        public const string _Key_Fix_Dic = "_Key_Fix_Dic";
     }
 }

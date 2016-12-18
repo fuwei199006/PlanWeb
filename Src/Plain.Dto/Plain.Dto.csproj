@@ -43,9 +43,12 @@
   <ItemGroup>
     <Compile Include="Basic_MenuDto.cs" />
     <Compile Include="CacheKey.cs" />
+    <Compile Include="MainData\DbProvider.cs" />
     <Compile Include="Enum.cs" />
-    <Compile Include="EnumProvider.cs" />
-    <Compile Include="IMainDataProvider.cs" />
+    <Compile Include="MainData\EnumProvider.cs" />
+    <Compile Include="MainData\FileProvider.cs" />
+    <Compile Include="MainData\IMainDataProvider.cs" />
+    <Compile Include="MainData\MainDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\MenuRequest.cs" />
     <Compile Include="Request\PowerRequest.cs" />

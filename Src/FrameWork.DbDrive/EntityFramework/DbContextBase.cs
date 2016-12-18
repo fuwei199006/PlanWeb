@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using System.Threading.Tasks;
-using Core.Cache;
-using Core.Config;
 using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
-using System.Data.SqlClient;
-using System.Data.Entity.Infrastructure;
 
 namespace Framework.DbDrive.EntityFramework
 {

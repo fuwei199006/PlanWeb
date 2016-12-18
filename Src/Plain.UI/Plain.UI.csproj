@@ -301,12 +301,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\MenuFilterAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Auth\Controllers\LoginApiController.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
     <Compile Include="Areas\Auth\Controllers\PowerController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
@@ -318,7 +320,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Auth\Controllers\LoginController.cs" />
-    <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
