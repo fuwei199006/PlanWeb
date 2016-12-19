@@ -16,7 +16,7 @@ namespace Plain.Model.Models.Model
         public string SourceUrl { get; set; }
         public int Sort { get; set; }
         public string KeyWord { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+ 
         public Nullable<System.DateTime> ModifyTIme { get; set; }
         public Nullable<int> ArticleStatus { get; set; }
     }

@@ -53,8 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article\ArticleService.cs" />
-    <Compile Include="Article\IArticleService.cs" />
+    <Compile Include="ArticleService\ArticleService.cs" />
+    <Compile Include="ArticleService\IArticleService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="ConfigService\ConfigService.cs" />
     <Compile Include="ConfigService\IConfigService.cs" />

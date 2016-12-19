@@ -10,12 +10,12 @@ namespace Plain.CMS.Controllers
 {
     public class CmsHomeController : BaseController
     {
-        private IArticleService _articleService;
+        //private IArticleService _articleService;
 
-        public CmsHomeController(IArticleService articleService)
-        {
-            _articleService = articleService;
-        }
+        //public CmsHomeController(IArticleService articleService)
+        //{
+        //    _articleService = articleService;
+        //}
 
         [AuthorizeIgnore]
         // GET: CMS/CmsHome

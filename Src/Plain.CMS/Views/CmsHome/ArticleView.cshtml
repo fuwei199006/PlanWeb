@@ -4,16 +4,9 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = Url.Content("~/Areas/CMS/Views/Shared/_Layout.cshtml");
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
-
-
-
-
-@*<div class="wrap breadnav">
-        <span><em>当前位置：</em>  <a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;<a href="javascript:void(0)">新闻列表</a>&nbsp;>&nbsp;<a href="javascript:void(0)">xxxx</a></span>
-             <div class="f_right">搜索：<input type="text"  class="search"/></div>
-    </div>*@
+ 
 <div class="article center">
     <h1>@Model.Title</h1>
     <div class="source">

@@ -40,7 +40,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
 
             SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
-           
+            SetDropEnumViewData<PowerGroup>(WebKeys.PowerGroupDrop);
             return View("Edit");
         }
         [HttpPost]

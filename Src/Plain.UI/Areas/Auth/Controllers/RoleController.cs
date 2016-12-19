@@ -44,8 +44,6 @@ namespace Plain.UI.Areas.Auth.Controllers
             SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
             SetDropEnumViewData<RoleGroup>(WebKeys.RoleGroupDrop);
 
-
-
             var role = this._roleService.GetRoleById(id);
             return View(role);
         }
@@ -87,7 +85,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var role = _roleService.GetRoleById(id);
             var powerList = _powerService.GetPowerList();
-            SetDicEnumViewData<RoleGroup>(WebKeys.RoleGroupDic);
+            SetDicEnumViewData<PowerGroup>(WebKeys.RoleGroupDic);
 
             ViewBag.Power = powerList;
             return View(role);

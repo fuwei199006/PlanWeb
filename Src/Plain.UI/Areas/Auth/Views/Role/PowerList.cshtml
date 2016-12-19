@@ -11,13 +11,13 @@
 @section MainContent{
 
     <div class="page-container  row-fluid">
-        @foreach (var group in (ViewData[WebKeys.RoleGroupDic] as Dictionary<string,string>).Keys)
+        @foreach (var group in (ViewData[WebKeys.RoleGroupDic] as Dictionary<int,string>).Keys)
         {
             <div class="portlet paddingless">
                 <div class="portlet-title line">
                     <div class="caption captionMargin">
                         <i class="icon-bell"></i>
-                        <span class="roleGroup">@ViewBag.Group[group]</span>
+                        <span class="roleGroup">@(((Dictionary<int, string>)ViewData[WebKeys.RoleGroupDic])[group])</span>
                     </div>
                     <div class="tools">
 

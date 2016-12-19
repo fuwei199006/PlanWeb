@@ -3,17 +3,19 @@
 @using Plain.Model.Models.Model
 @using Plain.Web
 @using Framework.Web
- 
-        @foreach (Basic_Article m in AdminCacheContext.Current.ArticleItems[ViewBag.key])
-            {
-            <li>
-                <div>
-                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
-                        <img src="@Url.StaticFile(m.SubTitle)" alt="@m.Title" />
-                    </a>
-                </div>
-                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
-            </li>
+@{
+    Layout = null;
+}
 
-        }
- 
+@foreach (Basic_Article m in AdminCacheContext.Current.ArticleItems[ViewBag.key])
+            {
+    <li>
+        <div>
+            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
+                <img src="@Url.StaticFile(m.SubTitle)" alt="@m.Title" />
+            </a>
+        </div>
+        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+    </li>
+
+}

@@ -50,6 +50,7 @@
     <Compile Include="MainData\IMainDataProvider.cs" />
     <Compile Include="MainData\MainDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\ArticleRequest.cs" />
     <Compile Include="Request\MenuRequest.cs" />
     <Compile Include="Request\PowerRequest.cs" />
     <Compile Include="Request\RoleRequest.cs" />

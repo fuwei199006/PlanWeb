@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.Utility">
+      <HintPath>..\Plain.CMS\Bin\Framework.Utility.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -71,12 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyExtention.cs" />
+    <Compile Include="IEnumableExtention.cs" />
     <Compile Include="EnmuExtention.cs" />
     <Compile Include="ConverterExtention.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="PageLinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtention.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">

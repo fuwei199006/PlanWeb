@@ -13,8 +13,7 @@ namespace Plain.UI
             //SetDefaultContentHeaders();.Add(new QueryStringMapping("datatype", "json", "application/json"));
             //config.Formatters.JsonFormatter.SetDefaultContentHeaders();
             //config.Formatters.JsonFormatter.MediaTypeMappings
-            config.MapHttpAttributeRoutes();
-            config.EnsureInitialized();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

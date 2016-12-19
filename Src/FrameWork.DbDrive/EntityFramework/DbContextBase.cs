@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Core.Encrypt;
 using Framework.Contract;
 using Framework.Extention;
+using Core.Config;
 
 namespace Framework.DbDrive.EntityFramework
 {

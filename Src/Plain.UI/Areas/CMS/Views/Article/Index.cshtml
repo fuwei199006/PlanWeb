@@ -1,0 +1,99 @@
+﻿@using Framework.Web.Controls.MvcPager
+@using Plain.Dto;
+@using Framework.Utility;
+@using Framework.Extention;
+@model Framework.Contract.PagedList<Plain.Model.Models.Model.Basic_Article>
+
+@{
+    ViewBag.Title = "文章管理";
+    var i = 1;
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+<div class="row-fluid">
+    <div class="span4">
+        <div>
+            <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
+            <a class="btn blue thickbox" title='添加新文章' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 添加新文章</a>
+        </div>
+    </div>
+    <div class="span8">
+        @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
+        {
+            <div class="dataTables_filter">
+                <label>
+                    <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
+                </label>
+                <label>
+                    <span>内容或标题：</span>
+                    @Html.TextBox("Content", null, new { @class = "m-wrap small" })
+                </label>
+
+            </div>
+        }
+    </div>
+</div>
+<div class="alert">
+    <button class="close" data-dismiss="alert"></button>
+    <strong>文章管理：</strong>
+    列表中的文章
+</div>
+@using (Html.BeginForm("Delete", "User", FormMethod.Post, new { id = "mainForm" }))
+{
+    <table class="table table-striped table-hover ">
+        <tr>
+            <th style="width: 8px;">
+                <input type="checkbox" id="checkall" class="group-checkable" />
+            </th>
+            <th>序号</th>
+            <th>标题</th>
+            <th>副标题</th>
+            <th>作者</th>
+            <th>分类</th>
+            <th>内容</th>
+            <th>来源</th>
+            <th>源地址</th>
+            <th>关键字</th>
+            <th>状态</th>
+            <th>创建时间</th>
+
+        </tr>
+
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td><input type="checkbox" class="checkboxes" name='ids' value='@article.Id' /></td>
+                <td>@(i++)</td>
+                <td>@article.Title.CutString()</td>
+                <td>@article.SubTitle.CutString()</td>
+                <td>@article.Author </td>
+                <td>@article.Category</td>
+                <td>@article.Content.CutString()</td>
+                <td>@article.Source</td>
+                <td>@article.SourceUrl.CutString()</td>
+                <td>@article.KeyWord</td>
+                <td>
+                    <span class="label label-@(article.ArticleStatus == 1 ? "success" : "inverse")">
+                        @(article.ArticleStatus == 1 ? "可用" : "禁用")
+                    </span>
+                </td>
+                <td>@article.CreateTime.ToString("yyyy-MM-dd")</td>
+
+
+
+
+
+            </tr>
+        }
+
+
+    </table>
+
+}
+<div class="dataTables_paginate paging_bootstrap pagination">
+    @Html.Pager(Model, new PagerOptions() { AutoHide = true, ShowTotalItemCount = true })
+</div>
+@section PageSpecificJavascriptIncludes{
+
+
+}

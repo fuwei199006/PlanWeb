@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Plain.Dto.Request;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 
@@ -29,6 +31,15 @@ namespace Plain.BLL.Article
         public void AddArticleList(List<Basic_Article> articles)
         {
               this.AddRange(articles);
+        }
+
+        public List<Basic_Article> GetArticlePage(ArticleRequest request)
+        {
+            if (string.IsNullOrEmpty(request.Content))
+            {
+                return this.LoadEntitiesByPage(r => true, r => r.CreateTime, request.PageSize, request.PageIndex);
+            }
+            return this.LoadEntitiesByPage(r => r.Title.Contains(request.Content) || r.Content.Contains(request.Content), r => r.CreateTime, request.PageSize, request.PageIndex);
         }
     }
 }
