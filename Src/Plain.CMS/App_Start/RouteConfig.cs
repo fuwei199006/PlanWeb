@@ -14,9 +14,31 @@ namespace Plain.CMS
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
+               name: "ControllerHtml",
+               url: "PlainCms/{controller}.html",
+               defaults: new { controller = "CmsHome", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+              name: "ActionHtml",
+              url: "PlainCms/{controller}/{cction}.html",
+              defaults: new { controller = "CmsHome", action = "Index", id = UrlParameter.Optional }
+          );
+            routes.MapRoute(
+                name: "DetaiHtml",
+                url: "PlainCms/{controller}/{action}/{id}.html",
+                 defaults: new { controller = "CmsHome", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+             name: "Action",
+             url: "PlainCms/{controller}/{action}",
+             defaults: new { controller = "CmsHome", action = "Index", id = UrlParameter.Optional }
+         );
+            routes.MapRoute(
+                name: "Detai",
                 url: "PlainCms/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                  defaults: new { controller = "CmsHome", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

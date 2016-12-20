@@ -41,5 +41,10 @@ namespace Plain.BLL.Article
             }
             return this.LoadEntitiesByPage(r => r.Title.Contains(request.Content) || r.Content.Contains(request.Content), r => r.CreateTime, request.PageSize, request.PageIndex);
         }
+
+        public Basic_Article UpdateArticle(Basic_Article article)
+        {
+            return this.Update(article);
+        }
     }
 }

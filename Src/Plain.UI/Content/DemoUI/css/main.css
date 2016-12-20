@@ -789,7 +789,8 @@ a:visited {
 }
 
 .user {
-    margin-right: 10px;
+    
+    margin:5px 10px;
 }
 
 .user img {

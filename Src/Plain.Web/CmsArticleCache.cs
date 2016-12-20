@@ -32,7 +32,7 @@ namespace Plain.Web
             get
             {
                 return CacheContext.Get(key,
-                     () => Articles.Where(r => r.Category == key).ToList());
+                     () => Articles.Where(r => r.Position == key).ToList());
             }
         }
 

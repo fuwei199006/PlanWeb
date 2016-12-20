@@ -1,5 +1,8 @@
 ﻿using Plain.BLL.Article;
+using Plain.Dto;
 using Plain.Dto.Request;
+using Plain.Model.Models.Model;
+using Plain.UI.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Plain.UI.Areas.CMS.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
 
         public readonly IArticleService _ArticleService;
@@ -39,11 +42,28 @@ namespace Plain.UI.Areas.CMS.Controllers
             return View();
         }
 
-        public ActionResult Edit(int id,FormCollection form)
+        public ActionResult Edit(int id, FormCollection form)
         {
             return View();
         }
 
+
+        public ActionResult EditCategory(int id)
+        {
+            SetDropEnumViewData<ArticleType>(WebKeys.ArticleType);
+            SetDropEnumViewData<StatusType>(WebKeys.ArticleStatu);
+            var article = _ArticleService.GetArticlesById(id);
+            return View(article);
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(int id, FormCollection formCollect)
+        {
+            var article = _ArticleService.GetArticlesById(id);
+            TryUpdateModel<Basic_Article>(article);
+            _ArticleService.UpdateArticle(article);
+            return this.RefreshParent();
+        }
         public ActionResult Delete(List<int> ids)
         {
             return View();

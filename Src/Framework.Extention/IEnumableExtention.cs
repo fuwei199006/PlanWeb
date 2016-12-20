@@ -18,7 +18,7 @@ namespace Framework.Extention
         /// <returns></returns>
         public static string ToBadge(this IEnumerable<string> strs, string className)
         {
-            if (strs.Count()==0)
+            if (strs.Count() == 0)
             {
                 return string.Empty;
             }
@@ -33,7 +33,7 @@ namespace Framework.Extention
 
         public static string ToBadge(this IEnumerable<string> strs)
         {
-             
+
             return strs.ToBadge("label label-info");
         }
 
@@ -48,7 +48,7 @@ namespace Framework.Extention
 
         }
 
-        public static string ToBadge(this string strs,string className)
+        public static string ToBadge(this string strs, string className)
         {
             return strs.ToBadge(",", className);
         }
@@ -57,25 +57,32 @@ namespace Framework.Extention
             return strs.ToBadge(",", "label label-info");
         }
         /// <summary>
+        /// 重写join的方法
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="split"></param>
+        /// <param name="isKeep">是否保留最后一个逗号</param>
+        /// <returns></returns>
+        public static string ToJoin(this IEnumerable<string> strs, string split)
+        {
+            if (strs.Count() == 0)
+            {
+                return string.Empty;
+            }
+            return string.Join(split, strs);
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="str"></param>
         /// <param name="split"></param>
         /// <param name="isKeep">是否保留最后一个逗号</param>
         /// <returns></returns>
-        public static string ToSplit(this IEnumerable<string> strs,string split,bool isKeep)
+        public static string ToJoin(this IEnumerable<string> strs)
         {
-            if (strs.Count() == 0)
-            {
-                return string.Empty;
-            }
-            var joinStr = string.Join(split, strs);
-            if (isKeep)
-            {
-                return joinStr;
-            }
-            return joinStr.Substring(0, joinStr.Length - 1);
-            
+            return strs.ToJoin(",");
         }
     }
 }

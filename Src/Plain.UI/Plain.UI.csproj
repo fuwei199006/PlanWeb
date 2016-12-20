@@ -3207,6 +3207,7 @@
     <Content Include="Areas\Config\Views\Config\CacheConfigEdit.cshtml" />
     <Content Include="Areas\CMS\Views\web.config" />
     <Content Include="Areas\CMS\Views\Article\Index.cshtml" />
+    <Content Include="Areas\CMS\Views\Article\EditCategory.cshtml" />
     <None Include="Areas\Config\Views\Config\SystemSetting.cshtml" />
     <None Include="Areas\Config\Views\Config\SystemSettingEdit.cshtml" />
     <Content Include="Areas\Config\Views\Log\Index.cshtml" />

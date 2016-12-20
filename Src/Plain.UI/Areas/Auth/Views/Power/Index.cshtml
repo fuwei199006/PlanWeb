@@ -6,6 +6,7 @@
 @using Framework.Web.Controls.MvcPager
 @using Plain.Dto
 @using Framework.Utility
+@using Framework.Extention
 @using EnumHelper = Framework.Extention.EnumHelper
 @model Framework.Contract.PagedList<Plain.Model.Models.Model.Basic_Power>
 
@@ -70,7 +71,7 @@
 
                 <td>@(EnumHelper.GetEnumTitleByValue<PowerGroup>(int.Parse(power.PowerGroup)))</td>
                 <td>
-                    @StringUtil.CutString(string.Join(",", power.Menus.Select(x => x.MenuName)), 40)
+                    @Html.Raw(power.Menus.Select(x => x.MenuName).ToJoin().CutString(40).ToBadge())
                 <a class="btn mini primary  thickbox" title='添加权限' id="btnAddRole" href="@Url.Action("MenuList", "Power", new { id =power.Id })?TB_iframe=true&height=650&width=800">
                     <i class="icon icon-list-alt"></i>
                     添加

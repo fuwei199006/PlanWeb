@@ -11,6 +11,9 @@ namespace Plain.Dto
         public const string Plain_ = "Plain_";
         public const string _Plain_ = "_Plain_";
         public const string Plain = "_Plain";
+        public const string CMS = "CMS";
+        public const string _CMS_ = "_CMS_";
+        public const string CMS_ = "CMS_";
     }
    public class CacheKey
     {
@@ -36,5 +39,9 @@ namespace Plain.Dto
 
         public const string _Key_Fix_Item = "_Key_Fix_Item";
         public const string _Key_Fix_Dic = "_Key_Fix_Dic";
+
+        //属于cms
+        public const string ArticleType = BaseKey.CMS_+"ArticleType";
+        public const string ArticleStatu = BaseKey.CMS_+ "ArticleStatu";
     }
 }

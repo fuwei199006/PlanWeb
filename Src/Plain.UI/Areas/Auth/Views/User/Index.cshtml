@@ -79,7 +79,7 @@
                 <td>@(user.BirthDay.HasValue ? user.BirthDay.Value.ToString("yyyy-MM-dd") : "-")</td>
                 <td>@user.UserEmail</td>
                 <td >@Html.Raw(user.Roles.Select(x => x.RoleName).ToBadge())
-                    <a class="thickbox" title='添加角色' id="btnAddRole" href="@Url.Action("RoleList", "User", new { id = user.Id })?TB_iframe=true&height=650&width=800">
+                    <a class="btn mini primary thickbox" title='添加角色' id="btnAddRole" href="@Url.Action("RoleList", "User", new { id = user.Id })?TB_iframe=true&height=650&width=800">
                         <i class="icon icon-list-alt"></i>
                         添加
                     </a>

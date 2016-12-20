@@ -15,6 +15,7 @@
         <div>
             <a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>
             <a class="btn blue thickbox" title='添加新文章' href="@Url.Action("Create")?TB_iframe=true&height=350&width=500"><i class="icon-plus icon-white"></i> 添加新文章</a>
+            @*<a class="btn red" id="delete" href="javascript:;"><i class="icon-trash icon-white"></i> 删除</a>*@
         </div>
     </div>
     <div class="span8">
@@ -50,12 +51,14 @@
             <th>副标题</th>
             <th>作者</th>
             <th>分类</th>
+            <th>位置</th>
             <th>内容</th>
             <th>来源</th>
             <th>源地址</th>
             <th>关键字</th>
             <th>状态</th>
             <th>创建时间</th>
+            <th>操作</th>
 
         </tr>
 
@@ -67,23 +70,31 @@
                 <td>@article.Title.CutString()</td>
                 <td>@article.SubTitle.CutString()</td>
                 <td>@article.Author </td>
-                <td>@article.Category</td>
+                <td>@(article.Category.EnumTryParse<ArticleType>().GetEnumTitle<ArticleType>())</td>
+                <td>@article.Position</td>
                 <td>@article.Content.CutString()</td>
                 <td>@article.Source</td>
                 <td>@article.SourceUrl.CutString()</td>
                 <td>@article.KeyWord</td>
+
                 <td>
                     <span class="label label-@(article.ArticleStatus == 1 ? "success" : "inverse")">
                         @(article.ArticleStatus == 1 ? "可用" : "禁用")
                     </span>
                 </td>
                 <td>@article.CreateTime.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a class="btn mini thickbox" title='修改' href="@Url.Action("EditCategory", "Article", new { id = article.Id })?TB_iframe=true&height=450&width=500">
+                        <i class="icon-edit"></i>
+                    </a>
 
-
-
-
-
+                    <a class="btn mini red" title='高级修改' target="_blank" href="@Url.Action("Edit", "Article", new { id = article.Id })">
+                        <i class="icon-edit"></i>
+                     
+                    </a>
+                </td>
             </tr>
+
         }
 
 

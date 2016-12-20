@@ -115,4 +115,18 @@ namespace Plain.Dto
         [EnumTitle("关闭")]
         Off = 0
     }
+
+
+    public enum ArticleType
+    {
+        [EnumTitle("原创")]
+        Original,
+        [EnumTitle("评论")]
+        Comment,
+        [EnumTitle("话题")]
+        Topic,
+        [EnumTitle("其它")]
+        Other
+    
+    }
 }
