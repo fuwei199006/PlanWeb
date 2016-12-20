@@ -34,7 +34,7 @@
         </div>
         <div class="wrap breadnav">
             <span><em>当前位置：</em> <a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;<a href="javascript:void(0)">新闻列表</a></span>
-            <!--	 <div class="f_right">搜索：<input type="text"  class="search"/></div>-->
+            <!--     <div class="f_right">搜索：<input type="text"  class="search"/></div>-->
         </div>
         <div class="wrap content">
             <div class="lfluent">
@@ -45,9 +45,9 @@
             <div class="mfluent">
                 <div class="hotList">
                     <h1>
-						 热点文章 
-						 
-					</h1>
+                         热点文章 
+                         
+                    </h1>
                     <div class="hotTitle">
                         <dl ms-for="el in hotTitle">
                             <dt><a href="#">{{el.title}}</a></dt>
@@ -77,7 +77,6 @@
                                     <div>{{el.title}}</div>
                                 </a>
                             </li>
-                     
                         </ul>
                     </div>
                 </div>
@@ -86,260 +85,69 @@
         <div class="clear"></div>
         <div class="mainList wrap">
             <div class="mainLeft f_left">
-                <div class="contentBlock">
+                <div class="contentBlock" ms-for="el in contentBlock">
                     <div class="hotList">
-                        <h1>科技论文/业内动态</h1>
+                        <h1>{{el.hotTitle}}</h1>
                     </div>
-                    <div class="itemLeft f_left  ">
+                    <div class="itemLeft f_left">
                         <dl>
                             <dt class="f_left">
                                 <a href="javascript:void(0)">
-                                    <img src="http://upload.admin5.com/2016/0812/thumb_100_70_1470981439242.jpg" width="100" height="70" alt="创业者自述：那些年 我用低价策略差点把自己砸死" />
+                                    <img ms-attr="{src:el.itemLeft.hotItem.imgUrl,alt:el.itemLeft.hotItem.title}" width="100" height="70" />
                                 </a>
                             </dt>
                             <dd class="f_right">
-                                <a href="javascript:void(0)">创业者自述：那些年 我用低价策略差点把自己砸死</a>
+                                <a href="javascript:void(0)">{{el.itemLeft.hotItem.title}}</a>
                             </dd>
                         </dl>
                         <div class="clear"></div>
                         <div class="newsList">
                             <ul>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
+                                <li ms-for="e in el.itemLeft.item">
+                                    <a href="javascript:void(0)">{{e.title}}</a>
                                 </li>
                         </div>
                         </ul>
                     </div>
                     <div class="itemRight   f_right  ">
-                        <div class="newsList">
+                        <div class="newsList" ms-for="e in el.itemRight">
                             <ul>
                                 <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
+                                    <a href="javascript:void(0)">{{e.title}}</a>
                                 </li>
                         </div>
                         </ul>
                     </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
-                <div class="contentBlock">
+                <div class="contentBlock" ms-for="el in contentBlockDown">
                     <div class="hotList">
-                        <h1>科技论文/业内动态</h1>
-                    </div>
-                    <div class="itemLeft f_left">
-                        <dl>
-                            <dt class="f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://upload.admin5.com/2016/0812/thumb_100_70_1470981439242.jpg" width="100" height="70" alt="创业者自述：那些年 我用低价策略差点把自己砸死" />
-                                </a>
-                            </dt>
-                            <dd class="f_right">
-                                <a href="javascript:void(0)">创业者自述：那些年 我用低价策略差点把自己砸死</a>
-                            </dd>
-                        </dl>
-                        <div class="clear"></div>
-                        <div class="newsList">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                        </div>
-                        </ul>
-                    </div>
-                    <div class="itemRight   f_right ">
-                        <div class="newsList">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                        </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="contentBlock">
-                    <div class="hotList">
-                        <h1>科技论文/业内动态</h1>
+                        <h1>{{el.hotTitle}}</h1>
                     </div>
                     <div class="itemLeft f_left">
                         <div class="clear"></div>
                         <div class="newsList">
                             <ul>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
+                                 <li ms-for="e in el.itemLeft.item">
+                                    <a href="javascript:void(0)">{{e.title}}</a>
                                 </li>
                         </div>
                         </ul>
                     </div>
                     <div class="itemRight   f_right ">
                         <ul>
-                            <li class="box_item f_left">
+                            <li class="box_item f_left" ms-for="e in el.itemRight">
                                 <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
+                                    <img ms-attr="{src:e.imgUrl}" width="135" height="95" />
                                     <div>测试栏目</div>
                                 </a>
                             </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
+                         
                         </ul>
                     </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
-                <div class="contentBlock">
-                    <div class="hotList">
-                        <h1>科技论文/业内动态</h1>
-                    </div>
-                    <div class="itemLeft f_left">
-                        <div class="clear"></div>
-                        <div class="newsList">
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">大学生、传统行业工作者 如何跨入运营这道门</a>
-                                </li>
-                        </div>
-                        </ul>
-                    </div>
-                    <div class="itemRight   f_right ">
-                        <ul>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                            <li class="box_item f_left">
-                                <a href="javascript:void(0)">
-                                    <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="135" height="95" />
-                                    <div>测试栏目</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear"></div>
+              
             </div>
             <div class="mainRight f_right">
                 <div class="mainRightItem">
@@ -788,7 +596,7 @@ var vm = avalon.define({
         imgUrl: "./img/weixin.png",
         title: "测试"
     }, {
-         imgUrl: "./img/weixin.png",
+        imgUrl: "./img/weixin.png",
         title: "测试"
     }, {
         imgUrl: "./img/weixin.png",
@@ -797,9 +605,183 @@ var vm = avalon.define({
         imgUrl: "./img/weixin.png",
         title: "测试"
     }],
-    contentBlock:[{
-    	hotList:"科技论文/业内动态",
-    	
+    contentBlock: [{
+        hotTitle: "科技论文/业内动态",
+        itemLeft: {
+            hotItem: {
+                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                imgUrl: "./img/weixin.png"
+            },
+            item: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }],
+
+        },
+        itemRight: [{
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }]
+    }, {
+        hotTitle: "科技论文/业内动态",
+        itemLeft: {
+            hotItem: {
+                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                imgUrl: "./img/weixin.png"
+            },
+            item: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }],
+
+        },
+        itemRight: [{
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }, {
+            title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+        }],
+    }],
+    contentBlockDown: [{
+        hotTitle: "科技论文/业内动态",
+        itemLeft: {
+            hotItem: {
+                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                imgUrl: "./img/weixin.png"
+            },
+           item: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }]
+
+        },
+        itemRight: [{
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }]
+    },{
+        hotTitle: "科技论文/业内动态",
+        itemLeft: {
+            hotItem: {
+                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                imgUrl: "./img/weixin.png"
+            },
+            item: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }]
+
+        },
+        itemRight: [{
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }, {
+            imgUrl: "./img/weixin.png",
+            title: "测试"
+        }]
     }]
 
 })
