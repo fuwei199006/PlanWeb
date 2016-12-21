@@ -47,16 +47,7 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>父级菜单</label>
                 <div class="controls">
-                    @Html.DropDownListFor(x => x.MenuParentId, AdminCacheContext.Current.MenuItems.Menus.Select(x => new SelectListItem
-               {
-                   Value = x.Id.ToString(),
-                   Text = x.MenuName
-               }).Concat<SelectListItem>(new List<SelectListItem>() {
-                new SelectListItem()
-               {
-                   Value = "0",
-                   Text = "无"
-               } }).AsEnumerable(), new { @class = "m-wrap small " })
+                    @Html.DropDownListFor(x => x.MenuParentId, ViewData["MenuListDrop"] as IEnumerable<SelectListItem>, new { @class = "m-wrap small " })
                 </div>
             </div>
 

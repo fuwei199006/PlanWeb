@@ -25,7 +25,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Index(MenuRequest menuRequest)
         {
             PagedList<Basic_MenuDto> menuList =
-               _menuService.GetMenuDtos(menuRequest.MenuName,menuRequest.PageIndex, menuRequest.PageSize);
+               _menuService.GetMenuDtos(menuRequest.MenuName, menuRequest.PageIndex, menuRequest.PageSize);
 
             return View(menuList);
         }
@@ -37,8 +37,20 @@ namespace Plain.UI.Areas.Auth.Controllers
 
             SetDropEnumViewData<MenuType>(WebKeys.MenuTypeDrop);
             SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+            ViewData["MenuListDrop"] = _menuService.GetMenus().Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.MenuName
+            }).Concat<SelectListItem>(new List<SelectListItem>()
+            {
+                new SelectListItem()
+                {
+                    Value = "0",
+                    Text = "无"
+                }
+            });
 
-         
+
             return View(menu);
         }
 
@@ -47,7 +59,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         {
             var menu = _menuService.GetMenuById(id);
             this.TryUpdateModel<Basic_Menu>(menu);
- 
+
             menu.ModifyTime = DateTime.Now;
             _menuService.UpdateMenu(menu);
             return this.RefreshParent();
@@ -59,16 +71,28 @@ namespace Plain.UI.Areas.Auth.Controllers
 
             SetDropEnumViewData<MenuType>(WebKeys.MenuTypeDrop);
             SetDropEnumViewData<StatusType>(WebKeys.StatusTypeDrop);
+            ViewData["MenuListDrop"] = _menuService.GetMenus().Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.MenuName
+            }).Concat<SelectListItem>(new List<SelectListItem>()
+            {
+                new SelectListItem()
+                {
+                    Value = "0",
+                    Text = "无"
+                }
+            });
             return View("Edit");
         }
 
         [HttpPost]
         public ActionResult Create(FormCollection formCollection)
         {
-            var menu=new Basic_Menu();
+            var menu = new Basic_Menu();
             this.TryUpdateModel(menu);
-            menu.CreateTime=DateTime.Now;
-            menu.ModifyTime=DateTime.Now;
+            menu.CreateTime = DateTime.Now;
+            menu.ModifyTime = DateTime.Now;
             _menuService.AddMenu(menu);
             return this.RefreshParent();
         }
@@ -77,7 +101,7 @@ namespace Plain.UI.Areas.Auth.Controllers
         public ActionResult Delete(List<int> ids)
         {
             this._menuService.DeleteMenus(ids);
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
     }
 }

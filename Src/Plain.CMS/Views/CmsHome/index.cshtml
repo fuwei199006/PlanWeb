@@ -1,4 +1,5 @@
 ﻿
+@using Framework.Extention
 @using Plain.Web
 @using Framework.Web
 @{
@@ -23,9 +24,9 @@
                 @foreach (var m in AdminCacheContext.Current.ArticleItems["A1012"])
                 {
                     <dl class="clear">
-                        <dt><a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'> @m.Title</a></dt>
+                        <dt><a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'> @m.Title.CutString()</a></dt>
 
-                        <dd><a href='@Url.Action("ArticleView",new {id=m.Id})' target='_blank'>@m.SubTitle....</a></dd>
+                        <dd><a href='@Url.Action("ArticleView",new {id=m.Id})' target='_blank'>@m.SubTitle.CutString()</a></dd>
                     </dl>
                 }
 
@@ -37,7 +38,7 @@
                 @foreach (var m in AdminCacheContext.Current.ArticleItems["A1013"])
                 {
                     <li>
-                        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString()</a>
                     </li>
                 }
             </ul>
@@ -57,7 +58,7 @@
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
-                                <div>@m.Title</div>
+                                <div>@m.Title.CutString(20)</div>
                             </a>
                         </li>
                     }
@@ -89,7 +90,7 @@
                         </dt>
 
                         <dd class="f_right">
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                         </dd>
                     </dl>
                 }
@@ -100,7 +101,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1022"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
                     </ul>
@@ -112,7 +113,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1023"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
 
@@ -134,12 +135,12 @@
                         <dt class="f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="100" height="70"
-                                     alt="@m.Title" />
+                                     alt="@m.Title.CutString()" />
                             </a>
                         </dt>
 
                         <dd class="f_right">
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                         </dd>
                     </dl>
                 }
@@ -150,7 +151,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1032"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
                     </ul>
@@ -162,7 +163,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1033"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
 
@@ -185,7 +186,7 @@
                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1041"])
                        {
                         <li>
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                         </li>
                        }
                          
@@ -199,7 +200,7 @@
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
-                                <div>@m.Title</div>
+                                <div>@m.Title.CutString(40)</div>
                             </a>
                         </li>
                     }
@@ -224,7 +225,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1051"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
 
@@ -238,7 +239,7 @@
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
-                                <div>@m.Title</div>
+                                <div>@m.Title.CutString(40)</div>
                             </a>
                         </li>
                     }
@@ -266,7 +267,7 @@
                         {
                             <li>
                                 <em class="@("em"+m.Sort)">@m.Sort</em>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
                             </li>
                         }
 
@@ -318,7 +319,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1090"])
                         {
                             <li>
-                                <a href="@Url.Action("ArticleView", new {id = m.Id})" target="_blank">@m.Title</a>
+                                <a href="@Url.Action("ArticleView", new {id = m.Id})" target="_blank">@m.Title.CutString(40)</a>
                                 <span class="f_right">作者：<em>@m.Author</em></span>
                             </li>
                         }
