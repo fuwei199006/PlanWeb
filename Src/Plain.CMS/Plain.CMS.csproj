@@ -185,6 +185,7 @@
     <Content Include="Content\Plain\img\avatar.png" />
     <Content Include="Content\Plain\img\demo.jpg" />
     <Content Include="Content\Plain\img\list_style.png" />
+    <Content Include="Content\Plain\img\loading.gif" />
     <Content Include="Content\Plain\img\logo.png" />
     <Content Include="Content\Plain\img\recombg.png" />
     <Content Include="Content\Plain\img\register_bg.gif" />
@@ -202,6 +203,7 @@
     <Content Include="Content\Plain\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Plain\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -241,9 +243,25 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
+      <Project>{0440bb94-c62e-4f2a-84c7-42836c697035}</Project>
+      <Name>Core.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Config\Core.Config.csproj">
+      <Project>{cb29d7ed-3ce9-4789-9ca0-35c83b6448a7}</Project>
+      <Name>Core.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
       <Project>{67f618d6-b22f-435d-ad61-c2f820815a2a}</Project>
       <Name>Framework.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
+      <Project>{1e62b299-9a6b-4152-ab6e-83aa386950f5}</Project>
+      <Name>Framework.Extention</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
+      <Project>{6a483607-febc-4599-bc82-0184fa79b6f2}</Project>
+      <Name>Framework.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
       <Project>{265EB8A8-EC67-4BBE-9036-8B76C28C4859}</Project>
@@ -252,6 +270,10 @@
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
       <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100ad75-5e10-4fec-8b04-55a59e5f5c7a}</Project>
+      <Name>Plain.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3b149ade-26c3-4da3-92f5-c613559fb50f}</Project>

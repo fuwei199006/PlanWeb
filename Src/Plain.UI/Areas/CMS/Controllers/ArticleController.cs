@@ -62,6 +62,7 @@ namespace Plain.UI.Areas.CMS.Controllers
             var article = _ArticleService.GetArticlesById(id);
             TryUpdateModel<Basic_Article>(article);
             _ArticleService.UpdateArticle(article);
+            AdminCacheContext.ArticleItems.Clear();
             return this.RefreshParent();
         }
         public ActionResult Delete(List<int> ids)

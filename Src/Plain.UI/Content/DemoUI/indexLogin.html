@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container" ms-controller="container">
+    <div class="container" id="container" style="display: none;" ms-controller="container">
         <div class="header">
             <div id="" class="wrap">
                 <div id="" class="nav f_left">
@@ -39,7 +39,7 @@
         <div class="wrap content">
             <div class="lfluent">
                 <div class="item">
-                    <img src="" width="390" height="330" />
+                    <img src="./img/dog.jpeg" width="390" height="330" />
                 </div>
             </div>
             <div class="mfluent">
@@ -128,7 +128,7 @@
                         <div class="clear"></div>
                         <div class="newsList">
                             <ul>
-                                 <li ms-for="e in el.itemLeft.item">
+                                <li ms-for="e in el.itemLeft.item">
                                     <a href="javascript:void(0)">{{e.title}}</a>
                                 </li>
                         </div>
@@ -142,12 +142,10 @@
                                     <div>测试栏目</div>
                                 </a>
                             </li>
-                         
                         </ul>
                     </div>
                     <div class="clear"></div>
                 </div>
-              
             </div>
             <div class="mainRight f_right">
                 <div class="mainRightItem">
@@ -158,35 +156,9 @@
                         </div>
                         <div class="m_box">
                             <ul class="m_newList">
-                                <li><em class="em1">1</em>
-                                    <a href="http://www.admin5.com/article/20160505/661732.shtml" target="_blank">为什么大批创业公司估值爆跌，看这篇文章就够了</a>
-                                </li>
-                                <li><em class="em2">2</em>
-                                    <a href="http://www.admin5.com/article/20160205/646482.shtml" target="_blank">一起唱：因为融资失败 公司面临倒闭？</a>
-                                </li>
-                                <li><em class="em3">3</em>
-                                    <a href="http://www.admin5.com/article/20160127/645104.shtml" target="_blank">有利网：从0到200亿到底发生了什么？</a>
-                                </li>
-                                <li><em class="em4">4</em>
-                                    <a href="http://www.admin5.com/article/20160226/648808.shtml" target="_blank">Thrive Market：曾被拒20多次现年营收达到了1亿美元</a>
-                                </li>
-                                <li><em class="em5">5</em>
-                                    <a href="http://www.admin5.com/article/20160310/650928.shtml" target="_blank">WeWork：共享办公 估值竟然高达160亿美元</a>
-                                </li>
-                                <li><em class="em6">6</em>
-                                    <a href="http://www.admin5.com/article/20160318/652594.shtml" target="_blank">易点天下：为什么随口报个价 雷军就敢投6000万</a>
-                                </li>
-                                <li><em class="em7">7</em>
-                                    <a href="http://www.admin5.com/article/20160316/652040.shtml" target="_blank">SpoonRocket：又一家因盈利问题而倒闭的送餐O2O公司</a>
-                                </li>
-                                <li><em class="em8">8</em>
-                                    <a href="http://www.admin5.com/article/20160301/649457.shtml" target="_blank">e家洁：7个月亏3千万又怎样 依然挂牌新三板</a>
-                                </li>
-                                <li><em class="em9">9</em>
-                                    <a href="http://www.admin5.com/article/20160304/650065.shtml" target="_blank">同程网：是什么样的创业团队让王健林肯砸36亿投资</a>
-                                </li>
-                                <li><em class="em10">10</em>
-                                    <a href="http://www.admin5.com/article/20160318/652596.shtml" target="_blank">飞博共创：不仅登陆新三板还要收割网红+表情包</a>
+                                <li ms-for="(k,v) in detailList">
+                                    <em ms-attr="{class:'em'+(k+1)}">{{k+1}}</em>
+                                    <a ms-attr="{href:v.url}" target="_blank">{{v.title}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -200,34 +172,14 @@
                         </div>
                         <div class="m_box">
                             <ul class="picmsg">
-                                <li>
+                                <li ms-for="el in picmsgList">
                                     <div id="" class="picleft f_left  ">
                                         <a href="javascript:void(0)">
-                                            <img src="http://upload.admin5.com/2016/0812/thumb_100_70_1470981439242.jpg" width="100" height="70" alt="创业者自述：那些年 我用低价策略差点把自己砸死" />
+                                            <img ms-attr="{src:el.imgUrl,alt:el.title}" width="100" height="70" />
                                         </a>
                                     </div>
                                     <div class="picInfo f_right  ">
-                                        <a>创业者自述：那些年 我用低价策略差点把自己砸死</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="" class="picleft f_left  ">
-                                        <a href="javascript:void(0)">
-                                            <img src="http://upload.admin5.com/2016/0812/thumb_100_70_1470981439242.jpg" width="100" height="70" alt="创业者自述：那些年 我用低价策略差点把自己砸死" />
-                                        </a>
-                                    </div>
-                                    <div class="picInfo f_right  ">
-                                        <a>创业者自述：那些年 我用低价策略差点把自己砸死</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="" class="picleft f_left  ">
-                                        <a href="javascript:void(0)">
-                                            <img src="http://upload.admin5.com/2016/0812/thumb_100_70_1470981439242.jpg" width="100" height="70" alt="创业者自述：那些年 我用低价策略差点把自己砸死" />
-                                        </a>
-                                    </div>
-                                    <div class="picInfo f_right  ">
-                                        <a>创业者自述：那些年 我用低价策略差点把自己砸死</a>
+                                        <a ms-attr="{href:el.url}">{{el.title}}</a>
                                     </div>
                                 </li>
                             </ul>
@@ -242,21 +194,9 @@
                         </div>
                         <div class="m_box">
                             <ul class="scPage">
-                                <li>
-                                    <a href="javascript:void(0)" target="_blank">从淘客群体不断扩大  </a>
-                                    <span class="f_right">作者：<em>xxx</em></span>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" target="_blank">从淘客群体不断扩大 看淘客网站生存指南 </a>
-                                    <span class="f_right">作者：<em>xxx</em></span>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" target="_blank">从淘客群体不断扩大 看淘客网站生存指南</a>
-                                    <span class="f_right">作者：<em>xxx</em></span>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" target="_blank">从淘客群体不断扩大 看淘客网站生存指南 </a>
-                                    <span class="f_right">作者：<em>xxx</em></span>
+                                <li ms-for="el in scPageList">
+                                    <a href="javascript:void(0)" target="_blank">{{el.title}}  </a>
+                                    <span class="f_right">作者：<em>{{el.author}}</em></span>
                                 </li>
                             </ul>
                         </div>
@@ -268,212 +208,13 @@
         <div class="w_Content ">
             <div class="quickGet">
                 <h1>快捷通道</h1>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
+                <div class="item clear" ms-for="el in quickGetList">
+                    <h4 class="f_left">{{el.title}}:</h4>
                     <div class=" quickList f_left">
                         <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
-                    <div class=" quickList f_left">
-                        <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
-                    <div class=" quickList f_left">
-                        <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
-                    <div class=" quickList f_left">
-                        <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
-                    <div class=" quickList f_left">
-                        <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item clear">
-                    <h4 class="f_left">学习网站:</h4>
-                    <div class=" quickList f_left">
-                        <ul>
-                            <li>
-                                <i class="f_left  "></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
-                            </li>
-                            <li><i class="f_left"></i>
-                                <a href="javascript:void(0);" target="_blank">博客园</a>
+                            <li ms-for="e in el.items">
+                                <i class="f_left"></i>
+                                <a ms-attr="{href:e.url}" target="_blank">{{e.title}}</a>
                             </li>
                         </ul>
                     </div>
@@ -484,72 +225,10 @@
             <div class="quickGet limitHeight  tab">
                 <ul id="footerNav">
                     <li class="active"> 友情链接 </li>
-                    <li> 关于我们 </li>
                 </ul>
                 <div class="clear"></div>
                 <div id="tab1" class="panel">
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                </div>
-                <div id="tab2" style="display: none;" class="panel">
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接2</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
-                    <a href="javascript:void(0)">友情链接</a>
+                    <a ms-attr="{href:el.url}" ms-for="el in friendUrl">{{el.title}}</a>
                 </div>
             </div>
         </div>
@@ -575,44 +254,112 @@
             </div>
         </div>
     </div>
+    <div id="mask" class="mask">
+    </div>
 </body>
 
 </html>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="./js/avalon.js"></script>
+<script src="./js/index.js"></script>
 <script>
-var vm = avalon.define({
-    $id: "container",
-    category: ["时间", "地点", "人物"],
-    navMenu: ['首页', '热点', '新闻', '历史', '国学', '军事', '话题', '科技', '关于我们', '教程', '社会', '其它'],
-    hotTitle: [{
-        title: "支付宝改版的原因",
-        subTitle: "这个方面可以咨询这里...."
-    }, {
-        title: "支付宝改版的原因1",
-        subTitle: "这个方面可以咨询这里1...."
-    }],
-    titleList: ["微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？"],
-    box_item: [{
-        imgUrl: "./img/weixin.png",
-        title: "测试"
-    }, {
-        imgUrl: "./img/weixin.png",
-        title: "测试"
-    }, {
-        imgUrl: "./img/weixin.png",
-        title: "测试"
-    }, {
-        imgUrl: "./img/weixin.png",
-        title: "测试"
-    }],
-    contentBlock: [{
-        hotTitle: "科技论文/业内动态",
-        itemLeft: {
-            hotItem: {
-                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
-                imgUrl: "./img/weixin.png"
+$(function() {
+
+    var vm = avalon.define({
+        $id: "container",
+        category: ["时间", "地点", "人物"],
+        navMenu: ['首页', '热点', '新闻', '历史', '国学', '军事', '话题', '科技', '关于我们', '教程', '社会', '其它'],
+        hotTitle: [{
+            title: "支付宝改版的原因",
+            subTitle: "这个方面可以咨询这里...."
+        }, {
+            title: "支付宝改版的原因1",
+            subTitle: "这个方面可以咨询这里1...."
+        }],
+        titleList: ["微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？", "微信又双叒叕出故障了 是在内测直播？商业绑架？"],
+        box_item: [{
+            imgUrl: "./img/dog.jpeg",
+            title: "测试"
+        }, {
+            imgUrl: "./img/dog.jpeg",
+            title: "测试"
+        }, {
+            imgUrl: "./img/dog.jpeg",
+            title: "测试"
+        }, {
+            imgUrl: "./img/dog.jpeg",
+            title: "测试"
+        }],
+        contentBlock: [{
+            hotTitle: "科技论文/业内动态",
+            itemLeft: {
+                hotItem: {
+                    title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                    imgUrl: "./img/dog.jpeg"
+                },
+                item: [{
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }],
+
             },
-            item: [{
+            itemRight: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }]
+        }, {
+            hotTitle: "科技论文/业内动态",
+            itemLeft: {
+                hotItem: {
+                    title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                    imgUrl: "./img/dog.jpeg"
+                },
+                item: [{
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }],
+
+            },
+            itemRight: [{
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
+                title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+            }, {
                 title: "大学生、传统行业工作者 如何跨入运营这道门"
 
             }, {
@@ -625,164 +372,469 @@ var vm = avalon.define({
                 title: "大学生、传统行业工作者 如何跨入运营这道门"
 
             }],
+        }],
+        contentBlockDown: [{
+            hotTitle: "科技论文/业内动态",
+            itemLeft: {
+                hotItem: {
+                    title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                    imgUrl: "./img/dog.jpeg"
+                },
+                item: [{
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        },
-        itemRight: [{
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        }]
-    }, {
-        hotTitle: "科技论文/业内动态",
-        itemLeft: {
-            hotItem: {
-                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
-                imgUrl: "./img/weixin.png"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }]
+
             },
-            item: [{
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+            itemRight: [{
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
+            }]
+        }, {
+            hotTitle: "科技论文/业内动态",
+            itemLeft: {
+                hotItem: {
+                    title: "创业者自述：那些年 我用低价策略差点把自己砸死",
+                    imgUrl: "./img/dog.jpeg"
+                },
+                item: [{
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-            }],
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
 
-        },
-        itemRight: [{
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }, {
+                    title: "大学生、传统行业工作者 如何跨入运营这道门"
+
+                }]
+
+            },
+            itemRight: [{
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
+            }, {
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
+            }, {
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
+            }, {
+                imgUrl: "./img/dog.jpeg",
+                title: "测试"
+            }]
+        }],
+        detailList: [{
+            title: "为什么大批创业公司估值爆跌，看这篇文章就够了",
+            url: "123"
+        }, {
+            title: "一起唱：因为融资失败 公司面临倒闭？",
+            url: "123"
+        }, {
+            title: "有利网：从0到200亿到底发生了什么？",
+            url: "123"
+        }, {
+            title: "Thrive Market：曾被拒20多次现年营收达到了1亿美元",
+            url: "123"
+        }, {
+            title: "WeWork：共享办公 估值竟然高达160亿美元",
+            url: "123"
+        }, {
+            title: "易点天下：为什么随口报个价 雷军就敢投6000万",
+            url: "123"
+        }, {
+            title: "SpoonRocket：又一家因盈利问题而倒闭的送餐O2O公司",
+            url: "123"
+        }, {
+            title: "e家洁：7个月亏3千万又怎样 依然挂牌新三板",
+            url: "123"
+        }, {
+            title: "同程网：是什么样的创业团队让王健林肯砸36亿投资",
+            url: "123"
+        }, {
+            title: "飞博共创：不仅登陆新三板还要收割网红+表情包",
+            url: "123"
+        }],
+        picmsgList: [{
+            imgUrl: "./img/dog.jpeg",
+            url: "123",
+            title: "为什么大批创业公司估值爆跌，看这篇文章就够了"
 
         }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+            imgUrl: "./img/dog.jpeg",
+            url: "123",
+            title: "为什么大批创业公司估值爆跌，看这篇文章就够了"
 
         }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
-
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
-
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
-
-        }, {
-            title: "大学生、传统行业工作者 如何跨入运营这道门"
+            imgUrl: "./img/dog.jpeg",
+            url: "123",
+            title: "为什么大批创业公司估值爆跌，看这篇文章就够了"
 
         }],
-    }],
-    contentBlockDown: [{
-        hotTitle: "科技论文/业内动态",
-        itemLeft: {
-            hotItem: {
-                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
-                imgUrl: "./img/weixin.png"
-            },
-           item: [{
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
+        scPageList: [{
+            url: "123",
+            title: "从淘客群体不断扩大 看淘客网站生存指南",
+            author: "xxx"
 
+        }, {
+            url: "123",
+            title: "从淘客群体不断扩大 看淘客网站生存指南",
+            author: "xxx"
+
+        }, {
+            url: "123",
+            title: "从淘客群体不断扩大 看淘客网站生存指南",
+            author: "xxx"
+
+        }, {
+            url: "123",
+            title: "从淘客群体不断扩大 看淘客网站生存指南",
+            author: "xxx"
+
+        }],
+        quickGetList: [{
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
             }]
-
-        },
-        itemRight: [{
-            imgUrl: "./img/weixin.png",
-            title: "测试"
         }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
-        }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
-        }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
-        }]
-    },{
-        hotTitle: "科技论文/业内动态",
-        itemLeft: {
-            hotItem: {
-                title: "创业者自述：那些年 我用低价策略差点把自己砸死",
-                imgUrl: "./img/weixin.png"
-            },
-            item: [{
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
             }, {
-                title: "大学生、传统行业工作者 如何跨入运营这道门"
-
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
             }]
-
-        },
-        itemRight: [{
-            imgUrl: "./img/weixin.png",
-            title: "测试"
         }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }]
         }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }]
         }, {
-            imgUrl: "./img/weixin.png",
-            title: "测试"
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }]
+        }, {
+            title: "学习天地",
+            items: [{
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }, {
+                title: "测试",
+                url: "http://cn.bing.com/"
+            }]
+        }],
+        friendUrl: [{
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
+        }, {
+            title: "友情链接",
+            url: "javascript:void(0)"
         }]
-    }]
 
+    });
+    
+    home.init();
 })
 </script>

@@ -5,14 +5,11 @@
     <div id="" class="wrap">
         <div id="" class="nav f_left">
             <ul>
-                <li>时间</li>
-                <li>地点</li>
-                <li>人物</li>
+              CMS
             </ul>
         </div>
         <div id="" class="nav f_right">
             <ul>
-            
                 <li>登录</li>
                 <li><a href='@Url.Action("Register","Login")'>注册</a></li>
             </ul>
@@ -26,7 +23,7 @@
         @foreach (var m in AdminCacheContext.Current.MenuItems[((int)MenuType.Nav).ToString()])
         {
             <li>
-                <a href='@m.MenuUrl'>@m.MenuName</a>
+                <a href='@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0);":Url.Content(m.MenuUrl))'>@m.MenuName</a>
             </li>
         }
 

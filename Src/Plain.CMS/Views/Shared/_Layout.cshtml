@@ -1,5 +1,4 @@
 ﻿@using Core.Config
-@using Framework.Extention
 @using Framework.Web
 <!DOCTYPE html>
 <html>
@@ -11,18 +10,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="" name="description" />
     <meta content="" name="author" />
- 
+
     <link rel="stylesheet" href="@Url.StaticFile("~/Content/Plain/css/main.css")" />
     <link rel="stylesheet" href="@Url.StaticFile("~/Content/Plain/css/register.css")" />
     <link rel="stylesheet" href="@Url.StaticFile("~/Content/Plain/css/font-awesome.min.css")" />
     @RenderSection("PageSpecificStyleSheetIncludes", required: false)
 </head>
 <body>
-    @Html.Partial("_Header")
-    @RenderBody()
-    @Html.Partial("_Footer")
+    <div class="container" id="container" style="display: none;">
+        @Html.Partial("_Header")
+
+        @RenderBody()
+
+        @Html.Partial("_Footer")
+    </div>
+    <div id="mask" class="mask">
+    </div>
 </body>
 </html>
 
-<script type="text/javascript" src="@Url.StaticFile("/Scripts/jquery-1.10.2.min.js")"></script>
+<script type="text/javascript" src="@Url.StaticFile("~/Scripts/jquery-1.10.2.min.js")"></script>
+<script src="@Url.StaticFile("~/Scripts/Index.js")"></script>
 @RenderSection("PageSpecificJavascriptIncludes", required: false)
+<script>
+    $(function () {
+        home.init();
+    });
+</script>
