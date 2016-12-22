@@ -14,10 +14,18 @@
 
             @{
                 var entity = AdminCacheContext.Current.ArticleItems["A1011"].FirstOrDefault();
-                <img src="@Url.StaticFile(entity.SubTitle)" alt="@entity.Title" width="390" height="330" />
+                if (entity != null)
+                {
+                    <img src="@Url.StaticFile(entity.SubTitle)" alt="@entity.Title" width="390" height="330" />
+                }
+                else
+                {
+                    <img src="" alt="" width="390" height="330" />
+                }
+
             }
- 
-          
+
+
 
         </div>
     </div>
@@ -190,13 +198,13 @@
                 <div class="clear"></div>
                 <div class="newsList">
                     <ul>
-                       @foreach (var m in AdminCacheContext.Current.ArticleItems["A1041"])
-                       {
-                        <li>
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
-                        </li>
-                       }
-                         
+                        @foreach (var m in AdminCacheContext.Current.ArticleItems["A1041"])
+                        {
+                            <li>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>
@@ -211,7 +219,7 @@
                             </a>
                         </li>
                     }
-                    
+
 
                 </ul>
 
