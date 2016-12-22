@@ -2,6 +2,7 @@
 @using Plain.Model.Models.Model
 @using Plain.Web
 @using Framework.Web
+@using Framework.Extention
 @{
     Layout = null;
 }
@@ -14,7 +15,7 @@
                 <img src="@Url.StaticFile(m.SubTitle)" alt="@m.Title" />
             </a>
         </div>
-        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+        <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(12)</a>
     </li>
 
 }

@@ -664,7 +664,7 @@ a:visited {
 }
 
 .picinfoContent {
-    height: 180px;
+    height: 140px;
     border: 1px solid #c8d8f2;
     border-top: none;
     padding: 20px 40px;
@@ -752,7 +752,8 @@ a:visited {
     text-align: center;
     background: #EEEEEE;
     border-radius: 2px;
-    height: 10px;
+    height: 20px;
+    line-height:20px;
     color: #666666;
     font-size: 13px;
 }

@@ -4,14 +4,21 @@
 @using Framework.Web
 @{
     ViewBag.Title = "title";
-    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");  
- 
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+
 }
 
 <div class="wrap content">
     <div class="lfluent">
         <div class="item">
-            <img src="http://s.cn.bing.net/az/hprichbg/rb/BilberryLynx_ZH-CN9292650644_800x600.jpg" width="390" height="330" />
+
+            @{
+                var entity = AdminCacheContext.Current.ArticleItems["A1011"].FirstOrDefault();
+                <img src="@Url.StaticFile(entity.SubTitle)" alt="@entity.Title" width="390" height="330" />
+            }
+ 
+          
+
         </div>
     </div>
     <div class="mfluent">
@@ -200,7 +207,7 @@
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
-                                <div>@m.Title.CutString(40)</div>
+                                <div>@m.Title.CutString(10)</div>
                             </a>
                         </li>
                     }
@@ -239,7 +246,7 @@
                         <li class="box_item f_left">
                             <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>
                                 <img src="@Url.StaticFile(m.SubTitle)" width="135" height="95" />
-                                <div>@m.Title.CutString(40)</div>
+                                <div>@m.Title.CutString(10)</div>
                             </a>
                         </li>
                     }
@@ -295,7 +302,7 @@
                                     </a>
                                 </div>
                                 <div class="picInfo f_right  ">
-                                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title</a>
+                                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(20)</a>
                                 </div>
 
                             </li>

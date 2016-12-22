@@ -21,8 +21,9 @@ namespace Plain.Model.Models.Mapping
 			this.Property(t => t.CommitType).HasColumnName("CommitType"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
-			
-          
+			this.Property(t => t.ArticleId).HasColumnName("ArticleId");
+
+
         }
     }
 }

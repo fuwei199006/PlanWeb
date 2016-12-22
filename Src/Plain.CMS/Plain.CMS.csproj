@@ -42,6 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -105,9 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -165,9 +166,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -184,6 +182,7 @@
     <Content Include="Content\Plain\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Plain\img\avatar.png" />
     <Content Include="Content\Plain\img\demo.jpg" />
+    <Content Include="Content\Plain\img\dog.jpg" />
     <Content Include="Content\Plain\img\list_style.png" />
     <Content Include="Content\Plain\img\loading.gif" />
     <Content Include="Content\Plain\img\logo.png" />
@@ -234,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -250,6 +250,10 @@
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
       <Project>{cb29d7ed-3ce9-4789-9ca0-35c83b6448a7}</Project>
       <Name>Core.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Service\Core.Service.csproj">
+      <Project>{A6601D7B-3869-494C-9BB4-CE2EFDDC3872}</Project>
+      <Name>Core.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
       <Project>{67f618d6-b22f-435d-ad61-c2f820815a2a}</Project>

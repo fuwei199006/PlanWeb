@@ -39,7 +39,7 @@ namespace Plain.BLL.Article
             {
                 return this.LoadEntitiesByPage(r => true, r => r.CreateTime, request.PageSize, request.PageIndex);
             }
-            return this.LoadEntitiesByPage(r => r.Title.Contains(request.Content) || r.Content.Contains(request.Content), r => r.CreateTime, request.PageSize, request.PageIndex);
+            return this.LoadEntitiesByPage(r => r.Title.Contains(request.Content) || r.Content.Contains(request.Content)||r.Position.Contains(request.Content), r => r.CreateTime, request.PageSize, request.PageIndex);
         }
 
         public Basic_Article UpdateArticle(Basic_Article article)

@@ -5,17 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using Framework.Web;
 using Plain.BLL.Article;
+using Plain.BLL.CommitService;
+using Core.Service;
 
 namespace Plain.CMS.Controllers
 {
     public class CmsHomeController : BaseController
     {
-        //private IArticleService _articleService;
+        private ICommitService _commitService;
 
-        //public CmsHomeController(IArticleService articleService)
-        //{
-        //    _articleService = articleService;
-        //}
+        public CmsHomeController()
+        {
+            _commitService = ServiceContext.Current.CreateService<ICommitService>();
+        }
 
         [AuthorizeIgnore]
         // GET: CMS/CmsHome
@@ -30,7 +32,8 @@ namespace Plain.CMS.Controllers
         public ActionResult ArticleView(int id)
         {
             var article = AdminCacheContext.ArticleItems.Articles.FirstOrDefault(r => r.Id == id);
-            //_articleService.GetArticlesById(id);
+            ViewBag.CommitList = _commitService.GetCommitListById(article.Id);
+            
             return View(article);
         }
 

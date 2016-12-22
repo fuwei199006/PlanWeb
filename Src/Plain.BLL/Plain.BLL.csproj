@@ -56,6 +56,8 @@
     <Compile Include="ArticleService\ArticleService.cs" />
     <Compile Include="ArticleService\IArticleService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="CommitService\CommitService.cs" />
+    <Compile Include="CommitService\ICommitService.cs" />
     <Compile Include="ConfigService\ConfigService.cs" />
     <Compile Include="ConfigService\IConfigService.cs" />
     <Compile Include="IBaseService.cs" />
