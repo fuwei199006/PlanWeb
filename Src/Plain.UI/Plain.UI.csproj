@@ -308,7 +308,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Auth\Controllers\LoginApiController.cs" />
+    <Compile Include="Areas\PlanApi\Controllers\ArticleApiController.cs" />
+    <Compile Include="Areas\PlanApi\Controllers\LoginApiController.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
     <Compile Include="Areas\Auth\Controllers\PowerController.cs" />
     <Compile Include="Areas\Auth\Controllers\RoleController.cs" />
@@ -3168,6 +3169,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Config\Views\Shared\" />
+    <Folder Include="Areas\PlanApi\Models\" />
+    <Folder Include="Areas\PlanApi\Views\Shared\" />
     <Folder Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -3212,6 +3215,7 @@
     <None Include="Areas\Config\Views\Config\SystemSettingEdit.cshtml" />
     <Content Include="Areas\Config\Views\Log\Index.cshtml" />
     <Content Include="Areas\Config\Views\System\About.cshtml" />
+    <Content Include="Areas\PlanApi\Views\web.config" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Plain.pubxml" />
   </ItemGroup>
@@ -3303,7 +3307,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32200</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:32200/</IISUrl>
+          <IISUrl>http://localhost:48999/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

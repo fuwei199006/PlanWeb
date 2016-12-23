@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Plain.UI.Areas.Auth.Controllers
+namespace Plain.UI.Areas.PlanApi.Controllers
 {
     public class LoginApiController : ApiController
     {
@@ -15,15 +15,16 @@ namespace Plain.UI.Areas.Auth.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/LoginApi/5
-        public string Get(int id)
+
+        public IEnumerable<string> Get([FromBody]string value)
         {
-            return "value";
+            return new string[] { "value1", "value2",value };
         }
 
         // POST: api/LoginApi
         public void Post([FromBody]string value)
         {
+
         }
 
         // PUT: api/LoginApi/5

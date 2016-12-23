@@ -664,7 +664,7 @@ a:visited {
 }
 
 .picinfoContent {
-    height: 180px;
+    height: 140px;
     border: 1px solid #c8d8f2;
     border-top: none;
     padding: 20px 40px;
@@ -752,7 +752,8 @@ a:visited {
     text-align: center;
     background: #EEEEEE;
     border-radius: 2px;
-    height: 10px;
+    height: 20px;
+    line-height: 20px;
     color: #666666;
     font-size: 13px;
 }
@@ -789,13 +790,25 @@ a:visited {
 }
 
 .user {
-    margin: 5px 10px;
+    margin: 1px 4px;
 }
 
 .user img {
-    width: 42px;
-    height: 42px;
-    border-radius: 42px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+}
+
+.reply {
+    margin-left: 20px;
+}
+
+.replyUser {
+    color: #bfbfbf;
+}
+
+.replyContent {
+    margin-left: 20px;
 }
 
 .userinfo a {
@@ -810,7 +823,7 @@ a:visited {
 
 .userinfo .discussText {
     padding: 5px;
-    text-indent: 1%;
+    /* text-indent: 1%; */
     margin-top: 5px;
     line-height: 30px;
     width: 99%;

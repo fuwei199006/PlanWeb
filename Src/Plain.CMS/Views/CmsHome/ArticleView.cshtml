@@ -43,10 +43,10 @@
     </div>
     <div class="articleContent">
 
-        @Html.Raw(Model.Content)
-        <p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
-        <div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>
-        <p style="font-size:14px;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。</p>
+       @Html.Raw(Model.Content)
+        @*<p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
+    <div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>*@
+        <p style="font-size:14px;font-weight:bold;font-style:italic;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。</p>
 
     </div>
 </div>
@@ -122,14 +122,7 @@
 
 
 </div>
-<div class="commitBox center">
-    <span class="login f_right"><a href="#">登录</a></span>
-    <span class="login f_right"><a href="#">注册</a></span>
-    <div class="commit clear">
-        <textarea placeholder="来说两句吧..."></textarea>
-    </div>
-    <button class="f_right btnSubmit ">评论</button>
-</div>
+
 <div class="discussBox center">
     @if (ViewBag.CommitList.Count == 0)
     {
@@ -151,7 +144,8 @@
                     <li class="discussItem clear">
                         <div class="discussContent">
                             <div class="user f_left">
-                                <img src="img/weixin.png" alt="" />
+                       
+                                <img src="~/Content/Plain/img/avatar.png" alt="" />
                             </div>
                         </div>
                         <div class="userinfo">
@@ -181,7 +175,14 @@
 
 
 </div>
-
+<div class="commitBox center">
+    <span class="login f_right"><a href="#">登录</a></span>
+    <span class="login f_right"><a href="#">注册</a></span>
+    <div class="commit clear">
+        <textarea placeholder="来说两句吧..."></textarea>
+    </div>
+    <button class="f_right btnSubmit ">评论</button>
+</div>
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript">
         $(function () {
