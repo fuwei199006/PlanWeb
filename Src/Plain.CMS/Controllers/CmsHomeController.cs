@@ -7,12 +7,14 @@ using Framework.Web;
 using Plain.BLL.Article;
 using Plain.BLL.CommitService;
 using Core.Service;
+using Plain.Model.Models.Model;
+using Plain.Web;
 
 namespace Plain.CMS.Controllers
 {
     public class CmsHomeController : BaseController
     {
-        private ICommitService _commitService;
+        private readonly ICommitService _commitService;
 
         public CmsHomeController()
         {
@@ -32,7 +34,7 @@ namespace Plain.CMS.Controllers
         public ActionResult ArticleView(int id)
         {
             var article = AdminCacheContext.ArticleItems.Articles.FirstOrDefault(r => r.Id == id);
-            ViewBag.CommitList = _commitService.GetCommitListById(article.Id);
+            //ViewBag.CommitList = _commitService.GetCommitListById(article.Id);
             
             return View(article);
         }
@@ -43,6 +45,28 @@ namespace Plain.CMS.Controllers
         {
             ViewBag.key = key;
             return View();
+        }
+
+        public string AddCommit(string content, int articleId, int type)
+        {
+            var commmit = new Basic_Commit
+            {
+                Content = content,
+                ArticleId = articleId,
+                CommitType = type,
+                CreateTime = DateTime.Now,
+                ModifyTime = DateTime.Now,
+                CommitUserId = AdminUserContext.Current.BasicUserInfo.Id,
+                CommitUserName = AdminUserContext.Current.BasicUserInfo.LoginName
+                
+            };
+            _commitService.AddCommit(commmit);
+            return "ok";
+        }
+        [AuthorizeIgnore]
+        public JsonResult GetCommit(int articleId)
+        {
+            return Json(_commitService.GetCommitListById(articleId));
         }
     }
 }

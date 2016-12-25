@@ -267,7 +267,7 @@ $(function() {
 
     var vm = avalon.define({
         $id: "container",
-        category: ["时间", "地点", "人物"],
+        // category: ["时间", "地点", "人物"],
         navMenu: ['首页', '热点', '新闻', '历史', '国学', '军事', '话题', '科技', '关于我们', '教程', '社会', '其它'],
         hotTitle: [{
             title: "支付宝改版的原因",
@@ -834,7 +834,7 @@ $(function() {
         }]
 
     });
-    
+     vm.category= ["时间", "地点", "人物"];
     home.init();
 })
 </script>
