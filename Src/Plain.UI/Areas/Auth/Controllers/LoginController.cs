@@ -22,10 +22,8 @@ namespace Plain.UI.Areas.Auth.Controllers
         private readonly IUserService _userService;
         private readonly IMenuService _menuService;
 
-        public LoginController()
-        {
-
-        }
+ 
+ 
         public LoginController(ILoginService loginService, IRegisterService registerService, IUserService userService, IMenuService menuService)
         {
             _loginService = loginService;
@@ -170,6 +168,19 @@ namespace Plain.UI.Areas.Auth.Controllers
                 this.CookieContext.UserToken = loginInfo.LoginToken;
                 this.CookieContext.UserName = loginInfo.LoginName;
                 this.CookieContext.UserId = loginInfo.LoginUserId;
+                var returnUrl = Request["returnUrl"];
+                if (!string.IsNullOrEmpty(returnUrl))
+                {
+                    if (returnUrl.Contains("?"))
+                    {
+                        returnUrl += "&token=" + UserToken;
+                    }
+                    else
+                    {
+                        returnUrl += "?token=" + UserToken;
+                    }
+                    return Redirect(returnUrl);
+                }
                 return RedirectToAction("Index", "Home");
             }
             this.CookieContext.LoginErrorTimes++;

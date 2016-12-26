@@ -10,15 +10,18 @@ using Autofac.Integration.Mvc;
 using Plain.BLL;
 using Plan.UI;
 using System.Net.Http.Formatting;
-
+using Autofac.Integration.WebApi;
+using System.Security;
+ 
 namespace Plain.UI
 {
+
     public class Global : HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
         {
-        
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -27,19 +30,27 @@ namespace Plain.UI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
+
+
+            // Register your Web API controllers.
+
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
                 .Where(t => typeof(BaseService<>).IsClass && !t.IsAbstract)
                 .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
+            // OPTIONAL: Register the Autofac filter provider.
+
+
 
             builder.RegisterFilterProvider();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
-            
+
 
             //开始注入
 
