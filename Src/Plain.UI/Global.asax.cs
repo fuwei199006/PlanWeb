@@ -34,20 +34,23 @@ namespace Plain.UI
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
-
+            builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
+              .Where(t => typeof(BaseService<>).IsClass && !t.IsAbstract)
+              .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
             // Register your Web API controllers.
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            builder.RegisterAssemblyTypes(typeof(IBaseService<>).Assembly)
-                .Where(t => typeof(BaseService<>).IsClass && !t.IsAbstract)
-                .AsImplementedInterfaces().InstancePerRequest().InstancePerLifetimeScope();
-            // OPTIONAL: Register the Autofac filter provider.
 
+            // OPTIONAL: Register the Autofac filter provider.
+      
+            // Set the dependency resolver for Web API.
 
 
             builder.RegisterFilterProvider();
             var container = builder.Build();
+            var webApiResolver = new AutofacWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = webApiResolver;
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
 
