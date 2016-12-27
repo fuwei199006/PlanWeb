@@ -242,12 +242,7 @@ namespace Framework.Utility
                     window.parent.CenterFrame.rows='" + strRows + "';</Script>";
             HttpContext.Current.Response.Write(js);
         }
-        /// <summary>
-        /// 函数名:JavaScriptSetCookie
-        /// 功能描述:客户端方法设置Cookie
-        /// 作者:sxs
-        /// 日期：2003-4-9
-        /// 版本：1.0
+ 
         /// </summary>
         /// <param name="strName">Cookie名</param>
         /// <param name="strValue">Cookie值</param>
@@ -262,16 +257,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>		
-        /// 函数名:GotoParentWindow	
-        /// 功能描述:返回父窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-04-30 10:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="parentWindowUrl">父窗口</param>		
         public static void GotoParentWindow(string parentWindowUrl)
@@ -281,16 +267,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>		
-        /// 函数名:ReplaceParentWindow	
-        /// 功能描述:替换父窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-04-30 10:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="parentWindowUrl">父窗口</param>
         /// <param name="caption">窗口提示</param>
@@ -311,17 +288,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-
-        /// <summary>		
-        /// 函数名:ReplaceOpenerWindow	
-        /// 功能描述:替换当前窗体的打开窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-04-30 16:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="openerWindowUrl">当前窗体的打开窗口</param>		
         public static void ReplaceOpenerWindow(string openerWindowUrl)
@@ -331,16 +298,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>		
-        /// 函数名:ReplaceOpenerParentWindow	
-        /// 功能描述:替换当前窗体的打开窗口的父窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-07-03 19:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="openerWindowUrl">当前窗体的打开窗口的父窗口</param>		
         public static void ReplaceOpenerParentFrame(string frameName, string frameWindowUrl)
@@ -350,16 +308,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>		
-        /// 函数名:ReplaceOpenerParentWindow	
-        /// 功能描述:替换当前窗体的打开窗口的父窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-07-03 19:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="openerWindowUrl">当前窗体的打开窗口的父窗口</param>		
         public static void ReplaceOpenerParentWindow(string openerParentWindowUrl)
@@ -369,16 +318,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>		
-        /// 函数名:CloseParentWindow	
-        /// 功能描述:关闭窗口	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-04-30 16:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         public static void CloseParentWindow()
         {
@@ -396,16 +336,7 @@ namespace Framework.Utility
             HttpContext.Current.Response.Write(js);
         }
 
-        /// <summary>
-        /// 函数名:ShowModalDialogJavascript	
-        /// 功能描述:返回打开模式窗口的脚本	
-        /// 处理流程:
-        /// 算法描述:
-        /// 作 者: guozili
-        /// 日 期: 2003-04-30 15:00
-        /// 修 改:
-        /// 日 期:
-        /// 版 本:
+ 
         /// </summary>
         /// <param name="webFormUrl"></param>
         /// <returns></returns>

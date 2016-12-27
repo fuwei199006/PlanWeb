@@ -3180,7 +3180,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Config\Views\Shared\" />
-    <Folder Include="Areas\PlanApi\Models\" />
     <Folder Include="Areas\PlanApi\Views\Shared\" />
     <Folder Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />

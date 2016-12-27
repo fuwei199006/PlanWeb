@@ -40,6 +40,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
   </ItemGroup>
   <Choose>
@@ -56,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EnumHelperTests.cs" />
+    <Compile Include="NetHelperTests.cs" />
     <Compile Include="ProjectInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestHelperTests.cs" />
@@ -76,6 +78,10 @@
     <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
       <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
       <Name>Plain.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
+      <Name>Plain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

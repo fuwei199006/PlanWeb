@@ -61,7 +61,6 @@
     <Compile Include="AssemblyHelper.cs" />
     <Compile Include="CacheKey.cs" />
     <Compile Include="Caching.cs" />
-    <Compile Include="Collection.cs" />
     <Compile Include="Cookie.cs" />
     <Compile Include="Diff.cs" />
     <Compile Include="Fetch.cs" />
@@ -69,12 +68,11 @@
     <Compile Include="GeoHelper.cs" />
     <Compile Include="ImageUtil.cs" />
     <Compile Include="JsUtil.cs" />
-    <Compile Include="NetHelper.cs" />
+    <Compile Include="RequestHelper.cs" />
     <Compile Include="ObjectHelper.cs" />
     <Compile Include="PermutationAndCombination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExp.cs" />
-    <Compile Include="RequestHelper.cs" />
     <Compile Include="SerializationHelper.cs" />
     <Compile Include="SerializeHelper.cs" />
     <Compile Include="StringHelper.cs" />

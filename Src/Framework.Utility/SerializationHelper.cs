@@ -6,6 +6,8 @@ using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using System.Text;
+using Newtonsoft.Json;
+
 namespace Framework.Utility
 {
     public enum SerializationType
@@ -118,7 +120,7 @@ namespace Framework.Utility
             return ser.Deserialize(sWriter);
         }
 
-      
+
         #endregion
 
         #region ========== DataContractSerializer ==========
@@ -235,15 +237,6 @@ namespace Framework.Utility
         }
 
 
-        /// <summary>
-        /// 将JSON数据转化为C#数据实体
-        /// </summary>
-        /// <param name="json">符合JSON格式的字符串</param>
-        /// <returns>T类型的对象</returns>
-        public static T JsonDeserialize<T>(string json)
-        {
-            return (T)JsonDeserialize(typeof(T), json);
-        }
 
         /// <summary>
         /// 将JSON数据转化为C#数据实体
@@ -292,10 +285,33 @@ namespace Framework.Utility
         /// <returns>T类型的对象</returns>
         public static T XmlDeserialize<T>(string xml)
         {
-            T obj = (T) XmlDeserialize(typeof (T), xml);
+            T obj = (T)XmlDeserialize(typeof(T), xml);
             return obj;
         }
+        #region =============Newtonsoft==================
+        /// <summary>
+        /// 将JSON数据转化为C#数据实体
+        /// </summary>
+        /// <param name="json">符合JSON格式的字符串</param>
+        /// <returns>T类型的对象</returns>
+        public static T JsonDeserialize<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json);
+        }
 
-     
+        /// <summary>
+        /// 将C# 数据实体转化为JSON数据
+        /// </summary>
+        /// <param name="json">符合JSON格式的字符串</param>
+        /// <returns>T类型的对象</returns>
+        public static string SerializeObject(object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+
+
+       
+        #endregion
+
     }
 }

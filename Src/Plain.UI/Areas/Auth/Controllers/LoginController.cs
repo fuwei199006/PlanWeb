@@ -94,7 +94,7 @@ namespace Plain.UI.Areas.Auth.Controllers
             register.CreateTime = DateTime.Now;
             register.Expiretime = DateTime.Now.AddDays(7);
             register.RetisterIp = Fetch.UserIp;
-            register.RegisterDevice = RequestHelper.GetDeviceJson(Request.UserAgent);
+            register.RegisterDevice = Request.UserAgent ;
             register.RegisterPassword = MD5Encrypt.Md5(register.RegisterPassword);
             register.RegisterConfirmPassword = register.RegisterPassword;
             register.RegisterTime = DateTime.Now;
@@ -136,12 +136,13 @@ namespace Plain.UI.Areas.Auth.Controllers
         [HttpPost]
         public ActionResult Login(string loginName, string password, string valideCode)
         {
-            //if (string.IsNullOrEmpty(valideCode))
-            //{
-            //    ModelState.AddModelError("valideCode", "验证码不能为空");
-            //    return View("Index");
-            //}
-
+#if !DEBUG
+            if (string.IsNullOrEmpty(valideCode))
+            {
+                ModelState.AddModelError("valideCode", "验证码不能为空");
+                return View("Index");
+            }
+#endif
             //todo:全部修改成资源文件。
             var user = _userService.GetUserByEmail(loginName);
             if (user == null)

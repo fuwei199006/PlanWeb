@@ -27,7 +27,7 @@ namespace Tool.ArticleSpider
 
         private void btnSpider_Click(object sender, EventArgs e)
         {
-            var content = RequestHelper.GetContent("http://blog.sina.com.cn/", c =>
+              RequestHelper.GetCmsContent("http://blog.sina.com.cn/", c =>
             {
                 var list = new List<Basic_Article>();
                 var regex = "<a[^<>]+>[^<>]+</a>";
@@ -36,11 +36,7 @@ namespace Tool.ArticleSpider
                 var matchs = Regex.Matches(c, regex);
                 var strArr = new object[matchs.Count];
                 matchs.CopyTo(strArr, 0);
-
-
-
-
-
+ 
                 ThreadPool.QueueUserWorkItem(obj =>
                 {
                     foreach (var o in strArr)
@@ -52,7 +48,7 @@ namespace Tool.ArticleSpider
                         var title = tepTitle.Remove(tepTitle.LastIndexOf('<'));
                         if (url.Contains("?"))
                         {
-                            var urlContent = RequestHelper.GetUrlContent(url);
+                            var urlContent = RequestHelper.HttpGet(url);
                             var article = Regex.Match(urlContent, contentRex);
 
                             if (!string.IsNullOrEmpty(article.Value))
@@ -92,7 +88,7 @@ namespace Tool.ArticleSpider
 
 
 
-                return c;
+ 
             });
         }
 

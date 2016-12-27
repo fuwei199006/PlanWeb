@@ -1,169 +1,158 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using Core.Exception;
-using Frameworke.Dtos;
-using Newtonsoft.Json;
+using System.Net;
+using System.IO;
+using Framework.Utility;
+
 
 namespace Framework.Utility
 {
+    /// <summary>
+    /// 向远程Url Post/Get数据类
+    /// </summary>
     public class RequestHelper
     {
-        public static DeviceDto GetDeviceDto(string userAgent)
+        public static T HttpPost<T>(string uri, object data, SerializationType serializationType)
         {
-            var url = "http://www.useragentstring.com/";
-            url += "?uas=" + userAgent;
-            url += "&getJSON=all";
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            var response = request.GetResponse();
-            var stream = response.GetResponseStream();
-            if (stream != null && stream != Stream.Null)
+            string responseText = HttpPost(uri, data, serializationType);
+
+            T t = default(T);
+            if (serializationType == SerializationType.Xml)
             {
-                var streamReader = new StreamReader(stream, Encoding.UTF8);
-                StringBuilder sb = new StringBuilder();
-                string strLine;
-                while ((strLine = streamReader.ReadLine()) != null)
-                {
-                    sb.Append(strLine);
-                }
-
-                return JsonConvert.DeserializeObject<DeviceDto>(sb.ToString());
+                t = (T)SerializationHelper.XmlDeserialize(typeof(T), responseText);
             }
-            return new DeviceDto();
-
+            else if (serializationType == SerializationType.Json)
+            {
+                t = SerializationHelper.JsonDeserialize<T>(responseText);
+            }
+            return t;
         }
 
-        public static string GetDeviceJson(string userAgent)
+        public static string HttpPost(string uri, object data, SerializationType serializationType)
         {
-            try
+            HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+
+            string dataStr = string.Empty;
+            if (data is string)
             {
-                var url = "http://www.useragentstring.com/";
-                url += "?uas=" + userAgent;
-                url += "&getJSON=all";
-                var request = (HttpWebRequest)WebRequest.Create(url);
-                request.Timeout = 1;
-                var response = request.GetResponse();
-                var stream = response.GetResponseStream();
-                if (stream != null && stream != Stream.Null)
+                dataStr = (string)data;
+            }
+            else
+            {
+                if (serializationType == SerializationType.Xml)
                 {
-                    var streamReader = new StreamReader(stream, Encoding.UTF8);
-                    StringBuilder sb = new StringBuilder();
-                    string strLine;
-                    while ((strLine = streamReader.ReadLine()) != null)
-                    {
-                        sb.Append(strLine);
-                    }
-
-                    var result = JsonConvert.DeserializeObject<DeviceDto>(sb.ToString());
-                    return string.Concat(result.os_type, ":", result.os_name, "/", result.agent_type, ":", result.agent_name,
-                        " ", result.agent_version);
+                    dataStr = SerializationHelper.XmlSerialize(data);
+                    object o = SerializationHelper.XmlDeserialize(data.GetType(), dataStr);
                 }
-                return string.Empty;
-            }
-            catch (Exception)
-            {
-                return userAgent;
-
-            }
-
-
-        }
-
-
-        public static string GetContent(string url)
-        {
-            return GetContent(url, 0, 1, Encoding.UTF8);
-        }
-        public static string GetContent(string url, int timeOut, int reTry)
-        {
-            return GetContent(url, timeOut, reTry, Encoding.UTF8);
-        }
-
-        public static string GetContent(string url, Func<string, string> filter)
-        {
-            var content = GetContent(url, 0, 3);
-            if (filter != null)
-            {
-                return filter(content);
-            }
-            return content;
-        }
-
-        public static string GetContent(string url, int timeOut, int reTry, Encoding encoding)
-        {
-            while (reTry > 0)
-            {
-
-                try
+                else if (serializationType == SerializationType.Json)
                 {
-
-                    var request = (HttpWebRequest)WebRequest.Create(url);
-                    if (timeOut != 0) request.Timeout = timeOut;
-                    var response = request.GetResponse();
-                    var stream = response.GetResponseStream();
-                    if (stream != null && stream != Stream.Null)
-                    {
-                        var streamReader = new StreamReader(stream, Encoding.UTF8);
-                        StringBuilder sb = new StringBuilder();
-                        string strLine;
-                        while ((strLine = streamReader.ReadLine()) != null)
-                        {
-                            sb.Append(strLine);
-                        }
-
-
-                        return sb.ToString();
-
-                    }
-
+                    dataStr = SerializationHelper.SerializeObject(data);
                 }
-
-                catch (WebException)
-                {
-
-                }
-                finally
-                {
-                    reTry--;
-                }
-
             }
-            throw new OverRetryException("已经超过了最大的重试次数");
-        }
-
-        public static string GetUrlContent(string url)
-        {
-
-            try
-            {
-                var request = (HttpWebRequest)WebRequest.Create(url);
-                var response = request.GetResponse();
-                var stream = response.GetResponseStream();
-                if (stream != null && stream != Stream.Null)
-                {
-                    var streamReader = new StreamReader(stream, Encoding.UTF8);
-                    StringBuilder sb = new StringBuilder();
-                    string strLine;
-                    while ((strLine = streamReader.ReadLine()) != null)
-                    {
-                        sb.Append(strLine);
-                    }
-
-
-                    return sb.ToString();
-
-                }
-                return String.Empty;
-            }
-            catch 
-            {
-                return String.Empty;
-            }
+            CNNWebClient wc = new CNNWebClient();
+            wc.Timeout = 300;
+            var t = wc.UploadData(uri, "POST", Encoding.UTF8.GetBytes(dataStr));
+            string tText = Encoding.UTF8.GetString(t);
           
+            return tText;
+        }
+
+        public static string HttpPost(string uri, System.Collections.Specialized.NameValueCollection data)
+        {
+            CNNWebClient wc = new CNNWebClient();
+            wc.Encoding = Encoding.UTF8;
+            wc.Timeout = 300;
+            var t = wc.UploadValues(uri, "POST", data);
+            string tText = Encoding.UTF8.GetString(t);
+            return tText;
+        }
 
 
+        public static T HttpGet<T>(string uri, SerializationType serializationType)
+        {
+            string responseText = HttpGet(uri);
+
+            T t = default(T);
+            if (serializationType == SerializationType.Xml)
+            {
+                t = (T)SerializationHelper.XmlDeserialize(typeof(T), responseText);
+            }
+            else if (serializationType == SerializationType.Json)
+            {
+                t = SerializationHelper.JsonDeserialize<T>(responseText);
+            }
+            return t;
+        }
+
+        public static string HttpGet(string uri)
+        {
+            StringBuilder respBody = new StringBuilder();
+            HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
+            request.Method = "GET";
+            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+            byte[] buffer = new byte[8192];
+            Stream stream;
+            stream = response.GetResponseStream();
+            int count = 0;
+            do
+            {
+                count = stream.Read(buffer, 0, buffer.Length);
+                if (count != 0)
+                    respBody.Append(Encoding.UTF8.GetString(buffer, 0, count));
+            }
+            while (count > 0);
+            string responseText = respBody.ToString();
+            return responseText;
+        }
+
+
+        public static void GetCmsContent(string url, Action<string> action)
+        {
+
+            var content = HttpGet(url);
+            action(content);
+        }
+        public class CNNWebClient : WebClient
+        {
+
+            private int _timeOut = 200;
+
+            /// <summary>
+            /// 过期时间
+            /// </summary>
+            public int Timeout
+            {
+                get
+                {
+                    return _timeOut;
+                }
+                set
+                {
+                    if (value <= 0)
+                        _timeOut = 200;
+                    _timeOut = value;
+                }
+            }
+
+            /// <summary>
+            /// 重写GetWebRequest,添加WebRequest对象超时时间
+            /// </summary>
+            /// <param name="address"></param>
+            /// <returns></returns>
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                HttpWebRequest request = (HttpWebRequest)base.GetWebRequest(address);
+                request.Timeout = 1000 * Timeout;
+                request.ReadWriteTimeout = 1000 * Timeout;
+                return request;
+            }
         }
     }
 }

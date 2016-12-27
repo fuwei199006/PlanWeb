@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+ 
 
 namespace Framework.Utility 
 {
     public static class ObjectHelper
     {
         /// <summary>
-        /// 不同对象之间的深拷贝，最好属性名一样
+        /// 不同对象之间的深拷贝 
         /// </summary>
         /// <typeparam name="T">源对象类型</typeparam>
         /// <typeparam name="F">目的对象类型</typeparam>
@@ -25,7 +24,7 @@ namespace Framework.Utility
             return result;
         }
         /// <summary>
-        /// 相同对象之间的深拷贝，最好属性名一样
+        /// 相同对象之间的深拷贝 
         /// </summary>
         /// <typeparam name="T">源对象类型</typeparam>
         /// <typeparam name="F">目的对象类型</typeparam>
