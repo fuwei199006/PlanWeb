@@ -5,20 +5,33 @@
     <div id="" class="wrap">
         <div id="" class="nav f_left">
             <ul>
-              CMS
+                CMS
             </ul>
         </div>
         <div id="" class="nav f_right">
-            <ul>
-                <li>登录</li>
-                <li><a href='@Url.Action("Register","Login")'>注册</a></li>
-            </ul>
+            @if (AdminUserContext.Current.BasicUserInfo != null)
+            {
+                <div class="user">
+
+                    <img src="~/Content/Plain/img/avatar.png" alt="" style="height: 29px; width: 29px"> 
+                    @AdminUserContext.Current.LoginInfo.LoginNickName
+                </div>
+            }
+            else
+            {
+                <ul>
+                    <li>登录</li>
+                    <li><a href='@Url.Action("Register", "Login")'>注册</a></li>
+                </ul>
+            }
+
+
         </div>
     </div>
 
 </div>
 <div class="wrap navgb">
- 
+
     <ul>
         @foreach (var m in AdminCacheContext.Current.MenuItems[((int)MenuType.Nav).ToString()])
         {
