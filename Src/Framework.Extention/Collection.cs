@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Framework.Utility 
+namespace Framework.Extention 
 {
     public static class Collection
     {

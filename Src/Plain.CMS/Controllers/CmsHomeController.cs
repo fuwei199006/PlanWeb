@@ -7,6 +7,7 @@ using Framework.Web;
 using Plain.BLL.Article;
 using Plain.BLL.CommitService;
 using Core.Service;
+using Plain.CMS.ActionFilters;
 using Plain.Model.Models.Model;
 using Plain.Web;
 
@@ -22,6 +23,7 @@ namespace Plain.CMS.Controllers
         }
 
         [AuthorizeIgnore]
+        [SingalLogin]
         // GET: CMS/CmsHome
         public ActionResult Index()
         {

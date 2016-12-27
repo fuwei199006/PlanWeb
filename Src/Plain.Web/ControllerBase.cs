@@ -214,8 +214,8 @@ namespace Plain.Web
                 {
                     Name = loginInfo == null ? "" : loginInfo.LoginName,
                     IP = loginInfo == null ? "" : loginInfo.LoginIp,
-                    Token = loginInfo == null ? Guid.Empty : loginInfo.LoginToken,
-                    UserId = loginInfo == null ? 0 : loginInfo.LoginUserId,
+                    Token = loginInfo?.LoginToken ?? Guid.Empty,
+                    UserId = loginInfo?.LoginUserId ?? 0,
                     Time = DateTime.Now
 
                 };

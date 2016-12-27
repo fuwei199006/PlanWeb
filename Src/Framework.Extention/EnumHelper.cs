@@ -56,7 +56,7 @@ namespace Framework.Extention
                 System.Reflection.FieldInfo fi = type.GetField(enumValue.Trim());
                 if (fi == null)
                     continue;
-                EnumTitleAttribute[] attrs = fi.GetCustomAttributes(typeof(EnumTitleAttribute), false) as EnumTitleAttribute[];
+                var attrs = fi.GetCustomAttributes(typeof(EnumTitleAttribute), false) as EnumTitleAttribute[];
                 if (attrs != null && attrs.Length > 0 && attrs[0].IsDisplay)
                 {
                     ret += attrs[0].Title + ENUM_TITLE_SEPARATOR;

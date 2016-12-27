@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Framework.Extention
 {
-    public static class IEnumableExtention
+    public static class EnumableExtention
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Framework.Extention
         /// <returns></returns>
         public static string ToBadge(this IEnumerable<string> strs, string className)
         {
-            if (strs.Count() == 0)
+            if (!strs.Any())
             {
                 return string.Empty;
             }
@@ -65,7 +65,7 @@ namespace Framework.Extention
         /// <returns></returns>
         public static string ToJoin(this IEnumerable<string> strs, string split)
         {
-            if (strs.Count() == 0)
+            if (!strs.Any())
             {
                 return string.Empty;
             }
@@ -79,6 +79,7 @@ namespace Framework.Extention
         /// <param name="str"></param>
         /// <param name="split"></param>
         /// <param name="isKeep">是否保留最后一个逗号</param>
+        /// <param name="strs"></param>
         /// <returns></returns>
         public static string ToJoin(this IEnumerable<string> strs)
         {

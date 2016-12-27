@@ -76,7 +76,7 @@
   <ItemGroup>
     <Compile Include="AssemblyExtention.cs" />
     <Compile Include="Collection.cs" />
-    <Compile Include="IEnumableExtention.cs" />
+    <Compile Include="EnumableExtention.cs" />
     <Compile Include="EnmuExtention.cs" />
     <Compile Include="ConverterExtention.cs" />
     <Compile Include="EnumHelper.cs" />

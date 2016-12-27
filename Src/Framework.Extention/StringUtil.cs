@@ -8,10 +8,10 @@ namespace Framework.Extention
     /// </summary>
     public class StringUtil
     {
-        public StringUtil()
-        {
+        //public StringUtil()
+        //{
             
-        }
+        //}
 
         /// <summary>
         /// 从字符串中的尾部删除指定的字符串
@@ -23,7 +23,7 @@ namespace Framework.Extention
         {
             try
             {
-                if (sourceString.IndexOf(removedString) < 0)
+                if (sourceString.IndexOf(removedString, StringComparison.Ordinal) < 0)
                     throw new Exception("原字符串中不包含移除字符串！");
                 string result = sourceString;
                 int lengthOfSourceString = sourceString.Length;
@@ -100,8 +100,8 @@ namespace Framework.Extention
             System.Text.StringBuilder sBuilder = new System.Text.StringBuilder(131);
             for (int i = 0; i < sourceString.Length; i++)
             {
-                int Unicode = sourceString[i];
-                if (Unicode >= 16)
+                int unicode = sourceString[i];
+                if (unicode >= 16)
                 {
                     sBuilder.Append(sourceString[i].ToString());
                 }
