@@ -118,6 +118,10 @@
       <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
       <Name>Plain.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
+      <Name>Plain.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
       <Name>Plain.Model</Name>

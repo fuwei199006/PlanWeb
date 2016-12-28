@@ -34,23 +34,23 @@ namespace Core.Log
         public void WriteLog(int modelId, string userName, string moduleName, string tableName, string eventType,
             ModelBase newValues, string dbName)
         {
-            AuditLogs.Add(new Basic_DbMonitorLog
-            {
-                ModuleId = modelId.ToString(),
-                DbName = dbName,
-                ModuleName = moduleName,
-                EventType = eventType,
-                UserName = userName,
-                TableName = tableName,
-                CreateTime = DateTime.Now,
-                ModifyTime = DateTime.Now,
-                NewValues =
-                    JsonConvert.SerializeObject(newValues,
-                        new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
-            });
+            //AuditLogs.Add(new Basic_DbMonitorLog
+            //{
+            //    ModuleId = modelId.ToString(),
+            //    DbName = dbName,
+            //    ModuleName = moduleName,
+            //    EventType = eventType,
+            //    UserName = userName,
+            //    TableName = tableName,
+            //    CreateTime = DateTime.Now,
+            //    ModifyTime = DateTime.Now,
+            //    NewValues =
+            //        JsonConvert.SerializeObject(newValues,
+            //            new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore})
+            //});
 
-            SaveChanges();
-            Dispose();
+            //SaveChanges();
+            //Dispose();
         }
     }
 }

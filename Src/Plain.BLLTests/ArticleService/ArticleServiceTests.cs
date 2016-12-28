@@ -43,7 +43,7 @@ namespace Plain.BLL.Article.Tests
             foreach (var itemImg in imgUrlArr)
             {
              
-                var fileName = Guid.NewGuid() + ".jpg";
+                var fileName = Guid.NewGuid() + ".jpg"; 
                 var downPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Download", fileName);
                 var item = regexHttp.Match(itemImg.ToString());
                 if (string.IsNullOrEmpty(item.Value))
