@@ -31,9 +31,9 @@ td {
     outline: none;
 }
 
-input.hidefocus::-moz-focus-inner {
-    border: none;
-}
+    input.hidefocus::-moz-focus-inner {
+        border: none;
+    }
 
 table {
     border-collapse: collapse;
@@ -129,7 +129,7 @@ select {
 
 i,
 em {
-    font-style: normal
+    font-style: normal;
 }
 
 small {
@@ -145,17 +145,17 @@ body {
 
 a {
     color: #222;
-    text-decoration: none
+    text-decoration: none;
 }
 
-a:hover {
-    color: #379be9;
-    text-decoration: none
-}
+    a:hover {
+        color: #379be9;
+        text-decoration: none;
+    }
 
-a:visited {
-    color: #BFBFBF;
-}
+    a:visited {
+        color: #BFBFBF;
+    }
 
 .clear {
     clear: both;
@@ -184,7 +184,7 @@ a:visited {
     top: 0;
     width: 100%;
     height: 40px;
-    line-height: 30px;
+    line-height: 40px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #eee;
     text-align: center;
@@ -196,7 +196,8 @@ a:visited {
     height: 40px;
 }
 
-.nav ul {}
+.nav ul {
+}
 
 .nav li {
     list-style-type: none;
@@ -212,37 +213,37 @@ a:visited {
     line-height: 40px;
 }
 
-.navgb li,
-.navgb a {
-    list-style-type: none;
-    float: left;
-    text-decoration: none;
-    color: #FFFFFF;
-    text-align: center;
-    width: 80px;
-}
+    .navgb li,
+    .navgb a {
+        list-style-type: none;
+        float: left;
+        text-decoration: none;
+        color: #FFFFFF;
+        text-align: center;
+        width: 80px;
+    }
 
-.navgb .select {
-    background: #2986cf;
-}
+    .navgb .select {
+        background: #2986cf;
+    }
 
-.navgb li:hover {
-    background: #2986cf;
-}
+    .navgb li:hover {
+        background: #2986cf;
+    }
 
-.navgb li:selection {
-    background: #2986cf;
-}
+    .navgb li:selection {
+        background: #2986cf;
+    }
 
 .breadnav {
     background: #eee;
     line-height: 40px;
 }
 
-.breadnav em {
-    font-weight: bold;
-    margin-left: 5px;
-}
+    .breadnav em {
+        font-weight: bold;
+        margin-left: 5px;
+    }
 
 .content {
     margin-top: 5px;
@@ -307,11 +308,11 @@ a:visited {
     background: #f8f8f8;
 }
 
-.m_title h1,
-.hotList h1 {
-    color: #379be9;
-    text-indent: 10px;
-}
+    .m_title h1,
+    .hotList h1 {
+        color: #379be9;
+        text-indent: 10px;
+    }
 
 .hotList h1,
 .quickGet h1,
@@ -340,15 +341,15 @@ a:visited {
     height: 130px;
 }
 
-.box_item img {
-    width: 100%;
-    display: block;
-}
+    .box_item img {
+        width: 100%;
+        display: block;
+    }
 
-.box_item div {
-    text-align: center;
-    background-color: #eee;
-}
+    .box_item div {
+        text-align: center;
+        background-color: #eee;
+    }
 
 .mainList {
     margin-top: 5px;
@@ -393,14 +394,14 @@ a:visited {
     line-height: 30px;
 }
 
-.newsList a {
-    margin-left: 1px;
-    overflow: hidden;
-    color: #666666;
-    text-decoration: none;
-    padding-left: 8px;
-    background: transparent url(../img/list_style.png) no-repeat scroll 0px 7px;
-}
+    .newsList a {
+        margin-left: 1px;
+        overflow: hidden;
+        color: #666666;
+        text-decoration: none;
+        padding-left: 8px;
+        background: transparent url(../img/list_style.png) no-repeat scroll 0px 7px;
+    }
 
 .m_newList li {
     margin-left: 1px;
@@ -408,11 +409,11 @@ a:visited {
     height: 30px;
 }
 
-.m_newList li a {
-    overflow: hidden;
-    height: 26px;
-    line-height: 26px;
-}
+    .m_newList li a {
+        overflow: hidden;
+        height: 26px;
+        line-height: 26px;
+    }
 
 .m_newList .em1 {
     color: red;
@@ -471,32 +472,32 @@ a:visited {
     height: 58px;
 }
 
-.scPage li a {
-    width: 200px;
-    overflow: hidden;
-    height: 58px;
-}
+    .scPage li a {
+        width: 200px;
+        overflow: hidden;
+        height: 58px;
+    }
 
-.scPage li span {
-    font-size: 12px;
-    display: block;
-    color: #666;
-    position: absolute;
-    top: 42px;
-    left: 200px;
-}
+    .scPage li span {
+        font-size: 12px;
+        display: block;
+        color: #666;
+        position: absolute;
+        top: 42px;
+        left: 200px;
+    }
 
-.scPage li span em {
-    text-align: center;
-    background: #379be9;
-    color: #fff;
-    width: 50px;
-    height: 20px;
-    overflow: hidden;
-    display: block;
-    float: right;
-    line-height: 20px;
-}
+        .scPage li span em {
+            text-align: center;
+            background: #379be9;
+            color: #fff;
+            width: 50px;
+            height: 20px;
+            overflow: hidden;
+            display: block;
+            float: right;
+            line-height: 20px;
+        }
 
 .w_Content {
     border-top: 1px solid #379be9;
@@ -510,25 +511,25 @@ a:visited {
     background-color: #f8f8f8;
 }
 
-.quickGet h4 {
-    margin-left: 30px;
-    font-size: 15px;
-    font-weight: bold;
-}
+    .quickGet h4 {
+        margin-left: 30px;
+        font-size: 15px;
+        font-weight: bold;
+    }
 
-.quickGet li {
-    cursor: p;
-}
+    .quickGet li {
+        cursor: p;
+    }
 
 .quickList {
     border-bottom: 1px dotted #d5d5d5;
 }
 
-.quickList li {
-    float: left;
-    width: 90px;
-    margin-left: 20px;
-}
+    .quickList li {
+        float: left;
+        width: 90px;
+        margin-left: 20px;
+    }
 
 .quickGet .item {
     margin-top: 20px;
@@ -547,25 +548,25 @@ a:visited {
     border-left: 1px solid #EEEEEE;
 }
 
-.tab li.active {
-    background-color: #379be9;
-    color: #FFFFFF;
-}
+    .tab li.active {
+        background-color: #379be9;
+        color: #FFFFFF;
+    }
 
 .panel {
     padding: 10px;
     border-top: 1px solid #eee;
 }
 
-.panel a {
-    display: block;
-    float: left;
-    padding: 0 15px;
-    height: 20px;
-    line-height: 20px;
-    margin-top: 10px;
-    color: #666;
-}
+    .panel a {
+        display: block;
+        float: left;
+        padding: 0 15px;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 10px;
+        color: #666;
+    }
 
 .footer {
     height: 200px;
@@ -583,16 +584,16 @@ a:visited {
     padding-top: 15px;
 }
 
-.footeritem img {
-    height: 120px;
-    width: 120px;
-}
+    .footeritem img {
+        height: 120px;
+        width: 120px;
+    }
 
-.footeritem span {
-    display: block;
-    font-weight: bold;
-    font-size: 16px;
-}
+    .footeritem span {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+    }
 
 .info em {
     font-weight: bold;
@@ -647,12 +648,13 @@ a:visited {
     border-top: 1px solid #379be9;
 }
 
-.extentionBox li {
-    margin-top: 10px;
-    margin-left: 30px;
-}
+    .extentionBox li {
+        margin-top: 10px;
+        margin-left: 30px;
+    }
 
-.picinfoBox {}
+.picinfoBox {
+}
 
 .picinfoTilte {
     background: url(../img/recombg.png);
@@ -670,25 +672,25 @@ a:visited {
     padding: 20px 40px;
 }
 
-.picinfoContent li {
-    float: left;
-    width: 18%;
-    margin-left: 20px;
-}
+    .picinfoContent li {
+        float: left;
+        width: 18%;
+        margin-left: 20px;
+    }
 
-.picinfoContent li a {
-    text-align: center;
-    width: 130px;
-    display: block;
-    padding: 0 10px;
-    font-weight: bold;
-}
+        .picinfoContent li a {
+            text-align: center;
+            width: 130px;
+            display: block;
+            padding: 0 10px;
+            font-weight: bold;
+        }
 
-.picinfoContent img {
-    display: block;
-    width: 135px;
-    height: 120px;
-}
+    .picinfoContent img {
+        display: block;
+        width: 135px;
+        height: 120px;
+    }
 
 .page li {
     float: left;
@@ -699,11 +701,11 @@ a:visited {
     line-height: 35px;
 }
 
-.page li.active a {
-    background: #bfbfbf;
-    width: 20px;
-    padding: 3px;
-}
+    .page li.active a {
+        background: #bfbfbf;
+        width: 20px;
+        padding: 3px;
+    }
 
 .commit {
     border: 1px solid #4398ed;
@@ -784,20 +786,20 @@ a:visited {
     padding: 10px 10px;
 }
 
-.discussList li.discussItem {
-    margin-top: 10px;
-    border-bottom: 1px dashed #e5e5e5;
-}
+    .discussList li.discussItem {
+        margin-top: 10px;
+        border-bottom: 1px dashed #e5e5e5;
+    }
 
 .user {
-    margin: 1px 30px;
+    margin: 0 10px;
 }
 
-.user img {
-    width: 25px;
-    height: 25px;
-    border-radius: 25px;
-}
+    .user img {
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+    }
 
 .reply {
     margin-left: 20px;
@@ -823,23 +825,25 @@ a:visited {
 
 .userinfo .discussText {
     padding: 5px;
-    /* text-indent: 1%; */
+    /* text-indent: 2%; */
     margin-top: 5px;
     line-height: 30px;
-    width: 99%;
+    width: 95%;
     color: #666666;
+    margin: auto;
 }
 
-.discussOperate {}
-
-.discussOperate a {
-    color: #BFBFBF;
-    margin-left: 5px;
+.discussOperate {
 }
 
-.discussOperate a:hover {
-    color: #666666;
-}
+    .discussOperate a {
+        color: #BFBFBF;
+        margin-left: 5px;
+    }
+
+        .discussOperate a:hover {
+            color: #666666;
+        }
 
 .debug {
     border: 1px solid black;
@@ -856,17 +860,28 @@ a:visited {
     justify-content: center;
     align-items: center;
 }
+
 .load {
     background: url(../img/loading.gif) no-repeat;
     background-size: 20px 20px;
-    background-position: center;
+    /* background-position: center; */
     background-color: #fff;
     height: 10vh;
     color: #aaa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-indent: 23px;
 }
+
+.error {
+    color: red;
+}
+
+/*.articleContent p {
+    text-align: center;
+}*/
+
 .ms-controller {
     visibility: hidden;
 }

@@ -112,7 +112,37 @@ namespace Framework.Utility
             return responseText;
         }
 
+        public static Stream HttpGetStream(string uri)
+        {
+            StringBuilder respBody = new StringBuilder();
+            HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
+            request.Method = "GET";
+            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
 
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+            byte[] buffer = new byte[8192];
+            Stream stream;
+            stream = response.GetResponseStream();
+            return stream;
+        }
+
+        public static Stream HttpGetStream(string uri,Dictionary<string,string> headers)
+        {
+            StringBuilder respBody = new StringBuilder();
+            HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
+            request.Method = "GET";
+            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+
+            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
+            request.Referer = "http://blog.sina.com.cn/s/blog_4fe4dc6f0102xg82.html?tj=1";
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+            byte[] buffer = new byte[8192];
+            Stream stream;
+            stream = response.GetResponseStream();
+            return stream;
+        }
         public static void GetCmsContent(string url, Action<string> action)
         {
 

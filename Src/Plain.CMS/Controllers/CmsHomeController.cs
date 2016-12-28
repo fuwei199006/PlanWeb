@@ -49,7 +49,7 @@ namespace Plain.CMS.Controllers
             return View();
         }
 
-        public string AddCommit(string content, int articleId, int type)
+        public JsonResult AddCommit(string content, int articleId, int type)
         {
             var commmit = new Basic_Commit
             {
@@ -62,8 +62,8 @@ namespace Plain.CMS.Controllers
                 CommitUserName = AdminUserContext.Current.BasicUserInfo.LoginName
                 
             };
-            _commitService.AddCommit(commmit);
-            return "ok";
+          var returnEntity=  _commitService.AddCommit(commmit);
+            return Json(returnEntity);
         }
         [AuthorizeIgnore]
         public JsonResult GetCommit(int articleId)

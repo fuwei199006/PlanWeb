@@ -18,6 +18,7 @@ namespace Plain.UI
             //config.Formatters.Remove(config.Formatters.JsonFormatter);
 
 
+
             //http://stackoverflow.com/questions/12334382/net-webapi-serialization-k-backingfield-nastiness
             //There is a more general solution: you can configure the Json Serializer to ignore the[Serializable] attribute, so that you don't have to change the attributes in your classes.
             //

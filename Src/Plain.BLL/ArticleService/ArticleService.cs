@@ -4,6 +4,7 @@ using System.Linq;
 using Plain.Dto.Request;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
+using Plain.Dto;
 
 namespace Plain.BLL.Article
 {
@@ -13,14 +14,18 @@ namespace Plain.BLL.Article
         {
             
             return
-                this.LoadEntitiesNoTracking(r => r.Category == category && r.ArticleStatus == 1)
+                this.LoadEntitiesNoTracking(r => r.Category == category && (r.ArticleStatus ==(int) ArticleStatus.Enable|| r.ArticleStatus == (int)ArticleStatus.InUsing))
                     .OrderByDescending(r => r.ModifyTIme)
                     .ToList();
         }
 
+        /// <summary>
+        /// CMS取数据
+        /// </summary>
+        /// <returns></returns>
         public List<Basic_Article> GetArticles()
         {
-          return this.LoadEntitiesNoTracking(r=>r.ArticleStatus==1).ToList();
+          return this.LoadEntitiesNoTracking(r=>r.ArticleStatus== (int)ArticleStatus.InUsing).ToList();
         }
 
         public Basic_Article GetArticlesById(int id)
@@ -45,6 +50,20 @@ namespace Plain.BLL.Article
         public Basic_Article UpdateArticle(Basic_Article article)
         {
             return this.Update(article);
+        }
+
+        /// <summary>
+        /// 失效正在使用的文章
+        /// </summary>
+        public void DisableUsingArticle()
+        {
+            var articleList = this.LoadEntities(r => r.ArticleStatus == 2);
+            foreach (var item in articleList)
+            {
+                item.ArticleStatus =(int) ArticleStatus.LostUsing;//说明已经失效
+            }
+
+            this.UpdateRang(articleList);
         }
     }
 }

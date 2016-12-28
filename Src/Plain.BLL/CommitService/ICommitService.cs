@@ -10,6 +10,6 @@ namespace Plain.BLL.CommitService
    public interface ICommitService:IBaseService<Basic_Commit>
     {
         List<Basic_Commit> GetCommitListById(int articleId);
-        void AddCommit(Basic_Commit commit);
+        Basic_Commit AddCommit(Basic_Commit commit);
     }
 }

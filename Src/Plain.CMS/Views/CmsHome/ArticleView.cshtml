@@ -123,61 +123,72 @@
 
 </div>
 
-<div class="discussBox center" ms-controller="commit">
-    <div class="load" style="display: none" id="load"></div>
-    <div class="noneDiscuss   clear" ms-if="commitList.length===0">还没有评论，快来抢沙发吧！</div>
-    <div ms-if="commitList.length>0">
-        <div class="discuss   clear">
-            <ul class="f_left discussNav">
-                <li>评论</li>
-            </ul>
-            <ul class="f_left line"></ul>
-        </div>
-        <div class="clear discussList  ">
-            <h1>最新评论</h1>
-            <ul>
-                <li class="discussItem clear" ms-for="el in commitList">
-                    <div class="discussContent">
-                        <div class="user f_left">
-                            <img ms-attr="{src:'el.userImg'}" />
+<div ms-controller="commit">
+    <div class="discussBox center">
+        @*<div class="load" style="display: none" id="load"></div>*@
+        <div class="noneDiscuss   clear" ms-if="commitList.length===0">还没有评论，快来抢沙发吧！</div>
+        <div ms-if="commitList.length>0">
+            <div class="discuss   clear">
+                <ul class="f_left discussNav">
+                    <li>评论</li>
+                </ul>
+                <ul class="f_left line"></ul>
+            </div>
+            <div class="clear discussList  ">
+                <h1>最新评论</h1>
+                <ul>
+                    <li class="discussItem clear" ms-for="el in commitList">
+                        <div class="discussContent">
+                            <div class="user f_left">
+                                <img ms-attr="{src:'el.userImg'}" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="userinfo">
-                        <ul>
-                            <li>
-                                <a href="#">{{el.CommitUserName}}</a><em>[河南省郑州市网友]</em>
-                            </li>
-                            <li class="discussText">{{el.Content}}</li>
-                        </ul>
-                    </div>
-                    <div class="discussOperate f_right  ">
+                        <div class="userinfo">
+                            <ul>
+                                <li>
+                                    <a href="#">{{el.CommitUserName}}</a><em>[河南省郑州市网友]</em>
+                                </li>
+                                <li class="discussText">{{el.Content}}</li>
+                            </ul>
+                        </div>
+                        <div class="discussOperate f_right  ">
 
-                        <span><a href="#">回复</a></span>
-                        <span><a href="#">举报</a></span>
+                            <span><a href="#">回复</a></span>
+                            <span><a href="#">举报</a></span>
 
-                    </div>
-                    <div class="clear"></div>
-                </li>
-
+                        </div>
+                        <div class="clear"></div>
+                    </li>
 
 
-            </ul>
+
+                </ul>
+            </div>
         </div>
-    </div>
 
 
-</div>
-<div class="commitBox center">
-    <span class="login f_right"><a href="#">登录</a></span>
-    <span class="login f_right"><a href="#">注册</a></span>
-    <div class="commit clear">
-        <textarea placeholder="来说两句吧..." id="txtCommit"></textarea>
     </div>
-    <button class="f_right btnSubmit " id="btnCommit">评论</button>
+    <div class="commitBox center">
+        @if (AdminCookieContext.Current == null)
+        {
+            <span class="login f_right"><a href="#">登录</a></span>
+            <span class="login f_right"><a href="#">注册</a></span>
+        }
+
+        <div class="commit clear">
+            <textarea placeholder="来说两句吧..." id="txtCommit"></textarea>
+
+        </div>
+
+        <button class="f_right btnSubmit " id="btnCommit" ms-click="addCommit">评论</button>
+        <div class="error" id="txtMsg" style="display:none">评论不能为空..</div>
+        <div class="load" id="load" style="display:none">处理中..</div>
+    </div>
 </div>
 <div style="display: none">
     <input type="hidden" id="txtArticleId" value="@Model.Id" />
     <input type="hidden" id="txtUrl" value="@Url.Action("GetCommit")" />
+
 </div>
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript">

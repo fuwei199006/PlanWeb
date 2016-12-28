@@ -49,6 +49,7 @@
   <ItemGroup>
     <Folder Include="Css\" />
     <Folder Include="Files\" />
+    <Folder Include="Image\" />
     <Folder Include="Script\" />
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +83,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

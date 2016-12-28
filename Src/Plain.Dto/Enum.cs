@@ -129,4 +129,16 @@ namespace Plain.Dto
         Other
     
     }
+
+    public enum ArticleStatus
+    {
+        [EnumTitle("不可用")]
+        Disable =0,
+        [EnumTitle("可用")]
+        Enable =1,
+        [EnumTitle("上线")]
+        InUsing =2,
+        [EnumTitle("失效")]
+        LostUsing =3
+    }
 }

@@ -14,9 +14,9 @@ namespace Plain.BLL.CommitService
             return this.LoadEntities(r => r.ArticleId == articleId);
         }
 
-        public void AddCommit(Basic_Commit commit)
+        public Basic_Commit AddCommit(Basic_Commit commit)
         {
-            this.Add(commit);
+           return this.Add(commit);
         }
     }
 }
