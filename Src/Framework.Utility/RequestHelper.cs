@@ -118,13 +118,20 @@ namespace Framework.Utility
             HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
             request.Method = "GET";
             request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+            try
+            {
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
 
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-
-            byte[] buffer = new byte[8192];
-            Stream stream;
-            stream = response.GetResponseStream();
-            return stream;
+                byte[] buffer = new byte[8192];
+                Stream stream;
+                stream = response.GetResponseStream();
+                return stream;
+            }
+            catch(WebException e)
+            {
+                return null;
+            }
+        
         }
 
         public static Stream HttpGetStream(string uri,Dictionary<string,string> headers)

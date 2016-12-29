@@ -34,7 +34,8 @@ namespace Tool.ArticleSpider
           {
               var list = new List<Basic_Article>();
               var regex = "<a[^<>]+>[^<>]+</a>";
-              var imgRegex = new Regex("[^_]src[^ ]+");
+              var imgRegex = new Regex("[^_]src[^ ]+gif");
+              var getImg= @"htt[^<>] +\.jpg";
               var urlRex = @"(http|https|ftp|rtsp|mms):(\/\/|\\\\)[A-Za-z0-9%\-_@]+\.[A-Za-z0-9%\-_@]+[A-Za-z0-9\.\/=\?%\-&_~`@:\+!;]*";
               var contentRex = "<!-- 正文开始 -->(.||\n)*<!-- 正文结束 -->";
               var matchs = Regex.Matches(c, regex);
@@ -54,46 +55,41 @@ namespace Tool.ArticleSpider
                       var title = tepTitle.Remove(tepTitle.LastIndexOf('<'));
                       if (url.Contains("?"))
                       {
-                          try
+
+                          var urlContent = RequestHelper.HttpGet(url);
+                          var article = Regex.Match(urlContent, contentRex);
+
+
+
+
+                          if (!string.IsNullOrEmpty(article.Value))
                           {
-                              var urlContent = RequestHelper.HttpGet(url);
-                              var article = Regex.Match(urlContent, contentRex);
+                              var content = article.Value.Replace("DIV", "p").Replace("div", "p");
+                              content = imgRegex.Replace(content, "");
+                              content = content.Replace("real_", "");
+                              content = TransImg(content);
 
-                            
-
-
-                              if (!string.IsNullOrEmpty(article.Value))
+                              var articleEntity = new Basic_Article()
                               {
-                                  var content = article.Value.Replace("DIV", "p").Replace("div", "p");
-                                  content = imgRegex.Replace(content, "");
-                                  content = content.Replace("real_", "");
-                                  content = TransImg(content);
+                                  Content = content,
+                                  Title = title,
+                                  SubTitle = title,
+                                  Author = "佚名",
+                                  Category = "1",
+                                  Source = "Sina",
+                                  SourceUrl = url,
+                                  Sort = 1,
+                                  KeyWord = "sina",
+                                  CreateTime = DateTime.Now,
+                                  ModifyTIme = DateTime.Now,
+                                  ArticleStatus = 1,
+                                  Position = "A1000"
+                              };
 
-                                  var articleEntity = new Basic_Article()
-                                  {
-                                      Content = content,
-                                      Title = title,
-                                      SubTitle = title,
-                                      Author = "佚名",
-                                      Category = "1",
-                                      Source = "Sina",
-                                      SourceUrl = url,
-                                      Sort = 1,
-                                      KeyWord = "sina",
-                                      CreateTime = DateTime.Now,
-                                      ModifyTIme = DateTime.Now,
-                                      ArticleStatus = 1,
-                                      Position = "A1000"
-                                  };
+                              list.Add(articleEntity);
+                              SetLableInfo("已经抓到" + list.Count + "条");
+                          }
 
-                                  list.Add(articleEntity);
-                                  SetLableInfo("已经抓到" + list.Count + "条");
-                              }
-                          }
-                          catch
-                          {
-                              
-                          }
 
                       }
                   }
@@ -103,14 +99,23 @@ namespace Tool.ArticleSpider
                   var configList = Config.GetConfig();
                   foreach (var item in configList)
                   {
-                      var resultList = list.Where(r =>r.ArticleStatus==(int) ArticleStatus.Enable&& (r.Title.ContainsCollectElement(item.keyWord) || 
+                      var i = 1;
+                      var resultList = list.Where(r => r.ArticleStatus == (int)ArticleStatus.Enable && (r.Title.ContainsCollectElement(item.keyWord) ||
                       r.SubTitle.ContainsCollectElement(item.keyWord) || r.Content.ContainsCollectElement(item.keyWord))).Take(item.count).ToList();
-                      resultList.ForEach(x=>
+                      resultList.ForEach(x =>
                       {
                           x.Position = item.position;
                           x.ArticleStatus = 2;//代表正在被使用
+                          x.Sort = i++;
+                          x.KeyWord = item.keyWord;
+                          if (item.isPic == 1)
+                          {
+                              //说明需要图片，获得一个图片给subtitle
+                              var imgUrl = Regex.Match(x.Content, getImg);  
+                              x.SubTitle = imgUrl.Value;//
+                          }
                       });
-                       
+
                   }
                   SetLableInfo("整理完成...");
                   SetLableInfo("正在入库");
@@ -137,10 +142,10 @@ namespace Tool.ArticleSpider
             foreach (var itemImg in imgUrlArr)
             {
 
-                var fileName = Guid.NewGuid().ToString().Replace("-","")+ ".jpg";
+                var fileName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
                 var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download", fileName);
                 var item = regexHttp.Match(itemImg.ToString());
-                if (string.IsNullOrEmpty(item.Value)||IsPic(item.Value))
+                if (string.IsNullOrEmpty(item.Value) || IsPic(item.Value))
                 {
                     continue;
                 }
@@ -172,7 +177,7 @@ namespace Tool.ArticleSpider
         }
 
 
-       
+
         private bool IsPic(string uri)
         {
             if (uri.EndsWith(".jpg") || uri.EndsWith(".jpeg") || uri.EndsWith(".bmp") || uri.EndsWith(".gif") || uri.EndsWith(".png"))

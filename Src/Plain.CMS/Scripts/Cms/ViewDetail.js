@@ -8,6 +8,18 @@
                 var commitContent = $("#txtCommit").val();
                 if (!commitContent) {
                     $("#txtMsg").show();
+                    $("#txtMsg").html("评论不能为空...");
+                    return false;
+                }
+                if (commitContent.length > 500) {
+                    $("#txtMsg").show();
+                    $("#txtMsg").html("字数过长,不能超过500...");
+                    return false;
+                }
+
+                if ($("#txtUser").val()==="0") {
+                    $("#txtMsg").show();
+                    $("#txtMsg").html("请先登录...");
                     return false;
                 }
                 $("#txtMsg").hide();

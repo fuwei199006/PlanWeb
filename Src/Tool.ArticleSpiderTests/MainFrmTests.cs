@@ -9,6 +9,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Framework.Utility;
 using System.Net;
+using Plain.BLL.Article;
 
 namespace Tool.ArticleSpider.Tests
 {
@@ -71,7 +72,21 @@ namespace Tool.ArticleSpider.Tests
           
             return stream;
         }
+              [TestMethod()]
+        public void UpdateArticleTest()
+        {
+            var service = new ArticleService();
+            var list = service.GetArticles().Where(r=>r.Id== 1).ToList();
+            var regex = @"(http|https|ftp|rtsp|mms):(\/\/|\\\\)[A-Za-z0-9%\-_@]+\.[A-Za-z0-9%\-_@]+[A-Za-z0-9\.\/=\?%\-&_~`@:\+!;]*";
+            foreach (var item in list)
+            {
+                //说明需要图片，获得一个图片给subtitle
+                var imgUrl = Regex.Match(item.Content, regex);
+                item.SubTitle = imgUrl.Value;//
+            }
 
+            service.UpdateRang(list);
+        }
 
         }
     }

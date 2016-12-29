@@ -15,6 +15,8 @@ namespace Tool.ArticleSpider.Dtos
         public int autoAdd { get; set; }
         public int count { get; set; }
 
+        public int isPic { get; set; }
+
         public static List<Config> GetConfig()
         {
             var configFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cms.json");

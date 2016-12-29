@@ -1,4 +1,7 @@
-﻿@using Plain.Web
+﻿
+@using Framework.Extention
+@using Plain.Web
+@using Framework.Web
 @model Plain.Model.Models.Model.Basic_Article
 
 @{
@@ -9,10 +12,10 @@
 <div class="article center">
     <h1>@Model.Title</h1>
     <div class="source">
-        时间：
-        &nbsp;@Model.CreateTime &nbsp;&nbsp;来源：@Model.Source &nbsp;
-        <a href="#" target="_blank">我来投稿</a>&nbsp;
-        <a href="#SOHUCS">我要评论</a>
+        时间:
+        &nbsp;@Model.CreateTime &nbsp;&nbsp;来源:@Model.Source &nbsp;
+        @*<a href="#" target="_blank">我来投稿</a>&nbsp;*@
+        <a href="#txtCommit">我要评论</a>
 
         <div style="position:absolute;right:190px;top:0px;width:145px;">
             <div class="bdsharebuttonbox bdshare-button-style0-16">
@@ -46,7 +49,8 @@
         @Html.Raw(Model.Content)
         @*<p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
             <div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>*@
-        <p style="font-size:14px;font-weight:bold;font-style:italic;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。</p>
+        <p style="font-size:14px;font-weight:bold;font-style:italic;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。本文源网址:<a href="@Model.SourceUrl" target="_blank">@Model.SourceUrl</a></p>
+ 
 
     </div>
 </div>
@@ -57,7 +61,7 @@
             @foreach (var m in AdminCacheContext.Current.ArticleItems["A3021"])
             {
                 <li>
-                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title)</a>
+                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title.CutString(40))</a>
                 </li>
             }
 
@@ -72,7 +76,7 @@
             @foreach (var m in AdminCacheContext.Current.ArticleItems["A3022"])
             {
                 <li>
-                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title)</a>
+                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title.CutString(40))</a>
                 </li>
             }
 
@@ -85,7 +89,7 @@
             @foreach (var m in AdminCacheContext.Current.ArticleItems["A3023"])
             {
                 <li>
-                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title)</a>
+                    <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@(m.Sort + "、" + m.Title.CutString(40))</a>
                 </li>
             }
 
@@ -169,26 +173,34 @@
 
     </div>
     <div class="commitBox center">
-        @if (AdminCookieContext.Current == null)
+        @if (AdminUserContext.Current.BasicUserInfo==null)
         {
             <span class="login f_right"><a href="#">登录</a></span>
             <span class="login f_right"><a href="#">注册</a></span>
         }
 
         <div class="commit clear">
-            <textarea placeholder="来说两句吧..." id="txtCommit"></textarea>
+            <textarea placeholder="来说两句吧..." id="txtCommit" name="Commit"></textarea>
 
         </div>
 
         <button class="f_right btnSubmit " id="btnCommit" ms-click="addCommit">评论</button>
-        <div class="error" id="txtMsg" style="display:none">评论不能为空..</div>
+        <div class="error" id="txtMsg" style="display:none"></div>
         <div class="load" id="load" style="display:none">处理中..</div>
     </div>
 </div>
 <div style="display: none">
     <input type="hidden" id="txtArticleId" value="@Model.Id" />
     <input type="hidden" id="txtUrl" value="@Url.Action("GetCommit")" />
-
+@if (AdminUserContext.Current.BasicUserInfo != null)
+{
+    <input type="hidden" id="txtUser" value="1" />
+}
+else
+{
+    <input type="hidden" id="txtUser" value="0" />
+}
+ 
 </div>
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript">

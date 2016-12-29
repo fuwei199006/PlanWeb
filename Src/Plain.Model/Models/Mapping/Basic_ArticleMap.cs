@@ -21,7 +21,7 @@ namespace Plain.Model.Models.Mapping
             this.Property(t => t.Source)
 			.HasMaxLength(100);
 			this.Property(t => t.KeyWord)
-			.IsRequired().HasMaxLength(50);
+			.IsRequired().HasMaxLength(200);
 			this.Property(t => t.SourceUrl)
 			.IsRequired().HasMaxLength(200);
             this.Property(t => t.Position)

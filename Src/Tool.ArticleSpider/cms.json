@@ -1,164 +1,25 @@
 [
-  {
-    position: "A1002",
-    count: 2,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1003",
-    count: 2,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1004",
-    count: 2,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1011",
-    count: 1,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1012",
-    count: 2,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1013",
-    count: 4,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1021",
-    count: 1,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1022",
-    count: 7,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1023",
-    count: 9,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1031",
-    count: 1,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1032",
-    count: 8,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1033",
-    count: 9,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1041",
-    count: 11,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1042",
-    count: 4,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1051",
-    count: 10,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1052",
-    count: 4,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1060",
-    count: 4,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1070",
-    count: 10,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1080",
-    count: 3,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A1090",
-    count: 4,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3021",
-    count: 6,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3022",
-    count: 6,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3023",
-    count: 6,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3031",
-    count: 5,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3032",
-    count: 5,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3033",
-    count: 5,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  },
-  {
-    position: "A3034",
-    count: 5,
-    keyWord: "天气;美女;汽车;旅游;星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",
-    autoAdd: 1
-  }
-]
+ {position:"A1011",isPic:1,count:1  ,keyWord:"天气;美女;",autoAdd:1},
+{position:"A1012",isPic:0,count:2  ,keyWord:"汽车;旅游;",autoAdd:1},
+{position:"A1013",isPic:0,count:4  ,keyWord:"星座;房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1021",isPic:1,count:1  ,keyWord:"房产;娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1022",isPic:0,count:7  ,keyWord:"娱乐;体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1023",isPic:0,count:9  ,keyWord:"体育;文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1031",isPic:1,count:1  ,keyWord:"文史;女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1032",isPic:0,count:8  ,keyWord:"女性;股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1033",isPic:0,count:9  ,keyWord:"股票;教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1041",isPic:1,count:11,keyWord:"教育;星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1042",isPic:0,count:4  ,keyWord:"星座;美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1051",isPic:1,count:10,keyWord:"美食;设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1052",isPic:0,count:4  ,keyWord:"设计;育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1060",isPic:1,count:4  ,keyWord:"育儿;旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1070",isPic:0,count:10,keyWord:"旅游;收藏;时尚;图片;",autoAdd:1},
+{position:"A1080",isPic:1,count:3  ,keyWord:"收藏;时尚;图片;",autoAdd:1},
+{position:"A1090",isPic:0,count:4  ,keyWord:"时尚;图片;",autoAdd:1},
+{position:"A3021",isPic:0,count:6  ,keyWord:"美女;汽车",autoAdd:1},
+{position:"A3022",isPic:0,count:6  ,keyWord:"旅游;",autoAdd:1},
+{position:"A3023",isPic:0,count:6  ,keyWord:"汽车;收藏",autoAdd:1},
+{position:"A3031",isPic:1,count:5  ,keyWord:"美女;",autoAdd:1},
+{position:"A3032",isPic:1,count:5  ,keyWord:"美女;",autoAdd:1},
+{position:"A3033",isPic:1,count:5  ,keyWord:"美女;",autoAdd:1},
+{position:"A3034",isPic:1,count:5  ,keyWord:"美女;",autoAdd:1}]

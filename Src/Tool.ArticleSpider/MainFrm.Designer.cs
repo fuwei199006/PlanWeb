@@ -34,11 +34,11 @@
             // 
             // btnSpider
             // 
-            this.btnSpider.Location = new System.Drawing.Point(55, 132);
+            this.btnSpider.Location = new System.Drawing.Point(12, 12);
             this.btnSpider.Name = "btnSpider";
             this.btnSpider.Size = new System.Drawing.Size(75, 23);
             this.btnSpider.TabIndex = 0;
-            this.btnSpider.Text = "爬取";
+            this.btnSpider.Text = "爬取Sina";
             this.btnSpider.UseVisualStyleBackColor = true;
             this.btnSpider.Click += new System.EventHandler(this.btnSpider_Click);
             // 

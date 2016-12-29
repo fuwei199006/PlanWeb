@@ -77,5 +77,22 @@ namespace Plain.BLL.Article.Tests
 
             return content;
         }
+
+        [TestMethod()]
+        public void FixImgArticleTest()
+        {
+            var service = new ArticleService();
+            var list = service.GetArticles().Where(r => r.SubTitle == string.Empty).ToList();
+            var regex = @"htt[^<>]+\.jpg";
+            foreach (var item in list)
+            {
+                //说明需要图片，获得一个图片给subtitle
+                var imgUrl = Regex.Match(item.Content, regex);
+                item.SubTitle = imgUrl.Value;//
+            }
+
+            service.UpdateRang(list);
+        }
+
     }
 }
