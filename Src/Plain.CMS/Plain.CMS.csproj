@@ -181,6 +181,7 @@
     <Content Include="Content\Plain\css\main.css" />
     <Content Include="Content\Plain\css\register.css" />
     <Content Include="Content\Plain\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Plain\img\none.jpg" />
     <Content Include="Content\Plain\img\avatar.png" />
     <Content Include="Content\Plain\img\demo.jpg" />
     <Content Include="Content\Plain\img\dog.jpg" />
