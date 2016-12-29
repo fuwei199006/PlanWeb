@@ -11,7 +11,7 @@ namespace Plain.Model.Models.Mapping
 			this.Property(t => t.Title)
 			.HasMaxLength(200);
 			this.Property(t => t.SubTitle)
-			.IsRequired().HasMaxLength(200);
+			.IsRequired().HasMaxLength(500);
 			this.Property(t => t.Author)
 			.HasMaxLength(50);
 			this.Property(t => t.Category)

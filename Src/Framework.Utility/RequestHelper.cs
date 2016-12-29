@@ -90,26 +90,35 @@ namespace Framework.Utility
 
         public static string HttpGet(string uri)
         {
-            StringBuilder respBody = new StringBuilder();
-            HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
-            request.Method = "GET";
-            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
-
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-
-            byte[] buffer = new byte[8192];
-            Stream stream;
-            stream = response.GetResponseStream();
-            int count = 0;
-            do
+            try
             {
-                count = stream.Read(buffer, 0, buffer.Length);
-                if (count != 0)
-                    respBody.Append(Encoding.UTF8.GetString(buffer, 0, count));
+                StringBuilder respBody = new StringBuilder();
+                HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
+                request.Method = "GET";
+                request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+                byte[] buffer = new byte[8192];
+                Stream stream;
+                stream = response.GetResponseStream();
+                int count = 0;
+                do
+                {
+                    count = stream.Read(buffer, 0, buffer.Length);
+                    if (count != 0)
+                        respBody.Append(Encoding.UTF8.GetString(buffer, 0, count));
+                }
+                while (count > 0);
+                string responseText = respBody.ToString();
+                return responseText;
             }
-            while (count > 0);
-            string responseText = respBody.ToString();
-            return responseText;
+            catch (Exception exp)
+            {
+                return String.Empty;
+               
+            }
+           
         }
 
         public static Stream HttpGetStream(string uri)

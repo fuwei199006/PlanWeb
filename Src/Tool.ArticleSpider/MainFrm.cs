@@ -142,8 +142,14 @@ namespace Tool.ArticleSpider
             foreach (var itemImg in imgUrlArr)
             {
 
-                var fileName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
-                var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download", fileName);
+              
+                var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download/",DateTime.Now.ToString("yyyyMMdd"));
+                if (!Directory.Exists(downPath))
+                {
+                    Directory.CreateDirectory(downPath);
+                }
+                var picName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
+                var fileName = downPath+"/"+ picName;
                 var item = regexHttp.Match(itemImg.ToString());
                 if (string.IsNullOrEmpty(item.Value) || IsPic(item.Value))
                 {
@@ -152,23 +158,20 @@ namespace Tool.ArticleSpider
                 var stream = RequestHelper.HttpGetStream(item.Value);
                 if (stream != null && stream != Stream.Null)
                 {
-                    using (var fileStream = new FileStream(downPath, FileMode.Create))
+                    using (var fileStream = new FileStream(fileName, FileMode.Create))
                     {
-                        int bytesProcessed = 0;
                         var buffer = new byte[1024];
                         int bytesRead;
                         do
                         {
                             bytesRead = stream.Read(buffer, 0, buffer.Length);
                             fileStream.Write(buffer, 0, bytesRead);
-                            bytesProcessed += bytesRead;
-
                         }
                         while (bytesRead > 0);
 
                         fileStream.Flush();
                     }
-                    content = content.Replace(item.ToString(), fileDomain + fileName);
+                    content = content.Replace(item.ToString(), fileDomain+"/"+DateTime.Now.ToString("yyyMMdd") +"/"+ picName);
                 }
             }
 
