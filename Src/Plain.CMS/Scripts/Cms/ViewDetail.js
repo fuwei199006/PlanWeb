@@ -27,7 +27,7 @@
                 $.post("/PlainCms/CmsHome/AddCommit", { articleId: $("#txtArticleId").val(), content: commitContent, type: 0 }, function (res) {
                     $("#txtMsg").hide();
                     $("#load").hide();
-                    $("#txtCommit").empty();
+                    $("#txtCommit").val("");
                     that.commitList.push(res)
                 });
             }

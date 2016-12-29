@@ -50,7 +50,7 @@
         @*<p style="text-align: center;font-weight: bold;font-size: 14px;padding: 10px 0 15px">XXXXXXX<span style="color:red;">XXXX</span>微信二维码，定期抽<span style="color:red;">大奖</span>。</p>
             <div style="text-align: center;padding-bottom: 5px;"><img src="img/weixin.png" alt=""></div>*@
         <p style="font-size:14px;font-weight:bold;font-style:italic;">【版权与免责声明】如发现内容存在版权问题，烦请提供相关信息发邮件至xxxxxx@xxx.com，我们将及时沟通与处理。本站内容除非来源注明xxxx，否则均为网友转载，涉及言论、版权与本站无关。本文源网址:<a href="@Model.SourceUrl" target="_blank">@Model.SourceUrl</a></p>
- 
+
 
     </div>
 </div>
@@ -156,8 +156,7 @@
                             </ul>
                         </div>
                         <div class="discussOperate f_right  ">
-
-                            <span><a href="#">回复</a></span>
+                            <span><a href="#txtCommit">回复</a></span>
                             <span><a href="#">举报</a></span>
 
                         </div>
@@ -173,7 +172,7 @@
 
     </div>
     <div class="commitBox center">
-        @if (AdminUserContext.Current.BasicUserInfo==null)
+        @if (AdminUserContext.Current.BasicUserInfo == null)
         {
             <span class="login f_right"><a href="#">登录</a></span>
             <span class="login f_right"><a href="#">注册</a></span>
@@ -192,15 +191,15 @@
 <div style="display: none">
     <input type="hidden" id="txtArticleId" value="@Model.Id" />
     <input type="hidden" id="txtUrl" value="@Url.Action("GetCommit")" />
-@if (AdminUserContext.Current.BasicUserInfo != null)
-{
-    <input type="hidden" id="txtUser" value="1" />
-}
-else
-{
-    <input type="hidden" id="txtUser" value="0" />
-}
- 
+    @if (AdminUserContext.Current.BasicUserInfo != null)
+    {
+        <input type="hidden" id="txtUser" value="1" />
+    }
+    else
+    {
+        <input type="hidden" id="txtUser" value="0" />
+    }
+
 </div>
 @section PageSpecificJavascriptIncludes{
     <script type="text/javascript">
@@ -216,10 +215,7 @@ else
                 $("#pageContent ul").html(res);
             });
             view.init();
-            @*$.post('@Url.Action("GetCommit")', {}, function (res) {
-
-            });*@
-
+ 
         });
     </script>
 }
