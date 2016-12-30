@@ -118,7 +118,47 @@ namespace Framework.Utility
             return Regex.IsMatch(s, @"^[1][3-8]\d{9}$", RegexOptions.IgnoreCase);
         }
 
-        
+        public static string GetImgUrl(string imgUrl)
+        {
+            if (string.IsNullOrEmpty(imgUrl))
+            {
+                return imgUrl;
+            }
+            return HttpUrlRegex.Match(imgUrl).Value;
+        }
+      
+
+        public static bool IsPic(string s)
+        {
+             return   Regex.IsMatch(s, @"\.(jpg|jpeg|png|bmp|gif)\?*$", RegexOptions.IgnoreCase);
+        }
+
+        public static Regex HttpUrlRegex
+        {
+            get
+            {
+                return new Regex(@"(http|https|ftp|rtsp|mms):(\/\/|\\\\)[A-Za-z0-9%\-_@]+\.[A-Za-z0-9%\-_@]+[A-Za-z0-9\.\/=\?%\-&_~`@:\+!;]*");
+            }
+        }
+
+        /// <summary>
+        /// 获得所有img的标签
+        /// </summary>
+        public static Regex ImgHtmlRegex
+        {
+            get
+            {
+                return new Regex(@"<img[^<>]+/>");
+            }
+        }
+
+        public static Regex AHtmlRegex
+        {
+            get
+            {
+                return new Regex(@"<a[^<>]+>[^<>]+</a>");
+            }
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Framework.Extention
 {
@@ -56,6 +57,12 @@ namespace Framework.Extention
         public static bool ContainsCollectElement(this string str, string strCollect)
         {
             return str.ContainsCollectElement(strCollect, ';');
+        }
+
+        public static string GetSubtitle(this string str)
+        {
+            //Regex.Replace(str, @"<[^<>]+>|\s");
+            return str.CutString(40);
         }
     }
 }

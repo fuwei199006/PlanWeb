@@ -3,6 +3,7 @@ using System.Text;
 using Framework.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web;
+using System.IO;
 
 namespace Framework.Utility.Tests
 {
@@ -16,6 +17,22 @@ namespace Framework.Utility.Tests
             //    RequestHelper.GetContent("https://www.baidu.com/", 0,3,Encoding.UTF8);
             //Assert.IsNotNull(result);
         }
+
+        [TestMethod()]
+        public void DownloadPicByCatergoryTest()
+        {
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Download");
+            var name = Guid.NewGuid().ToString().Replace("-", "");
+            RequestHelper.DownloadPicByCatergory("http://n.sinaimg.cn/blog/20161230/YFDn-fxzencv2447378.jpg", path, name, "sina");
+            Assert.IsTrue(File.Exists(path + "/sina/" + name + ".jpg"));
+        }
+
+        //[TestMethod()]
+        //public void HttpPostTest()
+        //{
+          
+        //    RequestHelper.UploadFile("http://localhost:8088/Image/", @"E:\github\PlanWeb\Src\Framework.UtilityTests\bin\Debug\Download\20161230\sina\b0d02f30af774d93947bb81e0152e192.jpg");
+        //}
     }
 }
 

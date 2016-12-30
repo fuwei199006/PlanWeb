@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Framework.Extention 
 {
@@ -28,6 +29,18 @@ namespace Framework.Extention
         public static T Random<T>(this IEnumerable<T> collection)
         {
             return collection.Random<T>(1).SingleOrDefault();
+        }
+
+        public static string[] ToArray(this MatchCollection matchs)
+        {
+            var str = new string[matchs.Count];
+            var arr = new object[matchs.Count];
+            matchs.CopyTo(arr,0);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                str[i] = arr[i].ToString();
+            }
+            return str ;
         }
     }
 }
