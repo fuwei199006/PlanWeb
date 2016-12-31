@@ -127,7 +127,7 @@ namespace Framework.Utility
             catch (WebException exp)
             {
                 Thread.Sleep(60 * 1000);
-                return HttpGet(uri, retry--);
+                return HttpGet(uri, --retry);
 
             }
 
@@ -140,7 +140,7 @@ namespace Framework.Utility
         /// <returns></returns>
         public static Stream HttpGetStream(string uri, int retry = 3)
         {
-            if (retry == 0) return null;
+            if (retry == 0||string.IsNullOrEmpty(uri)) return null;
             StringBuilder respBody = new StringBuilder();
             HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
             request.Method = "GET";
@@ -157,7 +157,7 @@ namespace Framework.Utility
             catch (WebException e)
             {
                 Thread.Sleep(60 * 1000);
-                return HttpGetStream(uri, retry--);
+                return HttpGetStream(uri, --retry);
             }
 
         }
@@ -198,27 +198,28 @@ namespace Framework.Utility
             return false;
         }
 
-        public static string  DownloadPicByCatergory(string url,string path,string name,string catergory)
+        public static string  DownloadPicByCatergory(string url,string path,string name,string catergory, string extention = ".jpg")
         {
-            return DownloadPicByCatergory(url, path, name, catergory, false);
+            return DownloadPicByCatergory(url, path, name, catergory, false, extention);
         }
 
-        public static string DownloadPicByCatergory(string url, string path, string name, string catergory,bool isReturnDomainPath)
+        public static string DownloadPicByCatergory(string url, string path, string name, string catergory, bool isReturnDomainPath, string extention = ".jpg")
         {
+            
             var datePath = Path.Combine(DateTime.Now.ToString("yyyyMMdd"), catergory);
             var pythicalPath = Path.Combine(path, datePath);
             if (!Directory.Exists(pythicalPath))
             {
                 Directory.CreateDirectory(pythicalPath);
             }
-            var res = DownloadPic(url, pythicalPath, name);
+            var res = DownloadPic(url, pythicalPath, name, extention);
             if (res)
             {
                 if (isReturnDomainPath)
                 {
-                    return DomainUrl + Path.Combine(datePath, name);
+                    return DomainUrl + Path.Combine(datePath, name).Replace(@"\","/")+extention;
                 }
-                return Path.Combine(datePath, name);
+                return Path.Combine(datePath, name) + extention;
             }
             return string.Empty;
         }

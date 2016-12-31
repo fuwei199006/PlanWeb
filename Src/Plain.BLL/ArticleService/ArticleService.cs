@@ -28,6 +28,11 @@ namespace Plain.BLL.Article
           return this.LoadEntitiesNoTracking(r=>r.ArticleStatus== (int)ArticleStatus.InUsing).ToList();
         }
 
+        public List<Basic_Article> GetDraftArticles()
+        {
+            return this.LoadEntities(r => r.ArticleStatus == (int)ArticleStatus.Enable).ToList();
+        }
+
         public Basic_Article GetArticlesById(int id)
         {
             return this.GetEntityByIdNoTracking(id);
@@ -36,6 +41,11 @@ namespace Plain.BLL.Article
         public void AddArticleList(List<Basic_Article> articles)
         {
               this.AddRange(articles);
+        }
+
+        public Basic_Article AddArticle(Basic_Article articles)
+        {
+            return this.Add(articles);
         }
 
         public List<Basic_Article> GetArticlePage(ArticleRequest request)
@@ -50,6 +60,11 @@ namespace Plain.BLL.Article
         public Basic_Article UpdateArticle(Basic_Article article)
         {
             return this.Update(article);
+        }
+
+        public void UpdateArticle(List<Basic_Article> article)
+        {
+             this.UpdateRang(article);
         }
 
         /// <summary>

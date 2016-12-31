@@ -88,5 +88,8 @@ namespace Tool.ArticleSpider.Tests
             service.UpdateRang(list);
         }
 
+
+         
+
         }
     }

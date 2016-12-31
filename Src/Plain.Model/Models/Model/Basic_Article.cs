@@ -18,10 +18,11 @@ namespace Plain.Model.Models.Model
         public int Sort { get; set; }
         public string KeyWord { get; set; }
  
-        public Nullable<System.DateTime> ModifyTIme { get; set; }
+        public DateTime ModifyTIme { get; set; }
         public  int  ArticleStatus { get; set; }
 
         public string Position { get; set; }
+ 
         [NotMapped]
         public List<Basic_Commit> CommitList { get; set; }
     }

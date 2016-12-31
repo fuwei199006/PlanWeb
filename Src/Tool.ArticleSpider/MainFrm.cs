@@ -23,6 +23,7 @@ namespace Tool.ArticleSpider
 {
     public partial class MainFrm : Form
     {
+        readonly IArticleService _service = ServiceContext.Current.CreateService<IArticleService>();
         public MainFrm()
         {
             InitializeComponent();
@@ -37,126 +38,173 @@ namespace Tool.ArticleSpider
              * 5. 根据config 生成对应的文章和位置
              * */
             //下载路径
+
+
+            var dataKey = DateTime.Now.ToString("yyyyMMdd") + "_Sina";
+            var dataCache = GetCurrentData(dataKey);
+            if (dataCache != null)
+            {
+                ResizeArticle(dataCache);
+                SetLableInfo("正在入库");
+                _service.AddArticleList(dataCache);
+                SetLableInfo("完成" + dataCache.Count);
+                return;
+            }
+
             var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download/");
             var indexHtml = RequestHelper.HttpGet("http://blog.sina.com.cn/");
-            var matchs = Regex.Matches(indexHtml, SinaBlogRegexKey.ARegex);
-            var aArr = new object[matchs.Count];//所有的A标签
+            //var matchs = Regex.Matches(indexHtml, SinaBlogRegexKey.ARegex);
+            var aArr =
+                Regex.Matches(indexHtml, SinaBlogRegexKey.ARegex).ToArray().Where(r => !string.IsNullOrEmpty(r)).GroupBy(r => r).Select(x => x.Key).ToArray();
+            //所有的A标签
             var articleIndex = 0;
-            var listArticles = new List<Basic_Article>();
-            foreach (var _item in aArr)
+
+            var articleList = new List<Basic_Article>();
+            ThreadPool.QueueUserWorkItem(obj =>
             {
-                articleIndex++;
-                var item = _item.ToString();
-                var title = item.Substring(item.IndexOf('>') + 1);
-                title = title.Remove(title.LastIndexOf('<'));//标题
-                //获得Url
-                var url = Regex.Match(item, SinaBlogRegexKey.UrlRegex).ToString();
-                var urlContent = RequestHelper.HttpGet(url);
-                //正文
-                var blogContent = Regex.Match(urlContent, SinaBlogRegexKey.BlogContentRegex).Value;
-                blogContent.Replace("DIV", "p").Replace("div", "p");
-                if (!string.IsNullOrEmpty(blogContent))
+                foreach (var _item in aArr)
                 {
-                    //处理正文的图片
-                    #region 处理正文的图片
-                    var imgUrls = Regex.Matches(blogContent, SinaBlogRegexKey.BlogImgRegex).ToArray();//img标签
-                    var imgIndex = 0;
-                    foreach (var _imgUrl in imgUrls)
+
+                    var item = _item.ToString();
+                    var title = item.RemoveHtml();
+                    //获得Url
+                    var url = Regex.Match(item, SinaBlogRegexKey.UrlRegex).ToString();
+                    if (string.IsNullOrEmpty(url)) continue;
+                    var urlContent = RequestHelper.HttpGet(url);
+                    articleIndex++;
+                    //正文
+                    var blogContent = Regex.Match(urlContent, SinaBlogRegexKey.BlogContentRegex).Value;
+                    blogContent =
+                        Regex.Replace(blogContent, SinaBlogRegexKey.SrcRegex, "")
+                            .Replace("DIV", "p")
+                            .Replace("div", "p")
+                            .Replace("real_", "");
+                    if (!string.IsNullOrEmpty(blogContent))
                     {
-                        imgIndex++;
-                        var imgUrl = RegExp.GetImgUrl(_imgUrl);
-                        if (!RegExp.IsPic(imgUrl))
+                        //处理正文的图片
+
+                        #region 处理正文的图片
+                        var imgUrls =
+                            Regex.Matches(blogContent, SinaBlogRegexKey.BlogImgRegex)
+                                .ToArray()
+                                .GroupBy(r => r)
+                                .Select(x => x.Key)
+                                .ToArray(); //img标签
+                        var imgIndex = 0;
+                        foreach (var _imgUrl in imgUrls)
                         {
-                            var fileName = articleIndex + "_" + imgIndex + "_" + Guid.NewGuid().ToString().Replace("-", "");
-                            var resFilePath = RequestHelper.DownloadPicByCatergory(imgUrl, downPath, fileName, "Sina");
-                            item.Replace(imgUrl, resFilePath);
-                            Regex.Replace(blogContent, SinaBlogRegexKey.SrcRegex, "");
-                            blogContent.Replace("real_", "");
 
+                            var imgUrl = RegExp.GetImgUrl(Regex.Match(_imgUrl, SinaBlogRegexKey.RealSrcRegex).Value);
+
+                            if (!RegExp.IsPic(imgUrl) && !string.IsNullOrEmpty(imgUrl))
+                            {
+                                imgIndex++;
+                                var fileName = articleIndex + "_" + imgIndex + "_" +
+                                               Guid.NewGuid().ToString().Replace("-", "");
+
+                                var resFilePath = RequestHelper.DownloadPicByCatergory(imgUrl, downPath, fileName, "Sina",
+                                    true);
+                                blogContent = blogContent.Replace(imgUrl, resFilePath);
+
+                            }
                         }
-                    }
-                    #endregion
-                    #region 处理文章尾的图片
+                        #endregion
 
-                    var endImgs = Regex.Matches(blogContent, SinaBlogRegexKey.EndImgRegex).ToArray();
-                    foreach (var _endImg in endImgs)
+                        #region 处理文章尾的图片
+
+                        #endregion
+                    }
+
+                    articleList.Add(new Basic_Article()
                     {
-                        imgIndex++;
-                        var endImg = RegExp.GetImgUrl(_endImg);
-                        var fileName = articleIndex + "_" + imgIndex + "_" + Guid.NewGuid().ToString().Replace("-", "");
-                        var resFilePath = RequestHelper.DownloadPicByCatergory(endImg, downPath, fileName, "Sina");
-                        item.Replace(endImg, resFilePath);
-                    } 
-                    #endregion
+                        Title = title,
+                        SubTitle = blogContent.GetSubtitle(),
+                        CreateTime = DateTime.Now,
+                        ModifyTIme = DateTime.Now,
+                        ArticleStatus = (int)ArticleStatus.Enable,
+                        Author = "佚名",
+                        Category = "1",
+                        Content = blogContent,
+                        Sort = 1,
+                        SourceUrl = url,
+                        Source = "Sina",
+                        KeyWord = "NaN",
+                        Position = "A1000"
+
+
+                    });
+                    SetLableInfo("已经抓到:" + articleIndex);
                 }
 
-                listArticles.Add(new Basic_Article()
+                SetLableInfo("创建缓存..");
+                SetCurrentData(dataKey,articleList);
+                SetLableInfo("正在入库");
+                ResizeArticle(articleList);
+                _service.AddArticleList(articleList);
+                SetLableInfo("完成" + articleList.Count);
+
+
+            });
+
+        }
+
+        public void ResizeArticle(List<Basic_Article> articleList)
+        {
+            _service.DisableUsingArticle();
+            SetLableInfo("正在整理位置...");
+            //var dbArticleList = service.GetArticles();
+            var configList = Config.GetConfig();
+            foreach (var item in configList)
+            {
+                var i = 1;
+                var resultList =
+                    articleList.Where(
+                        r =>
+                            r.ArticleStatus == (int)ArticleStatus.Enable &&
+                            (r.Title.ContainsCollectElement(item.keyWord) ||
+                             r.SubTitle.ContainsCollectElement(item.keyWord) ||
+                             r.Content.ContainsCollectElement(item.keyWord))).Take(item.count).ToList();
+                resultList.ForEach(x =>
                 {
-                    Title=title,
-                    SubTitle=title
+                    x.Position = item.position;
+                    x.ArticleStatus = 2; //代表正在被使用
+                    x.Sort = i++;
+                    x.KeyWord = item.keyWord;
+                    if (item.isPic == 1)
+                    {
+                        //说明需要图片，获得一个图片给subtitle
+                        var imgUrls =
+                            Regex.Matches(x.Content, SinaBlogRegexKey.BlogImgRegex).ToArray();
+                        if (imgUrls.Any())
+                        {
+                            x.SubTitle = Regex.Match(imgUrls[0], SinaBlogRegexKey.PicMsgRegex).Value;
+                        }
+
+                    }
                 });
             }
-
-
+            SetLableInfo("整理完成...");
         }
 
+
+        public List<Basic_Article> GetCurrentData(string key)
+        {
+            var cachePath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../DataCache/", key + ".json");
+            if (File.Exists(cachePath))
+            {
+                var content = File.ReadAllText(cachePath);
+                return SerializationHelper.JsonDeserialize<List<Basic_Article>>(content);
+            }
+            return null;
+        }
+        public void SetCurrentData(string key, List<Basic_Article> articles)
+        {
+            var cachePath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../DataCache/", key + ".json");
+            File.WriteAllText(cachePath, SerializationHelper.JsonSerialize(articles));
+
+        }
         #region MyRegion
-        private string TransImg(string content)
-        {
-            var fileDomain = "http://localhost:8088/Image/";
 
-            var regexImg = new Regex("<img[^<>]+>");
-            var regexHttp = new Regex(@"(http|https|ftp|rtsp|mms):(\/\/|\\\\)[A-Za-z0-9%\-_@]+\.[A-Za-z0-9%\-_@]+[A-Za-z0-9\.\/=\?%\-&_~`@:\+!;]*");
-            var imgContent = regexImg.Matches(content);
-            var imgUrlArr = new object[imgContent.Count];
-            imgContent.CopyTo(imgUrlArr, 0);
-            foreach (var itemImg in imgUrlArr)
-            {
-
-
-                var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download/", DateTime.Now.ToString("yyyyMMdd"));
-                if (!Directory.Exists(downPath))
-                {
-                    Directory.CreateDirectory(downPath);
-                }
-                var picName = Guid.NewGuid().ToString().Replace("-", "") + ".jpg";
-                var fileName = downPath + "/" + picName;
-                var item = regexHttp.Match(itemImg.ToString());
-                if (string.IsNullOrEmpty(item.Value) || IsPic(item.Value))
-                {
-                    continue;
-                }
-                var stream = RequestHelper.HttpGetStream(item.Value);
-                if (stream != null && stream != Stream.Null)
-                {
-                    using (var fileStream = new FileStream(fileName, FileMode.Create))
-                    {
-                        var buffer = new byte[1024];
-                        int bytesRead;
-                        do
-                        {
-                            bytesRead = stream.Read(buffer, 0, buffer.Length);
-                            fileStream.Write(buffer, 0, bytesRead);
-                        }
-                        while (bytesRead > 0);
-
-                        fileStream.Flush();
-                    }
-                    content = content.Replace(item.ToString(), fileDomain + "/" + DateTime.Now.ToString("yyyMMdd") + "/" + picName);
-                }
-            }
-
-
-            return content;
-        }
-        private bool IsPic(string uri)
-        {
-            if (uri.EndsWith(".jpg") || uri.EndsWith(".jpeg") || uri.EndsWith(".bmp") || uri.EndsWith(".gif") || uri.EndsWith(".png"))
-            {
-                return true;
-            }
-            return false;
-        }
         public void SetLableInfo(string info)
         {
 
