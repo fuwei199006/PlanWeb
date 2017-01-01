@@ -177,7 +177,17 @@ namespace Tool.ArticleSpider
                             Regex.Matches(x.Content, SinaBlogRegexKey.BlogImgRegex).ToArray();
                         if (imgUrls.Any())
                         {
-                            x.SubTitle = Regex.Match(imgUrls[0], SinaBlogRegexKey.PicMsgRegex).Value;
+                            x.SubTitle =
+                                imgUrls.Select(r => Regex.Match(r, SinaBlogRegexKey.PicMsgRegex).Value)
+                                    .FirstOrDefault(t => !string.IsNullOrEmpty(t));
+                            if (string.IsNullOrEmpty(x.SubTitle))
+                            {
+                                x.SubTitle = "http://localhost:8088/Image/none.jpg";
+                            }
+                        }
+                        else
+                        {
+                            x.SubTitle = "http://localhost:8088/Image/none.jpg";
                         }
 
                     }
@@ -186,6 +196,8 @@ namespace Tool.ArticleSpider
             SetLableInfo("整理完成...");
         }
 
+
+        
 
         public List<Basic_Article> GetCurrentData(string key)
         {

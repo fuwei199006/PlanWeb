@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -26,7 +27,7 @@ namespace Framework.Extention
         /// <returns></returns>
         public static bool ContainsCollectElement(this string str, string strCollect, char split)
         {
-            var arr = strCollect.Split(split);
+            var arr = strCollect.Split(split).Where(r=>!string.IsNullOrEmpty(r)).ToArray();
             return str.ContainsCollectElement(arr);
         }
         /// <summary>
@@ -38,14 +39,7 @@ namespace Framework.Extention
         /// <returns></returns>
         public static bool ContainsCollectElement(this string str, string[] strCollect)
         {
-            foreach (var item in strCollect)
-            {
-                if (str.Contains(item))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return strCollect.Any(str.Contains);
         }
 
         /// <summary>

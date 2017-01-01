@@ -18,7 +18,7 @@ namespace Tool.ArticleSpider.Dtos
         public const string RealSrcRegex= @"src[^<>]+";
         public const string EndImgRegex = @"<img[^<>]((?!real_src).)*/>";
         public const string SrcRegex = "[^_]src[^ ]+gif\"";//
-       public const string PicMsgRegex = @"\bhttp\b[^ ]+\.jpg";
+       public const string PicMsgRegex = @"\bhttp\b[^ ]+(\.jpg|\.png)";
 
     }
 }
