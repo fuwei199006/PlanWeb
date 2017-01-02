@@ -137,7 +137,7 @@ namespace Tool.ArticleSpider
                 }
 
                 SetLableInfo("创建缓存..");
-                SetCurrentData(dataKey,articleList);
+                SetCurrentData(dataKey, articleList);
                 SetLableInfo("正在入库");
                 ResizeArticle(articleList);
                 _service.AddArticleList(articleList);
@@ -170,6 +170,7 @@ namespace Tool.ArticleSpider
                     x.ArticleStatus = 2; //代表正在被使用
                     x.Sort = i++;
                     x.KeyWord = item.keyWord;
+                    TextAlignCenter(x);
                     if (item.isPic == 1)
                     {
                         //说明需要图片，获得一个图片给subtitle
@@ -197,7 +198,49 @@ namespace Tool.ArticleSpider
         }
 
 
-        
+        public void TextAlignCenter(Basic_Article article)
+        {
+       
+            var pMarks = Regex.Matches(article.Content, SinaBlogRegexKey.CenterAlign).ToArray();
+            foreach (var pMark in pMarks)
+            {
+                string textContent = string.Empty;
+                var imgMarks = Regex.Matches(pMark, SinaBlogRegexKey.BlogImgRegex);
+                if (imgMarks.Count > 0)
+                {
+                    var p = Regex.Match(pMark, SinaBlogRegexKey.P).Value;
+                    if (!p.ToLower().Replace(" ", "").Contains("text-align:center"))
+                    {
+
+                        if (pMark.Contains("style"))
+                        {
+                            textContent = pMark.Replace("style=\"", "style=\"text-align:center; ")
+                                .Replace("style=\'", "style=\'text-align:center; ");
+                        }
+                        else
+                        {
+                            textContent = pMark.Replace("<p", "<p style=\"text-align:center;\" ");
+
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    textContent = pMark.Replace("<p", "<p style=\"text-align:center;\" ");
+
+                }
+                if (!string.IsNullOrEmpty(textContent))
+                {
+                    article.Content = article.Content.Replace(pMark, textContent);
+                }
+
+            }
+        }
+
+
+
 
         public List<Basic_Article> GetCurrentData(string key)
         {
