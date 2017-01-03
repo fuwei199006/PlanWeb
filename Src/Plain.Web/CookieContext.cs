@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Web;
 using Core.Encrypt;
-using Framework.Extention;
+
 using Framework.Utility;
+using Framework.Utility.Extention;
 
 namespace Plain.Web
 {

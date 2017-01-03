@@ -113,10 +113,6 @@
       <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
       <Name>Framework.Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
-      <Name>Framework.Extention</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
       <Name>Framework.Utility</Name>

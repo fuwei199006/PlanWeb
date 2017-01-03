@@ -80,9 +80,9 @@
       <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
       <Name>Framework.Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1e62b299-9a6b-4152-ab6e-83aa386950f5}</Project>
-      <Name>Framework.Extention</Name>
+    <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
+      <Project>{6a483607-febc-4599-bc82-0184fa79b6f2}</Project>
+      <Name>Framework.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

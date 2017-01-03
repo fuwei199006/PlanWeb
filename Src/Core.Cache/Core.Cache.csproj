@@ -76,10 +76,6 @@
       <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
       <Name>Core.Exception</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
-      <Name>Framework.Extention</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
       <Name>Framework.Utility</Name>

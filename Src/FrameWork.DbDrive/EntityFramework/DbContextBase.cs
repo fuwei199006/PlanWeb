@@ -9,9 +9,8 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.Encrypt;
 using Framework.Contract;
-using Framework.Extention;
 using Core.Config;
-
+using Framework.Utility.Extention;
 namespace Framework.DbDrive.EntityFramework
 {
     public class DbContextBase : DbContext, IDataRepository, IDisposable
@@ -148,7 +147,7 @@ namespace Framework.DbDrive.EntityFramework
 
         public PagedList<T> ExceSqlPagedList<T>(string sql, int pageSize, int pageIndex) where T : class
         {
-            return this.Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageSize, pageIndex);
+            return Database.SqlQuery<T>(sql).AsQueryable().ToPagedList(pageSize, pageIndex);
         }
 
 

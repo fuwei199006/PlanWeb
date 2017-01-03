@@ -57,59 +57,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings.cs" />
-    <Compile Include="AssemblyHelper.cs" />
-    <Compile Include="CacheKey.cs" />
-    <Compile Include="Caching.cs" />
-    <Compile Include="Cookie.cs" />
-    <Compile Include="Diff.cs" />
-    <Compile Include="Fetch.cs" />
-    <Compile Include="FileWatchHelper.cs" />
-    <Compile Include="GeoHelper.cs" />
-    <Compile Include="ImageUtil.cs" />
-    <Compile Include="JsUtil.cs" />
-    <Compile Include="RequestHelper.cs" />
-    <Compile Include="ObjectHelper.cs" />
-    <Compile Include="PermutationAndCombination.cs" />
+    <Compile Include="Extention\AssemblyExtention.cs" />
+    <Compile Include="Extention\Collection.cs" />
+    <Compile Include="Extention\ConverterExtention.cs" />
+    <Compile Include="Extention\EnmuExtention.cs" />
+    <Compile Include="Extention\EnumableExtention.cs" />
+    <Compile Include="Extention\EnumHelper.cs" />
+    <Compile Include="Extention\Exception.cs" />
+    <Compile Include="Extention\MainData\DbProvider.cs" />
+    <Compile Include="Extention\MainData\EnumProvider.cs" />
+    <Compile Include="Extention\MainData\FileProvider.cs" />
+    <Compile Include="Extention\MainData\IMainDataProvider.cs" />
+    <Compile Include="Extention\MainData\MainDataContext.cs" />
+    <Compile Include="Extention\PageLinqExtensions.cs" />
+    <Compile Include="Extention\StringExtention.cs" />
+    <Compile Include="Extention\StringUtil.cs" />
+    <Compile Include="Utility\AppSettings.cs" />
+    <Compile Include="Utility\AssemblyHelper.cs" />
+    <Compile Include="Utility\CacheKey.cs" />
+    <Compile Include="Utility\Caching.cs" />
+    <Compile Include="Utility\Cookie.cs" />
+    <Compile Include="Utility\Diff.cs" />
+    <Compile Include="Utility\Fetch.cs" />
+    <Compile Include="Utility\FileWatchHelper.cs" />
+    <Compile Include="Utility\GeoHelper.cs" />
+    <Compile Include="Utility\ImageUtil.cs" />
+    <Compile Include="Utility\JsUtil.cs" />
+    <Compile Include="Utility\RequestHelper.cs" />
+    <Compile Include="Utility\ObjectHelper.cs" />
+    <Compile Include="Utility\PermutationAndCombination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegExp.cs" />
-    <Compile Include="SerializationHelper.cs" />
-    <Compile Include="SerializeHelper.cs" />
-    <Compile Include="StringHelper.cs" />
-    <Compile Include="StringUtil.cs" />
-    <Compile Include="ThumbnailHelper.cs" />
-    <Compile Include="ValideCode\AnimatedGifEncoder.cs" />
-    <Compile Include="ValideCode\GifDecoder.cs" />
-    <Compile Include="ValideCode\LZWEncoder.cs" />
-    <Compile Include="ValideCode\NeuQuant.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style1.cs" />
-    <Compile Include="ValideCode\ValidateCodeType.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style10.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style11.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style12.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style13.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style14.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style2.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style3.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style4.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style5.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style6.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style7.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style8.cs" />
-    <Compile Include="ValideCode\ValidateCode_Style9.cs" />
-    <Compile Include="WcfServiceProxy.cs" />
+    <Compile Include="Utility\RegExp.cs" />
+    <Compile Include="Utility\SerializationHelper.cs" />
+    <Compile Include="Utility\SerializeHelper.cs" />
+    <Compile Include="Utility\StringHelper.cs" />
+    <Compile Include="Utility\StringUtil.cs" />
+    <Compile Include="Utility\ThumbnailHelper.cs" />
+    <Compile Include="Utility\ValideCode\AnimatedGifEncoder.cs" />
+    <Compile Include="Utility\ValideCode\GifDecoder.cs" />
+    <Compile Include="Utility\ValideCode\LZWEncoder.cs" />
+    <Compile Include="Utility\ValideCode\NeuQuant.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style1.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCodeType.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style10.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style11.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style12.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style13.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style14.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style2.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style3.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style4.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style5.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style6.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style7.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style8.cs" />
+    <Compile Include="Utility\ValideCode\ValidateCode_Style9.cs" />
+    <Compile Include="Utility\WcfServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Utility\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Exception\Core.Exception.csproj">
       <Project>{0E7BBB62-91F0-4263-8DE9-D6683565E653}</Project>
       <Name>Core.Exception</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1e62b299-9a6b-4152-ab6e-83aa386950f5}</Project>
-      <Name>Framework.Extention</Name>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Frameworke.Dtos\Frameworke.Dtos.csproj">
       <Project>{AFB07491-331D-43D0-85F7-84B25049E166}</Project>

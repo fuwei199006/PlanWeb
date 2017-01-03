@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Framework.Extention;
-using Plain.Dto;
 
- 
+using Plain.Dto;
+using Framework.Utility.Extention;
+
 namespace Framework.Utility.ValideCode.Tests
 {
     [TestClass()]

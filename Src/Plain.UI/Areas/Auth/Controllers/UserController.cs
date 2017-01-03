@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Core.Encrypt;
-using Framework.Extention;
+
 using Plain.BLL.UserService;
 using Framework.Utility;
 using Plain.BLL.RoleService;
@@ -12,6 +12,7 @@ using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
 using Plain.Dto.Request;
 using Plain.Dto;
+using Framework.Utility.Extention;
 
 namespace Plain.UI.Areas.Auth.Controllers
 {

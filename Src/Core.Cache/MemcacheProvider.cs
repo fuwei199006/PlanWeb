@@ -4,8 +4,9 @@ using System.Net.NetworkInformation;
 using Core.Config;
 using Core.Config.ConfigModel;
 using Core.Exception;
-using Framework.Extention;
+
 using Memcached.ClientLibrary;
+using Framework.Utility.Extention;
 
 namespace Core.Cache
 {
