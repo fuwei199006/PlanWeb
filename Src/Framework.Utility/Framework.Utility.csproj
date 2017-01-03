@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extention\AssemblyExtention.cs" />
-    <Compile Include="Extention\Collection.cs" />
+    <Compile Include="Extention\CollectionExtention.cs" />
     <Compile Include="Extention\ConverterExtention.cs" />
     <Compile Include="Extention\EnmuExtention.cs" />
     <Compile Include="Extention\EnumableExtention.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Extention\Exception.cs" />
     <Compile Include="Extention\MainData\DbProvider.cs" />
     <Compile Include="Extention\MainData\EnumProvider.cs" />
+    <Compile Include="Extention\MainData\EnumTitleAttribute.cs" />
     <Compile Include="Extention\MainData\FileProvider.cs" />
     <Compile Include="Extention\MainData\IMainDataProvider.cs" />
     <Compile Include="Extention\MainData\MainDataContext.cs" />

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Framework.Utility.Extention
 {
-    public static class Collection
+    public static class CollectionExtention
     {
         /// <summary>
         /// 数组或list随机选出几个

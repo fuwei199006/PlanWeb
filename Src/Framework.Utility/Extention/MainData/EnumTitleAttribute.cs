@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Framework.Utility.Extention.MainData
 {
-    class EnumTitleAttribute:Attribute
+    public class EnumTitleAttribute:Attribute
     {
         private bool _IsDisplay = true;
 
