@@ -1,96 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Framework.Utility.Extention.MainData
 {
-    public class EnumProvider:IMainDataProvider
+    public class EnumProvider : IMainDataProvider
     {
 
-        private  const   string ENUM_TITLE_SEPARATOR = ",";
+        private const string ENUM_TITLE_SEPARATOR = ",";
         public Dictionary<string, string> GetStrValueDescDictionary<T>()
         {
-            throw new System.NotImplementedException();
+            var dicEntityDesc = GetItemAttributeList<T>();
+            return dicEntityDesc.ToDictionary(x => x.Key.ToString(), u => u.Value.Title);
+ 
         }
 
-        public Dictionary<int, string> GetIntValueDescDictionary<T>()  
+        public Dictionary<int, string> GetIntValueDescDictionary<T>()
         {
-            var dic = GetItemAttributeList<T>();
-
-            Dictionary<int, string> dicNew = new Dictionary<int, string>();
-            //foreach (var d in dic)
-            //{
-            //    if (exceptTypes != null && exceptTypes.Contains(d.Key))
-            //    {
-            //        continue;
-            //    }
-            //    dicNew.Add(d.Key.GetHashCode(), d.Value);
-            //}
-            return dicNew;
-        }
-      
-
-        public Dictionary<int, T> GetIntValueEntityDictionary<T>()
-        {
-            throw new System.NotImplementedException();
+            var dicEntityDesc = GetItemAttributeList<T>();
+            return dicEntityDesc.ToDictionary(x => Convert.ToInt32(x.Key), u => u.Value.Title);
         }
 
-        public Dictionary<string, T> GetStrValueEntityDictionary<T>()
+
+        public Dictionary<int, EnumTitleAttribute> GetIntValueEntityDictionary<T>()
         {
-            Dictionary<string, T> ret = new Dictionary<string, T>();
-            //枚举值
-            Array arrEnumValue = typeof(T).GetEnumValues();
-            foreach (object enumValue in arrEnumValue)
+            var dicEntityDesc = GetItemAttributeList<T>();
+            return dicEntityDesc.ToDictionary(x => Convert.ToInt32(x.Key), u => u.Value);
+        }
+
+        public Dictionary<string, EnumTitleAttribute> GetStrValueEntityDictionary<T>()
+        {
+            var dicEntityDesc = GetItemAttributeList<T>();
+            return dicEntityDesc.ToDictionary(x => x.Key.ToString(), u => u.Value);
+        }
+
+        public Dictionary<T, EnumTitleAttribute> GetDictionary<T>()
+        {
+            var dicEntityDesc = GetItemAttributeList<T>();
+            return dicEntityDesc;
+        }
+
+        public EnumTitleAttribute GetEntityByValue<T>(int value)
+        {
+            var dicEntityDesc = GetIntValueEntityDictionary<T>();
+            return dicEntityDesc[value];
+        }
+        public string GetDescByValue<T>(int value)
+        {
+            var dicEntityDesc = GetIntValueEntityDictionary<T>();
+            if (dicEntityDesc.ContainsKey(value))
             {
-                System.Reflection.FieldInfo fi = typeof(T).GetField(enumValue.ToString());
-                if (fi == null)
-                {
-                    continue;
-                }
-
-                EnumTitleAttribute[] arrEnumTitleAttr = fi.GetCustomAttributes(typeof(EnumTitleAttribute), false) as EnumTitleAttribute[];
-                if (arrEnumTitleAttr == null || arrEnumTitleAttr.Length < 1 || !arrEnumTitleAttr[0].IsDisplay)
-                {
-                    continue;
-                }
-
-                if (!ret.ContainsKey(arrEnumTitleAttr[0].Title))
-                {
-                    ret.Add(arrEnumTitleAttr[0].Title, (T)enumValue);
-                }
-
-                if (arrEnumTitleAttr[0].Synonyms == null || arrEnumTitleAttr[0].Synonyms.Length < 1)
-                {
-                    continue;
-                }
-
-                foreach (string s in arrEnumTitleAttr[0].Synonyms)
-                {
-                    if (!ret.ContainsKey(s))
-                    {
-                        ret.Add(s, (T)enumValue);
-                    }
-                }
-            }//using
-            return ret;
+                return dicEntityDesc[value].Title;
+            }
+            return string.Empty;
         }
 
-        public Dictionary<TKey, T> GetDictionary<TKey, T>()
+        public string GetDescByFiled<T>(string filed)
         {
-            throw new System.NotImplementedException();
+            var dicEntityDesc = GetStrValueEntityDictionary<T>();
+            if (dicEntityDesc.ContainsKey(filed))
+            {
+                return dicEntityDesc[filed].Title;
+            }
+            return string.Empty;
         }
 
-        public T GetEntityByValue<T>(int value)
+        public EnumTitleAttribute GetEntityByFiled<T>(string filed)
         {
-            throw new NotImplementedException();
-        }
+            var dicEntityDesc = GetStrValueEntityDictionary<T>();
+            return dicEntityDesc[filed];
 
-        public T GetEntityByFiled<T>(string filed)
-        {
-            throw new NotImplementedException();
         }
 
 
-        private   Dictionary<T, EnumTitleAttribute> GetItemAttributeList<T>(Enum language = null)  
+        private Dictionary<T, EnumTitleAttribute> GetItemAttributeList<T>(Enum language = null)
         {
             if (!typeof(T).IsEnum)
             {
@@ -109,7 +92,7 @@ namespace Framework.Utility.Extention.MainData
             return ret;
         }
 
-        private  EnumTitleAttribute GetEnumTitleAttribute(Enum e, Enum language = null)
+        private EnumTitleAttribute GetEnumTitleAttribute(Enum e, Enum language = null)
         {
             if (e == null)
             {
@@ -132,5 +115,7 @@ namespace Framework.Utility.Extention.MainData
             }
             return ret;
         }
+
+
     }
 }

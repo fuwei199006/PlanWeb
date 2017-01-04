@@ -19,6 +19,11 @@ namespace Framework.Utility.Extention
             }
             return (int)value;
         }
+        public static int ToInt(this Enum value)
+        {
+
+            return Convert.ToInt32(value);
+        }
 
         public static int ToInt(this double value)
         {
