@@ -18,10 +18,14 @@ var home = function () {
         }, 1000);
     }
 
-
+    var _active = function (name, obj) {
+        $("#bread").html(name);
+        //$(obj).addClass("active").siblings().removeClass("active");
+    }
 
     return {
-        init: _init
+        init: _init,
+        active:_active
     }
 
 }();

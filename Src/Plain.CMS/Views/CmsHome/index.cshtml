@@ -1,5 +1,5 @@
 ﻿
-@using Framework.Extention
+@using Framework.Utility.Extention
 @using Plain.Web
 @using Framework.Web
 @{
@@ -107,7 +107,7 @@
                         </dt>
 
                         <dd class="f_right">
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                         </dd>
                     </dl>
                 }
@@ -118,7 +118,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1022"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                             </li>
                         }
                     </ul>
@@ -130,7 +130,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1023"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                             </li>
                         }
 
@@ -157,7 +157,7 @@
                         </dt>
 
                         <dd class="f_right">
-                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                            <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                         </dd>
                     </dl>
                 }
@@ -168,7 +168,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1032"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                             </li>
                         }
                     </ul>
@@ -180,7 +180,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1033"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                             </li>
                         }
 
@@ -203,7 +203,7 @@
                         @foreach (var m in AdminCacheContext.Current.ArticleItems["A1041"])
                         {
                             <li>
-                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(40)</a>
+                                <a href='@Url.Action("ArticleView", new {id = m.Id})' target='_blank'>@m.Title.CutString(35)</a>
                             </li>
                         }
 

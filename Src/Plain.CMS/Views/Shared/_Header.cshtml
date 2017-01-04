@@ -1,5 +1,5 @@
 ﻿@using Plain.Web
-@using Framework.Web
+@using Framework.Utility.Extention
 @using Plain.Dto
 <div class="header">
     <div id="" class="wrap">
@@ -13,7 +13,7 @@
             {
                 <div class="user">
 
-                    <img src="~/Content/Plain/img/avatar.png" alt=""> 
+                    <img src="~/Content/Plain/img/avatar.png" alt="">
                     @AdminUserContext.Current.LoginInfo.LoginNickName
                 </div>
             }
@@ -35,7 +35,7 @@
     <ul>
         @foreach (var m in AdminCacheContext.Current.MenuItems[((int)MenuType.Nav).ToString()])
         {
-            <li>
+            <li onclick="home.active('@m.MenuName',this);">
                 <a href='@(string.IsNullOrEmpty(m.MenuUrl)?"javascript:void(0);":Url.Content(m.MenuUrl))'>@m.MenuName</a>
             </li>
         }
@@ -46,6 +46,6 @@
 
 
 <div class="wrap breadnav">
-    <span><em>当前位置：</em> <a href="javascript:void(0)">首页</a>&nbsp; </span>
+    <span><em>当前位置：</em> <a href="javascript:void(0)" id="bread">首页</a>&nbsp; </span>
     <!--	 <div class="f_right">搜索：<input type="text"  class="search"/></div>-->
 </div>

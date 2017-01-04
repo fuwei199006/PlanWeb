@@ -1,4 +1,4 @@
-﻿using Core.Cache;
+﻿ using Core.Cache;
 using Framework.Utility;
 
 namespace Plain.Web

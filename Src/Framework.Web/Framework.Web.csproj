@@ -74,8 +74,6 @@
     <Compile Include="PermissionAttribute.cs" />
     <Compile Include="PlainPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrlHelperExtention.cs" />
-    <Compile Include="WebApiHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
@@ -90,6 +88,10 @@
       <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
       <Name>Core.Encrypt</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core.Service\Core.Service.csproj">
+      <Project>{A6601D7B-3869-494C-9BB4-CE2EFDDC3872}</Project>
+      <Name>Core.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
       <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
       <Name>Framework.Contract</Name>
@@ -97,6 +99,18 @@
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6A483607-FEBC-4599-BC82-0184FA79B6F2}</Project>
       <Name>Framework.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
+      <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
+      <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Cms.Web\Plain.Cms.Web.csproj">
+      <Project>{D5EE7AF3-8C6B-4C9B-B79E-2016135054E0}</Project>
+      <Name>Plain.Cms.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Dto\Plain.Dto.csproj">
+      <Project>{1100AD75-5E10-4FEC-8B04-55A59E5F5C7A}</Project>
+      <Name>Plain.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
       <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
@@ -106,9 +120,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -75,6 +75,7 @@
     <Compile Include="AdminMainDataContext.cs" />
     <Compile Include="AdminMenuCache.cs" />
     <Compile Include="AdminUserContext.cs" />
+    <Compile Include="AdminWebSettingCache.cs" />
     <Compile Include="CmsArticleCache.cs" />
     <Compile Include="CmsCommentCache.cs" />
     <Compile Include="ControllerBase.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="IAuthCookie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserContext.cs" />
-    <Compile Include="AdminWebSettingCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">

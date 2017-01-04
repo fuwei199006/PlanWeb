@@ -22,6 +22,8 @@ namespace Core.Config.ConfigModel
         public string Desc { get; set; }
         [XmlAttribute(AttributeName = "Ips")]
         public string Ips { get; set; }
+        [XmlAttribute(AttributeName = "Port")]
+        public int Port { get; set; }
 
 
     }
