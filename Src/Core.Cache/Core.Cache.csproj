@@ -88,6 +88,8 @@
     <Compile Include="MemcacheProvider.cs" />
     <Compile Include="MemcacheUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadisProvider.cs" />
+    <Compile Include="RadisUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Config\Core.Config.csproj">
