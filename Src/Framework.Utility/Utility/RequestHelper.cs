@@ -78,7 +78,7 @@ namespace Framework.Utility
 
         public static T HttpGet<T>(string uri, SerializationType serializationType)
         {
-            string responseText = HttpGet(uri);
+            string responseText = HttpGet(uri,Encoding.UTF8);
 
             T t = default(T);
             if (serializationType == SerializationType.Xml)
@@ -98,16 +98,16 @@ namespace Framework.Utility
         /// <param name="uri"></param>
         /// <param name="retry">重试次数,默认重试3次</param>
         /// <returns></returns>
-        public static string HttpGet(string uri, int retry = 3)
+        public static string HttpGet(string uri, Encoding encoding, int retry = 3)
         {
+
             if (retry == 0) return string.Empty;
             try
             {
                 StringBuilder respBody = new StringBuilder();
                 HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
                 request.Method = "GET";
-                request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
-
+                request.ContentType = "application/x-www-form-urlencoded;charset="+encoding.EncodingName;
                 HttpWebResponse response = request.GetResponse() as HttpWebResponse;
 
                 byte[] buffer = new byte[8192];
@@ -118,7 +118,7 @@ namespace Framework.Utility
                 {
                     count = stream.Read(buffer, 0, buffer.Length);
                     if (count != 0)
-                        respBody.Append(Encoding.UTF8.GetString(buffer, 0, count));
+                        respBody.Append(encoding.GetString(buffer, 0, count));
                 }
                 while (count > 0);
                 string responseText = respBody.ToString();
@@ -127,7 +127,49 @@ namespace Framework.Utility
             catch (WebException exp)
             {
                 Thread.Sleep(60 * 1000);
-                return HttpGet(uri, --retry);
+                return HttpGet(uri, encoding, --retry);
+
+            }
+
+        }
+
+        /// <summary>
+        /// 获得html的内容
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="retry">重试次数,默认重试3次</param>
+        /// <returns></returns>
+        public static string HttpGet(string uri, int retry = 3)
+        {
+
+            if (retry == 0) return string.Empty;
+            var encoding = Encoding.UTF8;
+            try
+            {
+                StringBuilder respBody = new StringBuilder();
+                HttpWebRequest request = HttpWebRequest.Create(uri) as HttpWebRequest;
+                request.Method = "GET";
+                request.ContentType = "application/x-www-form-urlencoded;charset=" + encoding.EncodingName;
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+
+                byte[] buffer = new byte[8192];
+                Stream stream;
+                stream = response.GetResponseStream();
+                int count = 0;
+                do
+                {
+                    count = stream.Read(buffer, 0, buffer.Length);
+                    if (count != 0)
+                        respBody.Append(encoding.GetString(buffer, 0, count));
+                }
+                while (count > 0);
+                string responseText = respBody.ToString();
+                return responseText;
+            }
+            catch (WebException exp)
+            {
+                Thread.Sleep(60 * 1000);
+                return HttpGet(uri, encoding, --retry);
 
             }
 
@@ -225,12 +267,12 @@ namespace Framework.Utility
         }
 
 
-        public static void GetCmsContent(string url, Action<string> action)
-        {
+        //public static void GetCmsContent(string url, Action<string> action)
+        //{
 
-            var content = HttpGet(url);
-            action(content);
-        }
+        //    var content = HttpGet(url);
+        //    action(content);
+        //}
         public class CNNWebClient : WebClient
         {
 

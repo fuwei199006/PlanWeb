@@ -43,7 +43,7 @@ namespace Tool.ArticleSpider
             var dataCache = GetCurrentData(dataKey);
             if (dataCache != null)
             {
-                SpiderSinaService.ResizeArticle(dataCache, SetLableInfo);
+                BasicSpiderService.ResizeArticle(dataCache, SetLableInfo);
                 SetLableInfo("正在入库");
                 _service.AddArticleList(dataCache);
                 SetLableInfo("完成" + dataCache.Count);
@@ -62,7 +62,7 @@ namespace Tool.ArticleSpider
                 SetLableInfo("创建缓存..");
                 SetCurrentData(dataKey, articleList);
                 SetLableInfo("正在入库");
-                SpiderSinaService.ResizeArticle(articleList, SetLableInfo);
+                BasicSpiderService.ResizeArticle(articleList, SetLableInfo);
                 _service.AddArticleList(articleList);
                 SetLableInfo("完成" + articleList.Count);
 
@@ -103,5 +103,37 @@ namespace Tool.ArticleSpider
         }
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dataKey = DateTime.Now.ToString("yyyyMMdd") + "_Wangyi";
+            var dataCache = GetCurrentData(dataKey);
+            if (dataCache != null)
+            {
+                BasicSpiderService.ResizeArticle(dataCache, SetLableInfo);
+                SetLableInfo("正在入库");
+                _service.AddArticleList(dataCache);
+                SetLableInfo("完成" + dataCache.Count);
+                return;
+            }
+            //var downPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "../../Download/");
+            var indexHtml = RequestHelper.HttpGet("http://blog.163.com/", Encoding.GetEncoding("GB2312"));
+            //var matchs = Regex.Matches(indexHtml, SinaBlogRegexKey.ARegex);
+            var aArr =
+                Regex.Matches(indexHtml, WangyiBlogRegexKey.ARegex).ToArray().Where(r => !string.IsNullOrEmpty(r)).GroupBy(r => r).Select(x => x.Key).ToArray();
+            //所有的A标签
+            ThreadPool.QueueUserWorkItem(obj =>
+            {
+
+                var articleList = SpiderWangyiBlog.GetArticles(aArr, SetLableInfo);
+                SetLableInfo("创建缓存..");
+                SetCurrentData(dataKey, articleList);
+                SetLableInfo("正在入库");
+                BasicSpiderService.ResizeArticle(articleList, SetLableInfo);
+                _service.AddArticleList(articleList);
+                SetLableInfo("完成" + articleList.Count);
+
+
+            });
+        }
     }
 }
