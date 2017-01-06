@@ -42,17 +42,17 @@ namespace Plain.Web
             }
         }
 
-        public Basic_UserInfo BasicUserInfo
-        {
-            get
-            {
-                if (LoginInfo != null)
-                {
-                    return ServiceContext.Current.CreateService<IUserService>().GetUserByUserId(LoginInfo.LoginUserId);
-                }
-                return null;
-            }
-        }
+        //public Basic_UserInfo BasicUserInfo
+        //{
+        //    get
+        //    {
+        //        if (LoginInfo != null)
+        //        {
+        //            return ServiceContext.Current.CreateService<IUserService>().GetUserByUserId(LoginInfo.LoginUserId);
+        //        }
+        //        return null;
+        //    }
+        //}
 
 
     }

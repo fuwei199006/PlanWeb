@@ -58,8 +58,8 @@ namespace Plain.CMS.Controllers
                 CommitType = type,
                 CreateTime = DateTime.Now,
                 ModifyTime = DateTime.Now,
-                CommitUserId = AdminUserContext.Current.BasicUserInfo.Id,
-                CommitUserName = AdminUserContext.Current.BasicUserInfo.LoginName
+                //CommitUserId = AdminUserContext.Current.BasicUserInfo.Id,
+                //CommitUserName = AdminUserContext.Current.BasicUserInfo.LoginName
                 
             };
           var returnEntity=  _commitService.AddCommit(commmit);

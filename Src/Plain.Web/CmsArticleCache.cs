@@ -15,9 +15,7 @@ namespace Plain.Web
         {
             get
             {
-#if DEBUG
-                Current.Clear();
-#endif
+ 
                 return CacheContext.Get(CacheKey.ArticleList,
                      () => ServiceContext.Current.CreateService<IArticleService>().GetArticles());
             }
@@ -40,9 +38,7 @@ namespace Plain.Web
         {
             get
             {
-//#if DEBUG
-//                Current.Clear();
-//#endif
+ 
                 return CacheContext.Get(key,
                      () => Articles.Where(r => r.Position == key).ToList());
             }
