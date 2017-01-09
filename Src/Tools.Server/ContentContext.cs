@@ -79,25 +79,32 @@ namespace Tools.Server
         }
 
 
-        private static string GetFileSize(long size)
+        private static string GetFileSize(long fileSize)
         {
-            if (size < 1024)
+            var size = Convert.ToDecimal(fileSize);
+            var unit = "B";
+            if (size > 1024)
             {
-                return size + " B";
+                size = size / 1024M;
+                unit = "KB";
             }
-            else if (size >= 1024)
+            if (size > 1024)
             {
-                return (size / 1024).ToString() + " KB";
+                size = size / 1024M;
+                unit = "MB";
             }
-            else if (size >= 1024 * 1024)
+            if (size > 1024)
             {
-                return (size / (1024 * 1024)).ToString() + " MB";
+                size = size / 1024M;
+                unit = "GB";
             }
-            else if (size >= 1024 * 1024 * 1024)
+            if (size > 1024)
             {
-                return (size / (1024 * 1024 * 1024)).ToString() + " GB";
+                return "Big Size";
             }
-            return "Big Size";
+            return Math.Round(size,2) + " " + unit;
+
+           
       
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Tools.Server
 {
@@ -9,7 +10,7 @@ namespace Tools.Server
         {
             string[] requestLines = request.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             this.RequestMethod = requestLines[0].Split(' ')[0];
-            RequestUrl = requestLines[0].Split(' ')[1];
+            RequestUrl = Untility.UrlDeCode( requestLines[0].Split(' ')[1],UTF8Encoding.UTF8);
             if (RequestUrl.Contains("?"))
             {
                 RequestUrl= RequestUrl.Split('?')[0];
