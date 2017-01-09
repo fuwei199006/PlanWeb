@@ -57,7 +57,7 @@ namespace Tools.Server
                 {
                     context.HttpRespone.ContetType = "text/html";
                     context.HttpRespone.StatusCode = "500 OK";
-                    context.HttpRespone.Body = Encoding.Default.GetBytes("<h1 style='Color:red'>" + e.Message + "</h1>");
+                    context.HttpRespone.Body = Encoding.Default.GetBytes("<h3 style='Color:red'>" + e.Message + "</h3>");
 
                 }
 
@@ -74,9 +74,19 @@ namespace Tools.Server
                 }
                 else
                 {
-                    context.HttpRespone.Body = NotFound();
-                    context.HttpRespone.ContetType = type;
-                    context.HttpRespone.StatusCode = "404 NotFound";
+                    if (Directory.Exists(context.HttpRequest.FilePath))//如果当前是一个目录
+                    {
+                        context.HttpRespone.Body = Encoding.Default.GetBytes(ContentContext.GetDirectoryContent(context.HttpRequest.FilePath));
+                        context.HttpRespone.ContetType = "text/html";
+                        context.HttpRespone.StatusCode = "200 OK";
+                    }
+                    else
+                    {
+                        context.HttpRespone.Body = NotFound();
+                        context.HttpRespone.ContetType = type;
+                        context.HttpRespone.StatusCode = "404 NotFound";
+                    }
+                   
                 }
                 #endregion
             }
