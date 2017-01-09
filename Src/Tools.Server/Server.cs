@@ -203,6 +203,7 @@ namespace Tools.Server
 
         }
 
+        public bool open = false;
         #endregion
 
         public Server()
@@ -218,46 +219,54 @@ namespace Tools.Server
 
         private void btnStar_Click(object sender, EventArgs e)
         {
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            var endPoint = new IPEndPoint(IPAddress.Parse(this.txtIP.Text), int.Parse(txtPort.Text));
-            socket.Bind(endPoint);
-            socket.Listen(10);
-
-            if (isAutoOpen.Checked)
+            if (!open)
             {
-                System.Diagnostics.Process.Start("http://"+this.txtIP.Text+":"+this.txtPort.Text);
-            }
+                open = true;
 
-            ThreadPool.QueueUserWorkItem(r =>
-            {
-                while (true)
+                var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                var endPoint = new IPEndPoint(IPAddress.Parse(this.txtIP.Text), int.Parse(txtPort.Text));
+                socket.Bind(endPoint);
+                socket.Listen(10);
+
+                if (isAutoOpen.Checked)
                 {
-                    var socketProx = socket.Accept(); //接收数据
-                    var bytes = new byte[1024 * 1024];
-                    var len = socketProx.Receive(bytes, 0, bytes.Length, SocketFlags.None);
-                    var httpHeader = Encoding.Default.GetString(bytes, 0, len);
-                    SetText(httpHeader);
-
-                    if (!string.IsNullOrEmpty(httpHeader))
-                    {
-                        var context = new HttpContext(httpHeader);
-                        var application = new HttpApplication();
-                        application.ProcessRequest(context);
-
-                        byte[] responseBytes = context.HttpRespone.Body;
-                        socketProx.Send(context.HttpRespone.Header);
-                        socketProx.Send(responseBytes);
-                        socketProx.Shutdown(SocketShutdown.Both);
-                    }
-             
+                    System.Diagnostics.Process.Start("http://" + this.txtIP.Text + ":" + this.txtPort.Text);
                 }
-       
-            });
 
+                ThreadPool.QueueUserWorkItem(r =>
+                {
+                    while (true)
+                    {
+                        var socketProx = socket.Accept(); //接收数据
+                    var bytes = new byte[1024 * 1024];
+                        var len = socketProx.Receive(bytes, 0, bytes.Length, SocketFlags.None);
+                        var httpHeader = Encoding.Default.GetString(bytes, 0, len);
+                        SetText(httpHeader);
+
+                        if (!string.IsNullOrEmpty(httpHeader))
+                        {
+                            var context = new HttpContext(httpHeader);
+                            var application = new HttpApplication();
+                            application.ProcessRequest(context);
+
+                            byte[] responseBytes = context.HttpRespone.Body;
+                            socketProx.Send(context.HttpRespone.Header);
+                            socketProx.Send(responseBytes);
+                            socketProx.Shutdown(SocketShutdown.Both);
+                        }
+
+                    }
+
+                });
+            }
+            else
+            {
+                MessageBox.Show("不能重复开启");
+            }
 
         }
 
-      
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -266,7 +275,7 @@ namespace Tools.Server
         private void SetText(string log)
         {
             string txtlog = "------------------" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "--------------------\n\n";
-            txtlog+= log;
+            txtlog += log;
             txtlog += "\n\n------------------------------------------------------\n\n";
             if (txtLog.InvokeRequired)
             {
@@ -284,7 +293,7 @@ namespace Tools.Server
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.txtLog.Text=string.Empty;
+            this.txtLog.Text = string.Empty;
         }
     }
 }
