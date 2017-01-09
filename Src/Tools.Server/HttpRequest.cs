@@ -10,6 +10,10 @@ namespace Tools.Server
             string[] requestLines = request.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             this.RequestMethod = requestLines[0].Split(' ')[0];
             RequestUrl = requestLines[0].Split(' ')[1];
+            if (RequestUrl.Contains("?"))
+            {
+                RequestUrl= RequestUrl.Split('?')[0];
+            }
 
             this.FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + RequestUrl);
             var ext = Path.GetExtension(FilePath);

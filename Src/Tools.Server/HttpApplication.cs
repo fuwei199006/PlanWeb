@@ -16,6 +16,7 @@ namespace Tools.Server
         {
             var ext = Path.GetExtension(context.HttpRequest.FilePath);
             var type = GetContentTypeByFileExtent(ext);
+            //可以定义Module拦截
             var handlers = AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IHttpHandler)) && t != this.GetType())).OrderBy(r => r.Name).ToArray();
             foreach (var handler in handlers)
             {
@@ -110,7 +111,7 @@ namespace Tools.Server
                     type = "application/x-javascript";
                     break;
                 default:
-                    type = "text/plain; charset=gbk";
+                    type = "";
                     break;
             }
             return type;
