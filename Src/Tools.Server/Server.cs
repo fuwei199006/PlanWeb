@@ -225,7 +225,7 @@ namespace Tools.Server
 
             if (isAutoOpen.Checked)
             {
-                System.Diagnostics.Process.Start("http://"+this.txtIP.Text+":"+this.txtPort.Text+"/index.html");
+                System.Diagnostics.Process.Start("http://"+this.txtIP.Text+":"+this.txtPort.Text);
             }
 
             ThreadPool.QueueUserWorkItem(r =>
@@ -238,15 +238,18 @@ namespace Tools.Server
                     var httpHeader = Encoding.Default.GetString(bytes, 0, len);
                     SetText(httpHeader);
 
-                    if (string.IsNullOrEmpty(httpHeader)) return;
-                    var context = new HttpContext(httpHeader);
-                    var application = new HttpApplication();
-                    application.ProcessRequest(context);
+                    if (!string.IsNullOrEmpty(httpHeader))
+                    {
+                        var context = new HttpContext(httpHeader);
+                        var application = new HttpApplication();
+                        application.ProcessRequest(context);
 
-                    byte[] responseBytes = context.HttpRespone.Body;
-                    socketProx.Send(context.HttpRespone.Header);
-                    socketProx.Send(responseBytes);
-                    socketProx.Shutdown(SocketShutdown.Both);
+                        byte[] responseBytes = context.HttpRespone.Body;
+                        socketProx.Send(context.HttpRespone.Header);
+                        socketProx.Send(responseBytes);
+                        socketProx.Shutdown(SocketShutdown.Both);
+                    }
+             
                 }
        
             });

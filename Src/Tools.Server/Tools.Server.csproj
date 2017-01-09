@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentContext.cs" />
+    <Compile Include="FileEntity.cs" />
     <Compile Include="HttpApplication.cs" />
     <Compile Include="HttpContext.cs" />
     <Compile Include="HttpRequest.cs" />

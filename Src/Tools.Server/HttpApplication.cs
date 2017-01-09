@@ -22,10 +22,11 @@ namespace Tools.Server
                 var hd = handler as IHttpHandler;
                 if (hd != null) hd.ProcessRequest(context);
             }
-            if (string.IsNullOrEmpty(ext))//这里我们约定如果没有后缀 则我们是认为调用一个方法
+            if (string.IsNullOrEmpty(ext))//这里我们约定如果没有后缀 则我们是认为调用一个方法,也有可能是一个目录
             {
                 try
                 {
+                  
                     var currentAssembly = Assembly.GetExecutingAssembly();
                     var instance = currentAssembly.CreateInstance(currentAssembly.GetName().Name + "." + context.HttpRequest.RequestClass + "Controller");
                     context.HttpRespone.ContetType = "text/html";
@@ -33,8 +34,18 @@ namespace Tools.Server
                         context.HttpRespone.Body = instance.GetType().GetMethod(context.HttpRequest.Method).Invoke(instance, null) as byte[];
                     else
                     {
-                        context.HttpRespone.StatusCode = "500 OK";
-                        throw new Exception("没有在当前程序集中找到对应的类");
+                        if (Directory.Exists(context.HttpRequest.FilePath))//如果当前是一个目录
+                        {
+                            context.HttpRespone.Body = Encoding.Default.GetBytes(ContentContext.GetDirectoryContent(context.HttpRequest.FilePath));
+                            context.HttpRespone.ContetType = "text/html";
+                            context.HttpRespone.StatusCode = "200 OK";
+                        }
+                        else
+                        {
+                            context.HttpRespone.StatusCode = "500 OK";
+                            throw new Exception("没有在当前程序集中找到对应的类/或目录");
+                        }
+                 
 
                     }
 

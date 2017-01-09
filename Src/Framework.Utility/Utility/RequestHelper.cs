@@ -215,6 +215,7 @@ namespace Framework.Utility
         /// <returns></returns>
         public static bool DownloadPic(string url, string path, string name, string extention = ".jpg")
         {
+           
             if (!name.Contains("."))
             {
                 name = name + extention;

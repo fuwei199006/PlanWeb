@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="AnonymousObject.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ContentContextTests.cs" />
     <Compile Include="HttpContextHelpers.cs" />
     <Compile Include="MvcHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools.Server\Tools.Server.csproj">
+      <Project>{D1391C0A-784B-4679-9838-68CB2DCDF9EC}</Project>
+      <Name>Tools.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
