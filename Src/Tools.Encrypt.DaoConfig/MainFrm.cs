@@ -74,9 +74,7 @@ namespace Tools.Encrypt
                 conStr = connectStr
             };
             return
-                dbHelper.ExecReturnDataSet("SELECT Name FROM Master..SysDatabases WHERE sid=0x01 ORDER BY Name").Tables[
-                    0];
-            ;
+                dbHelper.ExecReturnDataSet("SELECT Name FROM Master..SysDatabases WHERE sid=0x01 ORDER BY Name").Tables[0];
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
