@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace PConsole.Test
@@ -7,9 +8,10 @@ namespace PConsole.Test
     {
         static void _Main(string[] args)
         {
-             
-            //string  s |= ("123");
-            var res=new Person().Operator;
+//#pragma warning disable 420
+//            //Debug.Trace("PipelineRuntime", "BuildSteps");
+//            //string s |= ("123");
+            var res = new Person().Operator;
             System.Console.ReadKey();
         }
     }
