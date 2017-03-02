@@ -213,7 +213,10 @@ namespace Tools.Server
         private void Server_Load(object sender, EventArgs e)
         {
             var random = new Random();
-            this.txtIP.Text = "127.0.0.1";
+            string hostname = Dns.GetHostName();
+            IPHostEntry localhost = Dns.GetHostByName(hostname);
+            IPAddress localaddr = localhost.AddressList[0];
+            this.txtIP.Text = localaddr.ToString();
             this.txtPort.Text = random.Next(8000, 65535).ToString();
         }
 
