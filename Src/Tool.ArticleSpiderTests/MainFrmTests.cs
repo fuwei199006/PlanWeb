@@ -9,6 +9,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Framework.Utility;
 using System.Net;
+using Framework.Utility.Utility;
 using Plain.BLL.Article;
 
 namespace Tool.ArticleSpider.Tests

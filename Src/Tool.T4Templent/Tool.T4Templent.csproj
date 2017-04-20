@@ -190,10 +190,6 @@
       <Project>{BED2E799-653F-4D29-81F5-BA440823BFE3}</Project>
       <Name>Core.Encrypt</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Framework.Extention\Framework.Extention.csproj">
-      <Project>{1E62B299-9A6B-4152-AB6E-83AA386950F5}</Project>
-      <Name>Framework.Extention</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Framework.Utility\Framework.Utility.csproj">
       <Project>{6a483607-febc-4599-bc82-0184fa79b6f2}</Project>
       <Name>Framework.Utility</Name>

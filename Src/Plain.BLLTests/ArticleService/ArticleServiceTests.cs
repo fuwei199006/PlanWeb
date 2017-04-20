@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Framework.Utility.Utility;
 
 namespace Plain.BLL.Article.Tests
 {
