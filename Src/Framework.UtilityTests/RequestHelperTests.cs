@@ -4,6 +4,7 @@ using Framework.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web;
 using System.IO;
+using Framework.Utility.Utility;
 
 namespace Framework.Utility.Tests
 {

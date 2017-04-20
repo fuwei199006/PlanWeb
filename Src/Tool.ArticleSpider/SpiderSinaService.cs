@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Framework.Utility.Utility;
 using Tool.ArticleSpider.Dtos;
 
 namespace Tool.ArticleSpider

@@ -19,6 +19,7 @@ using Tool.ArticleSpider.Dtos;
 
 using Plain.Dto;
 using Framework.Utility.Extention;
+using Framework.Utility.Utility;
 
 namespace Tool.ArticleSpider
 {

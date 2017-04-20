@@ -27,7 +27,7 @@ namespace Tools.Encrypt
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            var ip = txtIP.Text;
+            var ip = txtIP.Text.Split('\\')[0];
             if (!RegExp.IsIp(ip)&&ip!="."&&ip!="localhost"&&ip!="(local)")
             {
                 MessageBox.Show(@"请输入正确的IP", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
