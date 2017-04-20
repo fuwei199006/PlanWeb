@@ -9,7 +9,7 @@ namespace Core.EncryptTests
         [TestMethod()]
         public void DecodeTest()
         {
-            var str = DESEncrypt.Decode("MSfDf7tgpMAqN/MQTjHRfEwS4LW07Aut4rINOrEc00JXSPfPghUvPe0rIbrrMCPkeqcZHTDQuCLXquFc0TGMbQ==");
+            var str = DESEncrypt.Decode("ufj0QNXJls94JUY/drjBvSNj8EP72p+FT4KmwagfHXLXbgRRWGLCNliIueckrK9VNme0UM93vgHFPM6UOXRphA==");
           
         }
 
