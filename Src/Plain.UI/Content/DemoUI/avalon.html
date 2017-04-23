@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+    </head>
+    <body ms-controller="test">
+    <span ms-for="el in itemArr">{{el}}</span>
+    </body>
+</html>
+
+<script src="js/avalon.js"></script>
+<script type="text/javascript">
+	
+var vm=avalon.define({
+	$id:"test",
+	itemArr:[1,2,3,4,5,6]
+})
+</script>

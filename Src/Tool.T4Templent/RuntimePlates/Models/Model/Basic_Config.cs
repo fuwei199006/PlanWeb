@@ -1,6 +1,6 @@
 ﻿   using System;
 using Framework.Contract;
-namespace  Tool.T4Templent.RuntimePlates.Models.Model
+namespace   Plain.Model.Models.Model.Models.Model
 {
     public partial class Basic_Config:ModelBase
     {
@@ -11,6 +11,9 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public string ConfigCategory {get;set;}
 	 	   public DateTime? CreateTime {get;set;}
 	 	   public DateTime? ModifyTime {get;set;}
+	 	   public string ConfigDesc {get;set;}
+	 	   public string ConfigDateTag {get;set;}
+	 	   public string ConfigItemType {get;set;}
 	   }
 }
 

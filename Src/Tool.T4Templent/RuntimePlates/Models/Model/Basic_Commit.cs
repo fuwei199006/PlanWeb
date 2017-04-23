@@ -1,6 +1,6 @@
 ﻿   using System;
 using Framework.Contract;
-namespace  Tool.T4Templent.RuntimePlates.Models.Model
+namespace   Plain.Model.Models.Model.Models.Model
 {
     public partial class Basic_Commit:ModelBase
     {
@@ -11,6 +11,7 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public int? CommitType {get;set;}
 	 	   public DateTime? CreateTime {get;set;}
 	 	   public DateTime? ModifyTime {get;set;}
+	 	   public int ArticleId {get;set;}
 	   }
 }
 

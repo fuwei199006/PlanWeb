@@ -80,11 +80,14 @@
   <ItemGroup>
     <Compile Include="Models\Mapping\Basice_ActionHistoryMap.cs" />
     <Compile Include="Models\Mapping\Basic_ArticleMap.cs" />
+    <Compile Include="Models\Mapping\Basic_CommentMap.cs" />
     <Compile Include="Models\Mapping\Basic_CommitMap.cs" />
     <Compile Include="Models\Mapping\Basic_ConfigMap.cs" />
+    <Compile Include="Models\Mapping\Basic_DbMonitorLogMap.cs" />
     <Compile Include="Models\Mapping\Basic_DictionaryMap.cs" />
     <Compile Include="Models\Mapping\Basic_DraftMap.cs" />
     <Compile Include="Models\Mapping\Basic_LoginInfoMap.cs" />
+    <Compile Include="Models\Mapping\Basic_LogMap.cs" />
     <Compile Include="Models\Mapping\Basic_MainDataMap.cs" />
     <Compile Include="Models\Mapping\Basic_MenuMap.cs" />
     <Compile Include="Models\Mapping\Basic_MessageBoxMap.cs" />
@@ -98,12 +101,16 @@
     <Compile Include="Models\Mapping\Basic_UserRoleMap.cs" />
     <Compile Include="Models\Mapping\Log4netMap.cs" />
     <Compile Include="Models\Mapping\LogMap.cs" />
+    <Compile Include="Models\Mapping\SalaryMap.cs" />
     <Compile Include="Models\Model\Basice_ActionHistory.cs" />
     <Compile Include="Models\Model\Basic_Article.cs" />
+    <Compile Include="Models\Model\Basic_Comment.cs" />
     <Compile Include="Models\Model\Basic_Commit.cs" />
     <Compile Include="Models\Model\Basic_Config.cs" />
+    <Compile Include="Models\Model\Basic_DbMonitorLog.cs" />
     <Compile Include="Models\Model\Basic_Dictionary.cs" />
     <Compile Include="Models\Model\Basic_Draft.cs" />
+    <Compile Include="Models\Model\Basic_Log.cs" />
     <Compile Include="Models\Model\Basic_LoginInfo.cs" />
     <Compile Include="Models\Model\Basic_MainData.cs" />
     <Compile Include="Models\Model\Basic_Menu.cs" />
@@ -118,6 +125,7 @@
     <Compile Include="Models\Model\Basic_UserRole.cs" />
     <Compile Include="Models\Model\Log.cs" />
     <Compile Include="Models\Model\Log4net.cs" />
+    <Compile Include="Models\Model\Salary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿   using System.Data.Entity.ModelConfiguration;
-using Tool.T4Templent.RuntimePlates.Models.Model;
-namespace Tool.T4Templent.RuntimePlates.Models.Mapping
+using  Plain.Model.Models.Model.Models.Model;
+namespace  Plain.Model.Models.Model.Models.Mapping
 {
 	public class Basic_ArticleMap : EntityTypeConfiguration<Basic_Article>
 	{
@@ -8,13 +8,14 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
         {
 			this.HasKey(t => t.Id);
 			this.Property(t => t.Title).HasMaxLength(200);
-			this.Property(t => t.SubTitle).IsRequired().HasMaxLength(200);
+			this.Property(t => t.SubTitle).IsRequired().HasMaxLength(500);
 			this.Property(t => t.Author).HasMaxLength(50);
 			this.Property(t => t.Category).HasMaxLength(50);
 			this.Property(t => t.Content).IsRequired();
 			this.Property(t => t.Source).HasMaxLength(100);
-			this.Property(t => t.SourceUrl).HasMaxLength(100);
-			this.Property(t => t.KeyWord).IsRequired().HasMaxLength(50);
+			this.Property(t => t.SourceUrl).HasMaxLength(200);
+			this.Property(t => t.KeyWord).IsRequired().HasMaxLength(200);
+			this.Property(t => t.Position).IsRequired().HasMaxLength(20);
 						this.ToTable("Basic_Article");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.Title).HasColumnName("Title"); 
@@ -29,6 +30,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTIme).HasColumnName("ModifyTIme"); 
 			this.Property(t => t.ArticleStatus).HasColumnName("ArticleStatus"); 
+			this.Property(t => t.Position).HasColumnName("Position"); 
 			          
         }
     }

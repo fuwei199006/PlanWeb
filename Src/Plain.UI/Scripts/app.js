@@ -502,7 +502,7 @@
             }
 
             var last = jQuery('.has-sub.open', $('.page-sidebar'));
-            if (last.size() == 0) {
+            if (last.length === 0) {
                 //last = jQuery('.has-sub.active', $('.page-sidebar'));
             }
             last.removeClass("open");

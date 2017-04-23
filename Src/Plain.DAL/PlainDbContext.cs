@@ -45,6 +45,7 @@ namespace Plain.DAL
             modelBuilder.Configurations.Add(new Basic_ArticleMap());
             modelBuilder.Configurations.Add(new Basic_CommitMap());
             modelBuilder.Configurations.Add(new Basic_PowerMenuMap());
+            modelBuilder.Configurations.Add(new SalaryMap());
 
             //这里添加Mapping信息
             base.OnModelCreating(modelBuilder);

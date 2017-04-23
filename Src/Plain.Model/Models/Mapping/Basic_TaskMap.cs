@@ -1,29 +1,24 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
 using Plain.Model.Models.Model;
+
 namespace Plain.Model.Models.Mapping
 {
-	public class Basic_TaskMap : EntityTypeConfiguration<Basic_Task>
-	{
+    public class Basic_TaskMap : EntityTypeConfiguration<Basic_Task>
+    {
         public Basic_TaskMap()
         {
-			this.HasKey(t => t.Id);
-			this.Property(t => t.TaskName)
-			.HasMaxLength(20);
-			this.Property(t => t.ReturnMsg)
-			.IsRequired().HasMaxLength(200);
-			
-			this.ToTable("Basic_Task");
-			this.Property(t => t.Id).HasColumnName("Id"); 
-			this.Property(t => t.TaskName).HasColumnName("TaskName"); 
-			this.Property(t => t.StarTime).HasColumnName("StarTime"); 
-			this.Property(t => t.EndTime).HasColumnName("EndTime"); 
-			this.Property(t => t.TaskStatus).HasColumnName("TaskStatus"); 
-			this.Property(t => t.ExecTime).HasColumnName("ExecTime"); 
-			this.Property(t => t.ExecEndTime).HasColumnName("ExecEndTime"); 
-			this.Property(t => t.ReturnMsg).HasColumnName("ReturnMsg"); 
-			
-          
+            HasKey(t => t.Id);
+            Property(t => t.TaskName).HasMaxLength(20);
+            Property(t => t.ReturnMsg).IsRequired().HasMaxLength(200);
+            ToTable("Basic_Task");
+            Property(t => t.Id).HasColumnName("Id");
+            Property(t => t.TaskName).HasColumnName("TaskName");
+            Property(t => t.StarTime).HasColumnName("StarTime");
+            Property(t => t.EndTime).HasColumnName("EndTime");
+            Property(t => t.TaskStatus).HasColumnName("TaskStatus");
+            Property(t => t.ExecTime).HasColumnName("ExecTime");
+            Property(t => t.ExecEndTime).HasColumnName("ExecEndTime");
+            Property(t => t.ReturnMsg).HasColumnName("ReturnMsg");
         }
     }
 }
