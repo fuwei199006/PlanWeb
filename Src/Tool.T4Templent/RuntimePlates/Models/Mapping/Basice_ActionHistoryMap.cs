@@ -1,6 +1,6 @@
 ﻿   using System.Data.Entity.ModelConfiguration;
-using Tool.T4Templent.RuntimePlates.Models.Model;
-namespace Tool.T4Templent.RuntimePlates.Models.Mapping
+using  Plain.Model.Models.Model.Models.Model;
+namespace  Plain.Model.Models.Model.Models.Mapping
 {
 	public class Basice_ActionHistoryMap : EntityTypeConfiguration<Basice_ActionHistory>
 	{

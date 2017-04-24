@@ -319,6 +319,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HR\Controllers\SalaryController.cs" />
+    <Compile Include="Areas\HR\HRAreaRegistration.cs" />
     <Compile Include="Areas\PlanApi\Controllers\ArticleApiController.cs" />
     <Compile Include="Areas\PlanApi\Controllers\LoginApiController.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />
@@ -2816,7 +2818,6 @@
     <Content Include="Content\plugins\ionslider\ion.rangeSlider.skinNice.css" />
     <Content Include="Content\plugins\jQueryUI\jquery-ui.js" />
     <Content Include="Content\plugins\jQueryUI\jquery-ui.min.js" />
-    <Content Include="Content\plugins\jQuery\jQuery-2.1.4.min.js" />
     <Content Include="Content\plugins\jvectormap\jquery-jvectormap-1.2.2.css" />
     <Content Include="Content\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Content\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
@@ -3127,6 +3128,7 @@
     <Content Include="Scripts\admin.edit.js" />
     <Content Include="Scripts\admin.main.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\avalon.js" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\demo.gmaps.js" />
     <Content Include="Scripts\excanvas.js" />
@@ -3134,7 +3136,11 @@
     <Content Include="Scripts\gmaps.js" />
     <Content Include="Scripts\highcharts.exporting.js" />
     <Content Include="Scripts\highcharts.js" />
-    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\HR\main.js" />
+    <Content Include="Scripts\HR\salary.js" />
+    <Content Include="Scripts\HR\require.js" />
+    <Content Include="Content\plugins\jQuery\jquery-3.2.1.js" />
+    <Content Include="Content\plugins\jQuery\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-ui.combobox.js" />
     <Content Include="Scripts\jquery.blockui.js" />
     <Content Include="Scripts\jquery.cookie.js" />
@@ -3180,6 +3186,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Config\Views\Shared\" />
+    <Folder Include="Areas\HR\Models\" />
+    <Folder Include="Areas\HR\Views\Shared\" />
     <Folder Include="Areas\PlanApi\Views\Shared\" />
     <Folder Include="Content\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Models\" />
@@ -3226,8 +3234,11 @@
     <Content Include="Areas\Config\Views\Log\Index.cshtml" />
     <Content Include="Areas\Config\Views\System\About.cshtml" />
     <Content Include="Areas\PlanApi\Views\web.config" />
+    <Content Include="Areas\HR\Views\web.config" />
+    <Content Include="Areas\HR\Views\Salary\Index.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Plain.pubxml" />
+    <Content Include="Content\plugins\jQuery\jquery-3.2.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Cache\Core.Cache.csproj">
@@ -3269,6 +3280,10 @@
     <ProjectReference Include="..\Framework.Web\Framework.Web.csproj">
       <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
       <Name>Framework.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HR.CustomDto\HR.CustomDto.csproj">
+      <Project>{DBE6B2DE-7E51-416A-B7BC-6B28CF578DD0}</Project>
+      <Name>HR.CustomDto</Name>
     </ProjectReference>
     <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
       <Project>{f920b0f7-0da7-4f08-90b7-f5390503295e}</Project>

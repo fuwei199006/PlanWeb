@@ -6,7 +6,8 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using Core.Config;
 using Core.Encrypt;
-using Framework.Extention;
+using Framework.Utility.Extention;
+
 
 namespace Tool.T4Templent.ServiceAndDto
 {
@@ -40,7 +41,7 @@ namespace Tool.T4Templent.ServiceAndDto
             var sql = string.Format(@"    SELECT    col.name AS Name ,
                                     type.name AS SqlType,
 			                        col.length AS Length,
-			                        col.isnullable AS IsNullAble,g.value as Commit
+			                        col.isnullable AS IsNullAble,g.value as [Commit]
                           FROM      sys.syscolumns col
                                     JOIN sys.systypes type ON type.xusertype = col.xtype
                                    left   join   sys.extended_properties   g   on   col.id=g.major_id   and   col.colid=g.minor_id

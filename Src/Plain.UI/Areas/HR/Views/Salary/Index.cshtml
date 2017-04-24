@@ -1,0 +1,288 @@
+﻿@using Framework.Utility.Extention
+@{
+    ViewBag.Title = "工资查询";
+    var i = 1;
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+
+<h3>工资自助查询系统</h3>
+<hr />
+<div class="panel-body" ms-controller="salary">
+    <div class="row-fluid">
+
+        <div class="span2">
+            <div class="text-muted pull-right">时间:</div>
+        </div>
+        <div class="span2">
+            <div class="pull-left">
+                <select class="small m-wrap">
+                    <option ms-for="v in yearArr" ms-attr="{value:v}">{{v}}</option>
+                </select>
+                <span class="text-muted">年</span>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="pull-left">
+                <select class="small m-wrap">
+                    <option ms-for="v in monthArr" ms-attr="{value:v}">{{v}}</option>
+                </select>
+                <span class="text-muted">月</span>
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn blue" id="btnSearch" ms-click="btnClick">查询&nbsp;<i class="icon-search"></i></button>
+        </div>
+        <div class="col-2"></div>
+
+    </div>
+    <div style="height: 50px"></div>
+    <div class="row">
+        <div class="span1">
+
+        </div>
+        <div class="span8">
+            <h4 class="text-muted">工资明细</h4>
+        </div>
+        <div class="span1">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="span1">
+
+        </div>
+        <div class="fl-left">
+            <table class="table table-bordered table-hover table-striped table-center">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th class="th-info">测试</th>
+
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="special">固定项目</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="fl-left">
+            <table class="table table-bordered table-hover table-striped table-center">
+                <thead>
+                    <tr>
+
+                        <th>工号</th>
+                        <th class="th-info">A0001</th>
+
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="special">特别项目</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>高温补贴</td>
+                        <td>100</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>高温补贴</td>
+                        <td>100</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>高温补贴</td>
+                        <td>100</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>高温补贴</td>
+                        <td>100</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>高温补贴</td>
+                        <td>100</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="fl-left">
+            <table class="table table-bordered table-hover table-striped table-center">
+                <thead>
+                    <tr>
+
+                        <th>部门</th>
+                        <th class="th-info">IT部门</th>
+
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="special">固定项目</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="fl-left">
+            <table class="table table-bordered table-hover table-striped table-center">
+                <thead>
+                    <tr>
+                        <th>驻地</th>
+                        <th class="th-info">上海</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="special">扣发项目</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="fl-left">
+            <table class="table table-bordered table-hover table-striped table-center">
+                <thead>
+                    <tr>
+                        <th>驻地</th>
+                        <th class="th-info">上海</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="special">扣发项目</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                    <tr>
+                        <td>基本工资</td>
+                        <td>5,000</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="span1">
+
+        </div>
+    </div>
+</div>
+@section PageSpecificJavascriptIncludes{
+
+    <script src='@Url.StaticFile("~/Scripts/HR/require.js")' data-main='@Url.StaticFile("~/Scripts/HR/main.js")'></script>
+    <script>
+
+        require(["main"], function (main) {
+            main.init(JSON.parse(@Html.Raw("'"+ViewBag.Option+"'")));
+        });
+
+    </script>
+
+}

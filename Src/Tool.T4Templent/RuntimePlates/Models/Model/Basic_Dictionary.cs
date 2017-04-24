@@ -1,6 +1,6 @@
 ﻿   using System;
 using Framework.Contract;
-namespace  Tool.T4Templent.RuntimePlates.Models.Model
+namespace   Plain.Model.Models.Model.Models.Model
 {
     public partial class Basic_Dictionary:ModelBase
     {
@@ -8,6 +8,7 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public string FieldName {get;set;}
 	 	   public string FieldRemark {get;set;}
 	 	   public bool? DicStatus {get;set;}
+	 	   public string FieldModule {get;set;}
 	 	   public DateTime? CreateTime {get;set;}
 	 	   public DateTime? ModifyTime {get;set;}
 	   }

@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Framework.Utility.Extention
 {
@@ -83,6 +85,21 @@ namespace Framework.Utility.Extention
             htmlstring = Regex.Replace(htmlstring, @"<img[^>]*>;", "", RegexOptions.IgnoreCase);
             htmlstring = htmlstring.Replace("<", "").Replace(">", "").Replace("\n", "").Replace("\r","");
             return htmlstring;
+        }
+
+        public static T ToEntity<T>(this string content, SerializationType type=SerializationType.Json)
+        {
+            if (string.IsNullOrEmpty(content)) return default(T);
+            switch (type)
+            {
+                case SerializationType.Json:
+                    return JsonConvert.DeserializeObject<T>(content); 
+                case SerializationType.Xml:
+                    return SerializationHelper.XmlDeserialize<T>(content);  
+                default:
+                    throw new NotImplementedException("目前只支持xml和json");
+            }
+           
         }
     }
 }

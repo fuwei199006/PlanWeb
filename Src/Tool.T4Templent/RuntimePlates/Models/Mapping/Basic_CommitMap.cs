@@ -1,7 +1,6 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
-using Tool.T4Templent.RuntimePlates.Models.Model;
-namespace Tool.T4Templent.RuntimePlates.Models.Mapping
+﻿   using System.Data.Entity.ModelConfiguration;
+using  Plain.Model.Models.Model.Models.Model;
+namespace  Plain.Model.Models.Model.Models.Mapping
 {
 	public class Basic_CommitMap : EntityTypeConfiguration<Basic_Commit>
 	{
@@ -10,8 +9,7 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.HasKey(t => t.Id);
 			this.Property(t => t.Content).HasMaxLength(2000);
 			this.Property(t => t.CommitUserName).HasMaxLength(100);
-			
-			this.ToTable("Basic_Commit");
+						this.ToTable("Basic_Commit");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.Content).HasColumnName("Content"); 
 			this.Property(t => t.CommitUserName).HasColumnName("CommitUserName"); 
@@ -19,8 +17,8 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.CommitType).HasColumnName("CommitType"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
-			
-          
+			this.Property(t => t.ArticleId).HasColumnName("ArticleId"); 
+			          
         }
     }
 }

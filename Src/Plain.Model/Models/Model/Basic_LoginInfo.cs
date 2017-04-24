@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
@@ -27,9 +27,9 @@ namespace Plain.Model.Models.Model
         }
         public int Id { get; set; }
         public int LoginUserId { get; set; }
-        [RegularExpression(@"^\w+\.?\w+@\w+\.\w+$", ErrorMessage = "µç×ÓÓÊ¼þµØÖ·ÎÞÐ§")]
-        [Required(ErrorMessage = "µç×ÓÓÊ¼þ²»ÄÜÎª¿Õ")]
-        [Remote("ValideUser", "Login", ErrorMessage = "¸ÃÓÊÏä»¹Î´×¢²á")]
+        [RegularExpression(@"^\w+\.?\w+@\w+\.\w+$", ErrorMessage = "ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ð§")]
+        [Required(ErrorMessage = "ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½")]
+        [Remote("ValideUser", "Login", ErrorMessage = "ï¿½ï¿½ï¿½ï¿½ï¿½ä»¹Î´×¢ï¿½ï¿½")]
         public string LoginName { get; set; }
         public int LoginStatus { get; set; }
         public int LoginType { get; set; }
@@ -42,7 +42,7 @@ namespace Plain.Model.Models.Model
 
         public Guid LoginToken { get; set; }
 
-         [Required(ErrorMessage = "êÇ³Æ²»ÄÜÎª¿Õ")]
+         [Required(ErrorMessage = "ï¿½Ç³Æ²ï¿½ï¿½ï¿½Îªï¿½ï¿½")]
         public string LoginNickName { get; set; }
     }
 }

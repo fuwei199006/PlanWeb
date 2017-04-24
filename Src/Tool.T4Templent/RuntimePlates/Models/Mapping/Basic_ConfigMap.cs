@@ -1,6 +1,6 @@
 ﻿   using System.Data.Entity.ModelConfiguration;
-using Tool.T4Templent.RuntimePlates.Models.Model;
-namespace Tool.T4Templent.RuntimePlates.Models.Mapping
+using  Plain.Model.Models.Model.Models.Model;
+namespace  Plain.Model.Models.Model.Models.Mapping
 {
 	public class Basic_ConfigMap : EntityTypeConfiguration<Basic_Config>
 	{
@@ -10,6 +10,9 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.ConfigKey).IsRequired().HasMaxLength(20);
 			this.Property(t => t.ConfigValue).IsRequired().HasMaxLength(4000);
 			this.Property(t => t.ConfigCategory).IsRequired().HasMaxLength(50);
+			this.Property(t => t.ConfigDesc).IsRequired().HasMaxLength(200);
+			this.Property(t => t.ConfigDateTag).IsRequired().HasMaxLength(50);
+			this.Property(t => t.ConfigItemType).IsRequired().HasMaxLength(20);
 						this.ToTable("Basic_Config");
 			this.Property(t => t.Id).HasColumnName("Id"); 
 			this.Property(t => t.ConfigKey).HasColumnName("ConfigKey"); 
@@ -18,6 +21,9 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.ConfigCategory).HasColumnName("ConfigCategory"); 
 			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
 			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
+			this.Property(t => t.ConfigDesc).HasColumnName("ConfigDesc"); 
+			this.Property(t => t.ConfigDateTag).HasColumnName("ConfigDateTag"); 
+			this.Property(t => t.ConfigItemType).HasColumnName("ConfigItemType"); 
 			          
         }
     }

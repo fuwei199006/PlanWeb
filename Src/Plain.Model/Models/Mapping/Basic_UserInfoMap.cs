@@ -1,44 +1,40 @@
-﻿   
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
 using Plain.Model.Models.Model;
+
 namespace Plain.Model.Models.Mapping
 {
-	public class Basic_UserInfoMap : EntityTypeConfiguration<Basic_UserInfo>
-	{
+    public class Basic_UserInfoMap : EntityTypeConfiguration<Basic_UserInfo>
+    {
         public Basic_UserInfoMap()
         {
-            this.HasKey(t => t.Id);
-            this.Property(t => t.LoginName).HasMaxLength(50);
-            this.Property(t => t.NickName).HasMaxLength(50);
-            this.Property(t => t.UserEmail).HasMaxLength(50);
-            this.Property(t => t.UserPwd).HasMaxLength(100);
-            this.Property(t => t.RealName).IsRequired().HasMaxLength(20);
-            this.Property(t => t.MobilePhone).HasMaxLength(20);
-            this.Property(t => t.QQ).HasMaxLength(15);
-            this.Property(t => t.Weixin).HasMaxLength(20);
-            this.Property(t => t.Addr).HasMaxLength(100);
-            this.Property(t => t.OtherInfo).HasMaxLength(100);
-
-
-            this.ToTable("Basic_UserInfo");
-            this.Property(t => t.Id).HasColumnName("Id");
-            this.Property(t => t.LoginName).HasColumnName("LoginName");
-            this.Property(t => t.NickName).HasColumnName("NickName");
-            this.Property(t => t.UserEmail).HasColumnName("UserEmail");
-            this.Property(t => t.UserPwd).HasColumnName("UserPwd");
-            this.Property(t => t.RealName).HasColumnName("RealName");
-            this.Property(t => t.UserStaus).HasColumnName("UserStaus");
-            this.Property(t => t.CreateTime).HasColumnName("CreateTime");
-            this.Property(t => t.ModifyTime).HasColumnName("ModifyTime");
-            this.Property(t => t.MobilePhone).HasColumnName("MobilePhone");
-            this.Property(t => t.BirthDay).HasColumnName("BirthDay");
-            this.Property(t => t.QQ).HasColumnName("QQ");
-            this.Property(t => t.Weixin).HasColumnName("Weixin");
-            this.Property(t => t.Addr).HasColumnName("Addr");
-            this.Property(t => t.OtherInfo).HasColumnName("OtherInfo");
-            this.Property(t => t.Sex).HasColumnName("Sex"); 
-			
-          
+            HasKey(t => t.Id);
+            Property(t => t.LoginName).HasMaxLength(50);
+            Property(t => t.NickName).HasMaxLength(50);
+            Property(t => t.UserEmail).HasMaxLength(50);
+            Property(t => t.UserPwd).HasMaxLength(100);
+            Property(t => t.RealName).IsRequired().HasMaxLength(20);
+            Property(t => t.MobilePhone).IsRequired().HasMaxLength(20);
+            Property(t => t.QQ).IsRequired().HasMaxLength(15);
+            Property(t => t.Weixin).IsRequired().HasMaxLength(20);
+            Property(t => t.Addr).IsRequired().HasMaxLength(100);
+            Property(t => t.OtherInfo).IsRequired().HasMaxLength(100);
+            ToTable("Basic_UserInfo");
+            Property(t => t.Id).HasColumnName("Id");
+            Property(t => t.LoginName).HasColumnName("LoginName");
+            Property(t => t.NickName).HasColumnName("NickName");
+            Property(t => t.UserEmail).HasColumnName("UserEmail");
+            Property(t => t.UserPwd).HasColumnName("UserPwd");
+            Property(t => t.RealName).HasColumnName("RealName");
+            Property(t => t.UserStaus).HasColumnName("UserStaus");
+            Property(t => t.MobilePhone).HasColumnName("MobilePhone");
+            Property(t => t.BirthDay).HasColumnName("BirthDay");
+            Property(t => t.QQ).HasColumnName("QQ");
+            Property(t => t.Weixin).HasColumnName("Weixin");
+            Property(t => t.Addr).HasColumnName("Addr");
+            Property(t => t.OtherInfo).HasColumnName("OtherInfo");
+            Property(t => t.CreateTime).HasColumnName("CreateTime");
+            Property(t => t.ModifyTime).HasColumnName("ModifyTime");
+            Property(t => t.Sex).HasColumnName("Sex");
         }
     }
 }

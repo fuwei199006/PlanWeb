@@ -180,3 +180,21 @@ input.hasDatepicker {
 /*.portlet-body{
     margin-left:10px;
 }*/
+.table-center {
+    text-align: center;
+}
+.table-center th,td {
+    text-align: center;
+}
+
+.th-info {
+    font-weight: normal!important;
+}
+.fl-left {
+    float: left;
+    width: 18%;
+}
+
+.special {
+    background-color: #eee;
+}

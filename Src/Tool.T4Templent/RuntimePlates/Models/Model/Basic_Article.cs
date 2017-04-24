@@ -1,6 +1,6 @@
 ﻿   using System;
 using Framework.Contract;
-namespace  Tool.T4Templent.RuntimePlates.Models.Model
+namespace   Plain.Model.Models.Model.Models.Model
 {
     public partial class Basic_Article:ModelBase
     {
@@ -17,6 +17,7 @@ namespace  Tool.T4Templent.RuntimePlates.Models.Model
 	 	   public DateTime? CreateTime {get;set;}
 	 	   public DateTime? ModifyTIme {get;set;}
 	 	   public int? ArticleStatus {get;set;}
+	 	   public string Position {get;set;}
 	   }
 }
 

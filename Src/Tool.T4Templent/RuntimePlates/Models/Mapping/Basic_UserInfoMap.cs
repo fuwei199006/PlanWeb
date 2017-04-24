@@ -1,6 +1,6 @@
 ﻿   using System.Data.Entity.ModelConfiguration;
-using Tool.T4Templent.RuntimePlates.Models.Model;
-namespace Tool.T4Templent.RuntimePlates.Models.Mapping
+using  Plain.Model.Models.Model.Models.Model;
+namespace  Plain.Model.Models.Model.Models.Mapping
 {
 	public class Basic_UserInfoMap : EntityTypeConfiguration<Basic_UserInfo>
 	{
@@ -25,14 +25,15 @@ namespace Tool.T4Templent.RuntimePlates.Models.Mapping
 			this.Property(t => t.UserPwd).HasColumnName("UserPwd"); 
 			this.Property(t => t.RealName).HasColumnName("RealName"); 
 			this.Property(t => t.UserStaus).HasColumnName("UserStaus"); 
-			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
-			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
 			this.Property(t => t.MobilePhone).HasColumnName("MobilePhone"); 
 			this.Property(t => t.BirthDay).HasColumnName("BirthDay"); 
 			this.Property(t => t.QQ).HasColumnName("QQ"); 
 			this.Property(t => t.Weixin).HasColumnName("Weixin"); 
 			this.Property(t => t.Addr).HasColumnName("Addr"); 
 			this.Property(t => t.OtherInfo).HasColumnName("OtherInfo"); 
+			this.Property(t => t.CreateTime).HasColumnName("CreateTime"); 
+			this.Property(t => t.ModifyTime).HasColumnName("ModifyTime"); 
+			this.Property(t => t.Sex).HasColumnName("Sex"); 
 			          
         }
     }
