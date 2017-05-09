@@ -11,7 +11,7 @@ namespace Plain.Model.Models.Mapping
             Property(t => t.LoginNickName).IsRequired().HasMaxLength(50);
             Property(t => t.LoginName).IsRequired().HasMaxLength(50);
             Property(t => t.LoginIp).IsRequired().HasMaxLength(10);
-            Property(t => t.LoginHeader).IsRequired().HasMaxLength(100);
+            //Property(t => t.LoginHeader).IsRequired().HasMaxLength(100);
             ToTable("Basic_LoginInfo");
             Property(t => t.Id).HasColumnName("Id");
             Property(t => t.LoginUserId).HasColumnName("LoginUserId");
@@ -22,7 +22,7 @@ namespace Plain.Model.Models.Mapping
             Property(t => t.LoginType).HasColumnName("LoginType");
             Property(t => t.ExpireTime).HasColumnName("ExpireTime");
             Property(t => t.LoginIp).HasColumnName("LoginIp");
-            Property(t => t.LoginHeader).HasColumnName("LoginHeader");
+            //Property(t => t.LoginHeader).HasColumnName("LoginHeader");
             Property(t => t.IsDelete).HasColumnName("IsDelete");
             Property(t => t.LastUpdateTime).HasColumnName("LastUpdateTime");
             Property(t => t.LoginToken).HasColumnName("LoginToken");

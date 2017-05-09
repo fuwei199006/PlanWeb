@@ -36,7 +36,7 @@ namespace Plain.Model.Models.Model
         public Nullable<System.DateTime> LoginTime { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }
         public string LoginIp { get; set; }
-        public string LoginHeader { get; set; }
+        //public string LoginHeader { get; set; }
         public  bool  IsDelete { get; set; }
         public Nullable<System.DateTime> LastUpdateTime { get; set; }
 
