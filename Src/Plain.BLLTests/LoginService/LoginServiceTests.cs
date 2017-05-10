@@ -51,7 +51,7 @@ namespace Plain.BLLTests.LoginService
                 LoginStatus = 1,
                 LoginType = 1,
                 LoginIp = "127.0.0.1",
-                LoginHeader = "123",
+                //LoginHeader = "123",
                 IsDelete = false,
                 LastUpdateTime = DateTime.Now,
                 LoginToken = Guid.NewGuid(),

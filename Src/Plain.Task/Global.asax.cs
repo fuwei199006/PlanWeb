@@ -14,20 +14,20 @@ namespace Plain.Task
     {
         protected void Application_Start()
         {
-            System.Threading.Tasks.Task.Factory.StartNew(() =>
+            while (true)
             {
-                while (true)
-                {
-                    WriteLogFile(DateTime.Now.ToLongTimeString());
-                    Thread.Sleep(2000);
-                }
-            }).Start();
+
+                WriteLogFile(DateTime.Now.ToLongTimeString());
+                Thread.Sleep(2000);
+
+
+            }
         }
 
         public void WriteLogFile(String input)
         {
             //指定日志文件的目录 
-            string fname =AppDomain.CurrentDomain.BaseDirectory+"/1.txt";
+            string fname = AppDomain.CurrentDomain.BaseDirectory + "/1.txt";
             //定义文件信息对象 
             FileInfo finfo = new FileInfo(fname);
 

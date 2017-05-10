@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using Framework.Utility.Utility.ValideCode;
 
 namespace Framework.Utility.ValideCode
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Framework.Utility.ValideCode
+namespace Framework.Utility.Utility.ValideCode
 {
     public class NeuQuant
     {
