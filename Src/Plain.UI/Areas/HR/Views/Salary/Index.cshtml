@@ -1,5 +1,6 @@
 ﻿@using Framework.Utility.Extention
 @using Plain.Model.Models.Model
+@using Plain.Web
 @{
     ViewBag.Title = "工资查询";
 
@@ -58,7 +59,7 @@
                 <thead>
                     <tr>
                         <th>姓名</th>
-                        <th class="th-info">UnKonw</th>
+                        <th class="th-info">@AdminUserContext.Current.LoginInfo.LoginNickName</th>
 
                     </tr>
                     <tr>
@@ -82,7 +83,7 @@
                     <tr>
 
                         <th>工号</th>
-                        <th class="th-info">A0001</th>
+                        <th class="th-info">@AdminUserContext.Current.LoginInfo.LoginName</th>
 
                     </tr>
                     <tr>
@@ -111,7 +112,7 @@
 
                     </tr>
                     <tr>
-                        <th colspan="2" class="special">固定项目</th>
+                        <th colspan="2" class="special">参考项目</th>
 
                     </tr>
                 </thead>

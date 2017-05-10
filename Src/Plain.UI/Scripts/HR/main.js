@@ -10,7 +10,7 @@
         specialItems: [],//特别项目
         returnProject: [],//扣发项目
         otherItem: [],//其它项目
-        unKnowItem: [],//未知项目
+        referenceItem: [],//未知项目
         btnClick: function () {
          
         }

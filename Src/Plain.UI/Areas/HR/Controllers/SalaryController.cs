@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Framework.Utility.Extention;
+using HR.BLL.SalayService;
 using HR.CustomDto;
 using Newtonsoft.Json;
 using Plain.UI.Controllers;
@@ -12,6 +13,12 @@ namespace Plain.UI.Areas.HR.Controllers
 {
     public class SalaryController : BaseController
     {
+        private ISalayService _salaryService;
+
+        public SalaryController(ISalayService salaryService)
+        {
+            _salaryService = salaryService;
+        }
 
         private const int Year = 3;
         // GET: HR/Salary
@@ -45,7 +52,8 @@ namespace Plain.UI.Areas.HR.Controllers
             var salaryPara = paras.ToEntity<SalaryPara>();
             if (null != salaryPara)
             {
-                return new JsonResult();
+                var res = _salaryService.GetSalaryByOption(salaryPara);
+                return Json(res);
             }
             return new JsonResult();
         }

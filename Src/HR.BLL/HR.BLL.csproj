@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A1BBE54-FDCA-436C-B65C-B448CD6B1FB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HR.BLL</RootNamespace>
+    <AssemblyName>HR.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SalayService\ISalayService.cs" />
+    <Compile Include="SalayService\SalayService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.BLL\Framework.BLL.csproj">
+      <Project>{5871B35D-1882-431A-B9AF-A7EC3B77F314}</Project>
+      <Name>Framework.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Contract\Framework.Contract.csproj">
+      <Project>{67F618D6-B22F-435D-AD61-C2F820815A2A}</Project>
+      <Name>Framework.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HR.CustomDto\HR.CustomDto.csproj">
+      <Project>{DBE6B2DE-7E51-416A-B7BC-6B28CF578DD0}</Project>
+      <Name>HR.CustomDto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.BLL\Plain.BLL.csproj">
+      <Project>{F920B0F7-0DA7-4F08-90B7-F5390503295E}</Project>
+      <Name>Plain.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plain.Model\Plain.Model.csproj">
+      <Project>{3B149ADE-26C3-4DA3-92F5-C613559FB50F}</Project>
+      <Name>Plain.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
