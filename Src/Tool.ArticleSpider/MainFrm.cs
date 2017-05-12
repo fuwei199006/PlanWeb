@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Core.Service;
 using Framework.Utility;
-using Plain.BLL.Article;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using System.Threading;
@@ -20,6 +19,7 @@ using Tool.ArticleSpider.Dtos;
 using Plain.Dto;
 using Framework.Utility.Extention;
 using Framework.Utility.Utility;
+using Plain.BLL.ArticleService;
 
 namespace Tool.ArticleSpider
 {

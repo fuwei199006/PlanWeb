@@ -2,6 +2,7 @@
 using System.Linq;
 using HR.CustomDto;
 using Plain.BLL;
+using Plain.BLL.ArticleService;
 using Plain.Model.Models.Model;
 
 namespace HR.BLL.SalayService

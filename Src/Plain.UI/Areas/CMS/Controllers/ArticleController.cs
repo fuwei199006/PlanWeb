@@ -1,5 +1,4 @@
-﻿using Plain.BLL.Article;
-using Plain.Dto;
+﻿using Plain.Dto;
 using Plain.Dto.Request;
 using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
@@ -8,21 +7,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Plain.BLL.ArticleService;
 
 namespace Plain.UI.Areas.CMS.Controllers
 {
     public class ArticleController : BaseController
     {
 
-        public readonly IArticleService _ArticleService;
-        public ArticleController(IArticleService ArticleService)
+        private readonly IArticleService _articleService;
+        public ArticleController(IArticleService articleService)
         {
-            _ArticleService = ArticleService;
+            this._articleService = articleService;
         }
         // GET: CMS/CMS
         public ActionResult Index(ArticleRequest request)
         {
-            var articleList = _ArticleService.GetArticlePage(request);
+            var articleList = _articleService.GetArticlePage(request);
             return View(articleList);
         }
 
@@ -52,16 +52,16 @@ namespace Plain.UI.Areas.CMS.Controllers
         {
             SetDropEnumViewData<ArticleType>(WebKeys.ArticleType);
             SetDropEnumViewData<StatusType>(WebKeys.ArticleStatu);
-            var article = _ArticleService.GetArticlesById(id);
+            var article = _articleService.GetArticlesById(id);
             return View(article);
         }
 
         [HttpPost]
         public ActionResult EditCategory(int id, FormCollection formCollect)
         {
-            var article = _ArticleService.GetArticlesById(id);
+            var article = _articleService.GetArticlesById(id);
             TryUpdateModel<Basic_Article>(article);
-            _ArticleService.UpdateArticle(article);
+            _articleService.UpdateArticle(article);
             AdminCacheContext.ArticleItems.Clear();
             return this.RefreshParent();
         }

@@ -18,7 +18,7 @@ namespace Plain.BLL.Article.Tests
         [TestMethod()]
         public void UpdateArticleTest()
         {
-            var service = new ArticleService();
+            var service = new ArticleService.ArticleService();
             var list = service.GetArticles().Where(r=>r.Id== 51).ToList();
             var regex = new Regex("[^_]src[^ ]+");
             foreach (var item in list)
@@ -82,7 +82,7 @@ namespace Plain.BLL.Article.Tests
         [TestMethod()]
         public void FixImgArticleTest()
         {
-            var service = new ArticleService();
+            var service = new ArticleService.ArticleService();
             var list = service.GetArticles().Where(r => r.SubTitle == string.Empty).ToList();
             var regex = @"htt[^<>]+\.jpg";
             foreach (var item in list)

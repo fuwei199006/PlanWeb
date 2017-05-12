@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using Framework.Utility;
 using System.Net;
 using Framework.Utility.Utility;
-using Plain.BLL.Article;
+using Plain.BLL.ArticleService;
 
 namespace Tool.ArticleSpider.Tests
 {

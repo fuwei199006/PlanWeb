@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Plain.Model.Models;
-using Plain.Model.Models.Model;
 using Plain.Dto.Request;
+using Plain.Model.Models.Model;
 
-namespace Plain.BLL.Article
+namespace Plain.BLL.ArticleService
 {
     public interface IArticleService : IBaseService<Basic_Article>
     {

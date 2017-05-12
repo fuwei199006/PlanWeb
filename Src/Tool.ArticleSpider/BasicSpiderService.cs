@@ -1,6 +1,5 @@
 ﻿using Core.Service;
 using Framework.Utility.Extention;
-using Plain.BLL.Article;
 using Plain.Dto;
 using Plain.Model.Models.Model;
 using System;
@@ -10,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Plain.BLL.ArticleService;
 using Tool.ArticleSpider.Dtos;
 
 namespace Tool.ArticleSpider

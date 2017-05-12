@@ -18,7 +18,7 @@
         </div>
         <div class="span2">
             <div class="pull-left">
-                <select class="small m-wrap">
+                <select class="small m-wrap" id="dllYear">
                     <option ms-for="v in yearArr" ms-attr="{value:v}">{{v}}</option>
                 </select>
                 <span class="text-muted">年</span>
@@ -26,7 +26,7 @@
         </div>
         <div class="span2">
             <div class="pull-left">
-                <select class="small m-wrap">
+                <select class="small m-wrap" id="dllMonth">
                     <option ms-for="v in monthArr" ms-attr="{value:v}">{{v}}</option>
                 </select>
                 <span class="text-muted">月</span>
@@ -69,11 +69,15 @@
                 </thead>
                 <tbody>
                     <tr ms-for="v in fixdTime">
-                        <td>{{v.desc}}</td>
-                        <td>{{v.value}}</td>
+                        <td>{{v.SalaryDesc}}<br /></td>
+                        <td>{{v.SalaryAccout}}</td>
 
                     </tr>
+                    <tr>
+                        <td colspan="2"><br /></td>
 
+
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -83,7 +87,7 @@
                     <tr>
 
                         <th>工号</th>
-                        <th class="th-info">@AdminUserContext.Current.LoginInfo.LoginName</th>
+                        <th class="th-info" id="thUserCode">@AdminUserContext.Current.LoginInfo.LoginNickName</th>
 
                     </tr>
                     <tr>
@@ -93,12 +97,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ms-for="v in fixdTime">
-                        <td>{{v.desc}}</td>
-                        <td>{{v.value}}</td>
+                    <tr ms-for="v in specialItems">
+                        <td>{{v.SalaryDesc}}<br /></td>
+                        <td>{{v.SalaryAccout}}</td>
 
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br />
+                        </td>
 
+
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -117,12 +127,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ms-for="v in fixdTime">
-                        <td>{{v.desc}}</td>
-                        <td>{{v.value}}</td>
+                    <tr ms-for="v in referenceItem">
+                        <td>{{v.SalaryDesc}}<br /></td>
+                        <td>{{v.SalaryAccout}}</td>
 
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br />
+                        </td>
 
+
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -139,12 +155,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ms-for="v in fixdTime">
-                        <td>{{v.desc}}</td>
-                        <td>{{v.value}}</td>
+                    <tr ms-for="v in returnProject">
+                        <td>{{v.SalaryDesc}}<br /></td>
+                        <td>{{v.SalaryAccout}}</td>
 
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br />
+                        </td>
 
+
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -157,17 +179,24 @@
                         <th class="th-info">上海</th>
                     </tr>
                     <tr>
-                        <th colspan="2" class="special">扣发项目</th>
+                        <th colspan="2" class="special">其它项目</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ms-for="v in fixdTime">
-                        <td>{{v.desc}}</td>
-                        <td>{{v.value}}</td>
+                    <tr ms-for="v in otherItem">
+                        <td>{{v.SalaryDesc}}<br /></td>
+                        <td>{{v.SalaryAccout}}</td>
 
                     </tr>
+                    <tr>
+                        <td style="text-align: center">
+                            <b>实际工资:</b>
+                        </td>
+                        <td style="text-align: center">10054.25</td>
 
+
+                    </tr>
                 </tbody>
             </table>
         </div>

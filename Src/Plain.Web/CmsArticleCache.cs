@@ -2,7 +2,7 @@
 using System.Linq;
 using Core.Cache;
 using Core.Service;
-using Plain.BLL.Article;
+using Plain.BLL.ArticleService;
 using Plain.Model.Models;
 using Plain.Model.Models.Model;
 using Plain.Dto;

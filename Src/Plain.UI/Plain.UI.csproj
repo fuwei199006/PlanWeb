@@ -320,7 +320,7 @@
     <Compile Include="App_Start\AuthAreaRegistration.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HR\Controllers\SalaryController.cs" />
-    <Compile Include="Areas\HR\HRAreaRegistration.cs" />
+    <Compile Include="App_Start\HRAreaRegistration.cs" />
     <Compile Include="Areas\PlanApi\Controllers\ArticleApiController.cs" />
     <Compile Include="Areas\PlanApi\Controllers\LoginApiController.cs" />
     <Compile Include="Areas\Auth\Controllers\MenuController.cs" />

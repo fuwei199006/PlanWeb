@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Plain.Dto.Request;
-using Plain.Model.Models;
-using Plain.Model.Models.Model;
 using Plain.Dto;
+using Plain.Dto.Request;
+using Plain.Model.Models.Model;
 
-namespace Plain.BLL.Article
+namespace Plain.BLL.ArticleService
 {
     public class ArticleService:BaseService<Basic_Article>,IArticleService
     {

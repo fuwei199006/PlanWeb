@@ -7,13 +7,14 @@ using Framework.Utility.Extention;
 using HR.BLL.SalayService;
 using HR.CustomDto;
 using Newtonsoft.Json;
+using Plain.Model.Models.Model;
 using Plain.UI.Controllers;
 
 namespace Plain.UI.Areas.HR.Controllers
 {
     public class SalaryController : BaseController
     {
-        private ISalayService _salaryService;
+        private readonly ISalayService _salaryService;
 
         public SalaryController(ISalayService salaryService)
         {
@@ -34,15 +35,15 @@ namespace Plain.UI.Areas.HR.Controllers
             }
             for (int i = 0; i < 12; i++)
             {
-                monthArr[i] = (i+1) > 9 ? (i+1).ToString() : "0" + (i+1);
+                monthArr[i] = (i + 1) > 9 ? (i + 1).ToString() : "0" + (i + 1);
             }
 
             ViewBag.Option = JsonConvert.SerializeObject(new
             {
                 yearArr,
                 monthArr,
-                currentYear=DateTime.Now.Year,
-                currentMonth=DateTime.Now.Month+1
+                currentYear = DateTime.Now.Year,
+                currentMonth = DateTime.Now.Month + 1
             });
             return View();
         }
@@ -53,9 +54,38 @@ namespace Plain.UI.Areas.HR.Controllers
             if (null != salaryPara)
             {
                 var res = _salaryService.GetSalaryByOption(salaryPara);
-                return Json(res);
+                var maxLength = res.GroupBy(r => r.SalaryModule).Max(x => x.Count());
+                var fixdTime = res.Where(r => r.SalaryModule == "A").ToList();
+                var specialItems = res.Where(r => r.SalaryModule == "S").ToList();
+                var returnProject = res.Where(r => r.SalaryModule == "C").ToList();
+                var otherItem = res.Where(r => r.SalaryModule == "B").ToList();
+                var referenceItem = res.Where(r => r.SalaryModule == "D").ToList();
+                AddEmptyElement(fixdTime, maxLength);
+                AddEmptyElement(specialItems, maxLength);
+                AddEmptyElement(returnProject, maxLength);
+                AddEmptyElement(otherItem, maxLength);
+                AddEmptyElement(referenceItem, maxLength);
+                return Json(new
+                {
+                    fixdTime = fixdTime,
+                    specialItems = specialItems,
+                    returnProject = returnProject,
+                    otherItem = otherItem,
+                    referenceItem = referenceItem,
+
+                });
             }
             return new JsonResult();
+        }
+
+
+        private void AddEmptyElement(List<Salary> list, int maxLength)
+        {
+            var rang = maxLength - list.Count;
+            for (int i = 0; i < rang; i++)
+            {
+                list.Add(new Salary());
+            }
         }
     }
 }
