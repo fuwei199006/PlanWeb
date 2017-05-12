@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnStar = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
-            this.btnInstall = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
             this.btnUninstall = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnInstall = new System.Windows.Forms.Button();
+            this.btnStar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,17 +52,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(474, 349);
             this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnCheck);
-            this.panel2.Controls.Add(this.btnBrowse);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(474, 148);
-            this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
@@ -76,48 +65,14 @@
             this.panel3.Size = new System.Drawing.Size(474, 205);
             this.panel3.TabIndex = 1;
             // 
-            // textBox1
+            // btnUninstall
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 49);
-            this.textBox1.Name = "txtAssembly";
-            this.textBox1.Size = new System.Drawing.Size(290, 21);
-            this.textBox1.TabIndex = 0;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(353, 46);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 1;
-            this.btnBrowse.Text = "...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            // 
-            // btnStar
-            // 
-            this.btnStar.Location = new System.Drawing.Point(84, 132);
-            this.btnStar.Name = "btnStar";
-            this.btnStar.Size = new System.Drawing.Size(75, 47);
-            this.btnStar.TabIndex = 0;
-            this.btnStar.Text = "启动";
-            this.btnStar.UseVisualStyleBackColor = true;
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Location = new System.Drawing.Point(353, 105);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 2;
-            this.btnCheck.Text = "检测服务";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            // 
-            // btnInstall
-            // 
-            this.btnInstall.Location = new System.Drawing.Point(84, 39);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(75, 47);
-            this.btnInstall.TabIndex = 1;
-            this.btnInstall.Text = "安装";
-            this.btnInstall.UseVisualStyleBackColor = true;
+            this.btnUninstall.Location = new System.Drawing.Point(270, 39);
+            this.btnUninstall.Name = "btnUninstall";
+            this.btnUninstall.Size = new System.Drawing.Size(75, 47);
+            this.btnUninstall.TabIndex = 3;
+            this.btnUninstall.Text = "卸载";
+            this.btnUninstall.UseVisualStyleBackColor = true;
             // 
             // btnStop
             // 
@@ -128,14 +83,59 @@
             this.btnStop.Text = "停止";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
-            // btnUninstall
+            // btnInstall
             // 
-            this.btnUninstall.Location = new System.Drawing.Point(270, 39);
-            this.btnUninstall.Name = "btnUninstall";
-            this.btnUninstall.Size = new System.Drawing.Size(75, 47);
-            this.btnUninstall.TabIndex = 3;
-            this.btnUninstall.Text = "卸载";
-            this.btnUninstall.UseVisualStyleBackColor = true;
+            this.btnInstall.Location = new System.Drawing.Point(84, 39);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(75, 47);
+            this.btnInstall.TabIndex = 1;
+            this.btnInstall.Text = "安装";
+            this.btnInstall.UseVisualStyleBackColor = true;
+            // 
+            // btnStar
+            // 
+            this.btnStar.Location = new System.Drawing.Point(84, 132);
+            this.btnStar.Name = "btnStar";
+            this.btnStar.Size = new System.Drawing.Size(75, 47);
+            this.btnStar.TabIndex = 0;
+            this.btnStar.Text = "启动";
+            this.btnStar.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnCheck);
+            this.panel2.Controls.Add(this.btnBrowse);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(474, 148);
+            this.panel2.TabIndex = 0;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(353, 105);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "检测服务";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(353, 46);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 1;
+            this.btnBrowse.Text = "...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 49);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(290, 21);
+            this.textBox1.TabIndex = 0;
             // 
             // InstallFrm
             // 
@@ -145,10 +145,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "InstallFrm";
             this.Text = "InstallFrm";
+            this.Load += new System.EventHandler(this.InstallFrm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

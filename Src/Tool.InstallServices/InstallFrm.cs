@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Tool.InstallServices
@@ -15,7 +16,7 @@ namespace Tool.InstallServices
             btnStar.Click += BtnStar_Click;
             btnStop.Click += BtnStop_Click;
             btnUninstall.Click += BtnUninstall_Click;
-            CheckService();
+           
         }
 
         private void BtnUninstall_Click(object sender, EventArgs e)
@@ -26,14 +27,14 @@ namespace Tool.InstallServices
 
         private void BtnStop_Click(object sender, EventArgs e)
         {
-            var serviceName = this.textBox1.Text.TrimEnd('/');
+            var serviceName = this.textBox1.Text.Split('\\').Last().Replace(".exe", "");
             Windows.StopmyService(serviceName);
             CheckService();
         }
 
         private void BtnStar_Click(object sender, EventArgs e)
         {
-            var serviceName = this.textBox1.Text.TrimEnd('/');
+            var serviceName = this.textBox1.Text.Split('\\').Last().Replace(".exe", "");
             Windows.StarmyService(serviceName);
             CheckService();
         }
@@ -61,6 +62,7 @@ namespace Tool.InstallServices
             if (op.ShowDialog() == DialogResult.OK)
             {
                 this.textBox1.Text = op.FileName;
+                CheckService();
             }
         }
 
@@ -72,7 +74,7 @@ namespace Tool.InstallServices
             this.btnStop.Enabled = true;
             this.btnInstall.Enabled = true;
 
-            var serviceName = this.textBox1.Text.TrimEnd('/');
+            var serviceName = this.textBox1.Text.Split('\\').Last().Replace(".exe","");
             if (Windows.isServiceIsExisted(serviceName))
             {
                 btnInstall.Enabled = false;
@@ -92,6 +94,11 @@ namespace Tool.InstallServices
           
             return string.Empty;
 
+        }
+
+        private void InstallFrm_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }
