@@ -119,7 +119,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plain.Task", "Plain.Task\Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool.InstallServices", "Tool.InstallServices\Tool.InstallServices.csproj", "{663738C7-4FEC-4CB8-AEB7-A8FE4A93C609}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.NodeService", "Tools.NodeService\Tools.NodeService.csproj", "{1950838A-9AFA-4225-94C1-A79BD1C210A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.BLL", "HR.BLL\HR.BLL.csproj", "{3A1BBE54-FDCA-436C-B65C-B448CD6B1FB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -327,10 +327,6 @@ Global
 		{663738C7-4FEC-4CB8-AEB7-A8FE4A93C609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{663738C7-4FEC-4CB8-AEB7-A8FE4A93C609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{663738C7-4FEC-4CB8-AEB7-A8FE4A93C609}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1950838A-9AFA-4225-94C1-A79BD1C210A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1950838A-9AFA-4225-94C1-A79BD1C210A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1950838A-9AFA-4225-94C1-A79BD1C210A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1950838A-9AFA-4225-94C1-A79BD1C210A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -388,7 +384,6 @@ Global
 		{DBE6B2DE-7E51-416A-B7BC-6B28CF578DD0} = {71026040-BC7E-46FB-B6A3-A794C69C2058}
 		{532AAEF5-B7DC-4887-855E-A324A1DE6D94} = {C6BDF8B1-720B-4AB5-80D6-11BF1AD4C737}
 		{663738C7-4FEC-4CB8-AEB7-A8FE4A93C609} = {4B4EE8BF-298C-4765-B59C-F9DE891AD65E}
-		{1950838A-9AFA-4225-94C1-A79BD1C210A4} = {4B4EE8BF-298C-4765-B59C-F9DE891AD65E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45

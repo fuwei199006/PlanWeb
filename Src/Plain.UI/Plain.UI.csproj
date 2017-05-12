@@ -3281,6 +3281,10 @@
       <Project>{265eb8a8-ec67-4bbe-9036-8b76c28c4859}</Project>
       <Name>Framework.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HR.BLL\HR.BLL.csproj">
+      <Project>{3A1BBE54-FDCA-436C-B65C-B448CD6B1FB1}</Project>
+      <Name>HR.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HR.CustomDto\HR.CustomDto.csproj">
       <Project>{DBE6B2DE-7E51-416A-B7BC-6B28CF578DD0}</Project>
       <Name>HR.CustomDto</Name>
