@@ -11,15 +11,35 @@
         returnProject: [],//扣发项目
         otherItem: [],//其它项目
         referenceItem: [],//未知项目
+        realEntity: {
+            SalaryDesc: "",
+            SalaryAccout: 0
+        },//未知项目
         btnClick: function () {
             var date = $("#dllYear").val() + "-" + $("#dllMonth").val();
             $.post("Salary/GetSalary", { paras: JSON.stringify({ Date: date, UserCode: $("#thUserCode").text() }) }, function (res) {
                 //console.log(res);
-                _mainVm.fixdTime = res.fixdTime;
-                _mainVm.specialItems = res.specialItems;
-                _mainVm.returnProject = res.returnProject;
-                _mainVm.otherItem = res.otherItem;
-                _mainVm.referenceItem = res.referenceItem;
+                if (!res || !res.fixdTime) {
+                    _mainVm.fixdTime = [];
+                    _mainVm.specialItems = [];
+                    _mainVm.returnProject = [];
+                    _mainVm.otherItem = [];
+                    _mainVm.referenceItem = [];
+                    _mainVm.realEntity = {
+                        SalaryDesc: "",
+                        SalaryAccout: 0
+                    }; //未知项目
+
+                } else {
+
+
+                    _mainVm.fixdTime = res.fixdTime;
+                    _mainVm.specialItems = res.specialItems;
+                    _mainVm.returnProject = res.returnProject;
+                    _mainVm.otherItem = res.otherItem;
+                    _mainVm.referenceItem = res.referenceItem;
+                    _mainVm.realEntity = res.realEntity;
+                }
 
             });
         }

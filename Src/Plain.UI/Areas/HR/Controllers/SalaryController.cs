@@ -54,12 +54,21 @@ namespace Plain.UI.Areas.HR.Controllers
             if (null != salaryPara)
             {
                 var res = _salaryService.GetSalaryByOption(salaryPara);
+                if (res == null || res.Count == 0)
+                {
+                    return new JsonResult();
+                }
                 var maxLength = res.GroupBy(r => r.SalaryModule).Max(x => x.Count());
                 var fixdTime = res.Where(r => r.SalaryModule == "A").ToList();
                 var specialItems = res.Where(r => r.SalaryModule == "S").ToList();
                 var returnProject = res.Where(r => r.SalaryModule == "C").ToList();
                 var otherItem = res.Where(r => r.SalaryModule == "B").ToList();
                 var referenceItem = res.Where(r => r.SalaryModule == "D").ToList();
+                var realEntity = res.FirstOrDefault(r => r.SalaryModule == "T") ?? new Salary()
+                {
+                    SalaryDesc = "实际工资",
+                    SalaryAccout = 0.0M
+                };
                 AddEmptyElement(fixdTime, maxLength);
                 AddEmptyElement(specialItems, maxLength);
                 AddEmptyElement(returnProject, maxLength);
@@ -72,6 +81,7 @@ namespace Plain.UI.Areas.HR.Controllers
                     returnProject = returnProject,
                     otherItem = otherItem,
                     referenceItem = referenceItem,
+                    realEntity=realEntity
 
                 });
             }

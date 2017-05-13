@@ -112,7 +112,7 @@ namespace Core.Module
                     CacheContext.Clear();
                     var cacheManager = new OutputCacheManager();//？？？清除缓存这个为什么？？？
                     cacheManager.RemoveItems();
-
+                    HttpContext.Current.Items.Clear();
                     res.Write("清除缓存成功！<a href='javascript:window.close();'>[!点击关闭]</a>");
                 }
                 if (req["key"] != null)
