@@ -14,12 +14,11 @@ namespace Tools.NodeService
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            var servicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new NoderService(), 
             };
-            ServiceBase.Run(ServicesToRun);
+            ServiceBase.Run(servicesToRun);
         }
     }
 }

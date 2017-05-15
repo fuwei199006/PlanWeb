@@ -29,28 +29,31 @@
         private void InitializeComponent()
         {
             this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
-            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
+            this.NodeService = new System.ServiceProcess.ServiceInstaller();
             // 
             // serviceProcessInstaller1
             // 
+            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 
-            // serviceInstaller1
+            // NodeService
             // 
-            this.serviceInstaller1.ServiceName = "Service1";
+            this.NodeService.Description = "Plain平台的任务节点";
+            this.NodeService.DisplayName = "NodeService";
+            this.NodeService.ServiceName = "NodeService";
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
             this.serviceProcessInstaller1,
-            this.serviceInstaller1});
+            this.NodeService});
 
         }
 
         #endregion
 
         private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
-        private System.ServiceProcess.ServiceInstaller serviceInstaller1;
+        private System.ServiceProcess.ServiceInstaller NodeService;
     }
 }

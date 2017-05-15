@@ -58,7 +58,7 @@ namespace Tool.InstallServices
         {
             var op = new OpenFileDialog();
             op.DefaultExt = "exe";
-            op.Filter = "服务程序|*.exe";
+            op.Filter = @"服务程序|*.exe";
             if (op.ShowDialog() == DialogResult.OK)
             {
                 this.textBox1.Text = op.FileName;
