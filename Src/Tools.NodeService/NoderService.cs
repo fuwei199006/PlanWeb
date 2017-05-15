@@ -20,7 +20,6 @@ namespace Tools.NodeService
 
         protected override void OnStart(string[] args)
         {
-            File.WriteAllText("1.txt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             var testMonitor = new TestMonitor();
         }
 
