@@ -17,4 +17,4 @@ namespace Tools.NodeService
 
         public sealed override int Interval { get; set; }
     }
-}
+} 
