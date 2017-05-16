@@ -310,34 +310,28 @@ namespace Framework.Utility.Extention
         /// </summary>
         public static string CutString(string inputString, int len)
         {
-            if (inputString == null || inputString == "")
+            if (string.IsNullOrEmpty(inputString))
             {
                 return "";
             }
 
             inputString = inputString.Trim();
             byte[] myByte = System.Text.Encoding.Default.GetBytes(inputString);
-            if (myByte.Length > len)
+            if (myByte.Length <= len) return inputString;
+            string result = "";
+            for (int i = 0; i < inputString.Length; i++)
             {
-                string result = "";
-                for (int i = 0; i < inputString.Length; i++)
+                byte[] tempByte = System.Text.Encoding.Default.GetBytes(result);
+                if (tempByte.Length < len)
                 {
-                    byte[] tempByte = System.Text.Encoding.Default.GetBytes(result);
-                    if (tempByte.Length < len)
-                    {
-                        result += inputString.Substring(i, 1);
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    result += inputString.Substring(i, 1);
                 }
-                return result + "...";
+                else
+                {
+                    break;
+                }
             }
-            else
-            {
-                return inputString;
-            }
+            return result + "...";
         }
 
         /// <summary>
