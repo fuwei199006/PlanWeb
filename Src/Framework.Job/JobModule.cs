@@ -21,6 +21,7 @@ namespace Framework.Job
             }
         }
 
+        
         private void Context_BeginRequest(object sender, System.EventArgs e)
         {
             var context = HttpContext.Current;
@@ -29,7 +30,7 @@ namespace Framework.Job
             {
                 return;
             }
-
+            //格式是 module/classname
         }
 
         private void JobEnsureInit()
