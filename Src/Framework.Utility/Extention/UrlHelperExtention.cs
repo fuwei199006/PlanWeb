@@ -60,15 +60,15 @@ namespace Framework.Utility.Extention
         }
 
     
-        /// <summary>
-        /// 得到图片文件，缩略图，根据参数(width:100,height:75)返回如：
-        /// http://...../upload/editorial/day_111013/thumb/201110130326326847_100_75.jpg
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="path"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <returns></returns>
+        ///// <summary>
+        ///// 得到图片文件，缩略图，根据参数(width:100,height:75)返回如：
+        ///// http://...../upload/editorial/day_111013/thumb/201110130326326847_100_75.jpg
+        ///// </summary>
+        ///// <param name="helper"></param>
+        ///// <param name="path"></param>
+        ///// <param name="width"></param>
+        ///// <param name="height"></param>
+        ///// <returns></returns>
         //public static string ImageFile(this UrlHelper helper, string path, int width, int height, bool containStaticServiceUri = true)
         //{
         //    if (string.IsNullOrEmpty(path))
