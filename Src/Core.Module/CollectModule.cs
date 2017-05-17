@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Core.Module
 {
-    public class HttpModuleService : IHttpModule
+    public class CollectModule : IHttpModule
     {
-        private static object _moduleStart = new object();
+        private static readonly object _moduleStart = new object();
         private static bool _isStarted = false;
         private static Dictionary<string, ContextCollectHandler> handlers;
         public void Init(HttpApplication context)

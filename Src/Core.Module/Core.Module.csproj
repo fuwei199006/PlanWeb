@@ -50,7 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextCollectHandler.cs" />
-    <Compile Include="HttpModuleService.cs" />
+    <Compile Include="CollectModule.cs" />
+    <Compile Include="JobModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
