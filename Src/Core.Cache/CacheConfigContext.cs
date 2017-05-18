@@ -18,17 +18,14 @@ namespace Core.Cache
 {
     public class CacheConfigContext
     {
-        private static readonly object _olock = new object();
+        private static readonly object Olock = new object();
 
-        internal static CacheConfig CacheConfig
-        {
-            get { return LocalCachedConfigContext.Current.CacheConfig; }
-        }
-
+        private static CacheConfig CacheConfig => LocalCachedConfigContext.Current.CacheConfig;
 
 
         private static List<WrapCacheConfigItem> _wrapCacheConfigItems;
-        internal static List<WrapCacheConfigItem> WrapCacheConfigItems
+
+        private static List<WrapCacheConfigItem> WrapCacheConfigItems
         {
             get
             {
@@ -65,7 +62,7 @@ namespace Core.Cache
                 //1.数据为空，2.长度不相等，3.要有对应的key和value相同
                 if (IsNeedRefreshMember())
                 {
-                    lock (_olock)
+                    lock (Olock)
                     {
                         if (IsNeedRefreshMember())
                         {
@@ -109,7 +106,7 @@ namespace Core.Cache
             {
                 throw new GetCacheException("获得缓存数据出错！请确保配置正确");
             }
-            lock (_olock)
+            lock (Olock)
             {
                 if (!_wrapCacheConfigItemDic.ContainsKey(key))
                 {
@@ -134,7 +131,7 @@ namespace Core.Cache
             {
                 if (_moduleName == null)
                 {
-                    lock (_olock)
+                    lock (Olock)
                     {
                         if (_moduleName == null)
                         {
