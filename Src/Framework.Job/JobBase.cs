@@ -33,5 +33,7 @@ namespace Framework.Job
   
 
         public dynamic MethodInvoker { get; set; }
+
+        public virtual string ModuleName { get; set; }
     }
 }

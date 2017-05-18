@@ -31,6 +31,8 @@ namespace Framework.Job
                 return;
             }
             //格式是 module/classname
+
+            context.Response.Write("<h1>"+path+"</h1>");
         }
 
         private void JobEnsureInit()

@@ -6,7 +6,7 @@ namespace Plain.Model.Models.Model
 {
     public partial class Basic_Task : ModelBase
     {
-        public int Id { get; set; }
+
         public string TaskName { get; set; }
         public System.DateTime StarTime { get; set; }
         public System.DateTime EndTime { get; set; }
