@@ -45,18 +45,18 @@ namespace Tools.NodeService
                 if (aveCpu > 70 && aveCpu < 90)
                 {
                     //todo:sentmail
-                    Log4NetHelper.Error(LoggerType.ServiceExceptionLog, "cpu资源紧张：连续1分钟CPU使用率超过70%", new Exception("cpu资源紧张：连续1分钟CPU使用率超过70%"));
+                    Log4NetHelper.Error(LoggerType.ServiceExceptionLog, "cpu资源紧张,：连续1分钟CPU使用率超过70%", new Exception("cpu资源紧张：连续1分钟CPU使用率超过70%"));
 
-                    //MailContext.SendEmail("756091180@qq.com", "", "cpu资源紧张",
-                    //    "cpu资源紧张：连续1分钟CPU使用率超过90%");
+                    MailContext.SendEmail("756091180@qq.com", "", "cpu资源紧张",
+                        "cpu资源紧张：连续1分钟CPU使用率超过70%");
                 }
-                if (_cpusList.Average() > 90)
+                if (aveCpu > 90)
                 {
                     //todo:sentmail
                     Log4NetHelper.Error(LoggerType.ServiceExceptionLog, "cpu资源严重紧张：连续1分钟CPU使用率超过90%", new Exception("cpu资源严重紧张：连续1分钟CPU使用率超过90%"));
 
-                    //MailContext.SendEmail("756091180@qq.com", "", "cpu资源紧张",
-                    //    "cpu资源紧张：连续1分钟CPU使用率超过90%");
+                    MailContext.SendEmail("756091180@qq.com", "", "cpu资源严重紧张",
+                        "cpu资源严重紧张：连续1分钟CPU使用率超过90%");
 
                 }
                 _cpusList.Clear();
@@ -69,15 +69,16 @@ namespace Tools.NodeService
                 if (aveMemery > 10 && memery < 512)
                 {
                     Log4NetHelper.Error(LoggerType.ServiceExceptionLog, "内存资源紧张：连续1分钟可使用内存小于512MB", new Exception("内存资源紧张：连续1分钟可使用内存小于512MB"));
-
+                    MailContext.SendEmail("756091180@qq.com", "", "内存资源严重",
+                     "内存资源严重：连续1分钟可使用内存小于512MB");
                 }
                 if (aveMemery > 10)//小于10MB
                 {
                     //todo:sentmail
                     Log4NetHelper.Error(LoggerType.ServiceExceptionLog, "内存资源严重紧张：连续1分钟可使用内存小于10MB", new Exception("内存资源紧张：连续1分钟可使用内存小于10MB"));
 
-                    //MailContext.SendEmail("756091180@qq.com", "", "内存资源紧张",
-                    //    "内存资源紧张：连续1分钟可使用内存小于10MB");
+                    MailContext.SendEmail("756091180@qq.com", "", "内存资源严重紧张",
+                        "内存资源严重紧张：连续1分钟可使用内存小于10MB");
                 }
                 _memeryList.Clear();
                 _isMemmerCheck = false;
