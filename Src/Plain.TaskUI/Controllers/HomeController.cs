@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Plain.TaskUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AsyncController
     {
         public ActionResult Index()
         {
@@ -25,6 +26,18 @@ namespace Plain.TaskUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public Task<string> Test()
+        {
+            var c = "testc";
+            var task= Task.Factory.StartNew(() =>
+                {
+
+                })
+                .ContinueWith<string>(x => c) ;
+            c = "test12345";
+            return task;
         }
     }
 }

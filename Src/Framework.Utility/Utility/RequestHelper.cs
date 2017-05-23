@@ -280,6 +280,22 @@ namespace Framework.Utility.Utility
             var tText = Encoding.UTF8.GetString(t);
             return tText;
         }
+        public static string HttpPost(string url,  string urlParaStr)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
+ 
+            Stream newStream = request.GetRequestStream();
+            byte[] data = Encoding.UTF8.GetBytes(urlParaStr);
+            newStream.Write(data, 0, data.Length);
+            newStream.Close();
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+            string content = reader.ReadToEnd();
+            return content;
+        }
 
         #endregion
     }

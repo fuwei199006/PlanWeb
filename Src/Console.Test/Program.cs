@@ -11,14 +11,25 @@ namespace PConsole.Test
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine(SysMonitor.GetAvailableRam());
-                Console.WriteLine(SysMonitor.GetCurrentCpuUsage());
-            }
-        
+            //while (true)
+            //{
+            //    Thread.Sleep(1000);
+            //    Console.WriteLine(SysMonitor.GetAvailableRam());
+            //    Console.WriteLine(SysMonitor.GetCurrentCpuUsage());
+            //}
 
+            Console.WriteLine(1);
+            Task.Factory.StartNew(() =>
+                {
+                    Console.WriteLine(3);
+                })
+                .ContinueWith(r =>
+                {
+                    Console.WriteLine(2);
+                });
+           
+            Console.WriteLine(4);
+            Console.Read();
         }
 
       
