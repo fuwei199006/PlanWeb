@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
+using Framework.Utility.Utility;
 
 namespace PConsole.Test
 {
     class Program
     {
-        static void _Main(string[] args)
+        static void Main(string[] args)
         {
-
-            //Debug.Trace("PipelineRuntime", "BuildSteps");
-            
-      
+            while (true)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine(SysMonitor.GetAvailableRam());
+                Console.WriteLine(SysMonitor.GetCurrentCpuUsage());
+            }
+        
 
         }
 

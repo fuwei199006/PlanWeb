@@ -8,7 +8,7 @@ namespace PConsole.Test
 {
     public class MdPrograme
     {
-        public static void Main(string[] args)
+        public static void _Main(string[] args)
         {
 //            var tableTile = @"字段名 | 字段类型 | 长度 | 能否为空 | 字段说明 | 其它描述   
 //-------|----------|----------|----------|----------|--------        

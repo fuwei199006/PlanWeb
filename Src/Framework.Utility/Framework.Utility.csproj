@@ -122,6 +122,7 @@
     <Compile Include="Utility\SerializeHelper.cs" />
     <Compile Include="Utility\StringHelper.cs" />
     <Compile Include="Utility\StringUtil.cs" />
+    <Compile Include="Utility\SysMonitor.cs" />
     <Compile Include="Utility\ThumbnailHelper.cs" />
     <Compile Include="Utility\ValideCode\AnimatedGifEncoder.cs" />
     <Compile Include="Utility\ValideCode\GifDecoder.cs" />
