@@ -61,10 +61,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\DaoConfig.config">
+    <None Include="Config\DaoConfig1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Config\DaoConfig2.config">
+    <None Include="Config\DaoConfig.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
