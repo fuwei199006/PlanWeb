@@ -21,14 +21,14 @@ namespace Framework.Utility.Utility
         }
       
 
-        public static string GetCurrentCpuUsage()
+        public static float GetCurrentCpuUsage()
         {
-            return _cpuCounter.NextValue() + "%";
+            return _cpuCounter.NextValue();
         }
 
-        public static string GetAvailableRam()
+        public static float GetAvailableRam()
         {
-            return _ramCounter.NextValue() + "MB";
+            return _ramCounter.NextValue();
         }
 
         public void Dispose()

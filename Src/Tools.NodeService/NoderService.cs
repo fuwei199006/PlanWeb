@@ -20,6 +20,7 @@ namespace Tools.NodeService
 
         protected override void OnStart(string[] args)
         {
+            var systemMonitor = new SystemMonitor();
             var testMonitor = new TestMonitor();
         }
 

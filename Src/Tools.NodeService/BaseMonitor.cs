@@ -13,11 +13,16 @@ namespace Tools.NodeService
 
         public BaseMonitor()
         {
-            Task.Factory.StartNew(TryRun);
+            Init();
         }
 
+        public virtual void Init()
+        {
+            Task.Factory.StartNew(TryRun);
+        }
         public void TryRun()
         {
+
             while (true)
             {
                 try
