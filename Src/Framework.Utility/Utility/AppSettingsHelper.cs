@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 
-namespace Framework.Utility 
+namespace Framework.Utility.Utility 
 {
     /// <summary>
     /// 配置文件appSettings节点的帮助方法

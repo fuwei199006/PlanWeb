@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.Utility.Utility;
 
 namespace Tools.Server
 {
@@ -212,6 +217,7 @@ namespace Tools.Server
         }
         private void Server_Load(object sender, EventArgs e)
         {
+            CheckUpdate();
             var random = new Random();
             string hostname = Dns.GetHostName();
             IPHostEntry localhost = Dns.GetHostByName(hostname);
@@ -220,6 +226,37 @@ namespace Tools.Server
             this.txtPort.Text = random.Next(8000, 65535).ToString();
         }
 
+
+        private void CheckUpdate()
+        {
+            //IniClass ini = new IniClass(Application.StartupPath + @"\Update.ini");
+            //UpdateService.Service service = new UpdateService.Service();
+            var visitUrl = AppSettingsHelper.GetString("url");
+            string clientVersion = "";
+            if (File.Exists("Update.json"))
+            {
+                clientVersion = File.ReadAllText("Update.json");
+            }
+            else
+            {
+                clientVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();//客户端版本
+            }
+            
+            string serviceVersion = RequestHelper.HttpGet(visitUrl+"/GetVersion");//服务端版本
+            if (clientVersion != serviceVersion)
+            {
+                DialogResult dialogResult = MessageBox.Show("有新版本，是否更新？", "升级", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Application.Exit();
+                    Process.Start("Update.exe");
+                }
+            }
+            else
+            {
+                MessageBox.Show("已更新至最高版本！");
+            }
+        }
         private void btnStar_Click(object sender, EventArgs e)
         {
             if (!open)

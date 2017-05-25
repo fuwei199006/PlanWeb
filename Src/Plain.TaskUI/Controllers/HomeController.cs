@@ -28,16 +28,25 @@ namespace Plain.TaskUI.Controllers
             return View();
         }
 
-        public Task<string> Test()
+        public  string  GetVersion()
         {
-            var c = "testc";
-            var task= Task.Factory.StartNew(() =>
-                {
+            return "5.0.0.0";
+        }
 
-                })
-                .ContinueWith<string>(x => c) ;
-            c = "test12345";
-            return task;
+        public JsonResult GetZips()
+        {
+            return Json(new []
+            {
+                "1.zip",
+                "2.zip",
+                "3.zip",
+            },JsonRequestBehavior.AllowGet);
+        }
+
+        public string  GetDownLoadUrl()
+        {
+
+            return "http://localhost:8066/";
         }
     }
 }

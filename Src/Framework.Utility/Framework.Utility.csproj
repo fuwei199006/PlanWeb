@@ -35,8 +35,24 @@
       <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Commons, Version=0.4.2.8580, Culture=neutral, PublicKeyToken=44382d1b57473eda">
+      <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\Commons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Memcached.ClientLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42c0400964dcc297, processorArchitecture=MSIL">
+      <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\Memcached.ClientLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -102,7 +118,7 @@
     <Compile Include="Extention\StringExtention.cs" />
     <Compile Include="Extention\StringUtil.cs" />
     <Compile Include="Extention\UrlHelperExtention.cs" />
-    <Compile Include="Utility\AppSettings.cs" />
+    <Compile Include="Utility\AppSettingsHelper.cs" />
     <Compile Include="Utility\AssemblyHelper.cs" />
     <Compile Include="Utility\CacheKey.cs" />
     <Compile Include="Utility\Caching.cs" />
@@ -145,6 +161,7 @@
     <Compile Include="Utility\ValideCode\ValidateCode_Style8.cs" />
     <Compile Include="Utility\ValideCode\ValidateCode_Style9.cs" />
     <Compile Include="Utility\WcfServiceProxy.cs" />
+    <Compile Include="Utility\ZipClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
